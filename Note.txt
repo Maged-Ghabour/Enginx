@@ -1,0 +1,2 @@
+color Primary : #18DC77
+color secondary : #0A0720
