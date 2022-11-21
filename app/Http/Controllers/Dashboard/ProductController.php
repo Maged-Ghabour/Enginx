@@ -86,7 +86,7 @@ class ProductController extends Controller
 
 
 
-        return redirect()->route("dashboard.categories.index")->with("success" , "تم إضافة التصنيف بنجاح");
+        return redirect()->route("dashboard.products.index")->with("success" , "تم إضافة المنتج بنجاح");
     }
 
     /**
@@ -108,7 +108,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $categories = Category::get();
+        return view("Dashboard.Products.edit" , compact("product" , "categories"));
     }
 
     /**
@@ -120,7 +122,44 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $name = $product->image;
+
+        if($request->hasFile("image")){
+            if($name !== null){
+                unlink(public_path("uploads/Products/").$name);
+            }
+
+            $image = $request->file("image");
+            $ext = $image->getClientOriginalExtension();
+            $name = uniqid() . time() . ".$ext";
+            $image->move(public_path("uploads/Products/") , $name);
+
+        }
+
+
+
+
+            // Request Merge
+            $request->merge([
+                "slug" => Str::slug($request->name)
+            ]);
+
+
+        $request->validate(Product::rules($id));
+
+        $product->update([
+            "name" => $request->name,
+            "category_id" => $request->category_id,
+            "description" => $request->description,
+            "slug" => $request->slug,
+            "price" => $request->price,
+            "compare_price" => $request->compare_price,
+            "image" => $name
+        ]);
+
+        return redirect(route("dashboard.products.index"))
+        ->with("updated" , "📢 تم تعديل المنتج بنجاح");
     }
 
     /**
@@ -131,6 +170,15 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $product->delete();
+
+        if($product->image){
+            unlink(public_path("uploads/Products/").$product->image);
+        }
+
+        return redirect()->route("dashboard.products.index")
+        -> with("deleted" , "✈ تم حذف المنتج بنجاح");
     }
+
 }
