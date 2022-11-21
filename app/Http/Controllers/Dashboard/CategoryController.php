@@ -19,7 +19,16 @@ class CategoryController extends Controller
     {
 
         Carbon::setLocale(config('locale'));
-        $categories = Category::get();
+        $categories = Category::with("parent")
+                    ->withCount("products")->get();
+
+                    /*leftJoin("categories as parents" , "parents.id" , "=" , "categories.parent_id")
+                    ->select([
+                        "categories.*",
+                        "parents.name as parent_name"
+                    ])->get();*/
+
+
         return view("Dashboard.Categories.index" , compact("categories"));
     }
 
@@ -57,8 +66,17 @@ class CategoryController extends Controller
             $name = uniqid() . time() . ".$ext";
             $image->move(public_path("uploads/Categories/") , $name);
         }else{
-            $name = "default.png";
+            $name ="";
         }
+
+
+        // Validation
+
+        $request->validate(Category::rules($id =0) ,
+             [
+                "required" => "هذا الحقل مطلوب" ,
+                "unique" => "هذا الحقل موجود مسبقا"
+            ]);
 
 
 
@@ -83,9 +101,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Category $category)
     {
-        //
+        return view("Dashboard.Categories.show" , [
+            "category" => $category
+        ]);
     }
 
     /**
@@ -121,7 +141,7 @@ class CategoryController extends Controller
         $name = $category->image;
 
         if($request->hasFile("image")){
-            if($name !== null && isset($request["image"])){
+            if($name !== null){
                 unlink(public_path("uploads/Categories/").$name);
             }
 
@@ -141,6 +161,7 @@ class CategoryController extends Controller
             ]);
 
 
+        $request->validate(Category::rules($id));
 
         $category->update([
             "name" => $request->name,

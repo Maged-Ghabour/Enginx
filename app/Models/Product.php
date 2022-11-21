@@ -8,4 +8,25 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        "name" , "category_id" , "image" , "description" , "slug" , "price" , "compare_price"
+    ];
+
+    public function category(){
+        return $this->belongsTo(Category::class , "category_id" , "id");
+    }
+
+
+
+    public static function rules($id=0){
+        return [
+        "name"      => "required|string|min:3|max:100|unique:categories,name,$id",
+        // "parent_id" => "nullable|int|exists:categories,id",
+        "description" =>"required",
+
+        ];
+    }
+
+
 }
