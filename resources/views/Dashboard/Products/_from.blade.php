@@ -13,7 +13,7 @@
         ])>
         <option value="" disabled> </option>
         @foreach ($categories as $category)
-        <option value="{{ $category->id }}" @selected($category->category_id == $category->id)>{{ $category->name }}</option>
+        <option value="{{ $category->id }}" @selected($product->category_id == $category->id)>{{ $category->name }}</option>
         @endforeach
     </select>
     @error('category_id')
@@ -63,7 +63,7 @@
 
 
 @if ($product->image)
-<img src="{{ asset('uploads/Categories/' . $product->image) }}" class="img-fluid rounded mb-2 d-block"
+<img src="{{ asset('uploads/Products/' . $product->image) }}" class="img-fluid rounded mb-2 d-block"
     style="height: 150px ; wight:150px" alt="">
 @endif
 
