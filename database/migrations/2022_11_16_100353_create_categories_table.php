@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             // SubCategories
             $table->foreignId("parent_id")->nullable()->constrained("categories" , "id")->nullOnDelete();
-            $table->string("name");
+            $table->string("name",100);
             $table->text("description")->nullable();
             $table->string("slug")->unique();
             $table->string("image")->nullable();
