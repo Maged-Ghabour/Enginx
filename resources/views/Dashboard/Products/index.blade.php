@@ -44,7 +44,15 @@
             <td>{{$product->description}}</td>
             <td><img src="{{asset('uploads/Products/'.$product->image)}}" width="70px" height="70px" alt=""></td>
 
-            <td>{{$product->created_at->diffForHumans()}}</td>
+            <td>
+                <small class="badge badge-secondary">
+                    {{$product->created_at->diffForHumans()}}
+                    <li class="far fa-clock"></li>
+                </small>
+            </td>
+
+
+
             {{-- <td>
                 <form action="{{route('dashboard.products.edit' , $product->id)}}" method="get">
                     <button class="btn btn-outline-primary">تعديل</button>

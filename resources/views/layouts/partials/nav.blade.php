@@ -1,4 +1,4 @@
- <!-- Sidebar -->
+ {{-- <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -21,7 +21,7 @@
                with font-awesome or any other icon font library -->
 
                <!--- Start Categories --->
-          <li class="nav-item has-treeview menu-close">
+          <li class="nav-item has-treeview menu-open">
             <a href="" class="nav-link ">
               <i class="nav-icon fas fa-store"></i>
               <p>
@@ -51,7 +51,7 @@
                <!--- End Catefories --->
 
             <!--- Start Products --->
-            <li class="nav-item has-treeview menu-close">
+            <li class="nav-item has-treeview menu-open">
                 <a href="" class="nav-link">
                     <i class="nav-icon fas fa-bullhorn"></i>
                     <p>
@@ -81,7 +81,7 @@
                 <!--- End products --->
 
             <!--- Start Users --->
-            <li class="nav-item has-treeview menu-close">
+            <li class="nav-item has-treeview menu-open">
                 <a href="" class="nav-link ">
                     <i class="nav-icon fas fa-users"></i>
                     <p>
@@ -112,7 +112,7 @@
 
 
                 <!--- Start Sales --->
-            <li class="nav-item has-treeview menu-close">
+            <li class="nav-item has-treeview menu-open">
                 <a href="" class="nav-link active">
                     <i class="nav-icon fas fa-gift"></i>
                     <p>
@@ -143,7 +143,7 @@
 
 
             <!--- Start Jobs --->
-            <li class="nav-item has-treeview menu-close">
+            <li class="nav-item has-treeview menu-open">
                 <a href="" class="nav-link">
                     <i class="nav-icon fas fa-hourglass"></i>
                     <p>
@@ -174,7 +174,7 @@
 
 
                         <!--- Start customers --->
-            <li class="nav-item has-treeview menu-close">
+            <li class="nav-item has-treeview menu-open">
                 <a href="" class="nav-link">
                     <i class="nav-icon fas fa-user-plus"></i>
                     <p>
@@ -223,4 +223,4 @@
       </nav>
       <!-- /.sidebar-menu -->
     </div>
-    <!-- /.sidebar -->
+    <!-- /.sidebar --> --}}
