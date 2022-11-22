@@ -18,11 +18,6 @@ class CategoryController extends Controller
     public function index()
     {
 
-        $a = 5;
-        $b = 6;
-
-
-
         Carbon::setLocale(config('locale'));
         $categories = Category::with("parent")
                     ->withCount("products")->get();
