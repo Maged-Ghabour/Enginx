@@ -16,6 +16,7 @@
 @section("content")
 
 
+
 <x-alert type="success" color="success" />
 <x-alert type="deleted" color="danger" />
 <x-alert type="updated" color="primary" />
@@ -45,7 +46,12 @@
 
             <td><img src="{{asset('uploads/Categories/'.$category->image)}}" width="70px" height="70px" alt=""></td>
 
-            <td>{{$category->created_at->diffForHumans()}}</td>
+            <td>
+                <small class="badge badge-secondary">
+                    {{$category->created_at->diffForHumans()}}
+                    <li class="far fa-clock"></li>
+                </small>
+            </td>
             {{-- <td>
                 <form action="{{route('dashboard.categories.edit' , $category->id)}}" method="get">
                     <button class="btn btn-outline-primary">تعديل</button>

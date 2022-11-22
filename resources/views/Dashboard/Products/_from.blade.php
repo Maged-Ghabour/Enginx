@@ -1,3 +1,5 @@
+
+
 <div class="mb-3">
     <label for="name">اسم المنتج</label>
     <input type="text" name="name" @class(['form-control', 'is-invalid'=> $errors->has('name')]) value="{{
@@ -44,8 +46,8 @@
 
 
 <div class="mb-3">
-    <label for="description">وصف المنتج</label>
-    <textarea name="description" id="description" rows="7" @class([ 'form-control p-1' , 'is-invalid'=> $errors->has('description'),
+    <label for="editor">وصف المنتج</label>
+    <textarea name="description" id="editor" rows="7" @class([ 'form-control p-1' , 'is-invalid'=> $errors->has('description'),
     ])>{{ $product->description }}</textarea>
     @error('description')
     <div class="invalid-feedback">{{ $message }}</div>
