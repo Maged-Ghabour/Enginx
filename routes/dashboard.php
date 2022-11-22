@@ -8,12 +8,12 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group([
-    "middleware" => ["auth"] ,
-    "as" => "dashboard." ,
+    "middleware" => ["auth"],
+    "as" => "dashboard.",
     "prefix" => "dash"
 
-], function(){
-    Route::get("/" , [DashboardController::class , "index"]);
-    Route::resource("/categories" , CategoryController::class);
-    Route::resource("/products" , ProductController::class);
+], function () {
+    Route::get("/", [DashboardController::class, "index"]);
+    Route::resource("/categories", CategoryController::class);
+    Route::resource("/products", ProductController::class);
 });
