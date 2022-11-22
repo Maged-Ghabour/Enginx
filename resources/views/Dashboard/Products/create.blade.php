@@ -4,6 +4,8 @@
 
 
 
+
+
     @section("breadcrump")
     @parent
         <li class="breadcrumb-item"><a href="{{route('dashboard.products.index')}}">المنتجات</a></li>
@@ -20,4 +22,10 @@
     @include("Dashboard.Products._from")
 </form>
 
+
+
 @endsection
+
+
+
+
