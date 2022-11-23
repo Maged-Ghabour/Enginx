@@ -1,12 +1,12 @@
 @extends("layouts.dashboard")
 
-@section("title" , "التصنيفات المتاحة")
+@section("title" , "العروض المتاحة")
 
 
 
     @section("breadcrump")
     @parent
-        <li class="breadcrumb-item"><a href="{{route('dashboard.categories.index')}}">التصنيفات</a></li>
+        <li class="breadcrumb-item"><a href="{{route('dashboard.offers.index')}}">العروض</a></li>
     @endsection
 
 
@@ -24,45 +24,50 @@
    <table class="table">
     <thead>
         <th>#</th>
-        <th>اسم التصنيف</th>
-        <th>اسم التصنيف التابع</th>
-        <th>عدد المنتجات</th>
+        <th>اسم العرض</th>
+        {{-- <th>اسم التصنيف التابع</th> --}}
+        {{-- <th>عدد المنتجات</th> --}}
         <th>الوصف</th>
-        <th>الصورة</th>
+        <th>صورة العرض</th>
+        <th>تاريخ الانتهاء</th>
+        <th>مميزات العرض</th>
         <th>تاريخ الاضافة</th>
         <th>التعديل</th>
         <th>الحذف</th>
     </thead>
 
     <tbody>
-        @forelse ($categories as $category )
+        @forelse ($offers as $offer )
 
         <tr>
-            <td>{{$category->id}}</td>
-            <td><a href="{{route('dashboard.categories.show' , $category->id)}}"> {{$category->name}}</a></td>
-            <td>{{$category->parent->name}}</td>
-            <td>{{$category->products_count}}</td>
-            <td>{{$category->description}}</td>
+            <td>{{$offer->id}}</td>
+            <td>
+                <a href="{{route('dashboard.offers.show' , $offer->id)}}">
+                     {{$offer->title}}
+               </a>
+            </td>
+            {{-- <td>{{$offer->parent->name}}</td>
+            <td>{{$offer->products_count}}</td> --}}
 
-            <td><img src="{{asset('uploads/Categories/'.$category->image)}}" width="70px" height="70px" alt=""></td>
 
+            <td>{{!!$offer->description!!}}</td>
+
+            <td><img src="{{asset('uploads/Offers/'.$offer->image)}}" width="70px" height="70px" alt=""></td>
+
+            <td>{{$offer->expire_date}}</td>
+            <td>{{!! $offer->features !!}}</td>
             <td>
                 <small class="badge badge-secondary">
-                    {{$category->created_at->diffForHumans()}}
+                    {{$offer->created_at->diffForHumans()}}
                     <li class="far fa-clock"></li>
                 </small>
             </td>
-            {{-- <td>
-                <form action="{{route('dashboard.categories.edit' , $category->id)}}" method="get">
-                    <button class="btn btn-outline-primary">تعديل</button>
-                </form>
-            </td> --}}
 
             <td>
-                <a class="btn btn-outline-primary" href="{{route('dashboard.categories.edit' , $category->id )}}">تعديل</a>
+                <a class="btn btn-outline-primary" href="{{route('dashboard.offers.edit' , $offer->id )}}">تعديل</a>
             </td>
             <td>
-                <form action="{{route('dashboard.categories.destroy' , $category->id )}}" method="post">
+                <form action="{{route('dashboard.offers.destroy' , $offer->id )}}" method="post">
                     @method("delete")
                     @csrf
                     <button class="btn btn-outline-danger">حذف</button>
@@ -75,7 +80,7 @@
         @empty
 
             <tr>
-                <td colspan="9" class="text-center bg-dark text-white font-weight-bold" >لا يوجد تصنيفات متاحة</td>
+                <td colspan="9" class="text-center bg-dark text-white font-weight-bold" >لا يوجد عروض متاحة</td>
             </tr>
         @endforelse
 
