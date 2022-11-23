@@ -1,24 +1,24 @@
-@extends("layouts.dashboard")
+@extends('layouts.dashboard')
 
-@section("title" ,   "تعديل تصنيف")
+@section('title', 'تعديل تصنيف')
 
 
 
-    @section("breadcrump")
+@section('breadcrump')
     @parent
-        <li class="breadcrumb-item"><a href="{{route('dashboard.categories.index')}}">التصنيفات</a></li>
-        <li class="breadcrumb-item"><a href="{{route('dashboard.categories.edit' , $category->id)}}">تعديل تصنيف</a></li>
-    @endsection
+    <li class="breadcrumb-item"><a href="{{ route('dashboard.ourCustomers.index') }}">عملاؤنا</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('dashboard.ourCustomers.edit', $customer->id) }}">تعديل عميل</a></li>
+@endsection
 
 
 
 
 
-@section("content")
-<form action="{{route('dashboard.categories.update' , $category->id)}}" method="post" enctype="multipart/form-data">
-    @csrf
-    @method("put")
-    @include("Dashboard.Categories._from")
-</form>
+@section('content')
+    <form action="{{ route('dashboard.ourCustomers.update', $customer->id) }}" method="post" enctype="multipart/form-data">
+        @csrf
+        @method('put')
+        @include('Dashboard.OurCustomers._from')
+    </form>
 
 @endsection
