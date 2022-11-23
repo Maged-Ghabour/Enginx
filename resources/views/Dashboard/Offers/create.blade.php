@@ -1,13 +1,13 @@
 @extends("layouts.dashboard")
 
-@section("title" , "إضافة تصنيف جديد")
+@section("title" , "إضافة عرض جديد")
 
 
 
     @section("breadcrump")
     @parent
-        <li class="breadcrumb-item"><a href="{{route('dashboard.categories.index')}}">التصنيفات</a></li>
-        <li class="breadcrumb-item"><a href="{{route('dashboard.categories.create')}}">إضافة تصنيف جديد</a></li>
+        <li class="breadcrumb-item"><a href="{{route('dashboard.offers.index')}}">العروض</a></li>
+        <li class="breadcrumb-item"><a href="{{route('dashboard.offers.create')}}">إضافة عرض جديد</a></li>
     @endsection
 
 
@@ -15,9 +15,9 @@
 
 
 @section("content")
-<form action="{{route('dashboard.categories.store')}}" method="post" enctype="multipart/form-data">
+<form action="{{route('dashboard.offers.store')}}" method="post" enctype="multipart/form-data">
     @csrf
-    @include("Dashboard.Categories._from")
+    @include("Dashboard.Offers._from")
 </form>
 
 @endsection
