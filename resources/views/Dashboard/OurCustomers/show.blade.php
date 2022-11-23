@@ -1,65 +1,64 @@
-@extends("layouts.dashboard")
+@extends('layouts.dashboard')
 
-@section("title" , $category->name)
+@section('title', $customer->name)
 
 
 
-    @section("breadcrump")
+@section('breadcrump')
     @parent
-        <li class="breadcrumb-item"><a href="{{route('dashboard.categories.index')}}">التصنيفات</a></li>
-        <li class="breadcrumb-item"><a href="{{route('dashboard.categories.edit' , $category->id)}}">{{$category->name}}</a></li>
-    @endsection
+    <li class="breadcrumb-item"><a href="{{ route('dashboard.ourCustomers.index') }}">عملاؤنا</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('dashboard.ourCustomers.edit', $customer->id) }}">{{ $customer->name }}</a>
+    </li>
+@endsection
 
 
 
 
 
-@section("content")
+@section('content')
 
 
-<table class="table">
-    <thead>
+    <table class="table">
+        <thead>
 
-        <th>اسم التصنيف</th>
-        <th>اسم التصنيف التابع</th>
-        <th>عدد المنتجات</th>
-        <th>الوصف</th>
-        <th>الصورة</th>
-        <th>تاريخ الاضافة</th>
+            <th>اسم العميل</th>
+            <th>الوصف</th>
+            <th>الصورة</th>
+            <th>تاريخ الاضافة</th>
 
-    </thead>
+        </thead>
 
-    <tbody>
-        @forelse ($category->products as $product )
+        <tbody>
+            @forelse ($category->products as $product)
+                <tr>
 
-        <tr>
+                    <td>{{ $product->name }}</td>
+                    <td>{{ $product->parent->name }}</td>
+                    <td>{{ $product->products_count }}</td>
+                    <td>{{ $product->description }}</td>
 
-            <td>{{$product->name}}</td>
-            <td>{{$product->parent->name}}</td>
-            <td>{{$product->products_count}}</td>
-            <td>{{$product->description}}</td>
+                    <td><img src="{{ asset('uploads/Categories/' . $product->image) }}" width="70px" height="70px"
+                            alt=""></td>
 
-            <td><img src="{{asset('uploads/Categories/'.$product->image)}}" width="70px" height="70px" alt=""></td>
-
-            <td>{{$product->created_at->diffForHumans()}}</td>
-
-
-
-        </tr>
-
-
-        @empty
-
-            <tr>
-                <td colspan="6" class="text-center bg-dark text-white font-weight-bold" >لا يوجد منتج</td>
-            </tr>
-        @endforelse
-
-
-    </tbody>
+                    <td>{{ $product->created_at->diffForHumans() }}</td>
 
 
 
-   </table>
+                </tr>
+
+
+            @empty
+
+                <tr>
+                    <td colspan="6" class="text-center bg-dark text-white font-weight-bold">لا يوجد منتج</td>
+                </tr>
+            @endforelse
+
+
+        </tbody>
+
+
+
+    </table>
 
 @endsection
