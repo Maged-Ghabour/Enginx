@@ -1,65 +1,17 @@
-@extends("layouts.dashboard")
-
-@section("title" , $category->name)
-
-
-
-    @section("breadcrump")
-    @parent
-        <li class="breadcrumb-item"><a href="{{route('dashboard.categories.index')}}">التصنيفات</a></li>
-        <li class="breadcrumb-item"><a href="{{route('dashboard.categories.edit' , $category->id)}}">{{$category->name}}</a></li>
-    @endsection
-
-
-
-
-
-@section("content")
-
-
-<table class="table">
-    <thead>
-
-        <th>اسم التصنيف</th>
-        <th>اسم التصنيف التابع</th>
-        <th>عدد المنتجات</th>
-        <th>الوصف</th>
-        <th>الصورة</th>
-        <th>تاريخ الاضافة</th>
-
-    </thead>
-
-    <tbody>
-        @forelse ($category->products as $product )
-
-        <tr>
-
-            <td>{{$product->name}}</td>
-            <td>{{$product->parent->name}}</td>
-            <td>{{$product->products_count}}</td>
-            <td>{{$product->description}}</td>
-
-            <td><img src="{{asset('uploads/Categories/'.$product->image)}}" width="70px" height="70px" alt=""></td>
-
-            <td>{{$product->created_at->diffForHumans()}}</td>
-
-
-
-        </tr>
-
-
-        @empty
-
-            <tr>
-                <td colspan="6" class="text-center bg-dark text-white font-weight-bold" >لا يوجد منتج</td>
-            </tr>
-        @endforelse
-
-
-    </tbody>
-
-
-
-   </table>
-
+@extends('layouts.dashboard')
+@section('content')
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                {{ $onejop->name }}
+            </div>
+            <div class="card-body">
+                <h5>الوصف الوظيفى :- </h5>
+                <p><?php echo "$onejop->jopdescription"; ?></p>
+                <h5>المهارات المطلوبة :- </h5>
+                <p><?php echo "$onejop->joprequirement"; ?></p>
+                <p class="card-text">تاريخ الناشر :- {{ $onejop->created_at->format('Y-m-d') }}</p>
+            </div>
+        </div>
+    </div>
 @endsection

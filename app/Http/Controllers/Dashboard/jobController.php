@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\dashboard;
 
+use App\Models\Job;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -12,9 +13,11 @@ class jobController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        //
+        $jops = Job::get();
+        return view('Dashboard.Jobs.index', ['jops' => $jops]);
     }
 
     /**
@@ -24,7 +27,7 @@ class jobController extends Controller
      */
     public function create()
     {
-        //
+        return view('Dashboard.Jobs.create');
     }
 
     /**
@@ -35,7 +38,28 @@ class jobController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $image = $request->image;
+        if ($image) {
+            $file = $request->file('image');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extention;
+            $file->move('uploads/Jops', $filename);
+        }
+        $request->validate([
+            'name' => 'required|max:255',
+            'joptitle' => 'required',
+            'image' => 'nullable',
+            'jopdescription' => 'required',
+            'joprequirement' => 'required'
+        ]);
+        Job::create([
+            'name' => $request->name,
+            'joptitle' => $request->joptitle,
+            'image' => $filename,
+            'jopdescription' => $request->jopdescription,
+            'joprequirement' => $request->joprequirement
+        ]);
+        return redirect()->route('dashboard.jobs.index');
     }
 
     /**
@@ -46,7 +70,9 @@ class jobController extends Controller
      */
     public function show($id)
     {
-        //
+        $onejop = Job::findOrFail($id);
+        $job = new Job();
+        return view('Dashboard.Jobs.show', compact('onejop'));
     }
 
     /**
@@ -57,7 +83,9 @@ class jobController extends Controller
      */
     public function edit($id)
     {
-        //
+        $myjop = Job::findOrFail($id);
+        $job = new Job();
+        return view('Dashboard.Jobs.update', compact("myjop"));
     }
 
     /**
@@ -69,9 +97,38 @@ class jobController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+        $jops = Job::find($id);
+        $name = $jops->image;
+        if ($request->file("image")) {
 
+            if ($name !== null) {
+                unlink(public_path("uploads/Jops/") . $name);
+            }
+
+            $image = $request->file("image");
+            $ext = $image->getClientOriginalExtension();
+            $name = time() . ".$ext";
+            $image->move(public_path("uploads/Jops/"), $name);
+        }
+
+
+        $request->validate([
+            'name' => 'required|max:255',
+            'joptitle' => 'required',
+            'image' => 'nullable',
+            'jopdescription' => 'required',
+            'joprequirement' => 'required'
+        ]);
+
+        $jops->name = $request->name;
+        $jops->joptitle = $request->joptitle;
+        $jops->image =  $name;
+        $jops->jopdescription = $request->jopdescription;
+        $jops->joprequirement = $request->joprequirement;
+        $jops->save();
+
+        return redirect()->route('dashboard.jobs.index');
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -80,6 +137,14 @@ class jobController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $job = Job::findOrFail($id);
+        $job->delete();
+
+        if ($job->image) {
+            unlink(public_path("uploads/Jops/") . $job->image);
+        }
+
+        return redirect()->route('dashboard.jobs.index')
+            ->with("deleted", "✈ تم حذف الوظيفة بنجاح");
     }
 }
