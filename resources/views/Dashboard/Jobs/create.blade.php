@@ -6,7 +6,7 @@
 
     @section("breadcrump")
     @parent
-        <li class="breadcrumb-item"><a href="{{route('dashboard.categories.index')}}">التصنيفات</a></li>
+        <li class="breadcrumb-item"><a href="{{route('dashboard.categories.index')}}">الوظائف</a></li>
         <li class="breadcrumb-item"><a href="{{route('dashboard.categories.create')}}">إضافة تصنيف جديد</a></li>
     @endsection
 

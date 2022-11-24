@@ -1,82 +1,80 @@
-@extends("layouts.dashboard")
+@extends('layouts.dashboard')
 
-@section("title" , "التصنيفات المتاحة")
+@section('title', 'عملاؤنا ')
 
 
 
-    @section("breadcrump")
+@section('breadcrump')
     @parent
-        <li class="breadcrumb-item"><a href="{{route('dashboard.categories.index')}}">التصنيفات</a></li>
-    @endsection
+    <li class="breadcrumb-item"><a href="{{ route('dashboard.ourCustomers.index') }}">عملاؤنا</a></li>
+@endsection
 
 
 
 
 
-@section("content")
+@section('content')
 
 
-<x-alert type="success" color="success" />
-<x-alert type="deleted" color="danger" />
-<x-alert type="updated" color="primary" />
+    <x-alert type="success" color="success" />
+    <x-alert type="deleted" color="danger" />
+    <x-alert type="updated" color="primary" />
 
-   <table class="table">
-    <thead>
-        <th>#</th>
-        <th>اسم التصنيف</th>
-        <th>اسم التصنيف التابع</th>
-        <th>عدد المنتجات</th>
-        <th>الوصف</th>
-        <th>الصورة</th>
-        <th>تاريخ الاضافة</th>
-        <th>التعديل</th>
-        <th>الحذف</th>
-    </thead>
+    <table class="table">
+        <thead>
+            <th>#</th>
+            <th>اسم العميل</th>
+            <th>الوصف</th>
+            <th>الصورة</th>
+            <th>تاريخ الاضافة</th>
+            <th>التعديل</th>
+            <th>الحذف</th>
+        </thead>
 
-    <tbody>
-        @forelse ($categories as $category )
+        <tbody>
+            @forelse ($customers as $customer)
+                <tr>
+                    <td>{{ $customer->id }}</td>
+                    <td><a href="{{ route('dashboard.ourCustomers.show', $customer->id) }}"> {{ $customer->title }}</a></td>
 
-        <tr>
-            <td>{{$category->id}}</td>
-            <td><a href="{{route('dashboard.categories.show' , $category->id)}}"> {{$category->name}}</a></td>
-            <td>{{$category->parent->name}}</td>
-            <td>{{$category->products_count}}</td>
-            <td>{{$category->description}}</td>
+                    <td>{!! $customer->description !!}</td>
 
-            <td><img src="{{asset('uploads/Categories/'.$category->image)}}" width="70px" height="70px" alt=""></td>
+                    <td><img src="{{ asset('uploads/Customers/' . $customer->image) }}" width="70px" height="70px"
+                            alt=""></td>
 
-            <td>{{$category->created_at->diffForHumans()}}</td>
-            {{-- <td>
+                    <td>{{ $customer->created_at->diffForHumans() }}</td>
+                    {{-- <td>
                 <form action="{{route('dashboard.categories.edit' , $category->id)}}" method="get">
                     <button class="btn btn-outline-primary">تعديل</button>
                 </form>
             </td> --}}
 
-            <td>
-                <a class="btn btn-outline-primary" href="{{route('dashboard.categories.edit' , $category->id )}}">تعديل</a>
-            </td>
-            <td>
-                <form action="{{route('dashboard.categories.destroy' , $category->id )}}" method="post">
-                    @method("delete")
-                    @csrf
-                    <button class="btn btn-outline-danger">حذف</button>
-                </form>
-            </td>
+                    <td>
+                        <a class="btn btn-outline-primary"
+                            href="{{ route('dashboard.ourCustomers.edit', $customer->id) }}">تعديل</a>
+                    </td>
+                    <td>
+                        <form action="{{ route('dashboard.ourCustomers.destroy', $customer->id) }}" method="post">
+                            @method('delete')
+                            @csrf
+                            <button class="btn btn-outline-danger">حذف</button>
+                        </form>
+                    </td>
 
-        </tr>
-
-
-        @empty
-
-            <tr>
-                <td colspan="9" class="text-center bg-dark text-white font-weight-bold" >لا يوجد تصنيفات متاحة</td>
-            </tr>
-        @endforelse
+                </tr>
 
 
-    </tbody>
+            @empty
+
+                <tr>
+                    <td colspan="9" class="text-center bg-dark text-white font-weight-bold">لا يوجد عملاء حاليا</td>
+                </tr>
+            @endforelse
+
+
+        </tbody>
 
 
 
-   </table>
+    </table>
 @endsection

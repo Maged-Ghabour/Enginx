@@ -1,5 +1,5 @@
 <div class="mb-3">
-    <label for="name">اسم التصنيف</label>
+    <label for="name">اسم وظيفة</label>
     <input type="text" name="name" @class(['form-control', 'is-invalid'=> $errors->has('name')]) value="{{
     $category->name }}" />
     @error('name')
@@ -7,10 +7,10 @@
     @enderror
 </div>
 <div class="mb-3">
-    <label for="parent_id">اسم التصنيف التابع</label>
+    <label for="parent_id">اسم وظيفة التابع</label>
     <select name="parent_id" id="name" @class([ 'form-control p-1' , 'is-invalid'=> $errors->has('parent_id'),
         ])>
-        <option value="">التصنيف الرئيسي</option>
+        <option value="">وظيفة الرئيسي</option>
         @foreach ($parents as $parent)
         <option value="{{ $parent->id }}" @selected($category->parent_id == $parent->id)>{{ $parent->name }}</option>
         @endforeach
@@ -20,7 +20,7 @@
     @enderror
 </div>
 <div class="mb-3">
-    <label for="description">وصف التصنيف</label>
+    <label for="description">وصف وظيفة</label>
     <textarea name="description" id="description" rows="7" @class([ 'form-control p-1' , 'is-invalid'=> $errors->has('description'),
     ])>{{ $category->description }}</textarea>
     @error('description')
@@ -29,7 +29,7 @@
 </div>
 
 <div class="mb-3">
-    <label for="image">رفع صورة التصنيف</label>
+    <label for="image">رفع صورة وظيفة</label>
     <input type="file" name="image" id="image" @class(['form-control p-1', 'is-invalid'=> $errors->has('image')]) />
 
     @error('image')
