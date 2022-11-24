@@ -1,46 +1,51 @@
 <div class="mb-3">
-    <label for="name">اسم وظيفة</label>
-    <input type="text" name="name" @class(['form-control', 'is-invalid'=> $errors->has('name')]) value="{{
-    $category->name }}" />
+    <label for="namejop" class="form-label">أسم الوظيفة :-</label>
+    <input type="text" name="name" value="{{ isset($myjop->name) ? $myjop->name : '' }}" @class(['form-control', 'is-invalid' => $errors->has('name')])
+        id="namejop">
     @error('name')
-    <div class="invalid-feedback">{{ $message }}</div>
+        <div class="invalid-feedback">{{ $message }}</div>
     @enderror
 </div>
 <div class="mb-3">
-    <label for="parent_id">اسم وظيفة التابع</label>
-    <select name="parent_id" id="name" @class([ 'form-control p-1' , 'is-invalid'=> $errors->has('parent_id'),
-        ])>
-        <option value="">وظيفة الرئيسي</option>
-        @foreach ($parents as $parent)
-        <option value="{{ $parent->id }}" @selected($category->parent_id == $parent->id)>{{ $parent->name }}</option>
-        @endforeach
-    </select>
-    @error('parent_id')
-    <div class="invalid-feedback">{{ $message }}</div>
+    <label for="titlejop" class="form-label"> المسمى الوظيفى :-</label>
+    <input type="text" name="joptitle" value="{{ isset($myjop->joptitle) ? $myjop->joptitle : '' }}"
+        @class(['form-control', 'is-invalid' => $errors->has('joptitle')]) id="titlejop">
+    @error('joptitle')
+        <div class="invalid-feedback">{{ $message }}</div>
     @enderror
 </div>
 <div class="mb-3">
-    <label for="description">وصف وظيفة</label>
-    <textarea name="description" id="description" rows="7" @class([ 'form-control p-1' , 'is-invalid'=> $errors->has('description'),
-    ])>{{ $category->description }}</textarea>
-    @error('description')
-    <div class="invalid-feedback">{{ $message }}</div>
-    @enderror
-</div>
-
-<div class="mb-3">
-    <label for="image">رفع صورة وظيفة</label>
-    <input type="file" name="image" id="image" @class(['form-control p-1', 'is-invalid'=> $errors->has('image')]) />
-
+    <label for="formFileLg" class="form-label"> صورة الوظيفة :-</label>
+    <input name="image" id="formFileLg" value="{{ isset($myjop->image) ? $myjop->image : '' }}" type="file"
+        @class(['form-control', 'is-invalid' => $errors->has('image')])>
     @error('image')
-    <div class="invalid-feedback">{{ $message }}</div>
+        <div class="invalid-feedback">{{ $message }}</div>
     @enderror
 </div>
 
+<div class="mb-3">
+    <div class="form-floating">
+        <label for="formFileLg" class="form-label"> الوصف الوظيفى :-</label>
+        <textarea @class([
+            'form-control',
+            'is-invalid' => $errors->has('jopdescription'),
+        ]) name="jopdescription" id="editor" rows="5" style="height: 100px">{{ isset($myjop->jopdescription) ? $myjop->jopdescription : '' }}</textarea>
+        @error('jopdescription')
+            <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+    </div>
+</div>
+<div class="mb-3">
+    <div class="form-floating">
+        <label for="formFileLg" class="form-label"> المتطلبات الوظيفية :-</label>
+        <textarea @class([
+            'form-control',
+            'is-invalid' => $errors->has('joprequirement'),
+        ]) name="joprequirement" id="editor" rows="5" style="height: 100px">{{ isset($myjop->joprequirement) ? $myjop->joprequirement : '' }}</textarea>
+        @error('jopdescription')
+            <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+    </div>
+</div>
 
-@if ($category->image)
-<img src="{{ asset('uploads/Categories/' . $category->image) }}" class="img-fluid rounded mb-2 d-block"
-    style="height: 150px ; wight:150px" alt="">
-@endif
-
-<button type="submit" class="btn btn-primary">حفظ</button>
+<input type="submit" class="btn btn-primary" value="أنشأ الوظيفة">
