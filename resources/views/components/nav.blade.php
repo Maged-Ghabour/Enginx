@@ -6,7 +6,7 @@
           <img src={{asset('Dashboard/dist/img/LOGO.png')}} class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">{{Auth::user()->name}}</a>
             <form action="{{route('logout')}}" method="post">
                 @csrf
                 <button class="btn btn-outline-danger my-2">تسجيل الخروج</button>

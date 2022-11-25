@@ -7,9 +7,12 @@
 .brand-image {
     float: right;
 }
+.ck{
+    height: 150px;
+}
 .content-wrapper, .main-footer, .main-header {
     margin-left: 0px;
-    margin-right: 350px;
+    margin-right: 250px;
 }
 .mr-auto-navbav{
     margin-right: auto!important;
