@@ -19,10 +19,7 @@ Route::group([
     Route::get("/", [DashboardController::class, "index"]);
     Route::resource("/categories", CategoryController::class);
     Route::resource("/products", ProductController::class);
-}, function () {
-    Route::get("/", [DashboardController::class, "index"]);
-    Route::resource("/categories", CategoryController::class);
-    Route::resource("/products", ProductController::class);
+
     Route::resource("/users", UserController::class);
     Route::resource("/offers", OfferController::class);
     Route::resource("/jobs", jobController::class);
