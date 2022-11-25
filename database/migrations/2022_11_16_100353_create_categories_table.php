@@ -16,12 +16,11 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             // SubCategories
-            $table->foreignId("parent_id")->nullable()->constrained("categories" , "id")->nullOnDelete();
-            $table->string("name",100);
+            $table->foreignId("parent_id")->nullable()->constrained("categories", "id")->nullOnDelete();
+            $table->string("name", 100);
             $table->text("description")->nullable();
             $table->string("slug")->unique();
             $table->string("image")->nullable();
-
             $table->timestamps();
         });
     }
