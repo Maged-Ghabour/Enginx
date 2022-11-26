@@ -17,7 +17,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with("category")->get();
+        $request = request();
+        $products = Product::with("category")->filter($request->query())->paginate(2);
+
         return view("Dashboard.Products.index" , compact("products"));
     }
 
@@ -57,8 +59,6 @@ class ProductController extends Controller
             $ext = $image->getClientOriginalExtension();
             $name = uniqid() . time() . ".$ext";
             $image->move(public_path("uploads/Products/") , $name);
-        }else{
-            $name ="";
         }
 
 

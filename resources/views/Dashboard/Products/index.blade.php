@@ -20,6 +20,26 @@
 <x-alert type="deleted" color="danger" />
 <x-alert type="updated" color="primary" />
 
+
+
+
+<div class="row mb-3">
+    <div class="col-6">
+        <form action="{{URL::current()}}" method="get" class="d-flex justify-content-between">
+            <x-form.input  name="name" placeholder="البحث عن طريق اسم المنتج" :value="request('name')" />
+            <button class="btn btn-dark mx-3">ابحث</button>
+        </form>
+    </div>
+
+    <div class="col-6">
+        <a class="btn btn-success mb-2 float-right" href="{{route('dashboard.categories.create')}}">إضافة منتج جديد
+            <i class="fas fa-plus fa-sm"></i>
+        </a>
+    </div>
+
+</div>
+
+
    <table class="table">
     <thead>
         <th>#</th>
@@ -41,7 +61,7 @@
             <td>{{$product->name}}</td>
             <td>{{$product->category->name}}</td>
             <td>{{$product->price}}</td>
-            <td>{{$product->description}}</td>
+            <td>{!! $product->description !!}</td>
             <td><img src="{{asset('uploads/Products/'.$product->image)}}" width="70px" height="70px" alt=""></td>
 
             <td>
@@ -86,4 +106,8 @@
 
 
    </table>
+
+
+
+   {{$products->withQueryString()->links()}}
 @endsection

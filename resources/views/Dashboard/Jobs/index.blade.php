@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         {{-- {{ route('dashboard.create') }} --}}
-        <form action="{{ route('dashboard.jobs.create') }}" method="get">
+        <form action="{{ route('dashboard.jobs.create') }}" method="get" class="mb-2">
             @csrf
             <input type="submit" class="btn btn-success" value="أضافة وظيفة جديدة" />
         </form>
@@ -24,7 +24,7 @@
                         <th>{{ $jop->id }}</th>
                         <td>{{ $jop->name }}</td>
                         <td>{{ $jop->joptitle }}</td>
-                        <td><img src="{{ asset('uploads/Jops/' . $jop->image) }}" width="70px"</td>
+                        <td><img src="{{ asset('uploads/Jops/' . $jop->image) }}" width="70px" /> </td>
                         <td>
                             <form action="{{ route('dashboard.jobs.edit', $jop->id) }}" method="get">
                                 <button class="btn btn-success">
@@ -69,5 +69,10 @@
                 @endforeach
             </tbody>
         </table>
+
+
+        {{$jops->links()}}
     </div>
+
+
 @endsection

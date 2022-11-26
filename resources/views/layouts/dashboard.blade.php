@@ -13,6 +13,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>{{config('app.name')}}</title>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{asset('Dashboard/plugins/fontawesome-free/css/all.min.css')}}">
+
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('Dashboard/dist/css/adminlte.min.css')}}">
     <!-- Google Font: Source Sans Pro -->
@@ -183,7 +184,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 @section("breadcrump")
-                                <li class="breadcrumb-item"><a href="#">الصفحة الرئيسية</a></li>
+                                <li class="breadcrumb-item"><a href="{{route('dashboard.')}}">الصفحة الرئيسية</a></li>
                                 @show
 
                             </ol>
@@ -202,6 +203,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
+
+
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->

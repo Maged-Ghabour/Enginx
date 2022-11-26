@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -28,6 +29,19 @@ class Product extends Model
         "compare_price" =>"nullable|numeric|min:0|max:100000",
 
         ];
+    }
+
+
+      // Local scope for Filter (Search)
+
+      public function scopeFilter(Builder $builder , $filters){
+
+
+
+        if($filters["name"] ?? false){
+            $builder->where("name" , "like" , "%{$filters["name"]}%");
+        }
+
     }
 
 

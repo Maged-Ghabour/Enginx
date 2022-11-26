@@ -44,8 +44,6 @@ class CustomerController extends Controller
             $ext = $image->getClientOriginalExtension();
             $name = uniqid() . time() . ".$ext";
             $image->move(public_path("uploads/Customers/") , $name);
-        }else{
-            $name ="";
         }
 
          $customer = Customer::create([

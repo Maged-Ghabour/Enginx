@@ -7,8 +7,8 @@
 .brand-image {
     float: right;
 }
-.ck{
-    height: 150px;
+.ck-blurred {
+    min-height: 150px;
 }
 .content-wrapper, .main-footer, .main-header {
     margin-left: 0px;

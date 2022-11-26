@@ -20,6 +20,10 @@
     <x-alert type="deleted" color="danger" />
     <x-alert type="updated" color="primary" />
 
+<a class="btn btn-success mb-2" href="{{route('dashboard.categories.create')}}">إضافة مستخدم جديد
+        <i class="fas fa-plus fa-sm"></i>
+</a>
+
     <table class="table">
         <thead>
             <th>#</th>
@@ -75,4 +79,7 @@
 
 
     </table>
+
+
+    {{$users->links()}}
 @endsection
