@@ -20,7 +20,7 @@
     <x-alert type="deleted" color="danger" />
     <x-alert type="updated" color="primary" />
 
-<<<<<<< HEAD
+
 
 
 
@@ -53,55 +53,26 @@
         <th>التعديل</th>
         <th>الحذف</th>
     </thead>
-=======
-    <table class="table">
-        <thead>
-            <th>#</th>
-            <th>اسم المنتج</th>
-            <th>التصنيف</th>
-            <th>سعر المنتج</th>
-            <th>الوصف</th>
-            <th>الصورة</th>
-            <th>تاريخ الاضافة</th>
-            <th>التعديل</th>
-            <th>الحذف</th>
-        </thead>
->>>>>>> eef9bc59436b6bba1b31b21501c6750b7222d438
+
 
         <tbody>
             @forelse ($products as $product)
-                <tr>
-                    <td>{{ $product->id }}</td>
-                    <td>{{ $product->name }}</td>
-                    <td>{{ $product->category->name }}</td>
-                    <td>{{ $product->price }}</td>
-                    <td>{!! $product->description !!}</td>
-                    <td><img src="{{ asset('uploads/Products/' . $product->image) }}" width="70px" height="70px"
-                            alt=""></td>
 
-<<<<<<< HEAD
-        <tr>
-            <td>{{$product->id}}</td>
-            <td>{{$product->name}}</td>
-            <td>{{$product->category->name}}</td>
-            <td>{{$product->price}}</td>
-            <td>{!! $product->description !!}</td>
-            <td><img src="{{asset('uploads/Products/'.$product->image)}}" width="70px" height="70px" alt=""></td>
+            <tr>
+                <td>{{$product->id}}</td>
+                <td>{{$product->name}}</td>
+                <td>{{$product->category->name}}</td>
+                <td>{{$product->price}}</td>
+                <td>{!! $product->description !!}</td>
+                <td><img src="{{asset('uploads/Products/'.$product->image)}}" width="70px" height="70px" alt=""></td>
 
-            <td>
-                <small class="badge badge-secondary">
-                    {{$product->created_at->diffForHumans()}}
-                    <li class="far fa-clock"></li>
-                </small>
-            </td>
-=======
-                    <td>
-                        <small class="badge badge-secondary">
-                            {{ $product->created_at->diffForHumans() }}
-                            <li class="far fa-clock"></li>
-                        </small>
-                    </td>
->>>>>>> eef9bc59436b6bba1b31b21501c6750b7222d438
+                <td>
+                    <small class="badge badge-secondary">
+                        {{$product->created_at->diffForHumans()}}
+                        <li class="far fa-clock"></li>
+                    </small>
+                </td>
+
 
 
 
@@ -138,13 +109,13 @@
 
 
 
-<<<<<<< HEAD
+
    </table>
 
 
 
    {{$products->withQueryString()->links()}}
-=======
+
     </table>
->>>>>>> eef9bc59436b6bba1b31b21501c6750b7222d438
+
 @endsection

@@ -75,7 +75,7 @@ class CategoryController extends Controller
             $name = uniqid() . time() . ".$ext";
 
             $image->move(public_path("uploads/Categories/") , $name);
-
+        }
 
         // Validation
 
@@ -104,12 +104,15 @@ class CategoryController extends Controller
         return redirect()->route("dashboard.categories.index")->with("success", "تم إضافة التصنيف بنجاح");
     }
 
+
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
     public function show(Category $category)
     {
         return view("Dashboard.Categories.show", [
