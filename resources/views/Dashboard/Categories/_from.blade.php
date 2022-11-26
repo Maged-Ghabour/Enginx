@@ -1,11 +1,16 @@
 <div class="mb-3">
+
     <label for="name">اسم التصنيف</label>
-    <input type="text" name="name" @class(['form-control', 'is-invalid'=> $errors->has('name')]) value="{{
+    {{-- <input type="text" name="name" @class(['form-control', 'is-invalid'=> $errors->has('name')]) value="{{
     $category->name }}" />
     @error('name')
     <div class="invalid-feedback">{{ $message }}</div>
-    @enderror
+    @enderror --}}
+
+    <x-form.input name="name" :value="$category->name" />
 </div>
+
+
 <div class="mb-3">
     <label for="parent_id">اسم التصنيف التابع</label>
     <select name="parent_id" id="name" @class([ 'form-control p-1' , 'is-invalid'=> $errors->has('parent_id'),
@@ -20,12 +25,14 @@
     @enderror
 </div>
 <div class="mb-3">
-    <label for="description">وصف التصنيف</label>
-    <textarea name="description" id="description" rows="7" @class([ 'form-control p-1' , 'is-invalid'=> $errors->has('description'),
+    {{-- <label for="description">وصف التصنيف</label>
+    <textarea name="description" id="description"  @class([ 'form-control p-1' , 'is-invalid'=> $errors->has('description'),
     ])>{{ $category->description }}</textarea>
     @error('description')
     <div class="invalid-feedback">{{ $message }}</div>
-    @enderror
+    @enderror --}}
+    <label for="description">وصف التصنيف</label>
+    <x-form.textarea  name="description" :value="$category->description" rows="7" />
 </div>
 
 <div class="mb-3">

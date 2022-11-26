@@ -15,7 +15,7 @@ class jobController extends Controller
      */
     public function index()
     {
-        $jops = Job::get();
+        $jops = Job::paginate(2);
         return view('Dashboard.Jobs.index', ['jops' => $jops]);
     }
 

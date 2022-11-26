@@ -15,7 +15,9 @@ class OfferController extends Controller
      */
     public function index()
     {
-        $offers = Offer::get();
+
+        $offers = Offer::filter(request()->query())
+                        ->orderBy("offers.title")->paginate(2);
         return view("Dashboard.Offers.index" , compact("offers"));
     }
 

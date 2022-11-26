@@ -21,6 +21,26 @@
 <x-alert type="deleted" color="danger" />
 <x-alert type="updated" color="primary" />
 
+
+
+
+<div class="row mb-3">
+    <div class="col-6">
+        <form action="{{URL::current()}}" method="get" class="d-flex justify-content-between">
+            <x-form.input  name="name" placeholder="البحث عن طريق اسم العرض" :value="request('name')" />
+            <button class="btn btn-dark mx-3">ابحث</button>
+        </form>
+    </div>
+
+    <div class="col-6">
+        <a class="btn btn-success mb-2 float-right" href="{{route('dashboard.categories.create')}}">إضافة عرض جديد
+            <i class="fas fa-plus fa-sm"></i>
+        </a>
+    </div>
+
+</div>
+
+
    <table class="table">
     <thead>
         <th>#</th>
@@ -50,12 +70,12 @@
             <td>{{$offer->products_count}}</td> --}}
 
 
-            <td>{{!!$offer->description!!}}</td>
+            <td>{!! $offer->description !!}</td>
 
             <td><img src="{{asset('uploads/Offers/'.$offer->image)}}" width="70px" height="70px" alt=""></td>
 
             <td>{{$offer->expire_date}}</td>
-            <td>{{!! $offer->features !!}}</td>
+            <td>{!! $offer->features  !!}</td>
             <td>
                 <small class="badge badge-secondary">
                     {{$offer->created_at->diffForHumans()}}
@@ -90,4 +110,7 @@
 
 
    </table>
+
+
+   {{$offers->withQueryString()->links()}}
 @endsection

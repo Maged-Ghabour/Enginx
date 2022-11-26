@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::get();
+        $users = User::paginate(2);
         return view("Dashboard.Users.index" , compact("users"));
     }
 
@@ -80,7 +80,7 @@ class UserController extends Controller
 
 
 
-        return redirect()->route("dashboard.Users.index")->with("success" , "تم إضافة المنتج بنجاح");
+        return redirect()->route("dashboard.users.index")->with("success" , "تم إضافة مستخدم بنجاح");
     }
 
     /**

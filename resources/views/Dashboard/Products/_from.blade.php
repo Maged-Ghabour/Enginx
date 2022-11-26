@@ -71,4 +71,4 @@
         style="height: 150px ; wight:150px" alt="">
 @endif
 
-<button type="submit" class="btn btn-primary">حفظ</button>
+<button type="submit" class="btn btn-primary mb-2">حفظ</button>

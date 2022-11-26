@@ -20,6 +20,40 @@
     <x-alert type="deleted" color="danger" />
     <x-alert type="updated" color="primary" />
 
+<<<<<<< HEAD
+
+
+
+<div class="row mb-3">
+    <div class="col-6">
+        <form action="{{URL::current()}}" method="get" class="d-flex justify-content-between">
+            <x-form.input  name="name" placeholder="البحث عن طريق اسم المنتج" :value="request('name')" />
+            <button class="btn btn-dark mx-3">ابحث</button>
+        </form>
+    </div>
+
+    <div class="col-6">
+        <a class="btn btn-success mb-2 float-right" href="{{route('dashboard.categories.create')}}">إضافة منتج جديد
+            <i class="fas fa-plus fa-sm"></i>
+        </a>
+    </div>
+
+</div>
+
+
+   <table class="table">
+    <thead>
+        <th>#</th>
+        <th>اسم المنتج</th>
+        <th>التصنيف</th>
+        <th>سعر المنتج</th>
+        <th>الوصف</th>
+        <th>الصورة</th>
+        <th>تاريخ الاضافة</th>
+        <th>التعديل</th>
+        <th>الحذف</th>
+    </thead>
+=======
     <table class="table">
         <thead>
             <th>#</th>
@@ -32,6 +66,7 @@
             <th>التعديل</th>
             <th>الحذف</th>
         </thead>
+>>>>>>> eef9bc59436b6bba1b31b21501c6750b7222d438
 
         <tbody>
             @forelse ($products as $product)
@@ -44,12 +79,29 @@
                     <td><img src="{{ asset('uploads/Products/' . $product->image) }}" width="70px" height="70px"
                             alt=""></td>
 
+<<<<<<< HEAD
+        <tr>
+            <td>{{$product->id}}</td>
+            <td>{{$product->name}}</td>
+            <td>{{$product->category->name}}</td>
+            <td>{{$product->price}}</td>
+            <td>{!! $product->description !!}</td>
+            <td><img src="{{asset('uploads/Products/'.$product->image)}}" width="70px" height="70px" alt=""></td>
+
+            <td>
+                <small class="badge badge-secondary">
+                    {{$product->created_at->diffForHumans()}}
+                    <li class="far fa-clock"></li>
+                </small>
+            </td>
+=======
                     <td>
                         <small class="badge badge-secondary">
                             {{ $product->created_at->diffForHumans() }}
                             <li class="far fa-clock"></li>
                         </small>
                     </td>
+>>>>>>> eef9bc59436b6bba1b31b21501c6750b7222d438
 
 
 
@@ -86,5 +138,13 @@
 
 
 
+<<<<<<< HEAD
+   </table>
+
+
+
+   {{$products->withQueryString()->links()}}
+=======
     </table>
+>>>>>>> eef9bc59436b6bba1b31b21501c6750b7222d438
 @endsection

@@ -21,6 +21,23 @@
 <x-alert type="deleted" color="danger" />
 <x-alert type="updated" color="primary" />
 
+
+
+<div class="row mb-3">
+    <div class="col-6">
+        <form action="{{URL::current()}}" method="get" class="d-flex justify-content-between">
+            <x-form.input  name="name" placeholder="البحث عن طريق اسم التصنيف" :value="request('name')" />
+            <button class="btn btn-dark mx-3">ابحث</button>
+        </form>
+    </div>
+
+    <div class="col-6">
+        <a class="btn btn-success mb-2 float-right" href="{{route('dashboard.categories.create')}}">إضافة تصنيف جديد
+            <i class="fas fa-plus fa-sm"></i>
+        </a>
+    </div>
+
+</div>
    <table class="table">
     <thead>
         <th>#</th>
@@ -35,12 +52,13 @@
     </thead>
 
     <tbody>
+
         @forelse ($categories as $category )
 
         <tr>
             <td>{{$category->id}}</td>
             <td><a class="btn btn-info" href="{{route('dashboard.categories.show' , $category->id)}}"> {{$category->name}}</a></td>
-            <td>{{$category->parent->name}}</td>
+            <td><a class="btn btn-maroon" href="">{{$category->parent->name}}</a></td>
             <td>{{$category->products_count}}</td>
             <td>{{$category->description}}</td>
 
@@ -79,10 +97,10 @@
             </tr>
         @endforelse
 
-
     </tbody>
 
-
-
    </table>
+
+   {{$categories->withQueryString()->links()}}
+
 @endsection
