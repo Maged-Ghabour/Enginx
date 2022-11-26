@@ -24,14 +24,12 @@ class CategoryController extends Controller
 
         Carbon::setLocale(config('locale'));
         $categories = Category::with("parent")
-<<<<<<< HEAD
+
                     ->filter($request->query())
                     ->orderBy("categories.name")
                     ->withCount("products")->paginate(2);
 
-=======
-            ->withCount("products")->get();
->>>>>>> eef9bc59436b6bba1b31b21501c6750b7222d438
+
 
         /*leftJoin("categories as parents" , "parents.id" , "=" , "categories.parent_id")
                     ->select([
@@ -75,14 +73,8 @@ class CategoryController extends Controller
             $image = $request->file("image");
             $ext = $image->getClientOriginalExtension();
             $name = uniqid() . time() . ".$ext";
-<<<<<<< HEAD
+
             $image->move(public_path("uploads/Categories/") , $name);
-=======
-            $image->move(public_path("uploads/Categories/"), $name);
-        } else {
-            $name = "";
->>>>>>> eef9bc59436b6bba1b31b21501c6750b7222d438
-        }
 
 
         // Validation
