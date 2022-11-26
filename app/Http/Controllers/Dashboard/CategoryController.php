@@ -24,19 +24,23 @@ class CategoryController extends Controller
 
         Carbon::setLocale(config('locale'));
         $categories = Category::with("parent")
+<<<<<<< HEAD
                     ->filter($request->query())
                     ->orderBy("categories.name")
                     ->withCount("products")->paginate(2);
 
+=======
+            ->withCount("products")->get();
+>>>>>>> eef9bc59436b6bba1b31b21501c6750b7222d438
 
-                    /*leftJoin("categories as parents" , "parents.id" , "=" , "categories.parent_id")
+        /*leftJoin("categories as parents" , "parents.id" , "=" , "categories.parent_id")
                     ->select([
                         "categories.*",
                         "parents.name as parent_name"
                     ])->get();*/
 
 
-        return view("Dashboard.Categories.index" , compact("categories"));
+        return view("Dashboard.Categories.index", compact("categories"));
     }
 
     /**
@@ -48,7 +52,7 @@ class CategoryController extends Controller
     {
         $parents = Category::get();
         $category = new Category();
-        return view("Dashboard.Categories.create" , compact("parents" , "category"));
+        return view("Dashboard.Categories.create", compact("parents", "category"));
     }
 
     /**
@@ -67,21 +71,29 @@ class CategoryController extends Controller
 
 
 
-        if($request->file("image")){
+        if ($request->file("image")) {
             $image = $request->file("image");
             $ext = $image->getClientOriginalExtension();
             $name = uniqid() . time() . ".$ext";
+<<<<<<< HEAD
             $image->move(public_path("uploads/Categories/") , $name);
+=======
+            $image->move(public_path("uploads/Categories/"), $name);
+        } else {
+            $name = "";
+>>>>>>> eef9bc59436b6bba1b31b21501c6750b7222d438
         }
 
 
         // Validation
 
-        $request->validate(Category::rules($id =0) ,
-             [
-                "required" => "هذا الحقل مطلوب" ,
+        $request->validate(
+            Category::rules($id = 0),
+            [
+                "required" => "هذا الحقل مطلوب",
                 "unique" => "هذا الحقل موجود مسبقا"
-            ]);
+            ]
+        );
 
 
 
@@ -97,7 +109,7 @@ class CategoryController extends Controller
 
 
 
-        return redirect()->route("dashboard.categories.index")->with("success" , "تم إضافة التصنيف بنجاح");
+        return redirect()->route("dashboard.categories.index")->with("success", "تم إضافة التصنيف بنجاح");
     }
 
     /**
@@ -108,7 +120,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return view("Dashboard.Categories.show" , [
+        return view("Dashboard.Categories.show", [
             "category" => $category
         ]);
     }
@@ -122,15 +134,15 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = Category::findOrFail($id);
-        $parents = Category::where("id" , "<>" , $id)
-                ->whereNull("parent_id")
-                ->orWhere("parent_id", "<>" , $id)
-                ->get();
+        $parents = Category::where("id", "<>", $id)
+            ->whereNull("parent_id")
+            ->orWhere("parent_id", "<>", $id)
+            ->get();
 
 
 
 
-        return view("Dashboard.Categories.edit" , compact("category" ,"parents"));
+        return view("Dashboard.Categories.edit", compact("category", "parents"));
     }
 
     /**
@@ -145,25 +157,24 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         $name = $category->image;
 
-        if($request->hasFile("image")){
-            if($name !== null){
-                unlink(public_path("uploads/Categories/").$name);
+        if ($request->hasFile("image")) {
+            if ($name !== null) {
+                unlink(public_path("uploads/Categories/") . $name);
             }
 
             $image = $request->file("image");
             $ext = $image->getClientOriginalExtension();
             $name = uniqid() . time() . ".$ext";
-            $image->move(public_path("uploads/Categories/") , $name);
-
+            $image->move(public_path("uploads/Categories/"), $name);
         }
 
 
 
 
-            // Request Merge
-            $request->merge([
-                "slug" => Str::slug($request->name)
-            ]);
+        // Request Merge
+        $request->merge([
+            "slug" => Str::slug($request->name)
+        ]);
 
 
         $request->validate(Category::rules($id));
@@ -177,7 +188,7 @@ class CategoryController extends Controller
         ]);
 
         return redirect(route("dashboard.categories.index"))
-        ->with("updated" , "📢 تم تعديل التصنيف بنجاح");
+            ->with("updated", "📢 تم تعديل التصنيف بنجاح");
     }
 
     /**
@@ -191,11 +202,11 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         $category->delete();
 
-        if($category->image){
-            unlink(public_path("uploads/Categories/").$category->image);
+        if ($category->image) {
+            unlink(public_path("uploads/Categories/") . $category->image);
         }
 
         return redirect()->route("dashboard.categories.index")
-        -> with("deleted" , "✈ تم حذف التصنيف بنجاح");
+            ->with("deleted", "✈ تم حذف التصنيف بنجاح");
     }
 }

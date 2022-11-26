@@ -16,9 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get("/" , function(){
+Route::get("/", function () {
     return view("welcome");
 });
+
 
 
 Route::middleware('auth')->group(function () {
@@ -27,14 +28,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
 Route::post('image-upload', [ImageUploadController::class, 'storeImage'])->name('image.upload');
 
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
-require __DIR__.'/dashboard.php';
-
-
-
+require __DIR__ . '/front.php';
+require __DIR__ . '/dashboard.php';
