@@ -4,7 +4,7 @@
         {{-- {{ route('dashboard.create') }} --}}
         <form action="{{ route('dashboard.jobs.create') }}" method="get" class="mb-2">
             @csrf
-            <input type="submit" class="btn btn-success" value="أضافة وظيفة جديدة" />
+            <input type="submit" class="btn btn-success mb-2 float-right " value="أضافة وظيفة جديدة" />
         </form>
         <table class="table">
             <thead>
@@ -71,8 +71,6 @@
         </table>
 
 
-        {{$jops->links()}}
+        {{ $jops->links() }}
     </div>
-
-
 @endsection
