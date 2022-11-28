@@ -142,11 +142,7 @@
                                 <div class="block_content">
                                     <ul>
                                         <li><a href="#">Who We Are ?</a></li>
-                                        <li><a href="#">Corporate Responsibility</a></li>
-                                        <li><a href="#">California Laws</a></li>
-                                        <li><a href="#">Careers</a></li>
-                                        <li><a href="#">Privacy Policy</a></li>
-                                        <li><a href="#">Terms of Use</a></li>
+                                       
                                     </ul>
                                 </div>
                             </div>
@@ -163,11 +159,8 @@
                                 <div class="block_content">
                                     <ul>
                                         <li><a href="#">Sitemap</a></li>
-                                        <li><a href="#">Privacy Policy</a></li>
                                         <li><a href="#">My Account</a></li>
-                                        <li><a href="#">Advanced Search</a></li>
                                         <li><a href="#">Contact Us</a></li>
-                                        <li><a href="#">My Wishlist</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -183,12 +176,7 @@
                                 </div>
                                 <div class="block_content">
                                     <ul>
-                                        <li><a href="#">Order Tracking</a></li>
-                                        <li><a href="#">The Privacy Policy</a></li>
                                         <li><a href="#">Payments & Returns</a></li>
-                                        <li><a href="#">Size Guide</a></li>
-                                        <li><a href="#">Product Care</a></li>
-                                        <li><a href="#">FAQ's</a></li>
                                     </ul>
                                 </div>
                             </div>
