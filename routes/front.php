@@ -11,6 +11,7 @@ Route::group(["prefix" => 'enginx'], function () {
     Route::group(['prefix' => 'products'], function () {
         Route::get('/', [ProductController::class, 'index'])->name('Product.index');
         Route::get('/{id}', [ProductController::class, 'show'])->name('Product.show');
+        Route::get('/search/{id}', [ProductController::class, 'search'])->name('Search');
     });
 
     Route::group(['prefix' => 'categories'], function () {

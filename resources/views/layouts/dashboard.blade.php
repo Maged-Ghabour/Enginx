@@ -10,21 +10,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>{{config('app.name')}}</title>
+    <title>{{ config('app.name') }}</title>
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="{{asset('Dashboard/plugins/fontawesome-free/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('Dashboard/plugins/fontawesome-free/css/all.min.css') }}">
 
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{asset('Dashboard/dist/css/adminlte.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('Dashboard/dist/css/adminlte.min.css') }}">
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="{{asset('Dashboard/dist/fonts/SansPro/SansPro.min.css')}}">
-    <link rel="stylesheet" href="{{asset('Dashboard/dist/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('Dashboard/dist/css/custom_rtl.css')}}">
-    <link rel="stylesheet" href="{{asset('Dashboard/dist/css/mycustomstyle.css')}}">
+    <link rel="stylesheet" href="{{ asset('Dashboard/dist/fonts/SansPro/SansPro.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('Dashboard/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('Dashboard/dist/css/custom_rtl.css') }}">
+    <link rel="stylesheet" href="{{ asset('Dashboard/dist/css/mycustomstyle.css') }}">
     <!--  ckeditor 5 -->
     <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
 
-    @stack("styles")
+    @stack('styles')
 
 </head>
 
@@ -71,7 +71,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src={{asset('Dashboard/dist/img/LOGO.png')}} alt="User Avatar"
+                                <img src={{ asset('Dashboard/dist/img/LOGO.png') }} alt="User Avatar"
                                     class="img-size-50 mr-3 img-circle">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
@@ -88,7 +88,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src={{asset('Dashboard/dist/img/user8-128x128.jpg')}} alt="User Avatar"
+                                <img src={{ asset('Dashboard/dist/img/user8-128x128.jpg') }} alt="User Avatar"
                                     class="img-size-50 img-circle mr-3">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
@@ -105,7 +105,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src={{asset('Dashboard/dist/img/user3-128x128.jpg')}} alt="User Avatar"
+                                <img src={{ asset('Dashboard/dist/img/user3-128x128.jpg') }} alt="User Avatar"
                                     class="img-size-50 img-circle mr-3">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
@@ -162,9 +162,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
-                <img src={{asset('Dashboard/dist/img/LOGO.png')}} alt="AdminLTE Logo"
+                <img src={{ asset('Dashboard/dist/img/LOGO.png') }} alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">{{config('app.name')}}</span>
+                <span class="brand-text font-weight-light">{{ config('app.name') }}</span>
             </a>
 
             {{-- @include("layouts.partials.nav") --}}
@@ -179,12 +179,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="text-secondary font-weight-bold mb-5">@yield("title")</h1>
+                            <h1 class="text-secondary font-weight-bold mb-5">@yield('title')</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                @section("breadcrump")
-                                <li class="breadcrumb-item"><a href="{{route('dashboard.')}}">الصفحة الرئيسية</a></li>
+                                @section('breadcrump')
+                                    <li class="breadcrumb-item"><a href="{{ route('dashboard.Admin.index') }}">الصفحة
+                                            الرئيسية</a>
+                                    </li>
                                 @show
 
                             </ol>
@@ -198,7 +200,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="content">
                 <div class="container-fluid">
 
-                    @yield("content")
+                    @yield('content')
 
                     <!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -234,99 +236,94 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- REQUIRED SCRIPTS -->
 
     <!-- jQuery -->
-    <script src="{{asset('Dashboard/plugins/jquery/jquery.min.js')}}"></script>
+    <script src="{{ asset('Dashboard/plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 4 -->
-    <script src="{{asset('Dashboard/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{ asset('Dashboard/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->
-    <script src="{{asset('Dashboard/dist/js/adminlte.min.js')}}"></script>
+    <script src="{{ asset('Dashboard/dist/js/adminlte.min.js') }}"></script>
 
     <script>
+        let allEditors = document.querySelectorAll("#editor");
+        for (let i = 0; i < allEditors.length; i++) {
+            ClassicEditor
+                .create(allEditors[i], {
+                    language: {
+                        ui: 'en',
+                        content: 'ar'
+                    },
+                    fontFamily: {
+                        options: [
+                            'default',
+                            'cairo',
+                            'Ubuntu, Arial, sans-serif'
+                        ]
+                    },
+                    ckfinder: {
+                        uploadUrl: '{{ route('image.upload') . '?_token=' . csrf_token() }}',
+                    },
+                    fontColor: {
+                        colors: [{
+                                color: 'hsl(0, 0%, 0%)',
+                                label: 'Black'
+                            },
+                            {
+                                color: 'hsl(0, 0%, 30%)',
+                                label: 'Dim grey'
+                            },
+                            {
+                                color: 'hsl(0, 0%, 60%)',
+                                label: 'Grey'
+                            },
+                            {
+                                color: 'hsl(0, 0%, 90%)',
+                                label: 'Light grey'
+                            },
+                            {
+                                color: 'hsl(0, 0%, 100%)',
+                                label: 'White',
+                                hasBorder: true
+                            },
 
+                            // ...
+                        ]
+                    },
+                    fontBackgroundColor: {
+                        colors: [{
+                                color: 'hsl(0, 75%, 60%)',
+                                label: 'Red'
+                            },
+                            {
+                                color: 'hsl(30, 75%, 60%)',
+                                label: 'Orange'
+                            },
+                            {
+                                color: 'hsl(60, 75%, 60%)',
+                                label: 'Yellow'
+                            },
+                            {
+                                color: 'hsl(90, 75%, 60%)',
+                                label: 'Light green'
+                            },
+                            {
+                                color: 'hsl(120, 75%, 60%)',
+                                label: 'Green'
+                            },
 
-
-    let allEditors = document.querySelectorAll("#editor");
-    for(let i=0 ; i<allEditors.length ; i++){
-        ClassicEditor
-            .create( allEditors[i] ,{
-                language: {
-                                ui: 'en',
-                                content: 'ar'
-                        },
-                fontFamily: {
-                    options: [
-                        'default',
-                        'cairo',
-                        'Ubuntu, Arial, sans-serif'
-                    ]
-                        },
-                        ckfinder: {
-                            uploadUrl: '{{route('image.upload').'?_token='.csrf_token()}}',
-                        },
-                        fontColor: {
-            colors: [
-                {
-                    color: 'hsl(0, 0%, 0%)',
-                    label: 'Black'
-                },
-                {
-                    color: 'hsl(0, 0%, 30%)',
-                    label: 'Dim grey'
-                },
-                {
-                    color: 'hsl(0, 0%, 60%)',
-                    label: 'Grey'
-                },
-                {
-                    color: 'hsl(0, 0%, 90%)',
-                    label: 'Light grey'
-                },
-                {
-                    color: 'hsl(0, 0%, 100%)',
-                    label: 'White',
-                    hasBorder: true
-                },
-
-                // ...
-            ]
-        },
-        fontBackgroundColor: {
-            colors: [
-                {
-                    color: 'hsl(0, 75%, 60%)',
-                    label: 'Red'
-                },
-                {
-                    color: 'hsl(30, 75%, 60%)',
-                    label: 'Orange'
-                },
-                {
-                    color: 'hsl(60, 75%, 60%)',
-                    label: 'Yellow'
-                },
-                {
-                    color: 'hsl(90, 75%, 60%)',
-                    label: 'Light green'
-                },
-                {
-                    color: 'hsl(120, 75%, 60%)',
-                    label: 'Green'
-                },
-
-                // ...
-            ]
-        },
+                            // ...
+                        ]
+                    },
 
 
 
 
-            })
-            .catch( error => {
-                console.error( error );
-            } );
+                })
+                .catch(error => {
+                    console.error(error);
+                });
 
-    }
+        }
     </script>
-    @stack("scripts")
+    @stack('scripts')
 </body>
 
 </html>
