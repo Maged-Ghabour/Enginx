@@ -1,9 +1,12 @@
-@extends('Front.layouts.app')
+@include('Front.includes.head')
+@include('Front.includes.header-top')
+@include('Front.includes.header-center')
+@include('Front.includes.header-bottom')
+@include('Front.includes.header-sticky')
 
-@section('title', 'Enginx')
 
 
-@section('who')
+
 <div class="about-section">
   <h1>About Us Page</h1>
   <p>Some text about who we are and what we do.</p>
@@ -51,4 +54,7 @@
     </div>
   </div>
 </div>
-@endsection
+
+@include('Front.includes.footer')
+@include('Front.includes.downbar')
+@include('Front.includes.scripts')

@@ -141,7 +141,7 @@
                                 </div>
                                 <div class="block_content">
                                     <ul>
-                                        <li><a href="{{asset('./.footer.who')}}">Who We Are ?</a></li>
+                                        <li><a href="{{route('who')}}">Who We Are ?</a></li>
                                        
                                     </ul>
                                 </div>
