@@ -30,7 +30,7 @@
                                                     @foreach ($sub_categories as $cat)
                                                         @if ($cat->parent_id == $category->id)
                                                             <li class="item ">
-                                                                <a href="#"
+                                                                <a href="{{ route('Sub_Category.Show', [$category->id, $cat->id]) }}"
                                                                     title="sub_category">{{ $cat->name }}</a>
                                                             </li>
                                                         @endif
@@ -61,7 +61,8 @@
                                             title="Home"><i class="zmdi zmdi-home"></i>الوظائف</a>
                                         <div class="dropdown-menu" style="width:200px">
                                             <ul class="">
-                                                <li class="item "><a href="{{ route('Home') }}" title="الصفحة الرئيسية">الصفحة الرئيسية</a></li>
+                                                <li class="item "><a href="{{ route('Home') }}"
+                                                        title="الصفحة الرئيسية">الصفحة الرئيسية</a></li>
                                             </ul>
                                         </div>
                                     </li>
@@ -84,13 +85,19 @@
                                                 <li class="item container group">
                                                     <div class="dropdown-menu">
                                                         <ul class="">
-                                                            @foreach ($products as $product)
-                                                            <li class="item col-lg-2 mw-20 html"><span
-                                                                    class="menu-title">{{ $product->name }}</span>
-                                                                
-                                                            </li>
+                                                            @foreach ($categories as $category)
+                                                                @foreach ($category->products as $product)
+                                                                    <li class="item col-lg-2 mw-20 html">
+                                                                        <span class="menu-title">
+                                                                            <a
+                                                                                href="{{ route('Product.show', $product->id) }}">
+                                                                                {{ $product->name }}
+                                                                            </a>
+                                                                        </span>
+                                                                    </li>
+                                                                @endforeach
                                                             @endforeach
-                                                            
+
                                                         </ul>
                                                     </div>
                                                 </li>
@@ -102,7 +109,7 @@
                                                 class="zmdi zmdi-group"></i>الأقسام</a>
                                         <div class="dropdown-menu">
                                             <ul class="">
-                                            
+
                                                 <li class="item container group">
                                                     <div class="dropdown-menu">
                                                         <ul class="">
@@ -152,15 +159,13 @@
                     <div id="_desktop_search" class="contentsticky_search">
 
                         <div id="desktop_search_content" data-id_lang="6" data-ajaxsearch="1">
-                            <form method="get"
-                                action=""
-                                id="searchbox" class="form-novadvancedsearch">
-                                
+                            <form method="get" action="" id="searchbox" class="form-novadvancedsearch">
+
                                 <div class="input-group">
-                                    <input onkeyup="showResult(this.value)"  type="text" id="search_query_top" 
+                                    <input onkeyup="showResult(this.value)" type="text" id="search_query_top"
                                         class="search_query ui-autocomplete-input form-control" name="key"
                                         placeholder="بحث" />
-                                        <div id="searchProduct"></div>
+                                    <div id="searchProduct"></div>
 
                                     <div class="input-group-btn nov_category_tree hidden-sm-down">
                                         <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
@@ -217,29 +222,23 @@
 </div>
 </div>
 <script>
-        function showResult(str) 
-        {
-            let searchProduct = document.getElementById('search_query_top').value ;
-            let url = "{{ url('enginx/products/search') }}" + "/";
-          if (str.length==0) 
-          {
-            document.getElementById("searchProduct").innerHTML="";
-            document.getElementById("searchProduct").style.border="0px";
+    function showResult(str) {
+        let searchProduct = document.getElementById('search_query_top').value;
+        let url = "{{ url('enginx/products/search') }}" + "/";
+        if (str.length == 0) {
+            document.getElementById("searchProduct").innerHTML = "";
+            document.getElementById("searchProduct").style.border = "0px";
             return;
-          }
-          var xmlhttp=new XMLHttpRequest();
-          xmlhttp.onreadystatechange=function() 
-          {
-            if (this.readyState==4 && this.status==200) 
-            {
-              document.getElementById("searchProduct").innerHTML=this.responseText;
-              document.getElementById("searchProduct").style.border="2px solid #A5ACB2";
-            }
-          }
-          xmlhttp.open("GET", url+ searchProduct ,true);
-          xmlhttp.send();
         }
- </script>
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("searchProduct").innerHTML = this.responseText;
+                document.getElementById("searchProduct").style.border = "2px solid #A5ACB2";
+            }
+        }
+        xmlhttp.open("GET", url + searchProduct, true);
+        xmlhttp.send();
+    }
+</script>
 </header>
-
- 

@@ -16,7 +16,7 @@
                                         class="nov-productlist nov-countdown-productlist col-xl-4 col-lg-4 col-md-4  col-xs-12 col-md-12">
                                         <div class="block block-product clearfix">
                                             <h2 class="title_block">
-                                                العروض المتاحة 
+                                                العروض المتاحة
                                             </h2>
                                             <div class="block_content">
                                                 <div id="productlist706506225"
@@ -31,15 +31,15 @@
                                                     @forelse ($offers as $offer)
                                                         <div class="item item-list">
                                                             <div class="product-miniature js-product-miniature first_item"
-                                                                data-id-product="12" data-id-product-attribute="232" itemscope
-                                                                itemtype="http://schema.org/Product">
+                                                                data-id-product="12" data-id-product-attribute="232"
+                                                                itemscope itemtype="http://schema.org/Product">
                                                                 <div class="thumbnail-container">
                                                                     <a href=""
                                                                         class="thumbnail product-thumbnail two-image">
                                                                         <img class="img-fluid"
                                                                             src="{{ asset('uploads/Offers/' . $offer->image) }}"
                                                                             width="600" height="600">
-                                                                        
+
                                                                     </a>
                                                                     <div class="product-flags discount">Sale</div>
                                                                 </div>
@@ -48,9 +48,9 @@
 
                                                                         <div class="product-title" itemprop="name"><a
                                                                                 href="">
-                                                                                </a>
-                                                                                    {{ $offer->title }}
-                                                                                </div>
+                                                                            </a>
+                                                                            {{ $offer->title }}
+                                                                        </div>
                                                                         <div class="product-comments">
                                                                             <div class="star_content">
                                                                                 <div class="star"></div>
@@ -66,7 +66,7 @@
                                                                             <div class="product-price-and-shipping">
                                                                                 <span itemprop="price"
                                                                                     class="price">{!! $offer->description !!} UK£</span>
-                                                                                
+
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -89,8 +89,8 @@
 
                                                                         <!-- begin /var/www/demo.bestprestashoptheme.com/public_html/savemart/themes/vinova_savemart/modules/novblockwishlist/novblockwishlist_button.tpl -->
 
-                                                                        <a class="addToWishlist wishlistProd_12" href="#"
-                                                                            data-rel="12"
+                                                                        <a class="addToWishlist wishlistProd_12"
+                                                                            href="#" data-rel="12"
                                                                             onclick="WishlistCart('wishlist_block_list', 'add', '12', false, 1); return false;">
                                                                             <i class="fa fa-heart"></i>
                                                                             <span>Add to Wishlist</span>
@@ -107,13 +107,14 @@
                                                                 </div>
 
                                                                 <!-- begin modules/novthemeconfig/views/templates/hook/countdown.tpl -->
-                                                                <div class="countdownfree d-flex" data-date="{{ $offer->expire_date }}">
+                                                                <div class="countdownfree d-flex"
+                                                                    data-date="{{ $offer->expire_date }}">
                                                                 </div>
 
                                                                 <!-- end modules/novthemeconfig/views/templates/hook/countdown.tpl -->
 
                                                             </div>
-                                                        </div> 
+                                                        </div>
                                                     @empty
                                                         No Offers Founded
                                                     @endforelse
@@ -130,7 +131,7 @@
                                         class="nov-productlist  productlist-rows col-xl-8 col-lg-8 col-md-8 col-xs-12 col-md-12">
                                         <div class="block block-product clearfix">
                                             <h2 class="title_block">
-                                                آخر المنتجات  
+                                                آخر المنتجات
                                             </h2>
                                             <div class="block_content">
                                                 <div id="productlist1693764381"
@@ -172,7 +173,8 @@
                                                                             </div>
 
                                                                             <div class="product-title" itemprop="name">
-                                                                                <a href="#">
+                                                                                <a
+                                                                                    href="{{ route('Product.show', $product->id) }}">
                                                                                     {{ $product->name }}
                                                                                 </a>
                                                                             </div>
@@ -254,7 +256,9 @@
                                             class="nov-productlist   productlist-liststyle col-xl-4 col-lg-4 col-md-4 col-xs-12 col-md-12">
                                             <div class="block block-product clearfix">
                                                 <h2 class="title_block">
-                                                    {{ $category->name }}
+                                                    <a
+                                                        href="{{ 'Category.show', $category->id }}">{{ $category->name }}</a>
+
                                                 </h2>
                                                 <div class="block_content">
                                                     <div id="productlist162539295"
@@ -310,7 +314,7 @@
                                                                                 </p> --}}
                                                                                     <div class="product-title"
                                                                                         itemprop="name"><a
-                                                                                            href="">{{ $product->name }}</a>
+                                                                                            href="{{ route('Product.show', $product->id) }}">{{ $product->name }}</a>
                                                                                     </div>
                                                                                     <div class="product-group-price">
                                                                                         <div
