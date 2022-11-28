@@ -24,14 +24,11 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        Category::factory(10)->create();
-        Product::factory(100)->create();
+        // Category::factory(10)->create();
+        // Product::factory(100)->create();
 
 
         // $this->call(UserSeeder::class);
+        $this->call(AdminSeeder::class);
     }
-
-
-
-
 }

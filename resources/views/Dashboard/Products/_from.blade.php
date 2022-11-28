@@ -1,6 +1,6 @@
 <div class="mb-3">
     <label for="name">اسم المنتج</label>
-    <input type="text" name="name" @class(['form-control', 'is-invalid' => $errors->has('name')]) value="{{ $product->name }}" />
+    <input required type="text" name="name" @class(['form-control', 'is-invalid' => $errors->has('name')]) value="{{ $product->name }}" />
     @error('name')
         <div class="invalid-feedback">{{ $message }}</div>
     @enderror
@@ -26,7 +26,7 @@
 
 <div class="mb-3">
     <label for="price">سعر المنتج</label>
-    <input type="text" name="price" @class(['form-control', 'is-invalid' => $errors->has('price')]) value="{{ $product->price }}" />
+    <input required type="text" name="price" @class(['form-control', 'is-invalid' => $errors->has('price')]) value="{{ $product->price }}" />
     @error('price')
         <div class="invalid-feedback">{{ $message }}</div>
     @enderror
@@ -58,7 +58,7 @@
 
 <div class="mb-3">
     <label for="image">رفع صورة المنتج</label>
-    <input type="file" name="image" id="image" @class(['form-control p-1', 'is-invalid' => $errors->has('image')]) />
+    <input required required type="file" name="image" id="image" @class(['form-control p-1', 'is-invalid' => $errors->has('image')]) />
 
     @error('image')
         <div class="invalid-feedback">{{ $message }}</div>

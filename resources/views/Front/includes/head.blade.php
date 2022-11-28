@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 
 <head>
     <meta charset="utf-8">
@@ -10,13 +10,15 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=yes">
     <link rel="icon" type="image/vnd.microsoft.icon" href="/savemart/img/favicon.ico?1531456858">
     <link rel="shortcut icon" type="image/x-icon" href="/savemart/img/favicon.ico?1531456858">
-
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700,900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700,900" rel="stylesheet">
-
+       
     <link rel="stylesheet"
         href="http://demo.bestprestashoptheme.com/savemart/themes/vinova_savemart/assets/cache/theme-4527f124.css"
         type="text/css" media="all">
+        
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;900&display=swap" rel="stylesheet">
+
 
     @yield('styles')
 
@@ -282,27 +284,18 @@
 
 
 
-
-    <!-- begin modules/novnivoslider/views/templates/hook/header.tpl -->
-
-    <!-- end modules/novnivoslider/views/templates/hook/header.tpl -->
-
-    <!-- begin modules/novblockwishlist/novblockwishlist_top.tpl -->
-
     <script type="text/javascript">
         var baseDir = "/savemart/";
         var static_token = "28add935523ef131c8432825597b9928";
+        
     </script>
 
-
-    <!-- end modules/novblockwishlist/novblockwishlist_top.tpl -->
-
-
     <style type="text/css">
+    
         #main-site {
             background-color: #ffffff;
         }
-
+    
         @media (min-width: 1200px) {
             .container {
                 width: 1200px;

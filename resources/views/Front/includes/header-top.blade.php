@@ -27,29 +27,51 @@
                                 class="header-top-left col-lg-6 col-md-6 d-flex justify-content-start align-items-center">
                                 <div class="detail-email d-flex align-items-center justify-content-center">
                                     <i class="icon-email"></i>
-                                    <p>Email : </p>
                                     <span>
                                         Enginx@enginx.com
                                     </span>
                                 </div>
                                 <div class="detail-call d-flex align-items-center justify-content-center">
                                     <i class="icon-deal"></i>
-                                    <p>Today Deals </p>
+                                    <p>متاح </p>
                                 </div>
                             </div>
                             <div
                                 class="col-lg-6 col-md-6 d-flex justify-content-end align-items-center header-top-right">
                                 <div class="register-out">
-                                    <i class="zmdi zmdi-account"></i>
-                                    <a class="register"
-                                        href="http://demo.bestprestashoptheme.com/savemart/ar/تسجيل الدخول?create_account=1"
-                                        data-link-action="display-register-form">
-                                        Register
-                                    </a>
-                                    <span class="or-text">or</span>
-                                    <a class="login"
-                                        href="http://demo.bestprestashoptheme.com/savemart/ar/الحساب الشخصي"
-                                        rel="nofollow" title="تسجيل الدخول إلى حسابك">Sign in</a>
+                                    @auth
+                                        <ul class="navbar-nav ml-auto">
+                                            <!-- Authentication Links -->
+                                            <li class="nav-item dropdown">
+                                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href=""
+                                                    role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false" v-pre>
+                                                    {{ Auth::user()->name }}<span class="caret"></span>
+                                                </a>
+
+                                                <div class="dropdown-menu dropdown-menu-right"
+                                                    aria-labelledby="navbarDropdown">
+                                                    <form action="{{ route('dashboard.Admin.Logout') }}" method="post">
+                                                        @csrf
+                                                        <button class="btn btn-outline-danger my-2">تسجيل الخروج</button>
+                                                    </form>
+
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    @endauth
+                                    @guest
+                                        <i class="zmdi zmdi-account"></i>
+                                        <a class="register" href="{{ route('register') }}"
+                                            data-link-action="display-register-form">
+                                            عمل حساب جديد
+                                        </a>
+
+                                        <a class="login" href="{{ route('login') }}" rel="nofollow"
+                                            title="تسجيل الدخول إلى حسابك"> <i class="zmdi zmdi-account"></i>تسجيل
+                                            دخول</a>
+                                    @endguest
                                 </div>
                                 <div id="_desktop_language_selector"
                                     class="language-selector groups-selector hidden-sm-down language-selector-dropdown">

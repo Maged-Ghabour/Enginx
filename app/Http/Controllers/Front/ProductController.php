@@ -20,4 +20,12 @@ class ProductController extends Controller
             ->findOrFail($id);
         return view('Front.Product.show')->with($data);
     }
+
+    public function search($id)
+    {
+        $data['products'] = Product::where('name' , 'like' , '%' . $id .'%')->get();
+
+        return view('Front.Product.search')->with($data) ;
+    }
+    
 }
