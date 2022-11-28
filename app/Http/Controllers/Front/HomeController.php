@@ -19,7 +19,7 @@ class HomeController extends Controller
     {
         $data['offers'] = Offer::all();
         $data['products'] = Product::with('category')->get();
-        $data['categories'] = Category::all();
+        $data['categories'] = Category::where('parent_id', null)->get();
         return view('Front.Home.index')->with($data);
     }
 
