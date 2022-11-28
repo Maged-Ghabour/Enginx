@@ -3,16 +3,17 @@
         <div class="row d-flex align-items-center">
             <div id="_desktop_logo"
                 class="contentsticky_logo d-flex align-items-center justify-content-start col-lg-3 col-md-3">
-                <a href="">
-                    <img width="100" class="logo img-fluid rounded-circle"
-                        src="{{ asset('uploads/site-images/logo.png') }}" alt="Logo">
+                <a href="{{ route('Home') }}">
+                    <img src={{ asset('Dashboard/dist/img/LOGO.png') }} width="50" class="img-circle elevation-2"
+                        alt="User Image">
+
                 </a>
             </div>
             <div class="col-lg-9 col-md-9 header-menu d-flex align-items-center justify-content-end">
                 <div class="data-contact d-flex align-items-center">
                     <div class="title-icon">support<i class="icon-support icon-address"></i></div>
                     <div class="content-data-contact">
-                        <div class="support">Call customer services :</div>
+                        <div class="support">الإتصال بخدمة العملاء</div>
                         <div class="phone-support">
                             1234 567 899
                         </div>
@@ -20,18 +21,15 @@
                 </div>
                 <div class="contentsticky_group d-flex justify-content-end">
                     <div class="header_link_myaccount">
-                        <a class="login" href="http://demo.bestprestashoptheme.com/savemart/ar/الحساب الشخصي"
-                            rel="nofollow" title="تسجيل الدخول إلى حسابك"><i class="header-icon-account"></i></a>
+                        <a class="login" href="" rel="nofollow" title="تسجيل الدخول إلى حسابك"><i
+                                class="header-icon-account"></i></a>
                     </div>
                     <div class="header_link_wishlist">
-                        <a href="http://demo.bestprestashoptheme.com/savemart/ar/module/novblockwishlist/mywishlist"
-                            title="My Wishlists">
+                        <a href="" title="My Wishlists">
                             <i class="header-icon-wishlist"></i>
                         </a>
                     </div>
 
-                    <!-- begin module:ps_shoppingcart/ps_shoppingcart.tpl -->
-                    <!-- begin /var/www/demo.bestprestashoptheme.com/public_html/savemart/themes/vinova_savemart/modules/ps_shoppingcart/ps_shoppingcart.tpl -->
                     <div id="_desktop_cart">
                         <div class="blockcart cart-preview active"
                             data-refresh-url="//demo.bestprestashoptheme.com/savemart/ar/module/ps_shoppingcart/ajax">
@@ -49,7 +47,7 @@
                             <div class="cart_block ">
                                 <div class="cart-block-content">
                                     <div class="no-items">
-                                        No products in the cart
+                                        لا يوجد منتجات فى السلة
                                     </div>
                                 </div>
                             </div>

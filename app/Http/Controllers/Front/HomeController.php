@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Offer;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -16,6 +17,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $data['offers'] = Offer::all();
         $data['products'] = Product::with('category')->get();
         $data['categories'] = Category::all();
         return view('Front.Home.index')->with($data);

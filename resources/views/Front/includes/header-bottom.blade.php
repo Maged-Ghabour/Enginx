@@ -5,7 +5,7 @@
                 data-textshowmore="Show More" data-textless="Hide" data-desktop_item="4">
                 <div class="toggle-nav d-flex align-items-center justify-content-start">
                     <span class="btnov-lines"></span>
-                    <span>Shop By Categories</span>
+                    <span>البحث بالأقسام</span>
                 </div>
                 <div class="verticalmenu-content has-showmore show">
                     <div id="_desktop_verticalmenu" class="nov-verticalmenu block" data-count_showmore="6">
@@ -58,81 +58,39 @@
                             <div id="megamenu" class="nov-megamenu clearfix">
                                 <ul class="menu level1">
                                     <li class="item home-page has-sub"><span class="opener"></span><a href="?home"
-                                            title="Home"><i class="zmdi zmdi-home"></i>Jobs</a>
+                                            title="Home"><i class="zmdi zmdi-home"></i>الوظائف</a>
                                         <div class="dropdown-menu" style="width:200px">
                                             <ul class="">
-                                                <li class="item "><a href="?home=home_1" title="Homepage 1">Homepage
-                                                        1</a></li>
+                                                <li class="item "><a href="{{ route('Home') }}" title="الصفحة الرئيسية">الصفحة الرئيسية</a></li>
                                             </ul>
                                         </div>
                                     </li>
                                     <li class="item  has-sub"><span class="opener"></span><a href="#"
-                                            title="Blog"><i class="zmdi zmdi-library"></i>Offers</a>
+                                            title="Blog"><i class="zmdi zmdi-library"></i>العروض</a>
                                         <div class="dropdown-menu" style="width:270px">
                                             <ul class="">
                                                 <li class="item "><a
                                                         href="/savemart/en/index.php?fc=module&amp;module=smartblog&amp;id_post=14&amp;controller=details"
-                                                        title="Blog detail">Blog detail</a>
+                                                        title="Blog detail">جميع العروض</a>
                                                 </li>
                                             </ul>
                                         </div>
                                     </li>
                                     <li class="item menu-page group"><span class="opener"></span><a
-                                            href="{{ route('Product.index') }}" title="Pages"><i
-                                                class="zmdi zmdi-assignment"></i>Products</a>
+                                            href="{{ route('Product.index') }}" title="المنتجات"><i
+                                                class="zmdi zmdi-assignment"></i>المنتجات</a>
                                         <div class="dropdown-menu">
                                             <ul class="">
                                                 <li class="item container group">
                                                     <div class="dropdown-menu">
                                                         <ul class="">
-                                                            <li class="item col-md-3 mw-20 html"><span
-                                                                    class="menu-title">Category
-                                                                    Style</span>
-                                                                <div class="menu-content">
-                                                                    <ul class="col">
-                                                                        <li><a href="/savemart/en/3-clothing">Category
-                                                                                Layout Grid</a></li>
-
-                                                                    </ul>
-                                                                </div>
+                                                            @foreach ($products as $product)
+                                                            <li class="item col-lg-2 mw-20 html"><span
+                                                                    class="menu-title">{{ $product->name }}</span>
+                                                                
                                                             </li>
-                                                            <li class="item col-md-3 mw-20 html"><span
-                                                                    class="menu-title">Product Detail
-                                                                    Style</span>
-                                                                <div class="menu-content">
-                                                                    <ul>
-                                                                        <li><a
-                                                                                href="/savemart/index.php?id_product=1&id_product_attribute=1&rewrite=faded-short-sleeves-tshirt&controller=product&id_lang=1&product_detail=product_detail_style_1">Left
-                                                                                Column</a></li>
-                                                                        <li><a
-                                                                                href="/savemart/index.php?id_product=1&id_product_attribute=1&rewrite=faded-short-sleeves-tshirt&controller=product&id_lang=1&product_detail=product_detail_style_1">Left
-                                                                                Column</a></li>
-
-                                                                    </ul>
-                                                                </div>
-                                                            </li>
-                                                            <li class="item col-md-3 mw-20 html"><span
-                                                                    class="menu-title">Bonus Page</span>
-                                                                <div class="menu-content">
-                                                                    <ul>
-                                                                        <li><a
-                                                                                href="/savemart/en/index.php?controller=page-not-found">404
-                                                                                Page</a></li>
-                                                                        <li><a
-                                                                                href="/savemart/index.php?controller=contact">Contact
-                                                                                Us Page</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </li>
-                                                            <li class="item col-md-3 mw-40 html">
-                                                                <div class="menu-content">
-                                                                    <div class="menu-banner-3 text-center">
-                                                                        <a href="#"><img class="img-fluid"
-                                                                                src="http://images.vinovathemes.com/prestashop_savemart/mega-menu-3.jpg"
-                                                                                alt="mega-menu-3.jpg" /></a>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
+                                                            @endforeach
+                                                            
                                                         </ul>
                                                     </div>
                                                 </li>
@@ -140,67 +98,38 @@
                                         </div>
                                     </li>
                                     <li class="item  group"><span class="opener"></span><a
-                                            href="{{ route('Category.index') }}" title="Categories"><i
-                                                class="zmdi zmdi-group"></i>Categories</a>
+                                            href="{{ route('Category.index') }}" title="الأقسام"><i
+                                                class="zmdi zmdi-group"></i>الأقسام</a>
                                         <div class="dropdown-menu">
                                             <ul class="">
+                                            
                                                 <li class="item container group">
                                                     <div class="dropdown-menu">
                                                         <ul class="">
-                                                            <li class="item col-lg-3 col-md-3 html"><span
-                                                                    class="menu-title">Laptop</span>
-                                                                <div class="menu-content">
-                                                                    <ul class="col">
-                                                                        <li><a href="#"
-                                                                                title="EliteBook">EliteBook</a>
-                                                                        </li>
-                                                                        Pavilion</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </li>
-                                                @foreach ($categories as $category)
-                                                    <li class="item col-lg-3 col-md-3 html">
-                                                        <span class="menu-title">
-                                                            <a
-                                                                href="{{ route('Category.show', $category->id) }}">{{ $category->name }}</a>
-                                                        </span>
-                                                        <div class="menu-content">
-                                                            <ul class="col">
-                                                                @foreach ($sub_categories as $cat)
-                                                                    @if ($cat->parent_id == $category->id)
-                                                                        <li>
-                                                                            <a
-                                                                                href="{{ route('Sub_Category.Show', [$category->id, $cat->id]) }}">
-                                                                                {{ $cat->name }}
-                                                                            </a>
-                                                                        </li>
-                                                                    @endif
-                                                                @endforeach
-
-                                                            </ul>
-                                                        </div>
-                                                    </li>
-                                                @endforeach
-
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="item container group">
-                                        <div class="dropdown-menu">
-                                            <ul class="">
-                                                <li class="item  html">
-                                                    <div class="menu-content">
-                                                        <div class="row">
                                                             @foreach ($categories as $category)
-                                                                <div
-                                                                    class="col-12 col-lg-3 col-md-3 mt-xs-10 text-center">
-                                                                    <a href="#"><img class="img-fluid"
-                                                                            src="{{ asset('uploads/Categories/' . $category->image) }}"
-                                                                            alt="" /></a>
-                                                                </div>
+                                                                <li class="item col-lg-3 col-md-3 html">
+                                                                    <span class="menu-title">
+                                                                        <a
+                                                                            href="{{ route('Category.show', $category->id) }}">{{ $category->name }}</a>
+                                                                    </span>
+                                                                    <div class="menu-content">
+                                                                        <ul class="col">
+                                                                            @foreach ($sub_categories as $cat)
+                                                                                @if ($cat->parent_id == $category->id)
+                                                                                    <li>
+                                                                                        <a
+                                                                                            href="{{ route('Sub_Category.Show', [$category->id, $cat->id]) }}">
+                                                                                            {{ $cat->name }}
+                                                                                        </a>
+                                                                                    </li>
+                                                                                @endif
+                                                                            @endforeach
+
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
                                                             @endforeach
-                                                        </div>
+                                                        </ul>
                                                     </div>
                                                 </li>
                                             </ul>
@@ -222,36 +151,29 @@
                     <span class="toggle-search hidden-lg-up"><i class="zmdi zmdi-search"></i></span>
                     <div id="_desktop_search" class="contentsticky_search">
 
-                        <div id="desktop_search_content" data-id_lang="6" data-ajaxsearch="1"
-                            data-novadvancedsearch_type="top" data-instantsearch="" data-search_ssl=""
-                            data-link_search_ssl="http://demo.bestprestashoptheme.com/savemart/ar/بحث"
-                            data-action="http://demo.bestprestashoptheme.com/savemart/ar/module/novadvancedsearch/result">
+                        <div id="desktop_search_content" data-id_lang="6" data-ajaxsearch="1">
                             <form method="get"
-                                action="http://demo.bestprestashoptheme.com/savemart/ar/module/novadvancedsearch/result"
+                                action=""
                                 id="searchbox" class="form-novadvancedsearch">
-                                <input type="hidden" name="fc" value="module">
-                                <input type="hidden" name="module" value="novadvancedsearch">
-                                <input type="hidden" name="controller" value="result">
-                                <input type="hidden" name="orderby" value="position" />
-                                <input type="hidden" name="orderway" value="desc" />
-                                <input type="hidden" name="id_category" class="id_category" value="0" />
+                                
                                 <div class="input-group">
-                                    <input type="text" id="search_query_top"
-                                        class="search_query ui-autocomplete-input form-control" name="search_query"
-                                        value="" placeholder="Search" />
+                                    <input onkeyup="showResult(this.value)"  type="text" id="search_query_top" 
+                                        class="search_query ui-autocomplete-input form-control" name="key"
+                                        placeholder="بحث" />
+                                        <div id="searchProduct"></div>
 
                                     <div class="input-group-btn nov_category_tree hidden-sm-down">
                                         <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
                                             aria-haspopup="true" value="" aria-expanded="false">
-                                            CATEGORIES
+                                            الأقسام
                                         </button>
                                         <ul class="dropdown-menu list-unstyled">
                                             <li class="dropdown-item " data-value="2">
-                                                <span>Home Page</span>
+                                                <span>الرئيسية</span>
                                             </li>
                                             <li class="dropdown-item " data-value="2">
                                                 <a href="{{ route('Category.index') }}">
-                                                    <span>All Categories</span>
+                                                    <span>كل الأقسام</span>
                                                 </a>
                                             </li>
                                             <ul class="list-unstyled pl-5">
@@ -278,7 +200,7 @@
 
                                     <span class="input-group-btn">
                                         <button class="btn btn-secondary" type="submit" name="submit_search"><i
-                                                class="material-icons">search</i></button>
+                                                class="material-icons">بحث</i></button>
                                     </span>
                                 </div>
 
@@ -294,4 +216,30 @@
     </div>
 </div>
 </div>
+<script>
+        function showResult(str) 
+        {
+            let searchProduct = document.getElementById('search_query_top').value ;
+            let url = "{{ url('enginx/products/search') }}" + "/";
+          if (str.length==0) 
+          {
+            document.getElementById("searchProduct").innerHTML="";
+            document.getElementById("searchProduct").style.border="0px";
+            return;
+          }
+          var xmlhttp=new XMLHttpRequest();
+          xmlhttp.onreadystatechange=function() 
+          {
+            if (this.readyState==4 && this.status==200) 
+            {
+              document.getElementById("searchProduct").innerHTML=this.responseText;
+              document.getElementById("searchProduct").style.border="2px solid #A5ACB2";
+            }
+          }
+          xmlhttp.open("GET", url+ searchProduct ,true);
+          xmlhttp.send();
+        }
+ </script>
 </header>
+
+ 
