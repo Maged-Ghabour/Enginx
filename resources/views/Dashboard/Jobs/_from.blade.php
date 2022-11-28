@@ -1,14 +1,14 @@
 <div class="mb-3">
     <label for="namejop" class="form-label">أسم الوظيفة :-</label>
-    <input type="text" name="name" value="{{ isset($myjop->name) ? $myjop->name : '' }}" @class(['form-control', 'is-invalid' => $errors->has('name')])
-        id="namejop">
+    <input required type="text" name="name" value="{{ isset($myjop->name) ? $myjop->name : '' }}"
+        @class(['form-control', 'is-invalid' => $errors->has('name')]) id="namejop">
     @error('name')
         <div class="invalid-feedback">{{ $message }}</div>
     @enderror
 </div>
 <div class="mb-3">
     <label for="titlejop" class="form-label"> المسمى الوظيفى :-</label>
-    <input type="text" name="joptitle" value="{{ isset($myjop->joptitle) ? $myjop->joptitle : '' }}"
+    <input required type="text" name="joptitle" value="{{ isset($myjop->joptitle) ? $myjop->joptitle : '' }}"
         @class(['form-control', 'is-invalid' => $errors->has('joptitle')]) id="titlejop">
     @error('joptitle')
         <div class="invalid-feedback">{{ $message }}</div>
@@ -16,8 +16,8 @@
 </div>
 <div class="mb-3">
     <label for="formFileLg" class="form-label"> صورة الوظيفة :-</label>
-    <input name="image" id="formFileLg" value="{{ isset($myjop->image) ? $myjop->image : '' }}" type="file"
-        @class(['form-control', 'is-invalid' => $errors->has('image')])>
+    <input required name="image" id="formFileLg" value="{{ isset($myjop->image) ? $myjop->image : '' }}"
+        type="file" @class(['form-control', 'is-invalid' => $errors->has('image')])>
     @error('image')
         <div class="invalid-feedback">{{ $message }}</div>
     @enderror

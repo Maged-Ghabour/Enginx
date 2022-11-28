@@ -84,8 +84,7 @@
                     </td>
 
                     <td>
-                        <a class="btn btn-outline-primary"
-                            href="{{ route('dashboard.offers.edit', $offer->id) }}">تعديل</a>
+                        <a class="btn btn-outline-primary" href="{{ route('dashboard.offers.edit', $offer->id) }}">تعديل</a>
                     </td>
                     <td>
                         <form action="{{ route('dashboard.offers.destroy', $offer->id) }}" method="post">
