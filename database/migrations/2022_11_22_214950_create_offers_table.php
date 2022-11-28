@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string("title" , 100);
             $table->string("image");
             $table->date("expire_date");
-            $table->text("description");
-            $table->text("features");
+            $table->text("description") ;
+            $table->text("features") ;
             $table->timestamps();
         });
     }
