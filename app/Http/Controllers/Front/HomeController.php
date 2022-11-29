@@ -18,8 +18,8 @@ class HomeController extends Controller
     public function index()
     {
         $data['offers'] = Offer::all();
-        $data['products'] = Product::with('category')->get();
-        $data['categories'] = Category::where('parent_id', null)->get();
+        $data['products'] = Product::with('category')->orderBy('id', 'DESC')->take(6)->get();
+        $data['categories'] = Category::where('parent_id', null)->orderBy('id', 'DESC')->take(6)->get();
         return view('Front.Home.index')->with($data);
     }
 

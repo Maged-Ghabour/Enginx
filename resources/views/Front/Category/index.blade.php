@@ -46,7 +46,7 @@
                                                                 <div class="star star_on">
                                                                 </div>
                                                             </div>
-                                                            <span>5 review</span>
+                                                            <span>5 تقييمات</span>
                                                         </div>
                                                         <div class="product-title d-flex justify-content-center"
                                                             itemprop="name">{{ $category->description }}
@@ -56,13 +56,13 @@
                                                             <a href="#">
                                                                 <span
                                                                     class="badge badge-primary">{{ $category->products_count }}</span>
-                                                                : Products
+                                                                منتجات القسم
                                                             </a>
 
                                                             <a href="#">
                                                                 <span
                                                                     class="badge badge-primary">{{ $category->children_count }}</span>
-                                                                : Sub_Categories
+                                                                الأقسام الفرعية
                                                             </a>
 
                                                         </div>
@@ -70,7 +70,7 @@
                                                             class="btn btn-primary d-flex justify-content-center"
                                                             data-link-action="quickview">
                                                             <i class="fa fa-search"></i>
-                                                            <span>See Category</span>
+                                                            <span>رؤية القسم</span>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -82,7 +82,7 @@
                         </div>
                     </div>
                 @empty
-                    No Category Found
+                    لا يوجد أقسام متاحة
                 @endforelse
             </div>
         </div>

@@ -1,6 +1,6 @@
 @extends('Front.layouts.app')
 
-@section('title', $product->name . ' Show')
+@section('title', $product->name)
 
 @section('content')
     <div class="container mt-5 pb-3">
@@ -45,7 +45,7 @@
                                 <div class="star star_on">
                                 </div>
                             </div>
-                            <span>5 review</span>
+                            <span>5 تقييمات</span>
                         </div>
                         <p class="m-2 p-2 text-muted">{!! $product->description !!}</p>
                         <p class='text-primary'>${{ $product->price }}</p>
@@ -92,7 +92,7 @@
                             <a class="addToWishlist wishlistProd_1  btn btn-outline-light" href="#" data-rel="1"
                                 onclick="WishlistCart('wishlist_block_list', 'add', '1', false, 1); return false;">
                                 <i class="fa fa-heart"></i>
-                                <span>Add to Wishlist</span>
+                                <span>أضف الى المفضلة</span>
                             </a>
 
                         </div>

@@ -116,7 +116,7 @@
                                                             </div>
                                                         </div>
                                                     @empty
-                                                        No Offers Founded
+                                                        لا يوجد عروض متاحة
                                                     @endforelse
                                                     {{-- End Offers Show --}}
 
@@ -169,7 +169,7 @@
                                                                                     <div class="star star_on"></div>
                                                                                     <div class="star star_on"></div>
                                                                                 </div>
-                                                                                <span>5 review</span>
+                                                                                <span>5 تقييمات</span>
                                                                             </div>
 
                                                                             <div class="product-title" itemprop="name">
@@ -220,7 +220,7 @@
                                                                                 href="#" data-rel="1"
                                                                                 onclick="WishlistCart('wishlist_block_list', 'add', '1', false, 1); return false;">
                                                                                 <i class="fa fa-heart"></i>
-                                                                                <span>Add to Wishlist</span>
+                                                                                <span>أضف الى المفضلة</span>
                                                                             </a>
                                                                             <!-- end /var/www/demo.bestprestashoptheme.com/public_html/savemart/themes/vinova_savemart/modules/novblockwishlist/novblockwishlist_button.tpl -->
 
@@ -237,11 +237,17 @@
                                                             </div>
                                                         </div>
                                                     @empty
-                                                        no products
+                                                        لا يوجد منتجات متاحة
                                                     @endforelse
                                                 </div>
                                             </div>
                                         </div>
+                                        @if ($products->count() > 0)
+                                            <div class="d-flex justify-content-center align-item-center">
+                                                <a class="btn btn-outline-primary w-25 p-4 m-3 "
+                                                    href="{{ route('Product.index') }}">إستكشف كل المنتجات</a>
+                                            </div>
+                                        @endif
                                     </div>
                                     {{-- End Showing Products Section --}}
 
@@ -256,9 +262,9 @@
                                             class="nov-productlist   productlist-liststyle col-xl-4 col-lg-4 col-md-4 col-xs-12 col-md-12">
                                             <div class="block block-product clearfix">
                                                 <h2 class="title_block">
-                                                    <a
-                                                        href="{{ 'Category.show', $category->id }}">{{ $category->name }}</a>
-
+                                                    <a href="{{ route('Category.show', $category->id) }}">
+                                                        {{ $category->name }}
+                                                    </a>
                                                 </h2>
                                                 <div class="block_content">
                                                     <div id="productlist162539295"
@@ -303,7 +309,7 @@
                                                                                             <div class="star star_on">
                                                                                             </div>
                                                                                         </div>
-                                                                                        <span>5 review</span>
+                                                                                        <span>5 تقييمات</span>
                                                                                     </div>
                                                                                     {{-- <p class="seller_name">
                                                                                     <a title="View seller profile"
@@ -330,7 +336,7 @@
                                                                     </div>
                                                                 @endif
                                                             @empty
-                                                                <p class="text-danger">No Products</p>
+                                                                <p class="text-danger">لا يوجد منتجات متاحة فى القسم</p>
                                                             @endforelse
 
                                                         </div>
@@ -339,7 +345,7 @@
                                             </div>
                                         </div>
                                     @empty
-                                        No Category Found
+                                        لا يوجد أقسام متاحة
                                     @endforelse
                                 </div>
                             </div>
@@ -347,6 +353,12 @@
 
 
                         </div>
+                        @if ($categories->count() > 0)
+                            <div class="d-flex justify-content-center align-item-center">
+                                <a class="btn btn-outline-primary w-25 p-4 m-3 "
+                                    href="{{ route('Category.index') }}">إستكشف كل الأقسام</a>
+                            </div>
+                        @endif
                     </div>
                 </section>
             </div>
