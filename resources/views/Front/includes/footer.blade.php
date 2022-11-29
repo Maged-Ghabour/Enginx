@@ -160,7 +160,7 @@
                                     <ul>
                                         <li><a href="#">Sitemap</a></li>
                                         <li><a href="#">My Account</a></li>
-                                        <li><a href="#">Contact Us</a></li>
+                                        <li><a href="{{route('contact_us')}}">Contact Us</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -176,7 +176,7 @@
                                 </div>
                                 <div class="block_content">
                                     <ul>
-                                        <li><a href="#">Payments & Returns</a></li>
+                                        <li><a href="{{route('payments')}}">Payments & Returns</a></li>
                                     </ul>
                                 </div>
                             </div>

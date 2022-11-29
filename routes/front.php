@@ -25,3 +25,13 @@ Route::group(["prefix" => 'enginx'], function () {
     return view('front.footer.who');
  }
  )->name('who');
+
+ Route::get('/contact', function(){
+    return view('front.footer.contact_us');
+ }
+ )->name('contact_us');
+
+ Route::get('/payments', function(){
+    return view('front.footer.payments');
+ }
+ )->name('payments');
