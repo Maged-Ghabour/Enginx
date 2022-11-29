@@ -23,9 +23,8 @@ class ProductController extends Controller
 
     public function search($id)
     {
-        $data['products'] = Product::where('name' , 'like' , '%' . $id .'%')->get();
+        $data['products'] = Product::where('name', 'like', '%' . $id . '%')->get();
 
-        return view('Front.Product.search')->with($data) ;
+        return view('Front.Product.search')->with($data);
     }
-    
 }

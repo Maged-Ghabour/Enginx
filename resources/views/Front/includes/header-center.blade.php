@@ -30,29 +30,11 @@
                         </a>
                     </div>
 
-                    <div id="_desktop_cart">
-                        <div class="blockcart cart-preview active"
-                            data-refresh-url="//demo.bestprestashoptheme.com/savemart/ar/module/ps_shoppingcart/ajax">
-                            <div class="header-cart">
-                                <div class="cart-left">
-                                    <div class="shopping-cart"><i class="zmdi zmdi-shopping-cart"></i>
-                                    </div>
-                                    <div class="cart-products-count">0</div>
-                                </div>
-                                <div class="cart-right d-flex flex-column align-self-end ml-13">
-                                    <span class="title-cart">سلة الشراء</span>
-                                    <span class="cart-item"> items</span>
-                                </div>
-                            </div>
-                            <div class="cart_block ">
-                                <div class="cart-block-content">
-                                    <div class="no-items">
-                                        لا يوجد منتجات فى السلة
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                    <!-- begin module:ps_shoppingcart/ps_shoppingcart.tpl -->
+                    <!-- begin /var/www/demo.bestprestashoptheme.com/public_html/savemart/themes/vinova_savemart/modules/ps_shoppingcart/ps_shoppingcart.tpl -->
+                    @include("Front.Cart.cartHead")
+
                 </div>
             </div>
         </div>

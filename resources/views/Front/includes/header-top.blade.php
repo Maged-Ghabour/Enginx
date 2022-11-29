@@ -51,9 +51,10 @@
 
                                                 <div class="dropdown-menu dropdown-menu-right"
                                                     aria-labelledby="navbarDropdown">
-                                                    <form action="{{ route('dashboard.Admin.Logout') }}" method="post">
+                                                    <form action="{{ route('logout') }}" method="post">
                                                         @csrf
-                                                        <button class="btn btn-outline-danger my-2">تسجيل الخروج</button>
+                                                        <button class="btn btn-outline-danger my-2">تسجيل خروج</button>
+                                                    
                                                     </form>
 
                                                 </div>
