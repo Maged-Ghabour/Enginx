@@ -20,3 +20,8 @@ Route::group(["prefix" => 'enginx'], function () {
         Route::get('/{id}/sub_category/{sub_id}', [CategoryController::class, 'show_sub_category'])->name('Sub_Category.Show');
     });
 });
+
+ Route::get('/who', function(){
+    return view('front.footer.who');
+ }
+ )->name('who');
