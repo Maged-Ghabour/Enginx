@@ -5,6 +5,8 @@ use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\ProductController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', [HomeController::class, 'index'])->name('Home');
+
 Route::group(["prefix" => 'enginx'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('Home');
 
@@ -21,7 +23,9 @@ Route::group(["prefix" => 'enginx'], function () {
     });
 });
 
- Route::get('/who', function(){
-    return view('front.footer.who');
- }
- )->name('who');
+Route::get(
+    '/who',
+    function () {
+        return view('front.footer.who');
+    }
+)->name('who');
