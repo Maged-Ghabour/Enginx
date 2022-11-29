@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\Front\CartController;
 use App\Http\Controllers\ImageUploadController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +29,15 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::post('image-upload', [ImageUploadController::class, 'storeImage'])->name('image.upload');
+
+
+/* Start Cart Route */
+Route::group(["prefix" => 'enginx'], function () {
+    Route::resource('cart', CartController::class);
+});
+
+
+/* End Cart Route  */
 
 
 

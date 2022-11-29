@@ -54,6 +54,7 @@
                                                     <form action="{{ route('logout') }}" method="post">
                                                         @csrf
                                                         <button class="btn btn-outline-danger my-2">تسجيل خروج</button>
+                                                    
                                                     </form>
 
                                                 </div>

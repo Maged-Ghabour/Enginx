@@ -10,17 +10,88 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=yes">
     <link rel="icon" type="image/vnd.microsoft.icon" href="/savemart/img/favicon.ico?1531456858">
     <link rel="shortcut icon" type="image/x-icon" href="/savemart/img/favicon.ico?1531456858">
-       
+
     <link rel="stylesheet"
         href="http://demo.bestprestashoptheme.com/savemart/themes/vinova_savemart/assets/cache/theme-4527f124.css"
         type="text/css" media="all">
-        
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;900&display=swap" rel="stylesheet">
 
 
     @yield('styles')
+    <style>body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+  }
+
+  html {
+    box-sizing: border-box;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  .column {
+    float: left;
+    width: 33.3%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+  }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+  }
+
+  .about-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #474e5d;
+    color: white;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .title {
+    color: grey;
+  }
+
+  .button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .button:hover {
+    background-color: #555;
+  }
+
+  @media screen and (max-width: 650px) {
+    .column {
+      width: 100%;
+      display: block;
+    }
+  }</style>
+
+
+
 
     <script type="text/javascript">
         var added_to_wishlist = "The product was successfully added to your wishlist.";
@@ -287,15 +358,15 @@
     <script type="text/javascript">
         var baseDir = "/savemart/";
         var static_token = "28add935523ef131c8432825597b9928";
-        
+
     </script>
 
     <style type="text/css">
-    
+
         #main-site {
             background-color: #ffffff;
         }
-    
+
         @media (min-width: 1200px) {
             .container {
                 width: 1200px;
