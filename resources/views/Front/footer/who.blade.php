@@ -54,7 +54,6 @@
     </div>
   </div>
 </div>
-
 @include('Front.includes.footer')
 @include('Front.includes.downbar')
 @include('Front.includes.scripts')
