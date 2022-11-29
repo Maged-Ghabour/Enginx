@@ -3,6 +3,5 @@
         <a href="{{ route('Product.show', $prodcut->id) }}">{{ $prodcut->name }}</a>
     </h1>
 @empty
-    <p class="ml-3">No Contributed Data</p>
+    <p class="ml-3">لا يوجد مقترحات للبحث</p>
 @endforelse
-

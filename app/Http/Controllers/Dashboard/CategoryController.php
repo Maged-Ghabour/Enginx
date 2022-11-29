@@ -25,9 +25,9 @@ class CategoryController extends Controller
         Carbon::setLocale(config('locale'));
         $categories = Category::with("parent")
 
-                    ->filter($request->query())
-                    ->orderBy("categories.name")
-                    ->withCount("products")->paginate(2);
+            ->filter($request->query())
+            ->orderBy("categories.name")
+            ->withCount("products")->paginate(10);
 
 
 
@@ -74,7 +74,7 @@ class CategoryController extends Controller
             $ext = $image->getClientOriginalExtension();
             $name = uniqid() . time() . ".$ext";
 
-            $image->move(public_path("uploads/Categories/") , $name);
+            $image->move(public_path("uploads/Categories/"), $name);
         }
 
         // Validation

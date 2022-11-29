@@ -1,10 +1,10 @@
 @extends('Front.layouts.app')
 
 
-@section('title', 'All Prodcuts')
+@section('title', 'كل المنتجات')
 @section('content')
     {{-- Start Showing Products  --}}
-    <h2 class="text-center mt-3 pb-5">All Category Products</h2>
+    <h2 class="text-center mt-3 pb-5">كل المنتجات المتاحة</h2>
     <div class="container mt-3 pb-4">
         <div class="row">
             @forelse ($products as $product)
@@ -28,7 +28,7 @@
                                     <div class="star star_on">
                                     </div>
                                 </div>
-                                <span>5 review</span>
+                                <span>5 تقييمات</span>
                             </div>
                             <div class="product-description">
                                 <div class="product-groups">
@@ -36,7 +36,7 @@
                                             href="{{ route('Product.show', $product->id) }}">{{ $product->name }}</a>
                                     </div>
                                     <div class="product-title" itemprop="name">
-                                        <a href="">Category: {{ $product->category->name }}</a>
+                                        <a href=""> القسم التابع : {{ $product->category->name }}</a>
                                     </div>
                                     <div class="product-group-price">
                                         <div class="product-price-and-shipping">
@@ -51,11 +51,11 @@
                 </div>
 
             @empty
-                <p class="text-danger">No Products Found</p>
+                <p class="text-danger">لا يوجد منتجات متاحة</p>
             @endforelse
         </div>
     </div>
-    <div class="d-flex justify-content-center align-items-center w-100">
+    <div class="d-flex justify-content-center align-items-center w-100 p-5">
         {{ $products->links('pagination::bootstrap-4') }}
     </div>
     {{-- End Showing Products --}}

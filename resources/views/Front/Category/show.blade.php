@@ -21,7 +21,7 @@
                     </h2>
 
                     {{-- Showing Sub Categories --}}
-                    <h2 class="text-center mt-3 pb-5">Sub Categories</h2>
+                    <h2 class="text-center mt-3 pb-5">الأقسام الفرعية</h2>
                     <div class="row">
                         @forelse ($sub_cats as $cat)
                             @if ($cat->parent_id == $category->id)
@@ -38,26 +38,34 @@
                                                         <a
                                                             href="{{ route('Sub_Category.Show', [$category->id, $cat->id]) }}">{{ $cat->name }}</a>
                                                     </div>
-                                                    <div class="product-group-price">
-                                                        <div class="product-price-and-shipping">
-                                                            <span itemprop="price" class="price">
-                                                                {{ $cat->description }}</span>
-                                                        </div>
-                                                    </div>
+
+                                                    <a href="#" class="m-3 p-3">
+                                                        منتجات القسم الفرعى
+                                                        <span class="badge badge-primary">{{ $cat->products->count() }}
+                                                        </span>
+                                                    </a>
                                                 </div>
+                                            </div>
+                                            <div class="m-2 p-2">
+                                                <a href="{{ route('Sub_Category.Show', [$category->id, $cat->id]) }}"
+                                                    class="btn btn-primary d-flex justify-content-center"
+                                                    data-link-action="quickview">
+                                                    <i class="fa fa-search"></i>
+                                                    <span>رؤية القسم الفرعى</span>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             @endif
                         @empty
-                            <p class="text-danger">No Sub Cats here </p>
+                            <p class="text-danger">لا يوجد أقسام فرعية للقسم </p>
                         @endforelse
                     </div>
                     {{-- End Showing Sub Categories --}}
 
                     {{-- Start Showing Category Products  --}}
-                    <h2 class="text-center mt-3 pb-5">All Category Products</h2>
+                    <h2 class="text-center mt-3 p-5">كل منتجات القسم</h2>
                     <div class="row">
                         @forelse ($category->products as $product)
                             @if ($product->category_id == $category->id)
@@ -81,7 +89,7 @@
                                                     <div class="star star_on">
                                                     </div>
                                                 </div>
-                                                <span>5 review</span>
+                                                <span>5 تقييمات</span>
                                             </div>
                                             <div class="product-description">
                                                 <div class="product-groups">
@@ -101,7 +109,7 @@
                                 </div>
                             @endif
                         @empty
-                            <p class="text-danger">No Products in this category</p>
+                            <p class="text-danger">لا يوحد منتجات فى هذا القسم</p>
                         @endforelse
                     </div>
                     {{-- End Showing Category Products --}}
