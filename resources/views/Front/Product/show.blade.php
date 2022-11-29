@@ -4,13 +4,24 @@
 
 @section('content')
     <div class="container mt-5 pb-3">
+
+    <!--  Add To Cart -->
+    @if(session("cart_added"))
+
+        <!-- I'll Make Here Modal --->
+    @endif
+
+
+
+
+    <form action="{{route('cart.store')}}" method="post" class="formAddToCart">
+    @csrf
         <div class="row">
             <div class="col-md-12 m-auto m-5 p-5">
                 <div class="d-flex justify-content-between">
                     <div class="col-md-4">
                         <img class="img-fluid image-cover" src="{{ asset('uploads/Products/' . $product->image) }}"
                             alt="{{ $product->name }}"
-                            data-full-size-image-url="http://demo.bestprestashoptheme.com/savemart/24-large_default/hummingbird-printed-t-shirt.jpg"
                             width="600" height="600">
                     </div>
                     <div class="col-md-8">
@@ -40,15 +51,43 @@
                         <p class='text-primary'>${{ $product->price }}</p>
                         <div class="product-buttons d-flex justify-content-center" itemprop="offers" itemscope
                             itemtype="http://schema.org/Offer">
-                            <form action="http://demo.bestprestashoptheme.com/savemart/ar/عربة التسوق" method="post"
-                                class="formAddToCart">
-                                <input type="hidden" name="token" value="28add935523ef131c8432825597b9928">
-                                <input type="hidden" name="id_product" value="1">
-                                <a class="add-to-cart  btn btn-outline-light" href="#"
-                                    data-button-action="add-to-cart"><i class="novicon-cart fa fa-plus"></i><span>Add To
-                                        Cart
-                                    </span></a>
+
+
+
+                                <input type="hidden" name="product_id" value="{{$product->id}}">
+                                <div class="product-quantity">
+                                    <span class="control-label">الكميَّة : </span>
+                                    <div class="qty">
+                                        <div class="input-group bootstrap-touchspin">
+                                            <input type="text" name="quantity" id="quantity_wanted" value="1" class="input-group form-control" min="1" style="display: block;">
+                                            <span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span>
+
+                                        </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="add">
+                                    <button class="btn btn-primary add-to-cart" data-toggle="modal" data-target="#exampleModal" type="submit">
+                                        <div class="icon-cart">
+                                            <i class="shopping-cart"></i>
+                                        </div>
+                                        <span>أضف للسلة</span>
+                                    </button>
+                                </div>
+
+
                             </form>
+
+
+
+
+
+                                            <!--- End Add To Cart -->
+
+
+
+
+
 
                             <a class="addToWishlist wishlistProd_1  btn btn-outline-light" href="#" data-rel="1"
                                 onclick="WishlistCart('wishlist_block_list', 'add', '1', false, 1); return false;">
@@ -61,5 +100,10 @@
                 </div>
             </div>
         </div>
+
+
+
     </div>
 @endsection
+
+
