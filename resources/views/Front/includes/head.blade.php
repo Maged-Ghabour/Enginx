@@ -324,6 +324,14 @@
         #popup-subscribe .modal-dialog .modal-content {
             background-image: url(/savemart/modules/novthemeconfig/images/newsletter_bg-1.png);
         }
+
+        .img {
+            border-radius: 30px;
+        }
+
+        .hr {
+            border: 1px solid rgba(12, 11, 11, 0.199);
+        }
     </style>
 
 </head>

@@ -61,8 +61,9 @@
                                             title="Home"><i class="zmdi zmdi-home"></i>Jobs</a>
                                         <div class="dropdown-menu" style="width:200px">
                                             <ul class="">
-                                                <li class="item "><a href="?home=home_1" title="Homepage 1">Homepage
-                                                        1</a></li>
+                                                <li class="item "><a href="{{ route('MyJops') }}"
+                                                        title="Homepage 1">الوظائف</a>
+                                                </li>
                                             </ul>
                                         </div>
                                     </li>

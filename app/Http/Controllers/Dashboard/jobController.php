@@ -58,7 +58,7 @@ class jobController extends Controller
             'jopdescription' => $request->jopdescription,
             'joprequirement' => $request->joprequirement
         ]);
-        return redirect()->route('dashboard.jobs.index');
+        return redirect()->route('dashboard.jobs.index')->with("success", "تم ايضافة الوظيفة بنجاح");
     }
 
     /**
@@ -126,7 +126,7 @@ class jobController extends Controller
         $jops->joprequirement = $request->joprequirement;
         $jops->save();
 
-        return redirect()->route('dashboard.jobs.index');
+        return redirect()->route('dashboard.jobs.index')->with("updated", "تم تعديل الوظيفة بنجاح");
     }
 
     /**
@@ -137,6 +137,7 @@ class jobController extends Controller
      */
     public function destroy($id)
     {
+
         $job = Job::findOrFail($id);
         $job->delete();
 

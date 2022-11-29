@@ -20,7 +20,7 @@ class ProductController extends Controller
         $request = request();
         $products = Product::with("category")->filter($request->query())->paginate(2);
 
-        return view("Dashboard.Products.index" , compact("products"));
+        return view("Dashboard.Products.index", compact("products"));
     }
 
     /**
@@ -35,7 +35,7 @@ class ProductController extends Controller
 
         $product = new product();
         $categories = Category::get();
-        return view("Dashboard.Products.create" , compact("product" , "categories"));
+        return view("Dashboard.Products.create", compact("product", "categories"));
     }
 
     /**
@@ -46,29 +46,31 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-         // Request Merge
-         $request->merge([
+        // Request Merge
+        $request->merge([
             "slug" => Str::slug($request->name)
         ]);
 
 
 
 
-        if($request->file("image")){
+        if ($request->file("image")) {
             $image = $request->file("image");
             $ext = $image->getClientOriginalExtension();
             $name = uniqid() . time() . ".$ext";
-            $image->move(public_path("uploads/Products/") , $name);
+            $image->move(public_path("uploads/Products/"), $name);
         }
 
 
         // Validation
 
-        $request->validate(Product::rules($id =0) ,
+        $request->validate(
+            Product::rules($id = 0),
             [
-                "required" => "هذا الحقل مطلوب" ,
+                "required" => "هذا الحقل مطلوب",
                 "unique" => "هذا الحقل موجود مسبقا"
-            ]);
+            ]
+        );
 
 
 
@@ -86,7 +88,7 @@ class ProductController extends Controller
 
 
 
-        return redirect()->route("dashboard.products.index")->with("success" , "تم إضافة المنتج بنجاح");
+        return redirect()->route("dashboard.products.index")->with("updated", "تم إضافة المنتج بنجاح");
     }
 
     /**
@@ -110,7 +112,7 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
         $categories = Category::get();
-        return view("Dashboard.Products.edit" , compact("product" , "categories"));
+        return view("Dashboard.Products.edit", compact("product", "categories"));
     }
 
     /**
@@ -125,25 +127,24 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $name = $product->image;
 
-        if($request->hasFile("image")){
-            if($name !== null){
-                unlink(public_path("uploads/Products/").$name);
+        if ($request->hasFile("image")) {
+            if ($name !== null) {
+                unlink(public_path("uploads/Products/") . $name);
             }
 
             $image = $request->file("image");
             $ext = $image->getClientOriginalExtension();
             $name = uniqid() . time() . ".$ext";
-            $image->move(public_path("uploads/Products/") , $name);
-
+            $image->move(public_path("uploads/Products/"), $name);
         }
 
 
 
 
-            // Request Merge
-            $request->merge([
-                "slug" => Str::slug($request->name)
-            ]);
+        // Request Merge
+        $request->merge([
+            "slug" => Str::slug($request->name)
+        ]);
 
 
         $request->validate(Product::rules($id));
@@ -159,7 +160,7 @@ class ProductController extends Controller
         ]);
 
         return redirect(route("dashboard.products.index"))
-        ->with("updated" , "📢 تم تعديل المنتج بنجاح");
+            ->with("updated", "📢 تم تعديل المنتج بنجاح");
     }
 
     /**
@@ -173,12 +174,11 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $product->delete();
 
-        if($product->image){
-            unlink(public_path("uploads/Products/").$product->image);
+        if ($product->image) {
+            unlink(public_path("uploads/Products/") . $product->image);
         }
 
         return redirect()->route("dashboard.products.index")
-        -> with("deleted" , "✈ تم حذف المنتج بنجاح");
+            ->with("deleted", "✈ تم حذف المنتج بنجاح");
     }
-
 }

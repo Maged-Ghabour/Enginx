@@ -9,6 +9,8 @@
 @yield('aside')
 @yield('display-top')
 @yield('content')
+@yield('job')
+
 
 @include('Front.includes.footer')
 @include('Front.includes.downbar')
