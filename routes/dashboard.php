@@ -25,5 +25,8 @@ Route::group(['prefix' => 'admin-dashboard'], function () {
         Route::resource("/offers", OfferController::class);
         Route::resource("/jobs", jobController::class);
         Route::resource("/ourCustomers", CustomerController::class);
+        Route::get('/allCV/{id}', [\App\Http\Controllers\Dashboard\ApplicantController::class, 'index'])->name('allCV');
+        Route::get('/CV/{id}', [\App\Http\Controllers\Dashboard\ApplicantController::class, 'show'])->name('MyCv');
+        Route::delete('/destroyCV/{id}', [\App\Http\Controllers\Dashboard\ApplicantController::class, 'destroy'])->name('destroy');
     });
 });

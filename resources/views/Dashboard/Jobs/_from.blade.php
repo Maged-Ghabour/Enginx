@@ -16,7 +16,7 @@
 </div>
 <div class="mb-3">
     <label for="formFileLg" class="form-label"> صورة الوظيفة :-</label>
-    <input required name="image" id="formFileLg" value="{{ isset($myjop->image) ? $myjop->image : '' }}"
+    <input class="form-control" name="image" id="formFileLg" value="{{ isset($myjop->image) ? $myjop->image : '' }}"
         type="file" @class(['form-control', 'is-invalid' => $errors->has('image')])>
     @error('image')
         <div class="invalid-feedback">{{ $message }}</div>

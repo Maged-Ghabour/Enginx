@@ -21,21 +21,31 @@ Route::group(["prefix" => 'enginx'], function () {
         Route::get('/{id}', [CategoryController::class, 'show'])->name('Category.show');
         Route::get('/{id}/sub_category/{sub_id}', [CategoryController::class, 'show_sub_category'])->name('Sub_Category.Show');
     });
+    Route::group(['prefix' => 'jobs'], function () {
+        Route::get('/', [\App\Http\Controllers\Front\JobController::class, 'index'])->name('MyJops');
+        Route::get('/show/{id}', [\App\Http\Controllers\Front\JobController::class, 'show'])->name('show');
+        Route::post('/store', [\App\Http\Controllers\Front\ApplicantController::class, 'store'])->name('store');
+    });
 });
 
 
- Route::get('/who', function(){
-    return view('front.footer.who');
- }
- )->name('who');
+Route::get(
+    '/who',
+    function () {
+        return view('front.footer.who');
+    }
+)->name('who');
 
- Route::get('/contact', function(){
-    return view('front.footer.contact_us');
- }
- )->name('contact_us');
+Route::get(
+    '/contact',
+    function () {
+        return view('front.footer.contact_us');
+    }
+)->name('contact_us');
 
- Route::get('/payments', function(){
-    return view('front.footer.payments');
- }
- )->name('payments');
-
+Route::get(
+    '/payments',
+    function () {
+        return view('front.footer.payments');
+    }
+)->name('payments');

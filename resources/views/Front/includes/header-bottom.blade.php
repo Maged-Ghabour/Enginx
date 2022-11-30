@@ -61,7 +61,7 @@
                                             title="Home"><i class="zmdi zmdi-home"></i>الوظائف</a>
                                         <div class="dropdown-menu" style="width:200px">
                                             <ul class="">
-                                                <li class="item "><a href="{{ route('Home') }}"
+                                                <li class="item "><a href="{{ route('MyJops') }}"
                                                         title="الصفحة الرئيسية">الصفحة الرئيسية</a></li>
                                             </ul>
                                         </div>
