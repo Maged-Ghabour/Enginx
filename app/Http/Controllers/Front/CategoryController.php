@@ -17,7 +17,7 @@ class CategoryController extends Controller
             ->paginate(3);
         $data['products'] = Product::all();
 
-        dd($data);
+
         return view('Front.Category.index')->with($data);
     }
 
@@ -30,7 +30,9 @@ class CategoryController extends Controller
             ->with('products')
             ->findOrFail($id);
 
-        $data['sub_cats'] = Category::where('parent_id', "<>", null)->get();
+        $data['sub_cats'] = Category::where('parent_id', "<>", null)
+        ->with('children')
+        ->get();
         return view('Front.Category.show')->with($data);
     }
 

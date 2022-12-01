@@ -1,12 +1,17 @@
 <div class="mb-3">
+
     <label for="name">اسم المنتج</label>
-    <input required type="text" name="name" @class(['form-control', 'is-invalid' => $errors->has('name')]) value="{{ $product->name }}" />
+    {{-- <input required type="text" name="name" @class(['form-control', 'is-invalid' => $errors->has('name')]) value="{{ $product->name }}" />
     @error('name')
         <div class="invalid-feedback">{{ $message }}</div>
-    @enderror
+    @enderror  --}}
+
+    <x-form.input name="name" :value="$product->name" />
+
 </div>
 
 <div class="mb-3">
+
     <label for="category_id"> التصنيف </label>
     <select name="category_id" id="name" @class([
         'form-control p-1',
@@ -26,27 +31,37 @@
 
 <div class="mb-3">
     <label for="price">سعر المنتج</label>
-    <input required type="text" name="price" @class(['form-control', 'is-invalid' => $errors->has('price')]) value="{{ $product->price }}" />
+    {{-- <input required type="text" name="price" @class(['form-control', 'is-invalid' => $errors->has('price')]) value="{{ $product->price }}" />
     @error('price')
         <div class="invalid-feedback">{{ $message }}</div>
-    @enderror
+    @enderror --}}
+
+    <x-form.input name="price" :value="$product->price" />
+
 </div>
 
 <div class="mb-3">
+
     <label for="compare_price">سعر المنتج بعد الخصم</label>
-    <input type="text" name="compare_price" @class([
+
+    {{-- <input type="text" name="compare_price" @class([
         'form-control',
         'is-invalid' => $errors->has('compare_price'),
     ]) value="{{ $product->price }}" />
     @error('compare_price')
         <div class="invalid-feedback">{{ $message }}</div>
-    @enderror
+    @enderror --}}
+
+    <x-form.input name="compare_price" :value="$product->compare_price" />
+
+
 </div>
 
 
 
 <div class="mb-3">
     <label for="editor">وصف المنتج</label>
+
     <textarea name="description" id="editor" rows="7" @class([
         'form-control p-1',
         'is-invalid' => $errors->has('description'),
@@ -58,7 +73,7 @@
 
 <div class="mb-3">
     <label for="image">رفع صورة المنتج</label>
-    <input required required type="file" name="image" id="image" @class(['form-control p-1', 'is-invalid' => $errors->has('image')]) />
+    <input  type="file" name="image" id="image" @class(['form-control p-1', 'is-invalid' => $errors->has('image')]) />
 
     @error('image')
         <div class="invalid-feedback">{{ $message }}</div>

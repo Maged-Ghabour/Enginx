@@ -49,8 +49,7 @@
                         </div>
                         <p class="m-2 p-2 text-muted">{!! $product->description !!}</p>
                         <p class='text-primary'>${{ $product->price }}</p>
-                        <div class="product-buttons d-flex justify-content-center" itemprop="offers" itemscope
-                            itemtype="http://schema.org/Offer">
+                        <div class="product-buttons d-flex justify-content-center flex-column" >
 
 
 
@@ -58,7 +57,7 @@
                                 <div class="product-quantity">
                                     <span class="control-label">الكميَّة : </span>
                                     <div class="qty">
-                                        <div class="input-group bootstrap-touchspin">
+                                        <div class="input-group">
                                             <input type="text" name="quantity" id="quantity_wanted" value="1" class="input-group form-control" min="1" style="display: block;">
                                             <span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span>
 
@@ -67,13 +66,10 @@
                                   </div>
 
                                   <div class="add">
-                                    <button class="btn btn-primary add-to-cart" data-toggle="modal" data-target="#exampleModal" type="submit">
-                                        <div class="icon-cart">
-                                            <i class="shopping-cart"></i>
-                                        </div>
-                                        <span>أضف للسلة</span>
+                                    <button class="btn btn-primary add-to-cart mx-2"  data-toggle="modal" data-target="#exampleModal" type="submit">
+                                        <span class="d-block">أضف للسلة</span>
                                     </button>
-                                </div>
+                                 </div>
 
 
                             </form>
@@ -89,8 +85,7 @@
 
 
 
-                            <a class="addToWishlist wishlistProd_1  btn btn-outline-light" href="#" data-rel="1"
-                                onclick="WishlistCart('wishlist_block_list', 'add', '1', false, 1); return false;">
+                            <a class="addToWishlist wishlistProd_1  btn btn-outline-light" href="#" >
                                 <i class="fa fa-heart"></i>
                                 <span>أضف الى المفضلة</span>
                             </a>

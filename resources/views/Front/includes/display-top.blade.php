@@ -28,15 +28,15 @@
                         </div>
                         <div class="nivoSlider">
                             <a href="#">
-                                <img src="{{ asset('uploads/Products/637b6e1cc2fad1669033500.png') }}" alt=""
+                                <img src="{{ asset('uploads/Products/63826a59d4f301669491289.png') }}" alt=""
                                     title="image" />
                             </a>
                             <a href="#">
-                                <img src="{{ asset('uploads/Products/637b7199707301669034393.png') }}" alt=""
+                                <img src="{{ asset('uploads/Products/63826a50ed2691669491280.jpg') }}" alt=""
                                     title="image" />
                             </a>
                             <a href="#">
-                                <img src="{{ asset('uploads/Products/637b7199707301669034393.png') }}" alt=""
+                                <img src="{{ asset('uploads/Products/6384ff264dd6c1669660454.png') }}" alt=""
                                     title="image" />
                             </a>
                         </div>
