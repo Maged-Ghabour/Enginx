@@ -20,7 +20,7 @@ class ApplicantController extends Controller
         }
         $val = $request->validate([
             'name' => 'required|max:255',
-            'CV.*' => 'required|mimes:pdf,docx|max:1024'
+            'CV.*' => 'required|mimes:pdf|max:1024'
         ]);
         // $val['CV'] = $request->CV;
         // $val['job_id'] = $request->id;
