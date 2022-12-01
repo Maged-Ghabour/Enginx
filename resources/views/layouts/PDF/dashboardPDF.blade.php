@@ -22,6 +22,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="{{ asset('Dashboard/dist/css/custom_rtl.css') }}">
     <link rel="stylesheet" href="{{ asset('Dashboard/dist/css/mycustomstyle.css') }}">
     <!--  ckeditor 5 -->
+    <style>
+        @media only screen and (max-width: 300px) {
+            .height {
+                height: 300px;
+            }
+        }
+
+        @media only screen and (max-width: 700px) {
+            .height {
+                height: 700px;
+            }
+        }
+
+        @media only screen and (max-width: 1080px) {
+            .height {
+                height: 1000px;
+            }
+        }
+    </style>
     <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
 
     @stack('styles')
