@@ -91,26 +91,20 @@
                                                                                 <div class="label">الكمـية :</div>
                                                                                 <div
                                                                                     class="input-group bootstrap-touchspin">
-                                                                                    <span
-                                                                                        class="input-group-addon bootstrap-touchspin-prefix"
-                                                                                        style="display: none;"></span>
-                                                                                        <input id="quantity_wanted" class="js-cart-line-product-quantity form-control" type="text"
-                                                                                        value="{{$item->quantity}}"
-                                                                                        name="product-quantity-spin"
-                                                                                        min="1"
-                                                                                        style="display: block;"><span
-                                                                                        class="input-group-addon bootstrap-touchspin-postfix"
-                                                                                        style="display: none;"></span><span
-                                                                                        class="input-group-btn-vertical">
+                                                                                    <span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span>
 
+                                                                                        <input id="quantity_wanted" class="item-quantity form-control" type="text" value="{{$item->quantity}}"
+                                                                                            data-id="{{$item->id}}"   name="quantity" min="1" style="display: block;">
 
-                                                                                            </span>
+                                                                                       <span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span>
+                                                                                        <span class="input-group-btn-vertical">
+                                                                                    </span>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-md-6 col-xs-6 price">
-                                                                                <div class="label">Total:</div>
+                                                                                <div class="label">الإجمالي:</div>
                                                                                 <div class="product-price total">
-                                                                                    {{-- {{$item->total()}} --}}
+                                                                                    {{$item->product->price * $item->quantity }}
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -119,7 +113,7 @@
                                                                         class="col-sm-3 col-xs-12 text-xs-right align-self-end">
                                                                         <div class="cart-line-product-actions ">
                                                                             <a class="remove-from-cart" rel="nofollow"
-                                                                                href="https://demo.bestprestashoptheme.com/savemart/ar/عربة التسوق?delete=1&amp;id_product=4&amp;id_product_attribute=112&amp;token=28add935523ef131c8432825597b9928"
+                                                                                href=""
                                                                                 data-link-action="delete-from-cart"
                                                                                 data-id-product="4"
                                                                                 data-id-product-attribute="112"
@@ -211,9 +205,11 @@
 
 
 
-                            <a class="btn btn-primary mt-5" href="#">
+                            <a class="btn btn-primary mt-5" href="{{route('Product.index')}}">
                                 الاستمرار في التسوق
                             </a>
+
+
 
 
 
@@ -238,7 +234,7 @@
 
                                 <div class="cart-detailed-totals">
                                     <div class="cart-summary-products">
-                                        <div class="summary-label">There are 3 منتجات in your cart</div>
+                                        <div class="summary-label">هناك عدد من المنتجات في السلة</div>
                                     </div>
 
                                     <div class="">
@@ -246,11 +242,11 @@
                                             <span class="label js-subtotal">
                                                 إجمالي المنتجات:
                                             </span>
-                                            <span class="value">86.64&nbsp;UK£</span>
+                                            <span class="value">{{$cart->total()}} جنية</span>
                                         </div>
                                         <div class="cart-summary-line" id="cart-subtotal-shipping">
                                             <span class="label">
-                                                Total الشحن:
+                                                إجمالي الشحن:
                                             </span>
                                             <span class="value">مجاناً</span>
                                             <div><small class="value"></small></div>
@@ -263,7 +259,7 @@
                                     <div class="">
                                         <div class="cart-summary-line cart-total">
                                             <span class="label">الإجمالي:</span>
-                                            <span class="value">86.64&nbsp;UK£ (شامل للضريبة)</span>
+                                            <span class="value">{{$cart->total()}} جنية (شامل للضريبة)</span>
                                         </div>
 
                                     </div>
@@ -287,37 +283,6 @@
 
 
 
-                            <div class="blockreassurance_product">
-                                <div>
-                                    <span class="item-product">
-                                        <img class="svg"
-                                            src="">
-                                        &nbsp;
-                                    </span>
-                                    <p class="block-title" style="color:#000000;">Security policy (edit with Customer
-                                        reassurance module)</p>
-                                </div>
-                                <div>
-                                    <span class="item-product">
-                                        <img class="svg"
-                                            src="">
-                                        &nbsp;
-                                    </span>
-                                    <p class="block-title" style="color:#000000;">Delivery policy (edit with Customer
-                                        reassurance module)</p>
-                                </div>
-                                <div>
-                                    <span class="item-product">
-                                        <img class="svg"
-                                            src="">
-                                        &nbsp;
-                                    </span>
-                                    <p class="block-title" style="color:#000000;">Return policy (edit with Customer
-                                        reassurance module)</p>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-
 
 
                         </div>
@@ -335,3 +300,9 @@
 @include('Front.includes.footer')
 @include('Front.includes.downbar')
 @include('Front.includes.scripts')
+
+<script>
+    const csrf_token = "{{ csrf_token() }}";
+</script>
+<script src="{{asset('js/cart.js')}}"></script>
+

@@ -33,7 +33,7 @@
 
                     <!-- begin module:ps_shoppingcart/ps_shoppingcart.tpl -->
                     <!-- begin /var/www/demo.bestprestashoptheme.com/public_html/savemart/themes/vinova_savemart/modules/ps_shoppingcart/ps_shoppingcart.tpl -->
-                    @include("Front.Cart.cartHead")
+                    <x-cart-menu  />
 
                 </div>
             </div>

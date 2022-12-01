@@ -13,7 +13,7 @@
             </div>
         </div>
 
-        <!---  Start if categories is Exists    -->
+        <!--  Start if categories is Exists    -->
 
         <div class="cart_block has-scroll">
             <div class="cart-block-content">
@@ -59,10 +59,10 @@
                 </div>
                 <div class="cart-total">
                     <span class="label">الإجمالي:</span>
-                    <span class="value">{{$item->total()}}</span>
+                    <span class="value">{{$cart->total()}}</span>
                 </div>
                 <div class="cart-buttons d-flex">
-                    <a href="//demo.bestprestashoptheme.com/savemart/ar/عربة التسوق?action=show"
+                    <a href=""
                         class="btn btn-primary">View cart</a>
                     <a href="#" class="btn btn-primary">اتمام
                         الطلب</a>
@@ -77,8 +77,8 @@
 
 
 
-        {{--
-        <!--  Start  cart is Empty --->
+
+        {{-- <!--  Start  cart is Empty --->
         <div class="cart_block ">
             <div class="cart-block-content">
                 <div class="no-items">
@@ -87,6 +87,8 @@
             </div>
         </div>
         <!--  End  cart is Empty ---> --}}
-    {{-- </div> --}}
-{{-- </div> --}}
 
+
+    </div>
+</div>
+ --}}
