@@ -10,6 +10,7 @@
 @yield('display-top')
 @yield('content')
 @yield('who')
+@yield('job')
 
 @include('Front.includes.footer')
 @include('Front.includes.downbar')

@@ -61,8 +61,8 @@
                                             title="Home"><i class="zmdi zmdi-home"></i>الوظائف</a>
                                         <div class="dropdown-menu" style="width:200px">
                                             <ul class="">
-                                                <li class="item "><a href="{{ route('Home') }}"
-                                                        title="الصفحة الرئيسية">الصفحة الرئيسية</a></li>
+                                                <li class="item "><a href="{{ route('MyJops') }}"
+                                                        title="الصفحة الرئيسية">الوظائف</a></li>
                                             </ul>
                                         </div>
                                     </li>
@@ -85,17 +85,15 @@
                                                 <li class="item container group">
                                                     <div class="dropdown-menu">
                                                         <ul class="">
-                                                            @foreach ($categories as $category)
-                                                                @foreach ($category->products as $product)
-                                                                    <li class="item col-lg-2 mw-20 html">
-                                                                        <span class="menu-title">
-                                                                            <a
-                                                                                href="{{ route('Product.show', $product->id) }}">
-                                                                                {{ $product->name }}
-                                                                            </a>
-                                                                        </span>
-                                                                    </li>
-                                                                @endforeach
+                                                            @foreach ($products as $product)
+                                                                <li class="item col-lg-2 mw-20 html">
+                                                                    <span class="menu-title">
+                                                                        <a
+                                                                            href="{{ route('Product.show', $product->id) }}">
+                                                                            {{ $product->name }}
+                                                                        </a>
+                                                                    </span>
+                                                                </li>
                                                             @endforeach
 
                                                         </ul>

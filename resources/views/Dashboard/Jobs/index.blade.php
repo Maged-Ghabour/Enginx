@@ -1,10 +1,15 @@
 @extends('layouts.dashboard')
 @section('content')
+    <x-alert type="success" color="success" />
+    <x-alert type="deleted" color="danger" />
+    <x-alert type="updated" color="primary" />
+
+
     <div class="container">
         {{-- {{ route('dashboard.create') }} --}}
         <form action="{{ route('dashboard.jobs.create') }}" method="get" class="mb-2">
             @csrf
-            <input type="submit" class="btn btn-success mb-2 float-right " value="أضافة وظيفة جديدة" />
+            <input type="submit" class="btn btn-success" value="أضافة وظيفة جديدة" />
         </form>
         <table class="table">
             <thead>
@@ -22,7 +27,8 @@
                 @foreach ($jops as $jop)
                     <tr>
                         <th>{{ $jop->id }}</th>
-                        <td>{{ $jop->name }}</td>
+                        <td><a href="{{ route('dashboard.allCV', $jop->id) }}" class="btn btn-link">
+                                {{ $jop->name }}</a></td>
                         <td>{{ $jop->joptitle }}</td>
                         <td><img src="{{ asset('uploads/Jops/' . $jop->image) }}" width="70px" /> </td>
                         <td>

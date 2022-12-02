@@ -203,6 +203,36 @@
             </li>
                         <!--- End customers --->
 
+                         <!--- Start orders --->
+            <li class="nav-item has-treeview menu-open">
+                <a href="" class="nav-link">
+                    <i class="nav-icon fas fa-user-plus"></i>
+                    <p>
+                            الطلبات
+                    <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{route('dashboard.orders.index')}}" class="nav-link active">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>جميع الطلبات</p>
+                        </a>
+                    </li>
+                    </ul>
+
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                    <a href="{{route('dashboard.orders.create')}}" class="nav-link active">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>إضافة طلب جديد</p>
+                    </a>
+                    </li>
+                </ul>
+            </li>
+                        <!--- End customers --->
+
 
 
 

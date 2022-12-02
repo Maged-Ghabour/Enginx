@@ -8,6 +8,7 @@ use App\Http\Controllers\dashboard\OfferController;
 use App\Http\Controllers\Dashboard\ProductController;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\CustomerController;
+use App\Http\Controllers\Dashboard\OrderController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,5 +26,10 @@ Route::group(['prefix' => 'admin-dashboard'], function () {
         Route::resource("/offers", OfferController::class);
         Route::resource("/jobs", jobController::class);
         Route::resource("/ourCustomers", CustomerController::class);
+        Route::get('/allCV/{id}', [\App\Http\Controllers\Dashboard\ApplicantController::class, 'index'])->name('allCV');
+        Route::get('/CV/{id}', [\App\Http\Controllers\Dashboard\ApplicantController::class, 'show'])->name('MyCv');
+        Route::delete('/destroyCV/{id}', [\App\Http\Controllers\Dashboard\ApplicantController::class, 'destroy'])->name('destroy');
+        Route::get('/orders/print/{id}', [OrderController::class, 'print'])->name('order.print');
+        Route::resource('/orders', OrderController::class);
     });
 });
