@@ -52,7 +52,7 @@
 
                                     <!-- Start Item Loop --->
                                         @foreach ($cart->get() as $item )
-                                            <li class="cart-item list-group p-5" style="background:#eff5f6">
+                                            <li class="cart-item list-group p-5" style="background:#eff5f6" id="{{$item->id}}">
 
                                                 <div class="product-line-grid row spacing-10">
                                                     <!--  product left content: image-->
@@ -109,17 +109,12 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div
-                                                                        class="col-sm-3 col-xs-12 text-xs-right align-self-end">
-                                                                        <div class="cart-line-product-actions ">
-                                                                            <a class="remove-from-cart" rel="nofollow"
-                                                                                href=""
-                                                                                data-link-action="delete-from-cart"
-                                                                                data-id-product="4"
-                                                                                data-id-product-attribute="112"
-                                                                                data-id-customization="">
-                                                                                <i class="fa fa-trash-o"
-                                                                                    aria-hidden="true"></i>
+                                                                    <div  class="col-sm-3 col-xs-12 text-xs-right align-self-end">
+                                                                        <div class=" ">
+                                                                            <a class="remove-item"  data-id="{{$item->id}}"  href="">
+
+                                                                                <i class="fa fa-trash-o"></i>
+
                                                                             </a>
 
 
@@ -305,4 +300,6 @@
     const csrf_token = "{{ csrf_token() }}";
 </script>
 <script src="{{asset('js/cart.js')}}"></script>
+
+
 

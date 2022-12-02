@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>@yield('title')</title>
-    <meta name="description" content="المتجر مدعوم من طرف بريستاشوب">
+    <meta name="description" content="Enginx" />
     <meta name="keywords" content="">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=yes">
     <link rel="icon" type="image/vnd.microsoft.icon" href="/savemart/img/favicon.ico?1531456858">
