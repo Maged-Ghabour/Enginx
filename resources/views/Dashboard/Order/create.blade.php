@@ -41,7 +41,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="{{ route('dashboard.orders.store') }}" method="POST">
+                        <form id="form" action="{{ route('dashboard.orders.store') }}" method="POST">
                             @csrf
                             <div class="row form-group">
                                 <div class="col-md-6">
@@ -102,6 +102,17 @@
                                         <tr class='cloning_row' id="0">
                                             <td>#</td>
                                             <td>
+                                                {{-- <select name="product_name[0]" class="product_name form-control"
+                                                    id="product_name">
+                                                    @foreach ($products as $product)
+                                                        <option value="{{ $product->id }}">
+                                                            {{ $product->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                @error('product_name')
+                                                    <span class="alert alert-danger">{{ $message }}</span>
+                                                @enderror --}}
                                                 <input type="text" name="product_name[0]"
                                                     class="product_name form-control" id="product_name">
                                                 @error('product_name')
@@ -174,5 +185,10 @@
     {{-- js Pickadate Library  --}}
     <script src="{{ asset('Front/js/date-package/picker.js') }}"></script>
     <script src="{{ asset('Front/js/date-package/picker.date.js') }}"></script>
+    @if (config('app.locale') == 'ar')
+        <script src="{{ asset('Front/js/validation/messages_ar.js') }}"></script>
+        <script src="{{ asset('Front/js/date-package/ar.js') }}"></script>
+    @endif
+
     <script src="{{ asset('Front/js/mine.js') }}"></script>
 @endpush
