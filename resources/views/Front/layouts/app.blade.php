@@ -3,7 +3,7 @@
 @include('Front.includes.header-center')
 @include('Front.includes.header-bottom')
 @include('Front.includes.header-sticky')
-@include('Front.includes.display-top')
+{{-- @include('Front.includes.display-top') --}}
 
 
 @yield('aside')

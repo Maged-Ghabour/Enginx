@@ -47,24 +47,22 @@ class UserController extends Controller
 
 
 
+        // $request->validate(User::rules($id =0) ,
+        //     [
+        //         "required" => "هذا الحقل مطلوب" ,
+        //         "unique" => "هذا الحقل موجود مسبقا" ,
+        //         "email" => 'ادخل ايميل صالح'
+        //     ]);
+
+
 
         if($request->file("image")){
             $image = $request->file("image");
             $ext = $image->getClientOriginalExtension();
             $name = uniqid() . time() . ".$ext";
             $image->move(public_path("uploads/Users/") , $name);
-        }else{
-            $name ="";
         }
 
-
-        // Validation
-
-        // $request->validate(User::rules($id =0) ,
-        //     [
-        //         "required" => "هذا الحقل مطلوب" ,
-        //         "unique" => "هذا الحقل موجود مسبقا"
-        //     ]);
 
 
 

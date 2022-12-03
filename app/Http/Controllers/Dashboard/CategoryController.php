@@ -67,6 +67,17 @@ class CategoryController extends Controller
         ]);
 
 
+            // Validation
+
+            $request->validate(
+                Category::rules($id = 0),
+                [
+                    "required" => "هذا الحقل مطلوب",
+                    "unique" => "هذا الحقل موجود مسبقا"
+                ]
+            );
+
+
 
 
         if ($request->file("image")) {
@@ -76,16 +87,6 @@ class CategoryController extends Controller
 
             $image->move(public_path("uploads/Categories/"), $name);
         }
-
-        // Validation
-
-        $request->validate(
-            Category::rules($id = 0),
-            [
-                "required" => "هذا الحقل مطلوب",
-                "unique" => "هذا الحقل موجود مسبقا"
-            ]
-        );
 
 
 

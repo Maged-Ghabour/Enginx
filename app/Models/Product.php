@@ -22,11 +22,15 @@ class Product extends Model
 
     public static function rules($id=0){
         return [
-        "name"      => "required|string|min:3|max:100|unique:categories,name,$id",
+
+
+        "name"      => "required|string|min:3|max:100|unique:products,name,$id",
         // "parent_id" => "nullable|int|exists:categories,id",
         "description" =>"required",
         "price" => "required|numeric|min:0|max:100000",
         "compare_price" =>"nullable|numeric|min:0|max:100000",
+        "image" => "required|image|mimes:jpg,png,JPG,PNG,web,jpeg"
+
 
         ];
     }

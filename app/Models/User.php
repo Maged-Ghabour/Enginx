@@ -49,4 +49,15 @@ class User extends Authenticatable
         return $this->HasOne(Profile::class,"user_id" , "id")
         ->withDefault();
     }
+
+
+    // public static function rules($id=0){
+    //     return [
+    //     "name"      => "required|string|min:3|max:100|unique:users,name,$id",
+    //     "email" => "required|unique|email",
+
+
+    //     ];
+    // }
+
 }

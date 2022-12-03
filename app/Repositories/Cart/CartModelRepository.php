@@ -13,7 +13,11 @@ class CartModelRepository implements CartRepository{
 
 
     protected $items;
+
+
     public function __construct(){
+
+
         $this->items = collect([]); // To Convet Array To collection.
 
     }
@@ -35,8 +39,11 @@ class CartModelRepository implements CartRepository{
                     // ->where('cookie_id' , '=' , $this->getCookieId())
                     ->first();
 
+
+
             if(!$item){
-               return $cart =  Cart::create([
+                $cart =  Cart::create([
+
                     "product_id" => $product ->id ,
                     "user_id" => Auth::id(),
                     // "cookie_id" => $this-> getCookieId(),
@@ -44,9 +51,13 @@ class CartModelRepository implements CartRepository{
                 ]);
 
             $this->get()->push($cart);
+            return $cart;
+
 
             }
         return $item->increment("quantity" , $quantity);
+
+
 
     }
 
