@@ -89,13 +89,10 @@
             </div>
             <div class="cart-buttons d-flex">
                 <a href="{{ route('cart.index') }}" class="btn btn-primary">السلة</a>
-
-
                 <a href="{{ route('checkout') }}" class="btn btn-primary">اتمام</a>
-
-
             </div>
         </div>
+
     </div>
 
 
