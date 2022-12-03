@@ -1,58 +1,98 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('Front.layouts.app')
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+@section('title', 'تسجيل الدخول')
 
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
+@push('styles')
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-            <!-- Email Address -->
-            <div>
-                <x-input-label for="email" :value="__('Email')" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/vendor/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/fonts/Linearicons-Free-v1.0.0/icon-font.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/vendor/animate/animate.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/vendor/css-hamburgers/hamburgers.min.css') }}">
 
-                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
-                    required autofocus />
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/vendor/animsition/css/animsition.min.css') }}">
 
-                <x-input-error :messages="$errors->get('email')" class="mt-2" />
-            </div>
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/vendor/select2/select2.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/vendor/daterangepicker/daterangepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/util.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/main.css') }}">
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-input-label for="password" :value="__('Password')" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+@endpush
+@section('content')
+    <div class="limiter">
+        <div class="container mt-2 pt-3">
 
-                <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required
-                    autocomplete="current-password" />
-
-                <x-input-error :messages="$errors->get('password')" class="mt-2" />
-            </div>
-
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox"
-                        class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                        href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
+            <div class="wrap-login100">
+                <div class="login100-form-title" style="background-image: url({{ asset('front/images/bg-01.jpg') }})">
+                    <h3 class="login100-form-title-1 text-center">
+                        تسجيل دخول العميل
+                    </h3>
+                </div>
+                {{-- Valdation Admin Error --}}
+                @if (session()->has('error'))
+                    <div class="alert alert-danger mt-2 text-center">
+                        {{ session()->get('error') }}
+                    </div>
                 @endif
+                <form class="m-5 p-5" method="POST" action="{{ route('login') }}">
+                    @csrf
+                    <div class="form-group" data-validate="Email is required">
+                        <span class="label-input100">البريد الإلكترونى :</span>
+                        <input class="input100 form-control w-50" type="email" name="email"
+                            placeholder="أدلخ البريد الإلكترونى">
+                        <span class="focus-input100"></span>
+                    </div>
 
-                <x-primary-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-primary-button>
+                    <div class="form-group" data-validate="Password is required">
+                        <span class="label-input100">الرقم السرى</span>
+                        <input class="input100 form-control w-50" type="password" name="password"
+                            placeholder="أدخل الرقم السرى">
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="block mt-4 pb-1">
+                        <label for="remember_me" class="inline-flex items-center">
+                            <input id="remember_me" type="checkbox"
+                                class="form-group rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500"
+                                name="remember">
+                            <span class="ml-2 text-sm text-gray-600">تذكرنى</span>
+                        </label>
+                    </div>
+
+                    <div class="d-flex justify-content-between mt-3 w-50 pb-2">
+                        @if (Route::has('password.request'))
+                            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                href="{{ route('password.request') }}">
+                                هل نسيت الرقم السري ؟
+                            </a>
+                            <a href="{{ route('register') }}"> لا تملك حساباً ؟ </a>
+                        @endif
+                    </div>
+                    <div class="mt-3 d-flex justify-content-between w-50">
+                        <button type="submit" class="p-4 btn btn-success w-10">
+                            تسجيل الدخول
+                        </button>
+                    </div>
+                </form>
             </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+        </div>
+    </div>
+
+@endsection
+@push('scripts')
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="{{ asset('admin/js/main.js') }}"></script>
+@endpush
