@@ -5,9 +5,11 @@ use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\ProductController;
 use Illuminate\Support\Facades\Route;
 
+
 Route::get('/', [HomeController::class, 'index'])->name('Home');
 
 Route::group(["prefix" => 'enginx'], function () {
+    
     Route::get('/', [HomeController::class, 'index'])->name('Home');
 
     Route::group(['prefix' => 'products'], function () {
@@ -26,7 +28,9 @@ Route::group(["prefix" => 'enginx'], function () {
         Route::get('/show/{id}', [\App\Http\Controllers\Front\JobController::class, 'show'])->name('show');
         Route::post('/store', [\App\Http\Controllers\Front\ApplicantController::class, 'store'])->name('store');
     });
+ 
 });
+
 
 
 Route::get(
@@ -49,3 +53,25 @@ Route::get(
         return view('front.footer.payments');
     }
 )->name('payments');
+
+Route::get(
+    '/polices',
+    function () {
+        return view('front.footer.polices');
+    }
+)->name('polices');
+
+Route::get(
+    '/rules',
+    function () {
+        return view('front.footer.rules');
+    }
+)->name('rules');
+
+Route::get(
+    '/uses',
+    function () {
+        return view('front.footer.uses');
+    }
+)->name('uses');
+

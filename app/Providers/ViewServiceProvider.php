@@ -27,6 +27,7 @@ class ViewServiceProvider extends ServiceProvider
 
             $view->with('products', Product::get());
         });
+        
     }
 
     /**

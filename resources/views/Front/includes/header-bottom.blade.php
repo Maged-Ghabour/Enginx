@@ -102,8 +102,9 @@
                                             </ul>
                                         </div>
                                     </li>
+                                    <!-- {{ route('Category.index') }} -->
                                     <li class="item  group"><span class="opener"></span><a
-                                            href="{{ route('Category.index') }}" title="الأقسام"><i
+                                            href="" title="الأقسام"><i
                                                 class="zmdi zmdi-group"></i>الأقسام</a>
                                         <div class="dropdown-menu">
                                             <ul class="">
@@ -140,6 +141,7 @@
                                             </ul>
                                         </div>
                                     </li>
+                                   
                                 </ul>
                             </div>
                             </li>

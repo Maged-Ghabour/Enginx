@@ -17,7 +17,6 @@ class CategoryController extends Controller
             ->paginate(3);
         $data['products'] = Product::all();
 
-
         return view('Front.Category.index')->with($data);
     }
 
