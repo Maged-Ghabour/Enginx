@@ -18,7 +18,7 @@ class ProductController extends Controller
     public function index()
     {
         $request = request();
-        $products = Product::with("category")->filter($request->query())->paginate(2);
+        $products = Product::with("category")->filter($request->query())->paginate(10);
 
         return view("Dashboard.Products.index" , compact("products"));
     }
@@ -59,7 +59,8 @@ class ProductController extends Controller
                 "unique" => "هذا الحقل موجود مسبقا" ,
                 "numeric" => "هذاالحقل لابد ان يكون رقما",
                 "min" => "هذا الحقل لابد ان يكون اكبر من الصفر",
-                "max" => "ادخل قيمة اقل من 100000"
+                "max" => "ادخل قيمة اقل من 100000" ,
+                "image" => "لابد ان يكون امتداد الصورة احد الامتدادات الاتيه PNG,JPG,PNG"
 
             ]);
 

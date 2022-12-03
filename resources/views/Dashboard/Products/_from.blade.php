@@ -23,7 +23,7 @@
         @endforeach
     </select>
     @error('category_id')
-        <div class="invalid-feedback">{{ $message }}</div>
+        <div class="invalid-feedback">{{$message}}</div>
     @enderror
 </div>
 
@@ -62,13 +62,9 @@
 <div class="mb-3">
     <label for="editor">وصف المنتج</label>
 
-    <textarea name="description" id="editor" rows="7" @class([
-        'form-control p-1',
-        'is-invalid' => $errors->has('description'),
-    ])>{{ $product->description }}</textarea>
-    @error('description')
-        <div class="invalid-feedback">{{ $message }}</div>
-    @enderror
+
+
+    <x-form.textarea name="description" id="editor"  :value="$category->description" rows="7" />
 </div>
 
 <div class="mb-3">

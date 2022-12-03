@@ -35,8 +35,8 @@ class Category extends Model
         return [
         "name"      => "required|string|min:3|max:100|unique:categories,name,$id",
         "parent_id" => "nullable|int|exists:categories,id",
-        "description" =>"required",
-        "image" => "required|image|mimes:jpg,png"
+        "description" =>"nullable|min:3",
+        "image" => "required|image|mimes:jpg,png,JPG,PNG,web,jpeg"
         ];
     }
 

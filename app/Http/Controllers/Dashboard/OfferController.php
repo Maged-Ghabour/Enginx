@@ -42,23 +42,32 @@ class OfferController extends Controller
     public function store(Request $request)
     {
 
+
+            // Validation
+
+            $request->validate(
+                Offer::rules($id = 0),
+                [
+                    "required" => "هذا الحقل مطلوب",
+                    "unique" => "  عنوان العرض موجود مسبقا" ,
+                    "min" => "هذا الحقل لابد ان يكون ازيد من ثلاث حروف",
+                    "title.max" => "عنوان العرض لابد ان يكون اقل من مائة حرف" ,
+                    "image" => "لابد ان يكون امتداد الصورة احد الامتدادات الاتيه PNG,JPG,PNG"
+
+
+
+                ]
+            );
+
+
         if($request->file("image")){
             $image = $request->file("image");
             $ext = $image->getClientOriginalExtension();
             $name = uniqid() . time() . ".$ext";
             $image->move(public_path("uploads/Offers/") , $name);
-        }else{
-            $name ="";
         }
 
 
-        // Validation
-
-        // $request->validate(Product::rules($id =0) ,
-        //     [
-        //         "required" => "هذا الحقل مطلوب" ,
-        //         "unique" => "هذا الحقل موجود مسبقا"
-        //     ]);
 
 
 

@@ -55,10 +55,10 @@
 
             @forelse ($categories as $category)
                 <tr>
-                    <td>{{ $category->id }}</td>
+                    <td>{{$categories->firstItem()+$loop->index}}</td>
                     <td><a class="btn btn-info" href="{{ route('dashboard.categories.show', $category->id) }}">
                             {{ $category->name }}</a></td>
-                    <td><a class="btn btn-maroon" href="">{{ $category->parent->name }}</a></td>
+                    <td><span class="bg-teal color-palette rounded p-1">{{ $category->parent->name }}</span></td>
                     <td>{{ $category->products_count }}</td>
                     <td>{{ $category->description }}</td>
 

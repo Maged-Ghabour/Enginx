@@ -11,6 +11,11 @@ class ApplicantController extends Controller
     public function store(Request $request)
     {
 
+        $val = $request->validate([
+            'name' => 'required|max:255',
+            'CV' => 'required|mimes:pdf|max:1024'
+        ]);
+
         $CV = $request->CV;
         if ($CV) {
             $file = $request->file('CV');
@@ -18,10 +23,7 @@ class ApplicantController extends Controller
             $filename = time() . '.' . $extention;
             $file->move('uploads/CV', $filename);
         }
-        $val = $request->validate([
-            'name' => 'required|max:255',
-            'CV.*' => 'required|mimes:pdf|max:1024'
-        ]);
+
         // $val['CV'] = $request->CV;
         // $val['job_id'] = $request->id;
 

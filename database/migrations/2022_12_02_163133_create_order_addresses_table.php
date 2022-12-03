@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string("postal_code")->nullable();
             $table->string("state")->nullable();
             $table->enum("type" , ["billing", "shipping"]);
-            $table->char("country" , 2);
+            $table->string("country");
             $table->string("city");
             $table->timestamps();
         });

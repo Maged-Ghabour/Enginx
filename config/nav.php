@@ -61,13 +61,17 @@ return [
         "route2" => 'dashboard.ourCustomers.create',
     ],
     [
-        'icon' =>  'nav-icon fas fa-user-plus',
+        'icon' =>  'nav-icon fas fa-credit-card',
         'route' =>  'dashboard.orders.index',
-        "head" =>   'الطلبات',
-        "title1" =>  'جميع الطلبات',
+        "head" =>   'الطلبات ',
+        "title1" =>  'الطلبات بالفواتير',
         "route1" =>  'dashboard.orders.index',
         "title2" => 'إضافة طلب جديد',
         "route2" => 'dashboard.orders.create',
-    ]
+        "title3" => ' طلبات الشراء',
+        "route3" => 'dashboard.orderDetails.index',
+
+    ],
+
 
 ];
