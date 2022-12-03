@@ -68,7 +68,7 @@
                         </label>
                         <div class="col-md-6">
 
-                         <x-form.input type="text" name="addr[billing][first_name]" placeholder="الاسم الأول"/>
+                         <x-form.input type="text" name="addr[billing][first_name]" placeholder=""/>
 
 
                         </div>
@@ -84,7 +84,7 @@
                         </label>
                         <div class="col-md-6">
 
-                            <x-form.input type="text" name="addr[billing][last_name]"  placeholder="الاسم الأخير"/>
+                            <x-form.input type="text" name="addr[billing][last_name]"  placeholder=""/>
 
 
                         </div>
@@ -100,7 +100,7 @@
                         </label>
                         <div class="col-md-6">
 
-                            <x-form.input type="text" name="addr[billing][email]" placeholder="الايميل"/>
+                            <x-form.input type="text" name="addr[billing][email]" placeholder=""/>
 
 
                         </div>
@@ -116,7 +116,7 @@
                         </label>
                         <div class="col-md-6">
 
-                            <x-form.input type="text" name="addr[billing][phone_number]" placeholder="رقم الموبيل"/>
+                            <x-form.input type="text" name="addr[billing][phone_number]" placeholder=""/>
 
 
                         </div>
@@ -198,7 +198,7 @@
                         </label>
                         <div class="col-md-6">
 
-                            <select class="form-control form-control-select js-country" name="addr[billing][country]" required="">
+                            <select class="form-control form-control-select js-country" name="addr[billing][country]" required="" style="height: 50px">
                                 <option value="" disabled="" selected="">-- اختر من فضلك --</option>
                                 <option value="46">آروبا</option>
                                 <option value="47">أذربيجان</option>
@@ -246,6 +246,7 @@
                                 <option value="234">جزيرة بوفيه</option>
                                 <option value="66">جمهورية أفريقيا الوسطى</option>
                                 <option value="52">روسيا البيضاء</option>
+                                <option value="120">مصر</option>
                                 <option value="39">ساموا الأمريكية</option>
                                 <option value="68">شيلي</option>
                                 <option value="63">كمبوديا</option>
@@ -303,7 +304,7 @@
                                                 </div>
                                                 <div class="media-body d-flex flex-column">
                                                     <span class="product-name">{{$item->product->name}}</span>
-                                                    <span class="product-quantity">x 1</span>
+                                                    <span class="product-quantity">x {{$item->quantity}}</span>
                                                     <span class="product-price pull-xs-right"></span>{{$item->product->price}}&nbsp;جنيه</span>
 
                                                 </div>

@@ -11,6 +11,11 @@ class ApplicantController extends Controller
     public function store(Request $request)
     {
 
+        $val = $request->validate([
+            'name' => 'required|max:255',
+            'CV' => 'required|mimes:pdf|max:1024'
+        ]);
+
         $CV = $request->CV;
 
         // Validation
