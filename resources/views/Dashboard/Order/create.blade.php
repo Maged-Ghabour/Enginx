@@ -176,6 +176,7 @@
 
 
 
+
 @push('scripts')
     {{-- Jquery Validation Library --}}
     <script src="{{ asset('Front/js/validation/jquery.form.js') }}"></script>
@@ -192,3 +193,4 @@
 
     <script src="{{ asset('Front/js/mine.js') }}"></script>
 @endpush
+

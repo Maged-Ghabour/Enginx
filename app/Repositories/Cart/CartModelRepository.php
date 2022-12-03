@@ -41,6 +41,7 @@ class CartModelRepository implements CartRepository
     {
 
 
+
         $item = Cart::where('product_id', '=', $product->id)
             // ->where('cookie_id' , '=' , $this->getCookieId())
             ->first();
@@ -63,6 +64,7 @@ class CartModelRepository implements CartRepository
 
             }
         return $item->increment("quantity" , $quantity);
+
 
 
 

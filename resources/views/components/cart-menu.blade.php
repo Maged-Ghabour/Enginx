@@ -47,6 +47,12 @@
 
                                         </a>
 
+
+
+
+                                        <span class="quantity"> {{ $item->quantity }}</span>
+
+
                                     </div>
                                     <a class="remove-from-cart" rel="nofollow" href=""
                                         data-link-action="remove-from-cart" title="إزالة من سلة المشتريات">
@@ -80,7 +86,9 @@
                         <a href="{{route('cart.index')}}"
                             class="btn btn-primary">السلة</a>
 
+
                         <a href="{{route('checkout')}}" class="btn btn-primary">اتمام</a>
+
 
                     </div>
                 </div>

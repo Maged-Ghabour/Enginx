@@ -58,8 +58,8 @@
         <tbody>
             @forelse ($products as $product)
                 <tr>
-                    <td>{{ $product->id }}</td>
-                    <td>{{ $product->name }}</td>
+                    <td>{{ $products->firstItem()+$loop->index }}</td>
+                    <td><span class="btn btn-info">{{ $product->name }}</span></td>
                     <td>{{ $product->category->name }}</td>
                     <td>{{ $product->price }}</td>
                     <td>{!! $product->description !!}</td>

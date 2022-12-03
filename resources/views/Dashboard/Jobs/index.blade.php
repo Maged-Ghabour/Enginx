@@ -26,7 +26,7 @@
             <tbody>
                 @foreach ($jops as $jop)
                     <tr>
-                        <th>{{ $jop->id }}</th>
+                        <td>{{ $jops->firstItem()+$loop->index }}</td>
                         <td><a href="{{ route('dashboard.allCV', $jop->id) }}" class="btn btn-link">
                                 {{ $jop->name }}</a></td>
                         <td>{{ $jop->joptitle }}</td>
