@@ -5,7 +5,10 @@
             <div class="cart-left">
                 <div class="shopping-cart"><i class="zmdi zmdi-shopping-cart"></i>
                 </div>
-                <div class="cart-products-count">{{$items->count()}}</div>
+                <div class="cart-products-count">
+
+                    {{ $items->count() }}
+                </div>
             </div>
             <div class="cart-right d-flex flex-column align-self-end ml-13">
                 <span class="title-cart">سلة الشراء</span>
@@ -17,14 +20,15 @@
 
         <div class="cart_block has-scroll">
 
-                <div class="cart-block-content">
+            <div class="cart-block-content">
 
 
 
-                    <ul>
+                <ul>
 
-                            @foreach ($items as $item )
-                            <li>
+                    @foreach ($items as $item)
+                        <li>
+
 
                                 <div class="media">
                                     <img class="d-flex product-image"
@@ -42,12 +46,23 @@
                                             <i class="fa fa-trash-o"></i>
 
                                         </a>
-                                    </div>
-                                </div>
-                            </li>
-                            @endforeach
 
-                    </ul>
+
+
+                                        <span class="quantity"> {{ $item->quantity }}</span>
+
+                                    </div>
+                                    <a class="remove-from-cart" rel="nofollow" href=""
+                                        data-link-action="remove-from-cart" title="إزالة من سلة المشتريات">
+                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    @endforeach
+
+                </ul>
+
 
 
 
@@ -69,8 +84,27 @@
                         <a href="{{route('cart.index')}}"
                             class="btn btn-primary">السلة</a>
                         <a href="#" class="btn btn-primary">اتمام</a>
+
+                <div class="cart-subtotals">
+                    <div class="products">
+                        <span class="label">إجمالي الطلب:</span>
+                        <span class="value">{{ $total }}</span>
+                    </div>
+                    <div class="shipping">
+                        <span class="label">الشحن:</span>
+                        <span class="value">مجاناً</span>
+
                     </div>
                 </div>
+                <div class="cart-total">
+                    <span class="label">الإجمالي:</span>
+                    <span class="value">{{ $total }}</span>
+                </div>
+                <div class="cart-buttons d-flex">
+                    <a href="" class="btn btn-primary">السلة</a>
+                    <a href="#" class="btn btn-primary">اتمام</a>
+                </div>
+            </div>
 
 
         </div>
