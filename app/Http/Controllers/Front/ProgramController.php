@@ -7,31 +7,21 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class ProgramController extends Controller
 {
-    public function index()
-    {
-        $data['categories'] = Category::withCount('children')
-            ->withCount("products")
-            ->where('parent_id', null)
-            ->paginate(3);
-        $data['products'] = Product::all();
-        return view('Front.Category.index')->with($data);
-    }
-
     public function show($id)
     {
         $data['category'] = Category::withCount('children')
             ->withCount("products")
             ->where('id', $id)
-            ->where('parent_id', null)
+            ->where('name', 'البرامج')
             ->with('products')
             ->findOrFail($id);
 
-        $data['sub_cats'] = Category::where('parent_id', "<>", null)
+        $data['sub_cats'] = Category::where('parent_id', $id)->with('products')
             ->with('children')
             ->get();
-        return view('Front.Category.show')->with($data);
+        return view('Front.program.index')->with($data);
     }
 
 
@@ -39,9 +29,20 @@ class CategoryController extends Controller
     {
         $data['sub_cat'] = Category::withCount('parent')
             ->withCount("products")
-            ->where('parent_id', "<>", null)
+            ->where('parent_id', $id)
             ->with('products')
             ->findOrFail($sub_id);
-        return view('Front.Category.sub_cat')->with($data);
+
+        $data['category'] = Category::withCount('children')
+            ->withCount("products")
+            ->where('id', $id)
+            ->where('name', 'البرامج')
+            ->with('products')
+            ->findOrFail($id);
+
+        $data['sub_cats'] = Category::where('parent_id', $id)
+            ->with('children')
+            ->get();
+        return view('Front.program.show')->with($data);
     }
 }
