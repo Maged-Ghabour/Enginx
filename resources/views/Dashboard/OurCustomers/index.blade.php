@@ -42,7 +42,7 @@
         <tbody>
             @forelse ($customers as $customer)
                 <tr>
-                    <td>{{ $customer->id }}</td>
+                    <td>{{ $customers->firstItem()+$loop->index }}</td>
                     <td><a href="{{ route('dashboard.ourCustomers.show', $customer->id) }}"> {{ $customer->title }}</a></td>
 
                     <td>{!! $customer->description !!}</td>

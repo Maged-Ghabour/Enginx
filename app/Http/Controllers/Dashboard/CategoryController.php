@@ -68,6 +68,22 @@ class CategoryController extends Controller
 
 
 
+            // Validation
+
+            $request->validate(
+                Category::rules($id = 0),
+                [
+                    "required" => "هذا الحقل مطلوب",
+                    "unique" => "اسم التصنيف هذا موجود مسبقاً ، قم بادخال اسم تصنيف لم يتم ادخاله من قبل" ,
+                    "image" => "تأكد من امتداد الصوره بان يكون احد الامتدادات التالية JPG,PNG,TIF,BMP,GIF",
+                    "name.min" => "لابد ان يكون اسم التصنيف اكبر من ثلاث حروف" ,
+                    "max" => "لابد ان يكون اسم التصنيف اقل من 100" ,
+                    "description.min" => "لابد ان يكون وصف التصنيف اكبر من ثلاث حروف" ,
+                ]
+            );
+
+
+
 
         if ($request->file("image")) {
             $image = $request->file("image");

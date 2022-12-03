@@ -61,7 +61,7 @@ return [
         "route2" => 'dashboard.ourCustomers.create',
     ],
     [
-        'icon' =>  'nav-icon fas fa-user-plus',
+        'icon' =>  'nav-icon fas fa-dumpster',
         'route' =>  'dashboard.orders.index',
         "head" =>   'الطلبات',
         "title1" =>  'جميع الطلبات',
@@ -69,5 +69,6 @@ return [
         "title2" => 'إضافة طلب جديد',
         "route2" => 'dashboard.orders.create',
     ]
+
 
 ];

@@ -7,7 +7,7 @@
     <div class="invalid-feedback">{{ $message }}</div>
     @enderror --}}
 
-    <x-form.input name="name" :value="$category->name" />
+<x-form.input name="name" :value="$category->name"/>
 </div>
 
 
