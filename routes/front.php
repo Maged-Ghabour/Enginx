@@ -3,13 +3,17 @@
 use App\Http\Controllers\Front\CategoryController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\ProductController;
+use \App\Http\Controllers\Front\SerController;
+use \App\Http\Controllers\Front\ProgramController;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('Home');
 
 Route::group(["prefix" => 'enginx'], function () {
-    
+
+
+
     Route::get('/', [HomeController::class, 'index'])->name('Home');
 
     Route::group(['prefix' => 'products'], function () {
@@ -28,7 +32,14 @@ Route::group(["prefix" => 'enginx'], function () {
         Route::get('/show/{id}', [\App\Http\Controllers\Front\JobController::class, 'show'])->name('show');
         Route::post('/store', [\App\Http\Controllers\Front\ApplicantController::class, 'store'])->name('store');
     });
- 
+    Route::group(['prefix' => 'services'], function () {
+        Route::get('/show/{id}',  [SerController::class, 'show'])->name('services.show');
+        Route::get('/show_sub_cat/{id}/sub_cat/{sub_id}',  [SerController::class, 'show_sub_category'])->name('sub_cat');
+    });
+    Route::group(['prefix' => 'programs'], function () {
+        Route::get('/show/{id}',  [ProgramController::class, 'show'])->name('programs.show');
+        Route::get('/sub_cat/{id}/sub_cat/{sub_id}',  [ProgramController::class, 'show_sub_category'])->name('show_sub_cat');
+    });
 });
 
 
@@ -74,4 +85,3 @@ Route::get(
         return view('front.footer.uses');
     }
 )->name('uses');
-
