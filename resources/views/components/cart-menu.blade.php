@@ -35,7 +35,7 @@
                                         href="">
                                         <i class="fa fa-trash-o"></i>
                                     </a>
-                                    <span class="quantity"> {{ $item->quantity }}</span>
+
                                 </div>
                             </div>
                         </li>
