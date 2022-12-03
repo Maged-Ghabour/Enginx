@@ -53,4 +53,15 @@ class User extends Authenticatable
     {
         return $this->hasMany(Cart::class, 'cart_id', "id");
     }
+
+
+    // public static function rules($id=0){
+    //     return [
+    //     "name"      => "required|string|min:3|max:100|unique:users,name,$id",
+    //     "email" => "required|unique|email",
+
+
+    //     ];
+    // }
+
 }

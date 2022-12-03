@@ -49,7 +49,9 @@
 
 
 
+
                                         <span class="quantity"> {{ $item->quantity }}</span>
+
 
                                     </div>
                                     <a class="remove-from-cart" rel="nofollow" href=""
@@ -83,16 +85,10 @@
                     <div class="cart-buttons d-flex">
                         <a href="{{route('cart.index')}}"
                             class="btn btn-primary">السلة</a>
-                        <a href="#" class="btn btn-primary">اتمام</a>
 
-                <div class="cart-subtotals">
-                    <div class="products">
-                        <span class="label">إجمالي الطلب:</span>
-                        <span class="value">{{ $total }}</span>
-                    </div>
-                    <div class="shipping">
-                        <span class="label">الشحن:</span>
-                        <span class="value">مجاناً</span>
+
+                        <a href="{{route('checkout')}}" class="btn btn-primary">اتمام</a>
+
 
                     </div>
                 </div>
@@ -130,9 +126,11 @@
 
     </div>
 </div>
+
 <script>
     const csrf_token = "{{ csrf_token() }}";
 </script>
 <script src="{{asset('js/cart.js')}}"></script>
+
 
 
