@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Front\CartController;
+use App\Http\Controllers\Front\CheckoutController;
 use App\Http\Controllers\ImageUploadController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,16 @@ Route::group(["prefix" => 'enginx'], function () {
 
 
 /* End Cart Route  */
+
+
+/* Start Order Route */
+Route::group(["prefix" => 'enginx'], function () {
+    Route::get('checkout', [CheckoutController::class , "create"])->name("checkout");
+    Route::post('checkout', [CheckoutController::class , "store"]);
+});
+
+
+/* End Order Route  */
 
 
 

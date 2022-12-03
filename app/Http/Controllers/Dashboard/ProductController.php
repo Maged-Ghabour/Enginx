@@ -51,6 +51,17 @@ class ProductController extends Controller
             "slug" => Str::slug($request->name)
         ]);
 
+        // Validation
+
+        $request->validate(Product::rules($id =0) ,
+            [
+                "required" => "هذا الحقل مطلوب" ,
+                "unique" => "هذا الحقل موجود مسبقا" ,
+                "numeric" => "هذاالحقل لابد ان يكون رقما",
+                "min" => "هذا الحقل لابد ان يكون اكبر من الصفر",
+                "max" => "ادخل قيمة اقل من 100000"
+
+            ]);
 
 
 
@@ -62,13 +73,6 @@ class ProductController extends Controller
         }
 
 
-        // Validation
-
-        $request->validate(Product::rules($id =0) ,
-            [
-                "required" => "هذا الحقل مطلوب" ,
-                "unique" => "هذا الحقل موجود مسبقا"
-            ]);
 
 
 

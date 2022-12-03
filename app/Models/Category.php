@@ -36,9 +36,7 @@ class Category extends Model
         "name"      => "required|string|min:3|max:100|unique:categories,name,$id",
         "parent_id" => "nullable|int|exists:categories,id",
         "description" =>"required",
-        // "image" => "required|image|mimes:jpg,png"
-
-
+        "image" => "required|image|mimes:jpg,png"
         ];
     }
 

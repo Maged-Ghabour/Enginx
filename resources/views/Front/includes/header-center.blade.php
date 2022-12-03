@@ -15,7 +15,7 @@
                     <div class="content-data-contact">
                         <div class="support">الإتصال بخدمة العملاء</div>
                         <div class="phone-support">
-                            1234 567 899
+                            01007852746
                         </div>
                     </div>
                 </div>

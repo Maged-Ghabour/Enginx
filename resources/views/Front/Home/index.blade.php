@@ -4,6 +4,7 @@
 
 @section('content')
     {{-- database prooducts --}}
+@include('Front.includes.display-top')
     <div id="wrapper-site">
         <div id="content-wrapper" class="full-width">
             <div id="main">
@@ -202,12 +203,10 @@
                                                                             itemprop="offers" itemscope
                                                                             itemtype="http://schema.org/Offer">
                                                                             <form
-                                                                                action="http://demo.bestprestashoptheme.com/savemart/ar/عربة التسوق"
+                                                                                action=""
                                                                                 method="post" class="formAddToCart">
-                                                                                <input type="hidden" name="token"
-                                                                                    value="28add935523ef131c8432825597b9928">
-                                                                                <input type="hidden" name="id_product"
-                                                                                    value="1">
+                                                                                    @csrf
+
                                                                                 <a class="add-to-cart" href="#"
                                                                                     data-button-action="add-to-cart"><i
                                                                                         class="novicon-cart"></i><span>أضف

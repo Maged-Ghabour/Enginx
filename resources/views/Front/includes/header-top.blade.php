@@ -5,7 +5,7 @@
                 <div class="hidden-md-up text-xs-center mobile d-flex align-items-center justify-content-end">
                     <div id="_mobile_mainmenu" class="item-mobile-top"><i class="material-icons d-inline">menu</i></div>
                     <div class="mobile_logo ml-auto mr-auto">
-                        <a href="http://demo.bestprestashoptheme.com/savemart/">
+                        <a href="">
                             <img class="logo-mobile img-fluid" src="{{ asset('uploads/site-images/logo.png') }}"
                                 alt="Prestashop_Savemart">
                         </a>
@@ -54,7 +54,7 @@
                                                     <form action="{{ route('logout') }}" method="post">
                                                         @csrf
                                                         <button class="btn btn-outline-danger my-2">تسجيل خروج</button>
-                                                    
+
                                                     </form>
 
                                                 </div>
