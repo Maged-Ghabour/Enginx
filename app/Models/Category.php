@@ -39,7 +39,7 @@ class Category extends Model
         "description" =>"required|min:3",
         "image" => "required|image|mimes:jpg,png,bmp,jpeg,tiff,gif"
 
-
+    ];
     }
 
 
