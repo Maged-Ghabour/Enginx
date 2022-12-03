@@ -4,10 +4,7 @@
     "value" => ""
 ])
 
-<input
-    type="{{ $type }}"
-    name="{{ $name }}"
-    value="{{ old($name , $value) }}"
+<input type="{{$type}}" name="{{$name}}" value="{{old($name,$value)}}"
 
 
     {{ $attributes -> class([
@@ -17,7 +14,5 @@
 />
 
 @error($name)
-    <div class="invalid-feedback">
-        {{ $message }}
-    </div>
+    <div class="invalid-feedback">{{$message}}</div>
 @enderror

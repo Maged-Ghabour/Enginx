@@ -43,7 +43,7 @@
             <th>#</th>
             <th>اسم المستخدم</th>
             <th>البريد الالكتروني </th>
-            <th>كلمة المرور </th>
+            {{-- <th>كلمة المرور </th> --}}
             <th>تاريخ الاضافة</th>
             <th>الحذف</th>
         </thead>
@@ -55,7 +55,7 @@
 
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
-                    <td>{{ $user->password }}</td>
+                    {{-- <td>{{ $user->password }}</td> --}}
 
 
 

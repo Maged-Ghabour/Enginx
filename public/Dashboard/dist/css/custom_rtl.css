@@ -10,6 +10,9 @@
 .ck-blurred {
     min-height: 150px;
 }
+.ck-blurred:focus{
+    min-height: 150px;
+}
 .content-wrapper, .main-footer, .main-header {
     margin-left: 0px;
     margin-right: 250px;

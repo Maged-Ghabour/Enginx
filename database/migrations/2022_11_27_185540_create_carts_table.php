@@ -24,6 +24,7 @@ return new class extends Migration
                     ->constrained("products")
                     ->cascadeOnDelete();
             $table->unsignedSmallInteger("quantity")->default(1);
+            $table->unique(["cookie_id" , "product_id"]);
             $table->timestamps();
         });
     }

@@ -7,7 +7,7 @@
     <div class="invalid-feedback">{{ $message }}</div>
     @enderror --}}
 
-    <x-form.input name="name" :value="$category->name" required />
+<x-form.input name="name" :value="$category->name"/>
 </div>
 
 
@@ -39,7 +39,7 @@
 
 <div class="mb-3">
     <label for="image">رفع صورة التصنيف</label>
-    <input required type="file" name="image" id="image" @class(['form-control p-1', 'is-invalid' => $errors->has('image')]) />
+    <input  type="file" name="image" id="image" @class(['form-control p-1', 'is-invalid' => $errors->has('image')]) />
 
     @error('image')
         <div class="invalid-feedback">{{ $message }}</div>

@@ -43,10 +43,25 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
-
-    public function profile(){
-        return $this->HasOne(Profile::class,"user_id" , "id")
-        ->withDefault();
+    public function profile()
+    {
+        return $this->HasOne(Profile::class, "user_id", "id")
+            ->withDefault();
     }
+
+    public function carts()
+    {
+        return $this->hasMany(Cart::class, 'cart_id', "id");
+    }
+
+
+    // public static function rules($id=0){
+    //     return [
+    //     "name"      => "required|string|min:3|max:100|unique:users,name,$id",
+    //     "email" => "required|unique|email",
+
+
+    //     ];
+    // }
+
 }

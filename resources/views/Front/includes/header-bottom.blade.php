@@ -7,7 +7,7 @@
                     <span class="btnov-lines"></span>
                     <span>البحث بالأقسام</span>
                 </div>
-                <div class="verticalmenu-content has-showmore show">
+                <div class="verticalmenu-content has-showmore">
                     <div id="_desktop_verticalmenu" class="nov-verticalmenu block" data-count_showmore="6">
                         <div class="box-content block_content">
                             <div id="verticalmenu" class="verticalmenu" role="navigation">
@@ -62,7 +62,7 @@
                                         <div class="dropdown-menu" style="width:200px">
                                             <ul class="">
                                                 <li class="item "><a href="{{ route('MyJops') }}"
-                                                        title="الصفحة الرئيسية">الصفحة الرئيسية</a></li>
+                                                        title="الصفحة الرئيسية">الوظائف</a></li>
                                             </ul>
                                         </div>
                                     </li>
@@ -85,17 +85,15 @@
                                                 <li class="item container group">
                                                     <div class="dropdown-menu">
                                                         <ul class="">
-                                                            @foreach ($categories as $category)
-                                                                @foreach ($category->products as $product)
-                                                                    <li class="item col-lg-2 mw-20 html">
-                                                                        <span class="menu-title">
-                                                                            <a
-                                                                                href="{{ route('Product.show', $product->id) }}">
-                                                                                {{ $product->name }}
-                                                                            </a>
-                                                                        </span>
-                                                                    </li>
-                                                                @endforeach
+                                                            @foreach ($products as $product)
+                                                                <li class="item col-lg-2 mw-20 html">
+                                                                    <span class="menu-title">
+                                                                        <a
+                                                                            href="{{ route('Product.show', $product->id) }}">
+                                                                            {{ $product->name }}
+                                                                        </a>
+                                                                    </span>
+                                                                </li>
                                                             @endforeach
 
                                                         </ul>

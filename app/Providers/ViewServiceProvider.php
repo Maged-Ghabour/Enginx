@@ -24,6 +24,8 @@ class ViewServiceProvider extends ServiceProvider
             $view->with('sub_categories', Category::with('children')
                 ->with('parent')
                 ->where('parent_id', "<>", null)->get());
+
+            $view->with('products', Product::get());
         });
         
     }

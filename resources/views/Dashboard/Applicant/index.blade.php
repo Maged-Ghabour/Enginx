@@ -10,7 +10,7 @@
         </tr>
         @foreach ($AllCV as $CV)
             <tr>
-                <td>{{ $CV->id }}</td>
+                <td>{{ $AllCV->firstItem()+$loop->index }}</td>
                 <td>{{ $CV->name }}</td>
                 <td><a href="{{ route('dashboard.MyCv', $CV->id) }}" class="btn btn-link"> {{ $CV->CV }}</a></td>
                 <td>{{ $CV->created_at->format('Y-m-d') }}</td>
