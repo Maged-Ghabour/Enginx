@@ -46,17 +46,17 @@
                 </div>
             </div>
 
-            <div class="col-lg-9 col-md-11 header-menu d-flex align-items-center justify-content-start">
+            <div class="col-lg-9 col-md-11  header-menu d-flex align-items-center justify-content-start">
 
                 {{-- Header Search --}}
                 <div class="header-menu-search d-flex justify-content-between w-100 align-items-center">
 
-                    <div id="_desktop_top_menu">
+                    <div id="_desktop_top_menu " class="">
 
                         <nav id="nov-megamenu" class="clearfix">
                             <!-- Brand and toggle get grouped for better mobile display -->
-                            <div id="megamenu" class="nov-megamenu clearfix">
-                                <ul class="menu level1">
+                            <div id="megamenu" class="nov-megamenu clearfix ">
+                                <ul class="menu level1 ">
                                     <li class="item home-page has-sub"><span class="opener"></span><a href="?home"
                                             title="Home"><i class="zmdi zmdi-home"></i>الوظائف</a>
                                         <div class="dropdown-menu" style="width:200px">
@@ -102,9 +102,9 @@
                                             </ul>
                                         </div>
                                     </li>
-                                    <li class="item  group"><span class="opener"></span><a
-                                            href="{{ route('Category.index') }}" title="الأقسام"><i
-                                                class="zmdi zmdi-group"></i>الأقسام</a>
+                                    <!-- {{ route('Category.index') }} -->
+                                    <li class="item  group"><span class="opener"></span><a href=""
+                                            title="الأقسام"><i class="zmdi zmdi-group"></i>الأقسام</a>
                                         <div class="dropdown-menu">
                                             <ul class="">
 
@@ -122,7 +122,7 @@
                                                                             @foreach ($sub_categories as $cat)
                                                                                 @if ($cat->parent_id == $category->id)
                                                                                     <li>
-                                                                                        <a
+                                                                                        <a class="text-right h6"
                                                                                             href="{{ route('Sub_Category.Show', [$category->id, $cat->id]) }}">
                                                                                             {{ $cat->name }}
                                                                                         </a>
@@ -140,6 +140,7 @@
                                             </ul>
                                         </div>
                                     </li>
+
                                 </ul>
                             </div>
                             </li>

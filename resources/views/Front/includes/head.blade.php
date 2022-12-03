@@ -21,74 +21,81 @@
 
 
     @yield('styles')
-    <style>body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-  }
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+        }
 
-  html {
-    box-sizing: border-box;
-  }
 
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
+        html {
+            box-sizing: border-box;
+        }
 
-  .column {
-    float: left;
-    width: 33.3%;
-    margin-bottom: 16px;
-    padding: 0 8px;
-  }
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
 
-  .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    margin: 8px;
-  }
+        .column {
+            float: left;
+            width: 33.3%;
+            margin-bottom: 16px;
+            padding: 0 8px;
+        }
 
-  .about-section {
-    padding: 50px;
-    text-align: center;
-    background-color: #474e5d;
-    color: white;
-  }
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            margin: 8px;
+        }
 
-  .container {
-    padding: 0 16px;
-  }
+        .about-section {
+            padding: 50px;
+            text-align: center;
+            background-color: #474e5d;
+            color: white;
+        }
 
-  .container::after, .row::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
+        .container {
+            padding: 0 16px;
+        }
 
-  .title {
-    color: grey;
-  }
+        .container::after,
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
 
-  .button {
-    border: none;
-    outline: 0;
-    display: inline-block;
-    padding: 8px;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-  }
+        .title {
+            color: grey;
+        }
 
-  .button:hover {
-    background-color: #555;
-  }
+        .button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+        }
 
-  @media screen and (max-width: 650px) {
-    .column {
-      width: 100%;
-      display: block;
-    }
-  }</style>
+        .button:hover {
+            background-color: #555;
+        }
+
+
+        @media screen and (max-width: 650px) {
+            .column {
+                width: 100%;
+                display: block;
+            }
+        }
+    </style>
 
 
 
@@ -358,11 +365,9 @@
     <script type="text/javascript">
         var baseDir = "/savemart/";
         var static_token = "28add935523ef131c8432825597b9928";
-
     </script>
 
     <style type="text/css">
-
         #main-site {
             background-color: #ffffff;
         }

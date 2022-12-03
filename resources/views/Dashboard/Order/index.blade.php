@@ -21,6 +21,7 @@
     <x-alert type="updated" color="primary" />
     <table class="table">
         <thead>
+
             <th>رقم الطلب</th>
             <th>اسم العميل</th>
             <th>هاتف العميل</th>
@@ -32,6 +33,7 @@
         <tbody>
             @forelse ($orders as $order)
                 <tr>
+
                     <td><a href="{{ route('dashboard.orders.show', $order->id) }}"> {{ $order->order_number }}</a></td>
                     <td>{{ $order->customer_name }}</td>
                     <td>{{ $order->customer_mobile }}</td>

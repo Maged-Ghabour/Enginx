@@ -27,7 +27,22 @@ class ViewServiceProvider extends ServiceProvider
 
             $view->with('products', Product::get());
         });
+
+
+
+        view()->composer('Front.includes.header-top', function ($view) {
+            $view->with('category', Category::select('id', 'name')
+                ->where('name', 'خدمات')
+                ->get());
+        });
     }
+
+
+
+
+
+
+
 
     /**
      * Bootstrap services.

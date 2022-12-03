@@ -11,17 +11,21 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
-        "name" , "category_id" , "image" , "description" , "slug" , "price" , "compare_price"
+        "name", "category_id", "image", "description", "slug", "price", "compare_price"
     ];
 
-    public function category(){
-        return $this->belongsTo(Category::class , "category_id" , "id");
+    public function category()
+    {
+        return $this->belongsTo(Category::class, "category_id", "id");
     }
 
 
 
-    public static function rules($id=0){
+    public static function rules($id = 0)
+    {
         return [
+
+
 
 
         "name"      => "required|string|min:3|max:100|unique:products,name,$id",
@@ -32,21 +36,21 @@ class Product extends Model
         "image" => "required|image|mimes:jpg,png,JPG,PNG,web,jpeg"
 
 
+
+
         ];
     }
 
 
-      // Local scope for Filter (Search)
+    // Local scope for Filter (Search)
 
-      public function scopeFilter(Builder $builder , $filters){
+    public function scopeFilter(Builder $builder, $filters)
+    {
 
 
 
-        if($filters["name"] ?? false){
-            $builder->where("name" , "like" , "%{$filters["name"]}%");
+        if ($filters["name"] ?? false) {
+            $builder->where("name", "like", "%{$filters["name"]}%");
         }
-
     }
-
-
 }

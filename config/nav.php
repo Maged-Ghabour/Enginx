@@ -61,7 +61,8 @@ return [
         "route2" => 'dashboard.ourCustomers.create',
     ],
     [
-        'icon' =>  'nav-icon fas fa-credit-card',
+
+        'icon' =>  'nav-icon fas fa-dumpster',
         'route' =>  'dashboard.orders.index',
         "head" =>   'الطلبات ',
         "title1" =>  'الطلبات بالفواتير',
@@ -72,6 +73,7 @@ return [
         "route3" => 'dashboard.orderDetails.index',
 
     ],
+
 
 
 ];

@@ -17,6 +17,12 @@ class ApplicantController extends Controller
         ]);
 
         $CV = $request->CV;
+
+        // Validation
+        $val = $request->validate([
+            'name' => 'required|max:255',
+            'CV' => 'required|mimes:pdf|max:1024'
+        ]);
         if ($CV) {
             $file = $request->file('CV');
             $extention = $file->getClientOriginalExtension();

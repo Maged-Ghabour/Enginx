@@ -58,9 +58,11 @@
         <tbody>
             @forelse ($products as $product)
                 <tr>
+
                     <td>{{$products->firstItem()+$loop->index}}</td>
                     <td><span class="bg bg-info p-1 rounded">{{ $product->name }}</span></td>
                     <td> <span class="bg-teal color-palette rounded p-1">{{ $product->category->name }}</span></td>
+
                     <td>{{ $product->price }}</td>
                     <td>{!! $product->description !!}</td>
                     <td><img src="{{ asset('uploads/Products/' . $product->image) }}" width="70px" height="70px"

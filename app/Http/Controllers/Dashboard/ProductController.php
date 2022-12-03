@@ -64,6 +64,21 @@ class ProductController extends Controller
 
             ]);
 
+        // Validation
+
+        $request->validate(Product::rules($id =0) ,
+            [
+                "required" => "هذا الحقل مطلوب" ,
+                "name.unique" => "اسم المنتج موجود مسبقاً" ,
+                "numeric" => "هذاالحقل لابد ان يكون رقما",
+                "price.min" => "لابد ان يكون السعر اكبر من الصفر",
+                "price.max" => "لابد ان لا تزيد قيمة السعر عن 100000",
+                "name.min" => "لابد ان لا يقل اسم المنتج علي ثلات حروف",
+                "name.max" => "لابد ان لا يزيد اسم المنتج علي ثلاث حروف",
+                "image" => "تأكد من امتداد الصوره بان يكون احد الامتدادات التالية JPG,PNG,TIF,BMP,GIF",
+
+            ]);
+
 
 
         if($request->file("image")){
