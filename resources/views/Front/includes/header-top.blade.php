@@ -31,10 +31,11 @@
                                         Enginx@enginx.com
                                     </span>
                                 </div>
-                                <div class="detail-call d-flex align-items-center justify-content-center">
+                                <div class="detail-call d-flex align-items-center justify-content-center mx-2">
                                     <i class="icon-deal"></i>
                                     <p>متاح </p>
                                 </div>
+                              
                             </div>
                             <div
                                 class="col-lg-6 col-md-6 d-flex justify-content-end align-items-center header-top-right">

@@ -16,8 +16,7 @@ class CategoryController extends Controller
             ->where('parent_id', null)
             ->paginate(3);
         $data['products'] = Product::all();
-
-        dd($data);
+         dd($data);
         return view('Front.Category.index')->with($data);
     }
 

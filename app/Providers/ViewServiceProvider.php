@@ -25,6 +25,7 @@ class ViewServiceProvider extends ServiceProvider
                 ->with('parent')
                 ->where('parent_id', "<>", null)->get());
         });
+        
     }
 
     /**
