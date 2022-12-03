@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\Order_Details;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -26,7 +28,8 @@ class OrderController extends Controller
      */
     public function create()
     {
-        return view('Dashboard.Order.create');
+        $data['products'] = Product::all();
+        return view('Dashboard.Order.create')->with($data);
     }
 
     /**
@@ -37,6 +40,13 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+
+        // $data = $request->validate([
+        //     'customer_name' => "required",
+        //     'customer_mobile' => "required",
+        //     'order_number' => "required",
+        //     'order_date' => "required",
+        // ]);
         $data['customer_name']      = $request->customer_name;
         $data['customer_mobile']    = $request->customer_mobile;
         $data['order_number']        = $request->order_number;

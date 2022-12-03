@@ -16,42 +16,40 @@ class Cart extends Model
     public $incrementing = false;
 
     protected $fillable = [
-        "product_id" , "cookie_id" , "quantity" , "user_id"
+        "product_id", "cookie_id", "quantity", "user_id"
     ];
 
-    public static function booted(){
+    public static function booted()
+    {
 
         static::observe(CartObserver::class);
 
-        static::addGlobalScope("cookie_id" , function(Builder $builder){
-            $builder->where('cookie_id' , '=' , Cart::getCookieId());
+        static::addGlobalScope("cookie_id", function (Builder $builder) {
+            $builder->where('cookie_id', '=', Cart::getCookieId());
         });
     }
 
-    public static function getCookieId(){
+    public static function getCookieId()
+    {
         $cookie_id = Cookie::get("cart_id");
 
-        if(!$cookie_id){
+        if (!$cookie_id) {
             $cookie_id = Str::uuid();
-            Cookie::queue("cart_id" , $cookie_id , 30*24*60);
+            Cookie::queue("cart_id", $cookie_id, 30 * 24 * 60);
         }
 
         return $cookie_id;
     }
 
-
-
-
-
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class)->withDefault([
             "name" => "Anonymous"
         ]);
     }
 
-    public function product(){
+    public function product()
+    {
         return $this->belongsTo(Product::class);
     }
-
-
 }

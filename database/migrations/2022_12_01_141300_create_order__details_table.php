@@ -17,12 +17,15 @@ return new class extends Migration
             $table->id();
 
 
+
             // $table->unsignedBigInteger('order_id');
             // $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
 
             $table->foreignId("order_id")->constrained("orders")->cascadeOnDelete();
             $table->foreignId("product_id")->nullable()->constrained("products")->nullOnDelete();
             $table->unsignedMediumInteger("quantity")->default(1);
+
+
 
             $table->string('product_name');
             $table->decimal('unit_price', 8, 2)->default(0.00);
