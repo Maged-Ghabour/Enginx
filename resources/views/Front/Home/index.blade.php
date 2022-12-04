@@ -5,6 +5,7 @@
 @section('content')
     {{-- database prooducts --}}
 @include('Front.includes.display-top')
+
     <div id="wrapper-site">
         <div id="content-wrapper" class="full-width">
             <div id="main">
@@ -21,10 +22,8 @@
                                             </h2>
                                             <div class="block_content">
                                                 <div id="productlist706506225"
-                                                    class="product_list countdown-productlist countdown-column-1 owl-carousel owl-theme"
-                                                    data-autoplay="false" data-autoplayTimeout="6000" data-loop="false"
-                                                    data-margin="30" data-dots="false" data-nav="true" data-items="1"
-                                                    data-items_large="1" data-items_tablet="2" data-items_mobile="1">
+                                                    class="product_list countdown-productlist countdown-column-1 owl-carousel owl-theme" >
+
 
 
 
@@ -72,37 +71,34 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="product-buttons d-flex justify-content-center"
-                                                                        itemprop="offers" itemscope
-                                                                        itemtype="http://schema.org/Offer">
+                                                                    <div class="product-buttons d-flex justify-content-center" >
+
+
                                                                         <form
-                                                                            action="http://demo.bestprestashoptheme.com/savemart/ar/عربة التسوق"
+                                                                            action=""
                                                                             method="post" class="formAddToCart">
-                                                                            <input type="hidden" name="token"
-                                                                                value="28add935523ef131c8432825597b9928">
-                                                                            <input type="hidden" name="id_product"
-                                                                                value="12">
-                                                                            <a class="add-to-cart" href="#"
-                                                                                data-button-action="add-to-cart"><i
-                                                                                    class="novicon-cart"></i><span>أضف
-                                                                                    للسلة</span></a>
+
+
+                                                                            <a class="add-to-cart" href="#"  data-button-action="add-to-cart">
+                                                                               <i class="novicon-cart"></i><span>أضف للسلة</span></a>
+
                                                                         </form>
 
                                                                         <!-- begin /var/www/demo.bestprestashoptheme.com/public_html/savemart/themes/vinova_savemart/modules/novblockwishlist/novblockwishlist_button.tpl -->
 
-                                                                        <a class="addToWishlist wishlistProd_12"
+                                                                        {{-- <a class="addToWishlist wishlistProd_12"
                                                                             href="#" data-rel="12"
                                                                             onclick="WishlistCart('wishlist_block_list', 'add', '12', false, 1); return false;">
                                                                             <i class="fa fa-heart"></i>
                                                                             <span>Add to Wishlist</span>
-                                                                        </a>
+                                                                        </a> --}}
                                                                         <!-- end /var/www/demo.bestprestashoptheme.com/public_html/savemart/themes/vinova_savemart/modules/novblockwishlist/novblockwishlist_button.tpl -->
 
-                                                                        <a href="#" class="quick-view hidden-sm-down"
+                                                                        {{-- <a href="#" class="quick-view hidden-sm-down"
                                                                             data-link-action="quickview">
                                                                             <i class="fa fa-search"></i><span> نظرة
                                                                                 سريعة</span>
-                                                                        </a>
+                                                                        </a> --}}
                                                                     </div>
 
                                                                 </div>
@@ -117,7 +113,7 @@
                                                             </div>
                                                         </div>
                                                     @empty
-                                                        لا يوجد عروض متاحة
+                                                        <h3 class="badge badge-primary">لا يوجد عروض متاحة</h3>
                                                     @endforelse
                                                     {{-- End Offers Show --}}
 
@@ -162,16 +158,6 @@
                                                                         <div class="product-groups">
 
                                                                             <!-- begin modules/novproductcomments/novproductcomments_reviews.tpl -->
-                                                                            <div class="product-comments">
-                                                                                <div class="star_content">
-                                                                                    <div class="star star_on"></div>
-                                                                                    <div class="star star_on"></div>
-                                                                                    <div class="star star_on"></div>
-                                                                                    <div class="star star_on"></div>
-                                                                                    <div class="star star_on"></div>
-                                                                                </div>
-                                                                                <span>5 تقييمات</span>
-                                                                            </div>
 
                                                                             <div class="product-title" itemprop="name">
                                                                                 <a
@@ -182,7 +168,7 @@
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
                                                                                     <span itemprop="price"
-                                                                                        class="price">{{ $product->price }} L£</span>
+                                                                                        class="price">{{ $product->price }} جنية </span>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="product-group-price">
@@ -199,36 +185,35 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="product-buttons d-flex justify-content-center"
-                                                                            itemprop="offers" itemscope
-                                                                            itemtype="http://schema.org/Offer">
-                                                                            <form
-                                                                                action=""
-                                                                                method="post" class="formAddToCart">
-                                                                                    @csrf
+                                                                        <div class="product-buttons d-flex justify-content-center"   >
+
+                                                                            <form action="" method="post" class="formAddToCart">
+
+                                                                                @csrf
+
 
                                                                                 <a class="add-to-cart" href="#"
-                                                                                    data-button-action="add-to-cart"><i
+                                                                                data-id="{{$product->id}}"><i
                                                                                         class="novicon-cart"></i><span>أضف
                                                                                         للسلة</span></a>
                                                                             </form>
 
                                                                             <!-- begin /var/www/demo.bestprestashoptheme.com/public_html/savemart/themes/vinova_savemart/modules/novblockwishlist/novblockwishlist_button.tpl -->
 
-                                                                            <a class="addToWishlist wishlistProd_1"
+                                                                            {{-- <a class="addToWishlist wishlistProd_1"
                                                                                 href="#" data-rel="1"
                                                                                 onclick="WishlistCart('wishlist_block_list', 'add', '1', false, 1); return false;">
                                                                                 <i class="fa fa-heart"></i>
                                                                                 <span>أضف الى المفضلة</span>
-                                                                            </a>
+                                                                            </a> --}}
                                                                             <!-- end /var/www/demo.bestprestashoptheme.com/public_html/savemart/themes/vinova_savemart/modules/novblockwishlist/novblockwishlist_button.tpl -->
 
-                                                                            <a href="#"
+                                                                            {{-- <a href="#"
                                                                                 class="quick-view hidden-sm-down"
                                                                                 data-link-action="quickview">
                                                                                 <i class="fa fa-search"></i><span>
                                                                                     نظرة سريعة</span>
-                                                                            </a>
+                                                                            </a> --}}
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -236,7 +221,7 @@
                                                             </div>
                                                         </div>
                                                     @empty
-                                                        لا يوجد منتجات متاحة
+                                                      <h3 class="badge badge-primary">لا يوجد منتجات متاحة</h3>
                                                     @endforelse
                                                 </div>
                                             </div>
@@ -295,28 +280,7 @@
                                                                                 <div class="product-groups">
 
                                                                                     <!-- begin modules/novproductcomments/novproductcomments_reviews.tpl -->
-                                                                                    <div class="product-comments">
-                                                                                        <div class="star_content">
-                                                                                            <div class="star star_on">
-                                                                                            </div>
-                                                                                            <div class="star star_on">
-                                                                                            </div>
-                                                                                            <div class="star star_on">
-                                                                                            </div>
-                                                                                            <div class="star star_on">
-                                                                                            </div>
-                                                                                            <div class="star star_on">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <span>5 تقييمات</span>
-                                                                                    </div>
-                                                                                    {{-- <p class="seller_name">
-                                                                                    <a title="View seller profile"
-                                                                                        href="http://demo.bestprestashoptheme.com/savemart/ar/jmarketplace/1_david-james/">
-                                                                                        <i class="fa fa-user"></i>
-                                                                                        David James
-                                                                                    </a>
-                                                                                </p> --}}
+
                                                                                     <div class="product-title"
                                                                                         itemprop="name"><a
                                                                                             href="{{ route('Product.show', $product->id) }}">{{ $product->name }}</a>
@@ -325,7 +289,7 @@
                                                                                         <div
                                                                                             class="product-price-and-shipping">
                                                                                             <span itemprop="price"
-                                                                                                class="price">L£
+                                                                                                class="price"> جنية
                                                                                                 {{ $product->price }}</span>
                                                                                         </div>
                                                                                     </div>
@@ -335,7 +299,7 @@
                                                                     </div>
                                                                 @endif
                                                             @empty
-                                                                <p class="text-danger">لا يوجد منتجات متاحة فى القسم</p>
+                                                                <h3 class="badge badge-priamry">لايوجد منتجات متاحة في القسم</h3>
                                                             @endforelse
 
                                                         </div>
@@ -364,3 +328,7 @@
         </div>
     </div>
 @endsection
+<script>
+    const csrf_token = "{{ csrf_token() }}";
+</script>
+<script src="{{asset('js/cart.js')}}"></script>

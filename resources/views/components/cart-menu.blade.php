@@ -35,7 +35,10 @@
                                         href="">
                                         <i class="fa fa-trash-o"></i>
                                     </a>
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
                                 </div>
                             </div>
                         </li>
