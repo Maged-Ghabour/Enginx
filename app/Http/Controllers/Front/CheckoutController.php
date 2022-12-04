@@ -13,19 +13,21 @@ use Throwable;
 
 class CheckoutController extends Controller
 {
-    public function create(CartRepository $cart){
+    public function create(CartRepository $cart)
+    {
 
-        if($cart->get()->count() == 0){
+        if ($cart->get()->count() == 0) {
             return redirect()->route("Home");
         }
         $items = $cart->get();
         $items = $items->all();
-        return view("Front.Checkout.index" , [
+        return view("Front.Checkout.index", [
             "cart" => $cart
         ]);
     }
 
-    public function store(Request $request , CartRepository $cart){
+    public function store(Request $request, CartRepository $cart)
+    {
 
         $request->validate([
             'addr.billing.first_name' => ['required', 'string', 'max:255'],
@@ -36,41 +38,39 @@ class CheckoutController extends Controller
         ]);
 
         DB::beginTransaction();
-         try {
+        try {
             $order = Order::create([
                 "user_id" => Auth::id(),
-                "payment_method" => "cod" ,
+                "payment_method" => "cod",
 
             ]);
 
-            foreach($cart -> get() as $item){
+            foreach ($cart->get() as $item) {
 
 
                 Order_Details::create([
 
 
-                    "order_id" => $order->id ,
-                    "product_id" => $item->product_id ,
-                    "product_name" => $item -> product->name,
-                    "price" => $item->product->price ,
+                    "order_id" => $order->id,
+                    "product_id" => $item->product_id,
+                    "product_name" => $item->product->name,
+                    "price" => $item->product->price,
                     "quantity" => $item->quantity
                 ]);
             }
 
-            foreach ($request->post("addr") as $type => $address){
+            foreach ($request->post("addr") as $type => $address) {
                 $address["type"] = $type;
                 $order->addresses()->create($address);
             }
 
             $cart->empty();
             DB::commit();
-
-         } catch (Throwable $e) {
+        } catch (Throwable $e) {
             DB::rollBack();
             throw $e;
-         }
-
-         return redirect()->route("Home");
-
+        }
+        //toastr()->success('تم الطلب بنجاح انتظر التوصيل');
+        return redirect()->route("Home");
     }
 }

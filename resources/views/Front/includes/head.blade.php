@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;900&display=swap" rel="stylesheet">
 
 
-    @yield('styles')
+    @stack('styles')
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;

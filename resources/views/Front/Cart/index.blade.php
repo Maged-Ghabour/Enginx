@@ -2,8 +2,9 @@
 @include('Front.includes.header-top')
 @include('Front.includes.header-center')
 @include('Front.includes.header-bottom')
-
-
+@push('styles')
+    @toastr_css
+@endpush
 
 <div id="wrapper-site">
 
@@ -50,17 +51,18 @@
 
 
 
-                                    <!-- Start Item Loop --->
-                                        @foreach ($cart->get() as $item )
-                                            <li class="cart-item list-group p-5" style="background:#eff5f6" id="{{$item->id}}">
+                                        <!-- Start Item Loop --->
+                                        @foreach ($cart->get() as $item)
+                                            <li class="cart-item list-group p-5" style="background:#eff5f6"
+                                                id="{{ $item->id }}">
 
                                                 <div class="product-line-grid row spacing-10">
                                                     <!--  product left content: image-->
                                                     <div class="product-line-grid-left col-sm-2 col-xs-4">
                                                         <span class="product-image media-middle">
                                                             <img class="img-fluid"
-                                                                src="{{asset('uploads/Products/'. $item->product->image)}}"
-                                                                alt="{{$item->product->name}}">
+                                                                src="{{ asset('uploads/Products/' . $item->product->image) }}"
+                                                                alt="{{ $item->product->name }}">
                                                         </span>
                                                     </div>
 
@@ -70,13 +72,13 @@
                                                             <div class="col-sm-6 col-xs-12">
                                                                 <div class="product-line-info">
                                                                     <a class="label"
-                                                                        href="#"
-                                                                    >{{$item->product->name}}
+                                                                        href="#">{{ $item->product->name }}
                                                                     </a>
                                                                 </div>
 
                                                                 <div class="product-line-info product-price">
-                                                                    <span class="value">{{$item->product->price}}</span>
+                                                                    <span
+                                                                        class="value">{{ $item->product->price }}</span>
                                                                 </div>
 
 
@@ -91,27 +93,40 @@
                                                                                 <div class="label">الكمـية :</div>
                                                                                 <div
                                                                                     class="input-group bootstrap-touchspin">
-                                                                                    <span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span>
+                                                                                    <span
+                                                                                        class="input-group-addon bootstrap-touchspin-prefix"
+                                                                                        style="display: none;"></span>
 
-                                                                                        <input id="quantity_wanted" class="item-quantity form-control" type="text" value="{{$item->quantity}}"
-                                                                                            data-id="{{$item->id}}"   name="quantity" min="1" style="display: block;">
+                                                                                    <input id="quantity_wanted"
+                                                                                        class="item-quantity form-control"
+                                                                                        type="text"
+                                                                                        value="{{ $item->quantity }}"
+                                                                                        data-id="{{ $item->id }}"
+                                                                                        name="quantity" min="1"
+                                                                                        style="display: block;">
 
-                                                                                       <span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span>
-                                                                                        <span class="input-group-btn-vertical">
+                                                                                    <span
+                                                                                        class="input-group-addon bootstrap-touchspin-postfix"
+                                                                                        style="display: none;"></span>
+                                                                                    <span
+                                                                                        class="input-group-btn-vertical">
                                                                                     </span>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-md-6 col-xs-6 price">
                                                                                 <div class="label">الإجمالي:</div>
                                                                                 <div class="product-price total">
-                                                                                    {{$item->product->price * $item->quantity }}
+                                                                                    {{ $item->product->price * $item->quantity }}
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div  class="col-sm-3 col-xs-12 text-xs-right align-self-end">
+                                                                    <div
+                                                                        class="col-sm-3 col-xs-12 text-xs-right align-self-end">
                                                                         <div class=" ">
-                                                                            <a class="remove-item"  data-id="{{$item->id}}"  href="">
+                                                                            <a class="remove-item"
+                                                                                data-id="{{ $item->id }}"
+                                                                                href="">
 
                                                                                 <i class="fa fa-trash-o"></i>
 
@@ -128,21 +143,19 @@
                                                 </div>
 
                                             </li>
-
                                         @endforeach
 
-                                    <!-- End Item Loop --->
+                                        <!-- End Item Loop --->
 
                                     </ul>
                                 </div>
 
 
-                            @if(session("cart_added"))
+                                @if (session('cart_added'))
+                                    <!-- Start Modal --->
 
-                                <!-- Start Modal --->
 
-
-                                {{-- <div id="blockcart-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: block; padding-right: 17px;">
+                                    {{-- <div id="blockcart-modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: block; padding-right: 17px;">
                                     <div class="modal-dialog" role="document">
                                       <div class="modal-content">
                                         <div class="modal-header">
@@ -186,9 +199,8 @@
                                       </div>
                                     </div>
                                   </div> --}}
-                                <!-- End Modal --->
-
-                            @endif
+                                    <!-- End Modal --->
+                                @endif
 
 
 
@@ -200,7 +212,7 @@
 
 
 
-                            <a class="btn btn-primary mt-5" href="{{route('Product.index')}}">
+                            <a class="btn btn-primary mt-5" href="{{ route('Product.index') }}">
                                 الاستمرار في التسوق
                             </a>
 
@@ -237,7 +249,7 @@
                                             <span class="label js-subtotal">
                                                 إجمالي المنتجات:
                                             </span>
-                                            <span class="value">{{$cart->total()}} جنية</span>
+                                            <span class="value">{{ $cart->total() }} جنية</span>
                                         </div>
                                         <div class="cart-summary-line" id="cart-subtotal-shipping">
                                             <span class="label">
@@ -254,7 +266,7 @@
                                     <div class="">
                                         <div class="cart-summary-line cart-total">
                                             <span class="label">الإجمالي:</span>
-                                            <span class="value">{{$cart->total()}} جنية (شامل للضريبة)</span>
+                                            <span class="value">{{ $cart->total() }} جنية (شامل للضريبة)</span>
                                         </div>
 
                                     </div>
@@ -299,7 +311,9 @@
 <script>
     const csrf_token = "{{ csrf_token() }}";
 </script>
-<script src="{{asset('js/cart.js')}}"></script>
+<script src="{{ asset('js/cart.js') }}"></script>
 
-
-
+@push('scripts')
+    @toastr_js
+    @toastr_render
+@endpush

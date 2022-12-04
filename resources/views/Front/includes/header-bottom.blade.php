@@ -70,8 +70,7 @@
                                             title="Blog"><i class="zmdi zmdi-library"></i>العروض</a>
                                         <div class="dropdown-menu" style="width:270px">
                                             <ul class="">
-                                                <li class="item "><a
-                                                        href="/savemart/en/index.php?fc=module&amp;module=smartblog&amp;id_post=14&amp;controller=details"
+                                                <li class="item"><a href="{{ route('Offer.index') }}"
                                                         title="Blog detail">جميع العروض</a>
                                                 </li>
                                             </ul>
@@ -95,7 +94,6 @@
                                                                     </span>
                                                                 </li>
                                                             @endforeach
-
                                                         </ul>
                                                     </div>
                                                 </li>
