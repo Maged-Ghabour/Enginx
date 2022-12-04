@@ -29,19 +29,20 @@
                                 </div>
                                 <div class="social-content">
                                     <div class="title_block">
-تابعنا علي                                     </div>
+                                        تابعنا علي </div>
                                     <div id="social_block">
                                         <div class="social">
                                             <ul class="list-inline mb-0 justify-content-end">
-                                                <li class="list-inline-item mb-0"><a href="#" target="_blank"><i
-                                                            class="zmdi zmdi-facebook"></i></a></li>
-                                                <li class="list-inline-item mb-0"><a href="#" target="_blank"><i
-                                                            class="zmdi zmdi-twitter"></i></a></li>
-                                                <li class="list-inline-item mb-0"><a href="#" target="_blank"><i
-                                                            class="zmdi zmdi-youtube-play"></i></a>
+                                                <li class="list-inline-item mb-0"><a
+                                                        href="https://www.facebook.com/292212008094653/posts/pfbid02CTAaQ5a5h7sDcxjjoo6Smha4bBcMamDhimsFaJmZzjW81BeSKvhkjThRa6pUd3DZl/?sfnsn=scwspmo&mibextid=RUbZ1f"
+                                                        target="_blank"><i class="zmdi zmdi-facebook"></i></a></li>
+                                                <li class="list-inline-item mb-0"><a href="https://www.twitter.com"
+                                                        target="_blank"><i class="zmdi zmdi-twitter"></i></a></li>
+                                                <li class="list-inline-item mb-0"><a href="https://www.youtube.com"
+                                                        target="_blank"><i class="zmdi zmdi-youtube-play"></i></a>
                                                 </li>
-                                                <li class="list-inline-item mb-0"><a href="#" target="_blank"><i
-                                                            class="zmdi zmdi-instagram"></i></a></li>
+                                                <li class="list-inline-item mb-0"><a href="https://www.instagram.com"
+                                                        target="_blank"><i class="zmdi zmdi-instagram"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -105,9 +106,7 @@
                         <div class="nov-html col-xl-4 col-lg-4 col-md-4">
                             <div class="block">
                                 <div class="block_content">
-                                    <p class="logo-footer"><img
-                                            src=""
-                                            alt="logo" width="167" height="23" /></p>
+
                                     <div class="data-contact d-flex align-self-stretch">
                                         <div class="title-icon">الدعم<i class="icon-support icon-address"></i>
                                         </div>
@@ -121,9 +120,10 @@
                                         <div class="title-icon">معلومات التواصل<i
                                                 class="icon-info-contact icon-address"></i></div>
                                         <div class="content-data-contact">
-                                            <div class="info-contact">معلومات التواصل :</div>
-                                            <div class="content-info-contact"> المنوفية, 
-                                               <br /> شبين الكوم </div>
+                                            <div class="info-contact">معلومات التواصل </div>
+                                            <div class="content-info-contact"> المنوفية
+                                                <br /> شبين الكوم
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -136,16 +136,16 @@
                         <div class="nov-html col-xl-3 col-lg-3 col-md-3">
                             <div class="block">
                                 <div class="title_block">
-                                  معلومات الشركة
+                                    معلومات الشركة
                                 </div>
                                 <div class="block_content">
                                     <ul>
-                                        <li><a href="{{route('who')}}">من نحن ?</a></li>
-                                        <li><a href="{{route('polices')}}">سياسة الخصوصية</a></li>
-                                        <li><a href="{{route('uses')}}">اتفاقية الاستخدام</a></li>
-                                        <li><a href="{{route('rules')}}">الشروط والأحكام</li>
+                                        <li><a href="{{ route('who') }}">من نحن </a></li>
+                                        <li><a href="{{ route('polices') }}">سياسة الخصوصية</a></li>
+                                        <li><a href="{{ route('uses') }}">اتفاقية الاستخدام</a></li>
+                                        <li><a href="{{ route('rules') }}">الشروط والأحكام</li>
 
-                                       
+
                                     </ul>
                                 </div>
                             </div>
@@ -157,12 +157,12 @@
                         <div class="nov-html col-xl-3 col-lg-3 col-md-3">
                             <div class="block">
                                 <div class="title_block">
-حسابي                                </div>
+                                    حسابي </div>
                                 <div class="block_content">
                                     <ul>
                                         <li><a href="#">خريطةالموقع</a></li>
                                         <li><a href="#">حسابي</a></li>
-                                        <li><a href="{{route('contact_us')}}">تواصل معانا</a></li>
+                                        <li><a href="{{ route('contact_us') }}">تواصل معانا</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -174,10 +174,10 @@
                         <div class="nov-html col-xl-2 col-lg-2 col-md-2">
                             <div class="block">
                                 <div class="title_block">
-تحتاج المساعدة                                </div>
+                                    تحتاج المساعدة </div>
                                 <div class="block_content">
                                     <ul>
-                                        <li><a href="{{route('payments')}}">طريقة الدفع </a></li>
+                                        <li><a href="{{ route('payments') }}">طريقة الدفع </a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -193,15 +193,13 @@
     <div id="nov-copyright">
         <div class="container">
             <div class="row">
-                <div
+                <h3
                     class="col-md-6 align-items-center justify-content-md-start justify-content-sm-center d-flex pb-xs-max-20 flex-center">
-                    <span>
-حقوق الملكية محفوظة                    </span>
-                </div>
+
+                    حقوق الملكية محفوظة
+                </h3>
                 <div
                     class="payment-image col-md-6 align-items-center justify-content-md-end justify-content-sm-center d-flex flex-center">
-                    <img class="img-fluid" src=""
-                        alt="payment" title="Payment" />
                 </div>
             </div>
         </div>
