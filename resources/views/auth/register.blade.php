@@ -1,64 +1,78 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('Front.layouts.app')
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
+@section('title', 'عمل حساب جديد')
 
-            <!-- Name -->
-            <div>
-                <x-input-label for="name" :value="__('Name')" />
 
-                <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+@section('content')
+    <div class="limiter">
+        <div class="container mt-2 pt-3">
 
-                <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            <div class="wrap-login100">
+                <div class="login100-form-title" style="background-image: url({{ asset('front/images/bg-01.jpg') }})">
+                    <h3 class="login100-form-title-1 text-center">
+                        تسجيل دخول العميل
+                    </h3>
+                </div>
+                {{-- Valdation Admin Error --}}
+                @if (session()->has('error'))
+                    <div class="alert alert-danger mt-2 text-center">
+                        {{ session()->get('error') }}
+                    </div>
+                @endif
+                <form class="m-5 p-5" method="POST" action="{{ route('register') }}">
+                    @csrf
+                    <div class="form-group" data-validate="Name is required">
+                        <span class="label-input100"> إسم المستخدم :</span>
+                        <input class="input100 form-control w-50" type="text" name="name"
+                            placeholder="أدخل إسم المستخدم">
+                        <span class="focus-input100"></span>
+                    </div>
+                    @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
+                    <div class="form-group" data-validate="Email is required">
+                        <span class="label-input100">البريد الإلكترونى :</span>
+                        <input class="input100 form-control w-50" type="email" name="email"
+                            placeholder="أدخل البريد الإلكتروني">
+                        <span class="focus-input100"></span>
+                    </div>
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
+                    <div class="form-group" data-validate="Password is required">
+                        <span class="label-input100">الرقم السرى</span>
+                        <input class="input100 form-control w-50" type="password" name="password"
+                            placeholder="أدخل الرقم السرى">
+                        <span class="focus-input100"></span>
+                    </div>
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
+                    <div class="form-group" data-validate="Password is required">
+                        <span class="label-input100">تأكيد الرقم السرى</span>
+                        <input id="password-confirm" type="password" class="form-control w-50" name="password_confirmation"
+                            required autocomplete="new-password" placeholder="أكد الرقم السرى">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="container-login100-form-btn mt-3 d-flex justify-content-between w-50">
+                        <button type="submit" class="p-4 btn btn-success w-10">
+                            تأكيد عمل الحساب
+                        </button>
+                        <a href="{{ route('login') }}">لديك حساب بالفعل ؟ </a>
+                    </div>
+                </form>
             </div>
+        </div>
+    </div>
 
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-input-label for="email" :value="__('Email')" />
-
-                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
-
-                <x-input-error :messages="$errors->get('email')" class="mt-2" />
-            </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-input-label for="password" :value="__('Password')" />
-
-                <x-text-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
-
-                <x-input-error :messages="$errors->get('password')" class="mt-2" />
-            </div>
-
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
-
-                <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-primary-button class="ml-4">
-                    {{ __('Register') }}
-                </x-primary-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+@endsection

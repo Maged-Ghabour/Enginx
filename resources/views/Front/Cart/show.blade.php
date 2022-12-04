@@ -78,7 +78,8 @@
 
                                         <form action="https://demo.bestprestashoptheme.com/savemart/ar/عربة التسوق"
                                             method="post" id="add-to-cart-or-refresh" class="row">
-                                            <input type="hidden" name="token" value="28add935523ef131c8432825597b9928">
+                                            <input type="hidden" name="token"
+                                                value="28add935523ef131c8432825597b9928">
                                             <input type="hidden" name="id_product" value="1"
                                                 id="product_page_product_id">
                                             <input type="hidden" name="id_customization" value="0"
@@ -87,16 +88,7 @@
                                                 <div class="product-reviews">
                                                     <div id="product_comments_block_extra">
 
-                                                        <div class="comments_note">
-                                                            <span>Review: </span>
-                                                            <div class="star_content clearfix">
-                                                                <div class="star star_on"></div>
-                                                                <div class="star star_on"></div>
-                                                                <div class="star star_on"></div>
-                                                                <div class="star star_on"></div>
-                                                                <div class="star star_on"></div>
-                                                            </div>
-                                                        </div>
+
 
 
                                                         <div class="comments_advices">
@@ -217,7 +209,8 @@
                                                             </button>
                                                         </div>
 
-                                                        <a class="addToWishlist wishlistProd_1" href="#" data-rel="1"
+                                                        <a class="addToWishlist wishlistProd_1" href="#"
+                                                            data-rel="1"
                                                             onclick="WishlistCart('wishlist_block_list', 'add', '1', false, 1); return false;">
                                                             <i class="fa fa-heart"></i>
                                                             <span>Add to Wishlist</span>
@@ -359,7 +352,8 @@
 
 
                                                     <a class="btn btn-link" href="javascript:print();">
-                                                        <span><i class="fa fa-print" aria-hidden="true"></i>Print</span>
+                                                        <span><i class="fa fa-print"
+                                                                aria-hidden="true"></i>Print</span>
                                                     </a>
                                                 </div>
                                             </div>
