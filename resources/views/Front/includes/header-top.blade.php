@@ -1,3 +1,5 @@
+
+
 <body id="index" class="lang-ar lang-rtl country-gb currency-gbp layout-full-width page-index tax-display-enabled">
     <main id="main-site" class="displayhomenovthree">
         <header id="header" class="header-3 sticky-menu">
@@ -88,27 +90,7 @@
                                             دخول</a>
                                     @endguest
                                 </div>
-                                <div id="_desktop_language_selector"
-                                    class="language-selector groups-selector hidden-sm-down language-selector-dropdown">
-                                    <div class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false" role="main">
-                                        <span class="expand-more"><img class="img-fluid" src="/savemart/img/l/6.jpg"
-                                                alt="اللغة العربية" width="16" height="11" /></span>
-                                    </div>
-                                    <div class="language-list dropdown-menu">
-                                        <div class="language-list-content text-left">
-                                            <div class="language-item">
-                                                <div>
-                                                    <a href="">
-                                                        <img class="img-fluid" src="" alt="English"
-                                                            width="16" height="11" />
-                                                        <span>English</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
