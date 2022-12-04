@@ -38,12 +38,12 @@
                                 <div class="detail-call d-flex align-items-center justify-content-center mx-2">
                                     <i class="icon-deal"></i>
 
-                                    <p><a href="{{ route('services.show', 3) }}">خدمات</a></p>
+                                    <p><a href="{{ route('services.show', 1) }}">خدمات</a></p>
                                 </div>
                                 <div class="detail-call d-flex align-items-center justify-content-center mx-2">
                                     <i class="icon-deal"></i>
 
-                                    <p><a href="{{ route('programs.show', 9) }}">برامج</a></p>
+                                    <p><a href="{{ route('programs.show', 2) }}">برامج</a></p>
                                 </div>
                             </div>
                             <div
