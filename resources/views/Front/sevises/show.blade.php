@@ -1,41 +1,89 @@
+<style>
+    .isotop-btn {
+        text-align: center;
+        margin-bottom: 45px;
+    }
+
+    .isotop-btn:after {
+        display: none;
+    }
+
+    .isotop-btn a {
+        background-color: #ffffff;
+        color: #444444;
+        padding: 8px 20px;
+        font-size: 18px;
+        display: inline-block;
+        margin: 0 3px 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        -webkit-box-shadow: 0px 2px 4px 0px rgba(206, 216, 221, 0.75);
+        -moz-box-shadow: 0px 2px 4px 0px rgba(206, 216, 221, 0.75);
+        box-shadow: 0px 2px 4px 0px rgba(206, 216, 221, 0.75);
+        -webkit-transition: all 0.5s ease-out;
+        -moz-transition: all 0.5s ease-out;
+        -ms-transition: all 0.5s ease-out;
+        -o-transition: all 0.5s ease-out;
+        transition: all 0.5s ease-out;
+    }
+
+    .isotop-btn a:hover {
+        background-color: #396cf0;
+        color: #ffffff;
+    }
+
+    .isotop-btn .current {
+        background-color: #396cf0;
+        color: #ffffff;
+    }
+</style>
+
+
+
 @extends('Front.layouts.app')
 
 @section('title', 'Enginx')
 
 @section('content')
-    <div class="container">
-        <div class="nov-row-wrap row">
-            <div class="nov-productlist productlist-liststyle">
-                <div class="block block-product clearfix">
-                    <div class="row">
-                        @forelse ($sub_cats as $cat)
-                            @if ($cat->parent_id == $category->id)
-                                <div class="d-flex justify-content-center flex-wrap pt-5 pb-5">
-                                    <div class="d-flex justify-content-center">
-                                        <a href="{{ route('sub_cat', [$category->id, $cat->id]) }}" value=""
-                                            class="btn btn-primary m-2 text-center">{{ $cat->name }}</a>
-                                    </div>
-                                </div>
-                            @endif
-                        @empty
-                            <p class="text-danger">لا يوجد أقسام فرعية للقسم </p>
-                        @endforelse
-                    </div>
+    <div class="container ">
+        <div class="block block-product clearfix   nov-productlist productlist-liststyle   nov-row-wrap row">
+            <h2 class="title_block ">
+                {{ $category->name }}
+            </h2>
+        </div>
+        <div class="row justify-content-center text-center">
+            <div class="text-center">
+                <div class="isotop-filter-menu isotope-classes-tab isotop-btn p-5">
+                    @forelse ($sub_cats as $cat)
+                        @if ($cat->parent_id == $category->id)
+                            <a href="{{ route('sub_cat', [$category->id, $cat->id]) }}" value=""
+                                class="current nav-item">{{ $cat->name }}</a>
+                        @endif
+                    @empty
+                        <p class="text-danger">لا يوجد أقسام فرعية للقسم </p>
+                    @endforelse
+
+
                 </div>
             </div>
         </div>
-
         <div class="container">
             <div class="row">
                 @forelse ($sub_cat->products as $product)
-                    <div class="col-4">
-                        <div class="card">
-                            <img src="{{ asset('uploads/Products/' . $product->image) }}" class="card-img-top"
-                                alt="...">
+                    <div class="col">
+                        <div class="card" style="width: 18rem; border-radius: 10px;">
+                            <img src="{{ asset('uploads/Products/' . $product->image) }}" class="img-fluid"
+                                style="background: cover; border-radius: 10px;" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $product->name }}</h5>
-                                <p class="card-text"><?php echo "$product->description"; ?></p>
-                                <a href="{{ route('Product.show', $product->id) }}" class="btn btn-primary">GO</a>
+                                <p class="card-text"></p>
+                                <a href="{{ route('Product.show', $product->id) }}"
+                                    class="btn btn-secondary effect-btn mx-5">
+                                    اضف الى السلة</a>
                             </div>
                         </div>
                     </div>
@@ -44,6 +92,11 @@
                 @endforelse
             </div>
         </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
     </div>
 
 @endsection

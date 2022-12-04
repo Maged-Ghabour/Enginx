@@ -2,10 +2,7 @@
 
 
 @section('job')
-    <div class="text-danger p-5 fw-bold  col-5">
-        <p class="d-block display-2 font-weight-bold text-center">{{ $jop->name }}</p>
-    </div>
-    <div class="text-center display-3 pb-5 ">{{ $jop->name }}</div>
+
     <div class="col-12 pb-5">
         <img src="{{ asset('uploads/jops/' . $jop->image) }}"width="600px"
             class="img rounded mx-auto d-block img-fluid rounded-top" alt="">
