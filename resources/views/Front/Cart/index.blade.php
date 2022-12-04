@@ -279,7 +279,7 @@
 
                                 <div class="checkout cart-detailed-actions">
                                     <div class="text-xs-center">
-                                        <a href="#طلب شراء" class="btn btn-primary">اتمام الطلب</a>
+                                        <a href="{{route('checkout')}}" class="btn btn-primary">اتمام الطلب</a>
 
                                     </div>
                                 </div>

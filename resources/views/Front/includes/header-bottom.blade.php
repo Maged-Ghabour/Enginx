@@ -76,6 +76,7 @@
                                             </ul>
                                         </div>
                                     </li>
+
                                     <li class="item menu-page group"><span class="opener"></span><a
                                             href="{{ route('Product.index') }}" title="المنتجات"><i
                                                 class="zmdi zmdi-assignment"></i>المنتجات</a>
@@ -100,7 +101,7 @@
                                             </ul>
                                         </div>
                                     </li>
-                                    <!-- {{ route('Category.index') }} -->
+
                                     <li class="item  group"><span class="opener"></span><a href=""
                                             title="الأقسام"><i class="zmdi zmdi-group"></i>الأقسام</a>
                                         <div class="dropdown-menu">
@@ -138,6 +139,32 @@
                                             </ul>
                                         </div>
                                     </li>
+
+
+
+                                    <li class="item  has-sub"><span class="opener"></span><a href="#"
+                                            title="Blog"><i class="zmdi zmdi-library"></i>العروض</a>
+                                        <div class="dropdown-menu" style="width:270px">
+                                            <ul class="">
+                                                <li class="item "><a
+                                                        href="/savemart/en/index.php?fc=module&amp;module=smartblog&amp;id_post=14&amp;controller=details"
+                                                        title="Blog detail">جميع العروض</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="item home-page has-sub"><span class="opener"></span><a href="?home"
+                                            title="Home"><i class="zmdi zmdi-home"></i>الوظائف</a>
+                                        <div class="dropdown-menu" style="width:200px">
+                                            <ul class="">
+                                                <li class="item "><a href="{{ route('MyJops') }}"
+                                                        title="الصفحة الرئيسية">الوظائف</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+
+
 
                                 </ul>
                             </div>

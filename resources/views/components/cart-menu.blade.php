@@ -35,7 +35,10 @@
                                         href="">
                                         <i class="fa fa-trash-o"></i>
                                     </a>
-                                    <span class="quantity"> {{ $item->quantity }}</span>
+<<<<<<< Updated upstream
+
+=======
+>>>>>>> Stashed changes
                                 </div>
                             </div>
                         </li>
