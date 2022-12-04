@@ -4,9 +4,7 @@
 @section('job')
     <div class="container">
         <div class="m-5">
-            <h1 class="display-1 text-danger">
-                الوظائف :-
-            </h1>
+
         </div>
         <div class="row justify-content-center  pt-5">
             @foreach ($jops as $jop)
