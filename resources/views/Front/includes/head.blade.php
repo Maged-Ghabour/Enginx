@@ -33,7 +33,7 @@
     </script>
 <!--End of Tawk.to Script-->
 
-    @yield('styles')
+    @stack('styles')
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;

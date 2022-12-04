@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Front\CategoryController;
 use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\Front\OfferController;
 use App\Http\Controllers\Front\ProductController;
 use \App\Http\Controllers\Front\SerController;
 use \App\Http\Controllers\Front\ProgramController;
@@ -20,6 +21,10 @@ Route::group(["prefix" => 'enginx'], function () {
         Route::get('/', [ProductController::class, 'index'])->name('Product.index');
         Route::get('/{id}', [ProductController::class, 'show'])->name('Product.show');
         Route::get('/search/{id}', [ProductController::class, 'search'])->name('Search');
+    });
+
+    Route::group(['prefix' => 'offers'], function () {
+        Route::get('/', [OfferController::class, 'index'])->name('Offer.index');
     });
 
     Route::group(['prefix' => 'categories'], function () {

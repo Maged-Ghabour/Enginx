@@ -45,15 +45,15 @@
                 @endif
                 <form class="login100-form validate-form" method="POST" action="{{ route('Admin.confirm') }}">
                     @csrf
-                    <div class="wrap-input100 validate-input m-b-26" data-validate="Email is required">
+                    <div class="wrap-input100 validate-input m-b-26" data-validate="البريد الالكترونى مطلوب">
                         <span class="label-input100">Email</span>
-                        <input class="input100" type="email" name="email" placeholder="Enter Your Email">
+                        <input class="input100" type="email" name="email" placeholder="ادخل البريد الالكترونى">
                         <span class="focus-input100"></span>
                     </div>
 
-                    <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+                    <div class="wrap-input100 validate-input m-b-18" data-validate="الرقم السرى مطلوب">
                         <span class="label-input100">Password</span>
-                        <input class="input100" type="password" name="password" placeholder="Enter Your password">
+                        <input class="input100" type="password" name="password" placeholder="ادخل الرقم السري">
                         <span class="focus-input100"></span>
                     </div>
 
