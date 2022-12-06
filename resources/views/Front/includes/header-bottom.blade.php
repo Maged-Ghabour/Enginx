@@ -1,250 +1,123 @@
-<div class="header-bottom hidden-sm-down">
-    <div class="container">
-        <div class="row d-flex align-items-center">
-            <div class="contentsticky_verticalmenu verticalmenu-main col-lg-3 col-md-1 d-flex"
-                data-textshowmore="Show More" data-textless="Hide" data-desktop_item="4">
-                <div class="toggle-nav d-flex align-items-center justify-content-start">
-                    <span class="btnov-lines"></span>
-                    <span>البحث بالأقسام</span>
-                </div>
-                <div class="verticalmenu-content has-showmore">
-                    <div id="_desktop_verticalmenu" class="nov-verticalmenu block" data-count_showmore="6">
-                        <div class="box-content block_content">
-                            <div id="verticalmenu" class="verticalmenu" role="navigation">
-                                <ul class="menu level1">
-                                    @foreach ($categories as $category)
-                                        <li class="item  parent group"><a
-                                                href="{{ route('Category.show', $category->id) }}"
-                                                title="Laptops &amp; Accessories"><i class="hasicon nov-icon"
-                                                    style="background:url('http://demo.bestprestashoptheme.com/savemart/themes/vinova_savemart/assets/img/modules/novverticalmenu/icon/laptop.png') no-repeat scroll center center;"></i>
-                                                {{ $category->name }}
-                                            </a>
-                                            <span class="show-sub fa-active-sub"></span>
-                                            <span class="menu-sub-title">
-                                                @foreach ($category->products as $product)
-                                                    {{ $product->name }},
-                                                @endforeach
-                                            </span>
-                                            <div class="dropdown-menu" style="width:222px">
-                                                <ul>
-                                                    @foreach ($sub_categories as $cat)
-                                                        @if ($cat->parent_id == $category->id)
-                                                            <li class="item ">
-                                                                <a href="{{ route('Sub_Category.Show', [$category->id, $cat->id]) }}"
-                                                                    title="sub_category">{{ $cat->name }}</a>
-                                                            </li>
-                                                        @endif
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-9 col-md-11  header-menu d-flex align-items-center justify-content-start">
-
-                {{-- Header Search --}}
-                <div class="header-menu-search d-flex justify-content-between w-100 align-items-center">
-
-                    <div id="_desktop_top_menu " class="">
-
-                        <nav id="nov-megamenu" class="clearfix">
-                            <!-- Brand and toggle get grouped for better mobile display -->
-                            <div id="megamenu" class="nov-megamenu clearfix ">
-                                <ul class="menu level1 ">
-                                    <li class="item home-page has-sub"><span class="opener"></span><a href="?home"
-                                            title="Home"><i class="zmdi zmdi-home"></i>الوظائف</a>
-                                        <div class="dropdown-menu" style="width:200px">
-                                            <ul class="">
-                                                <li class="item "><a href="{{ route('MyJops') }}"
-                                                        title="الصفحة الرئيسية">الوظائف</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="item  has-sub"><span class="opener"></span><a href="#"
-                                            title="Blog"><i class="zmdi zmdi-library"></i>العروض</a>
-                                        <div class="dropdown-menu" style="width:270px">
-                                            <ul class="">
-                                                <li class="item"><a href="{{ route('Offer.index') }}"
-                                                        title="Blog detail">جميع العروض</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-
-                                    <li class="item menu-page group"><span class="opener"></span><a
-                                            href="{{ route('Product.index') }}" title="المنتجات"><i
-                                                class="zmdi zmdi-assignment"></i>المنتجات</a>
-                                        <div class="dropdown-menu">
-                                            <ul class="">
-                                                <li class="item container group">
-                                                    <div class="dropdown-menu">
-                                                        <ul class="">
-                                                            @foreach ($products as $product)
-                                                                <li class="item col-lg-2 mw-20 html">
-                                                                    <span class="menu-title">
-                                                                        <a
-                                                                            href="{{ route('Product.show', $product->id) }}">
-                                                                            {{ $product->name }}
-                                                                        </a>
-                                                                    </span>
-                                                                </li>
-                                                            @endforeach
-                                                        </ul>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-
-                                    <li class="item  group"><span class="opener"></span><a
-                                            href="{{ route('Category.index') }}" title="الأقسام"><i
-                                                class="zmdi zmdi-group"></i>الأقسام</a>
-                                        <div class="dropdown-menu">
-                                            <ul class="">
-
-                                                <li class="item container group">
-                                                    <div class="dropdown-menu">
-                                                        <ul class="">
-                                                            @foreach ($categories as $category)
-                                                                <li class="item col-lg-3 col-md-3 html">
-                                                                    <span class="menu-title">
-                                                                        <a
-                                                                            href="{{ route('Category.show', $category->id) }}">{{ $category->name }}</a>
-                                                                    </span>
-                                                                    <div class="menu-content">
-                                                                        <ul class="col">
-                                                                            @foreach ($sub_categories as $cat)
-                                                                                @if ($cat->parent_id == $category->id)
-                                                                                    <li>
-                                                                                        <a class="text-right h6"
-                                                                                            href="{{ route('Sub_Category.Show', [$category->id, $cat->id]) }}">
-                                                                                            {{ $cat->name }}
-                                                                                        </a>
-                                                                                    </li>
-                                                                                @endif
-                                                                            @endforeach
-
-                                                                        </ul>
-                                                                    </div>
-                                                                </li>
-                                                            @endforeach
-                                                        </ul>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-
-
-
-
-
-
-
-
-                                </ul>
-                            </div>
-                            </li>
+<!-- Start Header Bottom -->
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-lg-8 col-md-6 col-12">
+            <div class="nav-inner">
+                <!-- Start Mega Category Menu -->
+                <div class="mega-category-menu">
+                    <span class="cat-button"><i class="lni lni-menu"></i>All Categories</span>
+                    <ul class="sub-category">
+                        <li><a href="product-grids.html">Electronics <i class="lni lni-chevron-right"></i></a>
+                            <ul class="inner-sub-category">
+                                <li><a href="product-grids.html">Digital Cameras</a></li>
+                                <li><a href="product-grids.html">Camcorders</a></li>
+                                <li><a href="product-grids.html">Camera Drones</a></li>
+                                <li><a href="product-grids.html">Smart Watches</a></li>
+                                <li><a href="product-grids.html">Headphones</a></li>
+                                <li><a href="product-grids.html">MP3 Players</a></li>
+                                <li><a href="product-grids.html">Microphones</a></li>
+                                <li><a href="product-grids.html">Chargers</a></li>
+                                <li><a href="product-grids.html">Batteries</a></li>
+                                <li><a href="product-grids.html">Cables & Adapters</a></li>
                             </ul>
-
-                        </nav>
-                    </div>
-
+                        </li>
+                        <li><a href="product-grids.html">accessories</a></li>
+                        <li><a href="product-grids.html">Televisions</a></li>
+                        <li><a href="product-grids.html">best selling</a></li>
+                        <li><a href="product-grids.html">top 100 offer</a></li>
+                        <li><a href="product-grids.html">sunglass</a></li>
+                        <li><a href="product-grids.html">watch</a></li>
+                        <li><a href="product-grids.html">man’s product</a></li>
+                        <li><a href="product-grids.html">Home Audio & Theater</a></li>
+                        <li><a href="product-grids.html">Computers & Tablets </a></li>
+                        <li><a href="product-grids.html">Video Games </a></li>
+                        <li><a href="product-grids.html">Home Appliances </a></li>
+                    </ul>
                 </div>
-                {{-- End Header Search --}}
-
-                {{-- Search Bar --}}
-                <div class="advencesearch_header">
-                    <span class="toggle-search hidden-lg-up"><i class="zmdi zmdi-search"></i></span>
-                    <div id="_desktop_search" class="contentsticky_search">
-
-                        <div id="desktop_search_content" data-id_lang="6" data-ajaxsearch="1">
-                            <form method="get" action="" id="searchbox" class="form-novadvancedsearch">
-
-                                <div class="input-group">
-                                    <input onkeyup="showResult(this.value)" type="text" id="search_query_top"
-                                        class="search_query ui-autocomplete-input form-control" name="key"
-                                        placeholder="بحث" />
-                                    <div id="searchProduct"></div>
-
-                                    <div class="input-group-btn nov_category_tree hidden-sm-down">
-                                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
-                                            aria-haspopup="true" value="" aria-expanded="false">
-                                            الأقسام
-                                        </button>
-                                        <ul class="dropdown-menu list-unstyled">
-                                            <li class="dropdown-item " data-value="2">
-                                                <span>الرئيسية</span>
-                                            </li>
-                                            <li class="dropdown-item " data-value="2">
-                                                <a href="{{ route('Category.index') }}">
-                                                    <span>كل الأقسام</span>
-                                                </a>
-                                            </li>
-                                            <ul class="list-unstyled pl-5">
-                                                @foreach ($categories as $category)
-                                                    <li class="dropdown-item" data-value="3">
-                                                        <a href="{{ route('Category.show', $category->id) }}">
-                                                            <span class="text-primary">{{ $category->name }}</span>
-                                                        </a>
-                                                    </li>
-                                                    @foreach ($sub_categories as $cat)
-                                                        @if ($cat->parent_id == $category->id)
-                                                            <li class="dropdown-item" data-value="10">
-                                                                <a
-                                                                    href="{{ route('Sub_Category.Show', [$category->id, $cat->id]) }}">
-                                                                    <span> {{ $cat->name }} -- </span>
-                                                                </a>
-                                                            </li>
-                                                        @endif
-                                                    @endforeach
-                                                @endforeach
-                                            </ul>
-                                        </ul>
-                                    </div>
-
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-secondary" type="submit" name="submit_search"><i
-                                                class="material-icons">بحث</i></button>
-                                    </span>
-                                </div>
-
-                            </form>
-                        </div>
-
-
-                    </div>
-                </div>
-                {{-- End Search Bar --}}
+                <!-- End Mega Category Menu -->
+                <!-- Start Navbar -->
+                <nav class="navbar navbar-expand-lg">
+                    <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                        <span class="toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                        <ul id="nav" class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a href="index.html" class="active" aria-label="Toggle navigation">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
+                                    data-bs-target="#submenu-1-2" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">Pages</a>
+                                <ul class="sub-menu collapse" id="submenu-1-2">
+                                    <li class="nav-item"><a href="about-us.html">About Us</a></li>
+                                    <li class="nav-item"><a href="faq.html">Faq</a></li>
+                                    <li class="nav-item"><a href="login.html">Login</a></li>
+                                    <li class="nav-item"><a href="register.html">Register</a></li>
+                                    <li class="nav-item"><a href="mail-success.html">Mail Success</a></li>
+                                    <li class="nav-item"><a href="404.html">404 Error</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
+                                    data-bs-target="#submenu-1-3" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">Shop</a>
+                                <ul class="sub-menu collapse" id="submenu-1-3">
+                                    <li class="nav-item"><a href="product-grids.html">Shop Grid</a></li>
+                                    <li class="nav-item"><a href="product-list.html">Shop List</a></li>
+                                    <li class="nav-item"><a href="product-details.html">shop Single</a></li>
+                                    <li class="nav-item"><a href="cart.html">Cart</a></li>
+                                    <li class="nav-item"><a href="checkout.html">Checkout</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
+                                    data-bs-target="#submenu-1-4" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">Blog</a>
+                                <ul class="sub-menu collapse" id="submenu-1-4">
+                                    <li class="nav-item"><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a>
+                                    </li>
+                                    <li class="nav-item"><a href="blog-single.html">Blog Single</a></li>
+                                    <li class="nav-item"><a href="blog-single-sidebar.html">Blog Single
+                                            Sibebar</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="contact.html" aria-label="Toggle navigation">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div> <!-- navbar collapse -->
+                </nav>
+                <!-- End Navbar -->
             </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-12">
+            <!-- Start Nav Social -->
+            <div class="nav-social">
+                <h5 class="title">Follow Us:</h5>
+                <ul>
+                    <li>
+                        <a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)"><i class="lni lni-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)"><i class="lni lni-skype"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- End Nav Social -->
         </div>
     </div>
 </div>
-</div>
-<script>
-    function showResult(str) {
-        let searchProduct = document.getElementById('search_query_top').value;
-        let url = "{{ url('enginx/products/search') }}" + "/";
-        if (str.length == 0) {
-            document.getElementById("searchProduct").innerHTML = "";
-            document.getElementById("searchProduct").style.border = "0px";
-            return;
-        }
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("searchProduct").innerHTML = this.responseText;
-                document.getElementById("searchProduct").style.border = "2px solid #A5ACB2";
-            }
-        }
-        xmlhttp.open("GET", url + searchProduct, true);
-        xmlhttp.send();
-    }
-</script>
+<!-- End Header Bottom -->
 </header>
+<!-- End Header Area -->
