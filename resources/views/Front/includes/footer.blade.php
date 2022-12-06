@@ -1,207 +1,189 @@
-<footer class="footer footer-three">
-    <div class="inner-footer">
+<!-- Start Footer Area -->
+<footer class="footer">
+    <!-- Start Footer Top -->
+    <div class="footer-top">
         <div class="container">
-            <div class="row">
-                <div class="nov-row footer-top " data-nov-full-width="true">
-                    <div class="nov-row-wrap row">
-                        <div class="nov-modules col-lg-12 col-md-12 ">
-                            <div class="block nov-wrap">
-                                <div class="title_block">تسجيل الدخول </div>
-                                <!-- begin module:ps_emailsubscription/views/templates/hook/ps_emailsubscription.tpl -->
-                                <!-- begin /var/www/demo.bestprestashoptheme.com/public_html/savemart/themes/vinova_savemart/modules/ps_emailsubscription/views/templates/hook/ps_emailsubscription.tpl -->
-                                <div class="block_newsletter">
-                                    <form action="http://demo.bestprestashoptheme.com/savemart/ar/#footer"
-                                        method="post">
-
-
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" name="email" value=""
-                                                placeholder="ادخل الاكونت الشخصي لك هنا">
-                                            <span class="input-group-btn">
-                                                <button class="btn btn-secondary effect-btn" name="submitNewsletter"
-                                                    type="submit">
-                                                    <span>اشتراك</span>
-                                                </button>
-                                            </span>
-                                        </div>
-                                        <input type="hidden" name="action" value="0">
-                                    </form>
-                                </div>
-                                <div class="social-content">
-                                    <div class="title_block">
-                                        تابعنا علي </div>
-                                    <div id="social_block">
-                                        <div class="social">
-                                            <ul class="list-inline mb-0 justify-content-end">
-                                                <li class="list-inline-item mb-0"><a
-                                                        href="https://www.facebook.com/292212008094653/posts/pfbid02CTAaQ5a5h7sDcxjjoo6Smha4bBcMamDhimsFaJmZzjW81BeSKvhkjThRa6pUd3DZl/?sfnsn=scwspmo&mibextid=RUbZ1f"
-                                                        target="_blank"><i class="zmdi zmdi-facebook"></i></a></li>
-                                                <li class="list-inline-item mb-0"><a href="https://www.twitter.com"
-                                                        target="_blank"><i class="zmdi zmdi-twitter"></i></a></li>
-                                                <li class="list-inline-item mb-0"><a href="https://www.youtube.com"
-                                                        target="_blank"><i class="zmdi zmdi-youtube-play"></i></a>
-                                                </li>
-                                                <li class="list-inline-item mb-0"><a href="https://www.instagram.com"
-                                                        target="_blank"><i class="zmdi zmdi-instagram"></i></a></li>
-                                            </ul>
-                                        </div>
+            <div class="inner-content">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-12">
+                        <div class="footer-logo">
+                            <a href="index.html">
+                                <img src="assets/images/logo/white-logo.svg" alt="#" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-8 col-12">
+                        <div class="footer-newsletter">
+                            <h4 class="title">
+                                Subscribe to our Newsletter
+                                <span>Get all the latest information, Sales and
+                                    Offers.</span>
+                            </h4>
+                            <div class="newsletter-form-head">
+                                <form action="#" method="get" target="_blank" class="newsletter-form">
+                                    <input name="EMAIL" placeholder="Email address here..." type="email" />
+                                    <div class="button">
+                                        <button class="btn">
+                                            Subscribe<span class="dir-part"></span>
+                                        </button>
                                     </div>
-                                </div>
-                                <!-- Popup newsletter -->
-                                <div id="popup-subscribe" class="modal fade" tabindex="-1" role="dialog"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close"><i class="zmdi zmdi-close"></i></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form action="http://demo.bestprestashoptheme.com/savemart/ar/"
-                                                    method="post">
-                                                    <div class="subscribe_form d-flex justify-content-start ">
-                                                        <div class="inner">
-                                                            <div class="title_block">تسجيل الدخول
-                                                            </div>
-                                                            <p>Receive email-only deals, special offers &amp;
-                                                                product exclusives</p>
-                                                            <div class="input-subscribe-wrap input-group">
-                                                                <input
-                                                                    class="inputNew form-control grey newsletter-input"
-                                                                    placeholder="Enter your email address"
-                                                                    type="text" name="email" size="18"
-                                                                    value="" />
-                                                                <span class="input-group-btn">
-                                                                    <button type="submit" name="submitNewsletter"
-                                                                        class="btn btn-primary">إشترك</button>
-                                                                </span>
-                                                                <input type="hidden" name="action" value="0" />
-                                                            </div>
-                                                            <div class="checkbox">
-                                                                <span class="custom-checkbox">
-                                                                    <input name="no-view" class="no-view"
-                                                                        type="checkbox">
-                                                                    <span class="ps-shown-by-js"><i
-                                                                            class="material-icons checkbox-checked">check</i></span>
-                                                                </span>
-                                                                <span>Don&#039;t show this popup again</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end /var/www/demo.bestprestashoptheme.com/public_html/savemart/themes/vinova_savemart/modules/ps_emailsubscription/views/templates/hook/ps_emailsubscription.tpl -->
-                                <!-- end module:ps_emailsubscription/views/templates/hook/ps_emailsubscription.tpl -->
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="nov_row-full-width clearfix w-100"></div>
-                <div class="nov-row footer-center " data-nov-full-width="true">
-                    <div class="nov-row-wrap row">
-                        <!-- begin /var/www/demo.bestprestashoptheme.com/public_html/savemart/themes/vinova_savemart/modules/novpagemanage/views/source/html.tpl -->
-                        <div class="nov-html col-xl-4 col-lg-4 col-md-4">
-                            <div class="block">
-                                <div class="block_content">
-
-                                    <div class="data-contact d-flex align-self-stretch">
-                                        <div class="title-icon">الدعم<i class="icon-support icon-address"></i>
-                                        </div>
-                                        <div class="content-data-contact">
-                                            <div class="support">تواصل مع خدمة العملاء :
-                                            </div>
-                                            <div class="phone-support">01063739873</div>
-                                        </div>
-                                    </div>
-                                    <div class="data-contact d-flex align-self-stretch">
-                                        <div class="title-icon">معلومات التواصل<i
-                                                class="icon-info-contact icon-address"></i></div>
-                                        <div class="content-data-contact">
-                                            <div class="info-contact">معلومات التواصل </div>
-                                            <div class="content-info-contact"> المنوفية
-                                                <br /> شبين الكوم
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Footer Top -->
+    <!-- Start Footer Middle -->
+    <div class="footer-middle">
+        <div class="container">
+            <div class="bottom-inner">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <!-- Single Widget -->
+                        <div class="single-footer f-contact">
+                            <h3>Get In Touch With Us</h3>
+                            <p class="phone">Phone: +1 (900) 33 169 7720</p>
+                            <ul>
+                                <li>
+                                    <span>Monday-Friday: </span> 9.00 am - 8.00
+                                    pm
+                                </li>
+                                <li>
+                                    <span>Saturday: </span> 10.00 am - 6.00 pm
+                                </li>
+                            </ul>
+                            <p class="mail">
+                                <a href="mailto:support@shopgrids.com">support@shopgrids.com</a>
+                            </p>
                         </div>
-
-                        <!-- end /var/www/demo.bestprestashoptheme.com/public_html/savemart/themes/vinova_savemart/modules/novpagemanage/views/source/html.tpl -->
-
-                        <!-- begin /var/www/demo.bestprestashoptheme.com/public_html/savemart/themes/vinova_savemart/modules/novpagemanage/views/source/html.tpl -->
-                        <div class="nov-html col-xl-3 col-lg-3 col-md-3">
-                            <div class="block">
-                                <div class="title_block">
-                                    معلومات الشركة
-                                </div>
-                                <div class="block_content">
-                                    <ul>
-                                        <li><a href="{{ route('who') }}">من نحن </a></li>
-                                        <li><a href="{{ route('polices') }}">سياسة الخصوصية</a></li>
-                                        <li><a href="{{ route('uses') }}">اتفاقية الاستخدام</a></li>
-                                        <li><a href="{{ route('rules') }}">الشروط والأحكام</li>
-
-
-                                    </ul>
-                                </div>
-                            </div>
+                        <!-- End Single Widget -->
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <!-- Single Widget -->
+                        <div class="single-footer our-app">
+                            <h3>Our Mobile App</h3>
+                            <ul class="app-btn">
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <i class="lni lni-apple"></i>
+                                        <span class="small-title">Download on the</span>
+                                        <span class="big-title">App Store</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <i class="lni lni-play-store"></i>
+                                        <span class="small-title">Download on the</span>
+                                        <span class="big-title">Google Play</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
-
-                        <!-- end /var/www/demo.bestprestashoptheme.com/public_html/savemart/themes/vinova_savemart/modules/novpagemanage/views/source/html.tpl -->
-
-                        <!-- begin /var/www/demo.bestprestashoptheme.com/public_html/savemart/themes/vinova_savemart/modules/novpagemanage/views/source/html.tpl -->
-                        <div class="nov-html col-xl-3 col-lg-3 col-md-3">
-                            <div class="block">
-                                <div class="title_block">
-                                    حسابي </div>
-                                <div class="block_content">
-                                    <ul>
-                                        <li><a href="#">خريطةالموقع</a></li>
-                                        <li><a href="#">حسابي</a></li>
-                                        <li><a href="{{ route('contact_us') }}">تواصل معانا</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <!-- End Single Widget -->
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <!-- Single Widget -->
+                        <div class="single-footer f-link">
+                            <h3>Information</h3>
+                            <ul>
+                                <li>
+                                    <a href="javascript:void(0)">About Us</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">Contact Us</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">Downloads</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">Sitemap</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">FAQs Page</a>
+                                </li>
+                            </ul>
                         </div>
-
-                        <!-- end /var/www/demo.bestprestashoptheme.com/public_html/savemart/themes/vinova_savemart/modules/novpagemanage/views/source/html.tpl -->
-
-                        <!-- begin /var/www/demo.bestprestashoptheme.com/public_html/savemart/themes/vinova_savemart/modules/novpagemanage/views/source/html.tpl -->
-                        <div class="nov-html col-xl-2 col-lg-2 col-md-2">
-                            <div class="block">
-                                <div class="title_block">
-                                    تحتاج المساعدة </div>
-                                <div class="block_content">
-                                    <ul>
-                                        <li><a href="{{ route('payments') }}">طريقة الدفع </a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <!-- End Single Widget -->
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <!-- Single Widget -->
+                        <div class="single-footer f-link">
+                            <h3>Shop Departments</h3>
+                            <ul>
+                                <li>
+                                    <a href="javascript:void(0)">Computers & Accessories</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">Smartphones & Tablets</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">TV, Video & Audio</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">Cameras, Photo & Video</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">Headphones</a>
+                                </li>
+                            </ul>
                         </div>
-
-                        <!-- end /var/www/demo.bestprestashoptheme.com/public_html/savemart/themes/vinova_savemart/modules/novpagemanage/views/source/html.tpl -->
+                        <!-- End Single Widget -->
                     </div>
                 </div>
-                <div class="nov_row-full-width clearfix w-100"></div>
             </div>
         </div>
     </div>
-    <div id="nov-copyright">
+    <!-- End Footer Middle -->
+    <!-- Start Footer Bottom -->
+    <div class="footer-bottom">
         <div class="container">
-            <div class="row">
-                <h3
-                    class="col-md-6 align-items-center justify-content-md-start justify-content-sm-center d-flex pb-xs-max-20 flex-center">
-
-                    حقوق الملكية محفوظة
-                </h3>
-                <div
-                    class="payment-image col-md-6 align-items-center justify-content-md-end justify-content-sm-center d-flex flex-center">
+            <div class="inner-content">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 col-12">
+                        <div class="payment-gateway">
+                            <span>We Accept:</span>
+                            <img src="assets/images/footer/credit-cards-footer.png" alt="#" />
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="copyright">
+                            <p>
+                                Designed and Developed by<a href="https://graygrids.com/" rel="nofollow"
+                                    target="_blank">GrayGrids</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <ul class="socila">
+                            <li>
+                                <span>Follow Us On:</span>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"><i class="lni lni-instagram"></i></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"><i class="lni lni-google"></i></a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- End Footer Bottom -->
 </footer>
+<!--/ End Footer Area -->
+
+<!-- ========================= scroll-top ========================= -->
+<a href="#" class="scroll-top">
+    <i class="lni lni-chevron-up"></i>
+</a>
