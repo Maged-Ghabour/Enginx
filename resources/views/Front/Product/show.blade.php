@@ -25,31 +25,30 @@
                         <div class="col-md-8">
                             <div class="d-flex justify-content-between">
                                 <h3>{{ $product->name }}</h3>
-                                <h4 class="text-primary">
+                                <h5 class="text-primary ">
                                     <a href="{{ route('Category.show', $product->category->id) }}">
-                                        {{ $product->category->name }}</a>
-                                </h4>
+                                        {{ $product->category->name }} Category</a>
+                                </h5>
                             </div>
                             <p class="d-flex justify-content-between text-muted">{!! $product->description !!}</p>
-                            <p class='text-primary d-flex justify-content-between p-2 m-2'>{{ $product->price }} £E </p>
-
-
-
-                            <input type="hidden" name="product_id" value="{{ $product->id }}">
-                            <div class="product-quantity ">
-                                <span class="control-label "> Quantity</span>
-                                <div class="qty">
-                                    <div class="input-group ">
-                                        <input type="text" name="quantity" id="quantity_wanted" value="1"
-                                            class="input-group form-control" min="1" style="display: block;">
-                                        <span class="input-group-addon bootstrap-touchspin-postfix"
-                                            style="display: none;"></span>
-
-                                    </div>
+                            <p class="d-flex justify-content-between text-primary ">{{ $product->price }} £E </p>
+                            <div class="col-lg-4 col-md-4 col-12 mt-2">
+                                <div class="form-group quantity">
+                                    <label for="color">Quantity</label>
+                                    <select class="form-control">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
                                 </div>
                             </div>
 
-                            <div class="add float-end mt-5">
+
+
+
+                            <div class=" mt-5">
                                 <button class="btn btn-primary add-to-cart mx-2" data-toggle="modal"
                                     data-target="#exampleModal" type="submit">
                                     <span class="d-block">Add To Cart </span>

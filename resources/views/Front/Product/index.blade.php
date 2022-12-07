@@ -1,5 +1,6 @@
 @extends('Front.layouts.app')
 
+@section('title', $products)
 
 @section('content')
     {{-- Start Showing Products  --}}
@@ -10,10 +11,16 @@
                 <div class="col-lg-3 course_box">
                     <div class="card mt-3 mb-3">
                         <div class="card-body text-center">
+
                             <img class="img-fluid image-cover" src="{{ asset('uploads/Products/' . $product->image) }}"
                                 alt=""
                                 data-full-size-image-url="http://demo.bestprestashoptheme.com/savemart/24-large_default/hummingbird-printed-t-shirt.jpg"
                                 width="600" height="600">
+                            <div class="button mt-2">
+                                <a href="{{ route('Product.show', $product->id) }}" class="btn"><i
+                                        class="lni lni-cart"></i> Add to
+                                    Cart</a>
+                            </div>
 
                             <div class="product-description">
                                 <div class="product-groups">
@@ -40,8 +47,8 @@
             @endforelse
         </div>
     </div>
-    <div class="d-flex justify-content-center align-items-center w-100 p-5">
-        {{ $products->links('pagination::bootstrap-4') }}
+    <div class="d-flex justify-content-center  w-100 p-5">
+        {{ $products->links() }}
     </div>
     {{-- End Showing Products --}}
 @endsection

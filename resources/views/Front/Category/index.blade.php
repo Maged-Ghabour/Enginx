@@ -39,8 +39,8 @@
             @endforelse
         </div>
     </div>
-    <div class="d-flex justify-content-center align-items-center w-100 p-5">
-        {{ $categories->links('pagination::bootstrap-4') }}
+    <div class="d-flex justify-content-center  w-100 p-5">
+        {{ $categories->links() }}
     </div>
     {{-- End Showing Products --}}
 @endsection
