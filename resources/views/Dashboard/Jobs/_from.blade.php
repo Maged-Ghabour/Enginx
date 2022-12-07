@@ -1,14 +1,14 @@
 <div class="mb-3">
     <label for="namejop" class="form-label">أسم الوظيفة :-</label>
-    <input required type="text" name="name" value="{{ isset($myjop->name) ? $myjop->name : '' }}"
-        @class(['form-control', 'is-invalid' => $errors->has('name')]) id="namejop">
+    <input type="text" name="name" value="{{ isset($myjop->name) ? $myjop->name : '' }}" @class(['form-control', 'is-invalid' => $errors->has('name')])
+        id="namejop">
     @error('name')
         <div class="invalid-feedback">{{ $message }}</div>
     @enderror
 </div>
 <div class="mb-3">
     <label for="titlejop" class="form-label"> المسمى الوظيفى :-</label>
-    <input required type="text" name="joptitle" value="{{ isset($myjop->joptitle) ? $myjop->joptitle : '' }}"
+    <input type="text" name="joptitle" value="{{ isset($myjop->joptitle) ? $myjop->joptitle : '' }}"
         @class(['form-control', 'is-invalid' => $errors->has('joptitle')]) id="titlejop">
     @error('joptitle')
         <div class="invalid-feedback">{{ $message }}</div>
@@ -42,7 +42,7 @@
             'form-control',
             'is-invalid' => $errors->has('joprequirement'),
         ]) name="joprequirement" id="editor" rows="5" style="height: 100px">{{ isset($myjop->joprequirement) ? $myjop->joprequirement : '' }}</textarea>
-        @error('jopdescription')
+        @error('joprequirement')
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
     </div>

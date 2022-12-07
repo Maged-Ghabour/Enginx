@@ -74,6 +74,7 @@
         timer();
         setInterval(timer, 1000);
     </script>
+    @stack('scripts')
     </body>
 
     </html>

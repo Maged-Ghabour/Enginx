@@ -15,10 +15,59 @@
 
 
 @section('content')
-    <form action="{{ route('dashboard.users.update', $user->id) }}" method="post" enctype="multipart/form-data">
+    <form id="form" action="{{ route('dashboard.users.update', $user->id) }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('put')
         @include('Dashboard.Users._from')
     </form>
 
 @endsection
+
+
+@push('scripts')
+    {{-- inputs Validation --}}
+    <script>
+        $(document).ready(function() {
+
+            $("#form").on("submit", function(e) {
+                $("input.name").each(function() {
+                        $(this).rules("add", {
+                            required: true,
+                        });
+                    }),
+                    $("input.email").each(function() {
+                        $(this).rules("add", {
+                            required: true
+                        });
+                    }),
+                    $("input.password").each(function() {
+                        $(this).rules("add", {
+                            required: true
+                        });
+                    }),
+                    e.preventDefault();
+            });
+
+            // Start Form Validation
+            $("#form").validate({
+                rules: {
+                    name: {
+                        required: true,
+                        minlength: 3,
+                        maxlength: 50
+                    },
+                    email: {
+                        required: true,
+                    },
+                    password: {
+                        required: true,
+
+                    },
+                },
+                submitHandler: function(form) {
+                    form.submit();
+                },
+            });
+        });
+    </script>
+@endpush

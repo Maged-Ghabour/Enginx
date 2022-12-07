@@ -68,8 +68,8 @@
 
 <div class="mb-3">
     <label for="expire_date">تاريخ الانتهاء</label>
-    <input  type="date" name="expire_date" id="expire_date" @class([
-        'form-control p-1',
+    <input type="date" name="expire_date" id="expire_date" @class([
+        'form-control p-1 expire_date',
         'is-invalid' => $errors->has('expire_date'),
     ]) />
 

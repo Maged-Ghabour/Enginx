@@ -25,6 +25,7 @@ Route::group(["prefix" => 'enginx'], function () {
 
     Route::group(['prefix' => 'offers'], function () {
         Route::get('/', [OfferController::class, 'index'])->name('Offer.index');
+        Route::get('show/{id}', [OfferController::class, 'show'])->name('Offer.show');
     });
 
     Route::group(['prefix' => 'categories'], function () {
@@ -37,12 +38,9 @@ Route::group(["prefix" => 'enginx'], function () {
         Route::get('/show/{id}', [\App\Http\Controllers\Front\JobController::class, 'show'])->name('show');
         Route::post('/store', [\App\Http\Controllers\Front\ApplicantController::class, 'store'])->name('store');
     });
-       Route::group(['prefix' => 'ourcustomers'], function () {
+    Route::group(['prefix' => 'ourcustomers'], function () {
         Route::get('/', [\App\Http\Controllers\Front\CustomerController::class, 'index'])->name('customer.index');
         Route::get('/{id}', [\App\Http\Controllers\Front\CustomerController::class, 'show'])->name('customer.show');
-
-
-
     });
     Route::group(['prefix' => 'services'], function () {
         Route::get('/show/{id}',  [SerController::class, 'show'])->name('services.show');

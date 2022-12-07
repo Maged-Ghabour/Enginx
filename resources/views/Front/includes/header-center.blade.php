@@ -4,8 +4,9 @@
         <div class="row align-items-center">
             <div class="col-lg-3 col-md-3 col-7">
                 <!-- Start Header Logo -->
-                <a class="navbar-brand" href="index.html">
-                    <img src="assets/images/logo/logo.svg" alt="Logo">
+                <a class="navbar-brand" href="{{ route('Home') }}">
+                    <img class="rounded-circle" height="50px" width="50" src="uploads/site-images/logo.png"
+                        alt="Logo">
                 </a>
                 <!-- End Header Logo -->
             </div>
@@ -18,11 +19,9 @@
                             <div class="select-position">
                                 <select id="select1">
                                     <option selected>All</option>
-                                    <option value="1">option 01</option>
-                                    <option value="2">option 02</option>
-                                    <option value="3">option 03</option>
-                                    <option value="4">option 04</option>
-                                    <option value="5">option 05</option>
+                                    @foreach ($categories as $category)
+                                        <option>{{ $category->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -41,7 +40,7 @@
                 <div class="middle-right-area">
                     <div class="nav-hotline">
                         <i class="lni lni-phone"></i>
-                        <h3>Hotline:
+                        <h3>Customer Service:
                             <span>(+100) 123 456 7890</span>
                         </h3>
                     </div>
@@ -61,9 +60,10 @@
                             <div class="shopping-item">
                                 <div class="dropdown-cart-header">
                                     <span>2 Items</span>
-                                    <a href="cart.html">View Cart</a>
+                                    <a href="{{ route('cart.index') }}">View Cart</a>
                                 </div>
                                 <ul class="shopping-list">
+                                    for each products here to be shown in cart
                                     <li>
                                         <a href="javascript:void(0)" class="remove" title="Remove this item"><i
                                                 class="lni lni-close"></i></a>
@@ -78,18 +78,6 @@
                                             <p class="quantity">1x - <span class="amount">$99.00</span></p>
                                         </div>
                                     </li>
-                                    <li>
-                                        <a href="javascript:void(0)" class="remove" title="Remove this item"><i
-                                                class="lni lni-close"></i></a>
-                                        <div class="cart-img-head">
-                                            <a class="cart-img" href="product-details.html"><img
-                                                    src="assets/images/header/cart-items/item2.jpg" alt="#"></a>
-                                        </div>
-                                        <div class="content">
-                                            <h4><a href="product-details.html">Wi-Fi Smart Camera</a></h4>
-                                            <p class="quantity">1x - <span class="amount">$35.00</span></p>
-                                        </div>
-                                    </li>
                                 </ul>
                                 <div class="bottom">
                                     <div class="total">
@@ -97,7 +85,7 @@
                                         <span class="total-amount">$134.00</span>
                                     </div>
                                     <div class="button">
-                                        <a href="checkout.html" class="btn animate">Checkout</a>
+                                        <a href="{{ route('checkout') }}" class="btn animate">Checkout</a>
                                     </div>
                                 </div>
                             </div>
