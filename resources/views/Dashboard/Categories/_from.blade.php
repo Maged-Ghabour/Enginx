@@ -43,7 +43,6 @@
         'form-control p-1 image',
         'is-invalid' => $errors->has('image'),
     ]) />
-    <input type="file" name="image" id="image" @class(['form-control p-1', 'is-invalid' => $errors->has('image')]) />
 
     @error('image')
         <div class="invalid-feedback">{{ $message }}</div>

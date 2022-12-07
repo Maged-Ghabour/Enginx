@@ -67,38 +67,38 @@ class CategoryController extends Controller
         ]);
 
 
-            // Validation
+        // Validation
 
-            $request->validate(
-                Category::rules($id = 0),
-                [
-                    "required" => "هذا الحقل مطلوب",
-                    "unique" => " اسم التصنيف موجود مسبقا" ,
-                    "name.min" => "اسم التصنيف لابد ان يكون ازيد من ثلاث حروف",
-                    "name.max" => "اسم التصنيف لابد ان يكون اقل من مائة حرف" ,
-                    "description.min" => "وصف التصنيف لابد ان يكون ازيد من ثلاث حروف",
-                    "image" => "لابد ان يكون امتداد الصورة احد الامتدادات الاتيه PNG,JPG,PNG"
-
-
-
-                ]
-            );
+        $request->validate(
+            Category::rules($id = 0),
+            [
+                "required" => "هذا الحقل مطلوب",
+                "unique" => " اسم التصنيف موجود مسبقا",
+                "name.min" => "اسم التصنيف لابد ان يكون ازيد من ثلاث حروف",
+                "name.max" => "اسم التصنيف لابد ان يكون اقل من مائة حرف",
+                "description.min" => "وصف التصنيف لابد ان يكون ازيد من ثلاث حروف",
+                "image" => "لابد ان يكون امتداد الصورة احد الامتدادات الاتيه PNG,JPG,PNG"
 
 
 
-            // Validation
+            ]
+        );
 
-            $request->validate(
-                Category::rules($id = 0),
-                [
-                    "required" => "هذا الحقل مطلوب",
-                    "unique" => "اسم التصنيف هذا موجود مسبقاً ، قم بادخال اسم تصنيف لم يتم ادخاله من قبل" ,
-                    "image" => "تأكد من امتداد الصوره بان يكون احد الامتدادات التالية JPG,PNG,TIF,BMP,GIF",
-                    "name.min" => "لابد ان يكون اسم التصنيف اكبر من ثلاث حروف" ,
-                    "max" => "لابد ان يكون اسم التصنيف اقل من 100" ,
-                    "description.min" => "لابد ان يكون وصف التصنيف اكبر من ثلاث حروف" ,
-                ]
-            );
+
+
+        // Validation
+
+        $request->validate(
+            Category::rules($id = 0),
+            [
+                "required" => "هذا الحقل مطلوب",
+                "unique" => "اسم التصنيف هذا موجود مسبقاً ، قم بادخال اسم تصنيف لم يتم ادخاله من قبل",
+                "image" => "تأكد من امتداد الصوره بان يكون احد الامتدادات التالية JPG,PNG,TIF,BMP,GIF",
+                "name.min" => "لابد ان يكون اسم التصنيف اكبر من ثلاث حروف",
+                "max" => "لابد ان يكون اسم التصنيف اقل من 100",
+                "description.min" => "لابد ان يكون وصف التصنيف اكبر من ثلاث حروف",
+            ]
+        );
 
 
 
@@ -196,7 +196,7 @@ class CategoryController extends Controller
         ]);
 
 
-        $request->validate(Category::rules($id));
+        //$request->validate(Category::rules($id));
 
         $category->update([
             "name" => $request->name,

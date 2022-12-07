@@ -45,11 +45,7 @@
                             required: true
                         });
                     }),
-                    $("input.image").each(function() {
-                        $(this).rules("add", {
-                            required: true
-                        });
-                    }),
+
                     e.preventDefault();
             });
 
@@ -68,9 +64,7 @@
                         required: true,
 
                     },
-                    image: {
-                        required: true
-                    },
+
                 },
                 submitHandler: function(form) {
                     form.submit();
