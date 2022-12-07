@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html class="no-js" lang="zxx">
+<html class="no-js" lang="zxx"  dir="rtl">
+
 
 <head>
     <meta charset="utf-8" />
