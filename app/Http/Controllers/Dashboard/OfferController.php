@@ -17,8 +17,8 @@ class OfferController extends Controller
     {
 
         $offers = Offer::filter(request()->query())
-                        ->orderBy("offers.title")->paginate(2);
-        return view("Dashboard.Offers.index" , compact("offers"));
+            ->orderBy("offers.title")->paginate(10);
+        return view("Dashboard.Offers.index", compact("offers"));
     }
 
     /**
@@ -30,7 +30,7 @@ class OfferController extends Controller
     {
         $offer = new offer();
         // $categories = Category::get();
-        return view("Dashboard.Offers.create" , compact("offer"));
+        return view("Dashboard.Offers.create", compact("offer"));
     }
 
     /**
@@ -43,28 +43,28 @@ class OfferController extends Controller
     {
 
 
-            // Validation
+        // Validation
 
-            $request->validate(
-                Offer::rules($id = 0),
-                [
-                    "required" => "هذا الحقل مطلوب",
-                    "unique" => "  عنوان العرض موجود مسبقا" ,
-                    "min" => "هذا الحقل لابد ان يكون ازيد من ثلاث حروف",
-                    "title.max" => "عنوان العرض لابد ان يكون اقل من مائة حرف" ,
-                    "image" => "لابد ان يكون امتداد الصورة احد الامتدادات الاتيه PNG,JPG,PNG"
-
-
-
-                ]
-            );
+        $request->validate(
+            Offer::rules($id = 0),
+            [
+                "required" => "هذا الحقل مطلوب",
+                "unique" => "  عنوان العرض موجود مسبقا",
+                "min" => "هذا الحقل لابد ان يكون ازيد من ثلاث حروف",
+                "title.max" => "عنوان العرض لابد ان يكون اقل من مائة حرف",
+                "image" => "لابد ان يكون امتداد الصورة احد الامتدادات الاتيه PNG,JPG,PNG"
 
 
-        if($request->file("image")){
+
+            ]
+        );
+
+
+        if ($request->file("image")) {
             $image = $request->file("image");
             $ext = $image->getClientOriginalExtension();
             $name = uniqid() . time() . ".$ext";
-            $image->move(public_path("uploads/Offers/") , $name);
+            $image->move(public_path("uploads/Offers/"), $name);
         }
 
 
@@ -83,7 +83,7 @@ class OfferController extends Controller
 
 
 
-        return redirect()->route("dashboard.offers.index")->with("success" , "تم إضافة العرض بنجاح");
+        return redirect()->route("dashboard.offers.index")->with("success", "تم إضافة العرض بنجاح");
     }
 
     /**
@@ -107,7 +107,7 @@ class OfferController extends Controller
     {
         $offer = Offer::findOrFail($id);
         // $categories = Category::get();
-        return view("Dashboard.Offers.edit" , compact("offer"));
+        return view("Dashboard.Offers.edit", compact("offer"));
     }
 
     /**
@@ -122,16 +122,15 @@ class OfferController extends Controller
         $offer = Offer::findOrFail($id);
         $name = $offer->image;
 
-        if($request->hasFile("image")){
-            if($name !== null){
-                unlink(public_path("uploads/Offers/").$name);
+        if ($request->hasFile("image")) {
+            if ($name !== null) {
+                unlink(public_path("uploads/Offers/") . $name);
             }
 
             $image = $request->file("image");
             $ext = $image->getClientOriginalExtension();
             $name = uniqid() . time() . ".$ext";
-            $image->move(public_path("uploads/Offers/") , $name);
-
+            $image->move(public_path("uploads/Offers/"), $name);
         }
 
 
@@ -150,7 +149,7 @@ class OfferController extends Controller
         ]);
 
         return redirect(route("dashboard.products.index"))
-        ->with("updated" , "📢 تم تعديل العرض بنجاح");
+            ->with("updated", "📢 تم تعديل العرض بنجاح");
     }
 
     /**
@@ -164,11 +163,11 @@ class OfferController extends Controller
         $offer = Offer::findOrFail($id);
         $offer->delete();
 
-        if($offer->image){
-            unlink(public_path("uploads/Offers/").$offer->image);
+        if ($offer->image) {
+            unlink(public_path("uploads/Offers/") . $offer->image);
         }
 
         return redirect()->route("dashboard.offers.index")
-        -> with("deleted" , "✈ تم حذف العرض بنجاح");
+            ->with("deleted", "✈ تم حذف العرض بنجاح");
     }
 }
