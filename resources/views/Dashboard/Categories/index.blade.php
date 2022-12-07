@@ -54,10 +54,9 @@
         <tbody>
 
             @forelse ($categories as $key => $category)
-
                 <tr>
 
-                    <td>{{ $categories->firstItem()+$loop->index }}</td>
+                    <td>{{ $categories->firstItem() + $loop->index }}</td>
 
                     <td><a class="btn btn-info" href="{{ route('dashboard.categories.show', $category->id) }}">
                             {{ $category->name }}</a></td>

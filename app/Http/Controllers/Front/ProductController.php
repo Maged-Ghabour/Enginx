@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $data['products'] = Product::with('category')->paginate(1);
+        $data['products'] = Product::with('category')->paginate(8);
         return view('Front.Product.index')->with($data);
     }
 

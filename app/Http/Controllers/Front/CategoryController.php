@@ -14,7 +14,7 @@ class CategoryController extends Controller
         $data['categories'] = Category::withCount('children')
             ->withCount("products")
             ->where('parent_id', null)
-            ->paginate(3);
+            ->paginate(4);
         $data['products'] = Product::all();
         return view('Front.Category.index')->with($data);
     }
