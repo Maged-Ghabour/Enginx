@@ -40,7 +40,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="{{ route('dashboard.orders.update', $order->id) }}" method="POST">
+                        <form id="form" action="{{ route('dashboard.orders.update', $order->id) }}" method="POST">
                             @method('PATCH')
                             <input type="hidden" name="id" value="{{ $order->id }}">
                             @csrf

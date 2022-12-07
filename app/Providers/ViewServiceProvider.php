@@ -25,7 +25,7 @@ class ViewServiceProvider extends ServiceProvider
                 ->with('parent')
                 ->where('parent_id', "<>", null)->get());
 
-            $view->with('products', Product::get());
+            $view->with('products', Product::with('category')->get());
         });
 
 

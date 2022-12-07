@@ -193,4 +193,3 @@
 
     <script src="{{ asset('Front/js/mine.js') }}"></script>
 @endpush
-

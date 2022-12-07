@@ -13,4 +13,8 @@ class OfferController extends Controller
         $data['offers'] = Offer::all();
         return view('Front.Offers.index')->with($data);
     }
+
+    public function show($id)
+    {
+    }
 }

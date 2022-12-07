@@ -14,7 +14,7 @@
 <div class="mb-3">
     <label for="parent_id">اسم التصنيف التابع</label>
     <select name="parent_id" id="name" @class([
-        'form-control p-1',
+        'form-control p-1 parent_id',
         'is-invalid' => $errors->has('parent_id'),
     ])>
         <option value="">التصنيف الرئيسي</option>
@@ -34,11 +34,15 @@
     <div class="invalid-feedback">{{ $message }}</div>
     @enderror --}}
     <label for="description">وصف التصنيف</label>
-    <x-form.textarea name="description" :value="$category->description" rows="7" />
+    <x-form.textarea class="description" name="description" :value="$category->description" rows="7" />
 </div>
 
 <div class="mb-3">
     <label for="image">رفع صورة التصنيف</label>
+    <input type="file" name="image" id="image" @class([
+        'form-control p-1 image',
+        'is-invalid' => $errors->has('image'),
+    ]) />
     <input type="file" name="image" id="image" @class(['form-control p-1', 'is-invalid' => $errors->has('image')]) />
 
     @error('image')
@@ -48,7 +52,7 @@
 
 
 @if ($category->image)
-    <img src="{{ asset('uploads/Categories/' . $category->image) }}" class="img-fluid rounded mb-2 d-block"
+    <img src="{{ asset('uploads/Categories/' . $category->image) }}" class="img-fluid image rounded mb-2 d-block"
         style="height: 150px ; wight:150px" alt="">
 @endif
 
