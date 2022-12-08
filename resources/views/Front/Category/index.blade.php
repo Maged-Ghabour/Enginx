@@ -1,10 +1,14 @@
 @extends('Front.layouts.app')
 
+@section('title', 'Categories')
 
 @section('content')
     {{-- Start Showing Products  --}}
-    <h2 class="text-center mt-3 pb-5">Avilable Categories </h2>
+
     <div class="container mt-3  mb-3 pb-4">
+        <div class="section-title">
+            <h2> Avilable Categories</h2>
+        </div>
         <div class="row mt-3 mb-3">
             @forelse ($categories as $category)
                 <div class="col-lg-3 course_box">
