@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Contact Us - ShopGrids Bootstrap 5 eCommerce HTML Template.</title>
+    <title>Contact Us</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.svg" />
@@ -148,7 +148,7 @@
                             <div class="nav-hotline">
                                 <i class="lni lni-phone"></i>
                                 <h3>Hotline:
-                                    <span>(+100) 123 456 7890</span>
+                                    <span>0100 066 5292</span>
                                 </h3>
                             </div>
                             <div class="navbar-cart">
