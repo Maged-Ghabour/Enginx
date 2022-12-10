@@ -10,7 +10,7 @@
 
 
         <div class="section-title">
-            <h2> Our Customers</h2>
+            <h2> Our Clients</h2>
 
         </div>
 

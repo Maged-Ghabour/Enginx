@@ -1,44 +1,25 @@
 @extends('Front.layouts.app')
 
+@section('title', 'سياسة الاستخدام')
 
-@section('content')
-
-
-<!DOCTYPE html>
-   <head>
-
- <title>اتفاقية الاستخدام - Enginx solutions</title>
-
-    <style> 
-    @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
-
+@push('styles')
+<style>
 body {
-  font-family: 'Muli', sans-serif;
+    font-family: 'Cairo', sans-serif;
+
   color: rgba(0, 0, 0, 0.8);
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1.58;
   letter-spacing: -.003em;
   font-size: 20px;
-  padding: 70px;
+  /* padding: 70px; */
 }
 
-li {
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 18px;
-  line-height: 1.15;
-  letter-spacing: -.02em;
-  color: rgba(0, 0, 0, 0.8);
-  -webkit-font-smoothing: antialiased;
-}
-   
+
     </style>
+@endpush
 
-   </head>
-   <body>
-
+@section('content')
 
       <div style="text-align:right;font-size:18px;direction:rtl" class="container">
 <div class="border_b row">
@@ -118,24 +99,8 @@ li {
 </div>
 </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   </body>
-</html>
 @endsection
+
 
 
 

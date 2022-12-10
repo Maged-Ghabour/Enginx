@@ -1,14 +1,3 @@
-<style>
-    .d-none {
-        display: none;
-    }
-
-    .d-block {
-        display: block;
-        color: red;
-    }
-</style>
-
 @extends('Front.layouts.app')
 
 @section('title', 'عمل حساب جديد')

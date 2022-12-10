@@ -29,7 +29,6 @@
                                 <div class="mt-3">
                                     <a href="{{ route('Category.show', $category->id) }}"
                                         class="btn btn-primary d-flex justify-content-center" data-link-action="quickview">
-                                        <i class="fa fa-search"></i>
                                         <span>Show Category </span>
                                     </a>
                                 </div>

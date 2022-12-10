@@ -47,8 +47,8 @@
                         <div class="top-middle">
                             <ul class="useful-links">
                                 <li><a href="{{ route('Home') }}">Home</a></li>
-                                <li><a href="about-us.html">About Us</a></li>
-                                <li><a href="contact.html">Contact Us</a></li>
+                                <li><a href="{{ route('who') }}">About Us</a></li>
+                                <li><a href="{{ route('contact_us.index') }}">Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -56,21 +56,24 @@
                         <div class="col-lg-3 col-md-4 col-12">
                             <div class="col-12">
                                 <div class=" row col-12">
-                                    <div class="col-6">
+                                    <div class="col-9">
                                         <a href="{{ route('profile', [Auth::User()->id]) }}" class="fs-6 text-light"
-                                            style="font-size: 1px;">
-                                            <i class="lni lni-user"></i>
-                                            Hello {{ Auth::User()->name }}
+                                            style="font-size: 1px;">>
+                                            <img width="50px" height="50px" class="rounded-circle mr-1 ml-1"
+                                                src="{{ asset('uploads/User/' . Auth::user()->image) }}"
+                                                alt="">
+                                        </a>
+                                        <a href="{{ route('profile', [Auth::User()->id]) }}"
+                                            class="fs-6 text-light">{{ Auth::user()->name }}
                                         </a>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-3 mt-2">
                                         <form action="{{ route('logout') }}" method="post">
                                             @csrf
                                             <button type="submit" class="btn text-light ">تسجيل
                                                 خروج</button>
                                         </form>
                                     </div>
-
                                 </div>
                             </div>
                         </div>

@@ -33,11 +33,7 @@
                             required: true,
                         });
                     }),
-                    $("select.parent_id").each(function() {
-                        $(this).rules("add", {
-                            required: true
-                        });
-                    }),
+
                     $("textarea.description").each(function() {
                         $(this).rules("add", {
                             required: true
@@ -59,9 +55,7 @@
                         minlength: 3,
                         maxlength: 50
                     },
-                    parent_id: {
-                        required: true,
-                    },
+
                     description: {
                         required: true,
 

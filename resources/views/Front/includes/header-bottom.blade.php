@@ -76,6 +76,9 @@
                             <li class="nav-item">
                                 <a href="{{ route('MyJops') }}" aria-label="Toggle navigation">Jobs</a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('customer.index') }}" aria-label="Toggle navigation"> Clients</a>
+                            </li>
                         </ul>
                     </div> <!-- navbar collapse -->
                 </nav>
@@ -88,16 +91,8 @@
                 <h5 class="title">Follow Us:</h5>
                 <ul>
                     <li>
-                        <a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)"><i class="lni lni-instagram"></i></a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)"><i class="lni lni-skype"></i></a>
+                        <a href="https://www.facebook.com/engix3" target="_blank"><i
+                                class="lni lni-facebook-filled"></i></a>
                     </li>
                 </ul>
             </div>
