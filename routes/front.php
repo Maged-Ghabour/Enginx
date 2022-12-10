@@ -133,3 +133,45 @@ Route::group([
         }
     )->name('uses');
 });
+
+Route::get(
+    '/who',
+    function () {
+        return view('front.footer.who');
+    }
+)->name('who');
+
+Route::get(
+    '/contact',
+    function () {
+        return view('front.footer.contact_us');
+    }
+)->name('contact_us');
+
+Route::get(
+    '/payments',
+    function () {
+        return view('front.footer.payments');
+    }
+)->name('payments');
+
+Route::get(
+    '/polices',
+    function () {
+        return view('front.footer.polices');
+    }
+)->name('polices');
+
+Route::get(
+    '/rules',
+    function () {
+        return view('front.footer.rules');
+    }
+)->name('rules');
+
+Route::get(
+    '/uses',
+    function () {
+        return view('front.footer.uses');
+    }
+)->name('uses');
