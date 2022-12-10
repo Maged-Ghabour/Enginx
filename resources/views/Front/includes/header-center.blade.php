@@ -83,7 +83,7 @@
                     </div>
                     <!-- Start Header Logo -->
                     <a class="navbar-brand" href="{{ route('Home') }}">
-                        <img class="rounded-circle" src="uploads/site-images/logo.png" alt="Logo">
+                        <img class="rounded-circle" src="{{ asset('uploads/site-images/logo.png') }}" alt="Logo">
                     </a>
                     <!-- End Header Logo -->
                 </div>

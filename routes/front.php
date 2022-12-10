@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Front\CategoryController;
+use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\OfferController;
 use App\Http\Controllers\Front\ProductController;
@@ -48,6 +49,51 @@ Route::group([
             Route::get('/show/{id}',  [ProgramController::class, 'show'])->name('programs.show');
             Route::get('/sub_cat/{id}/sub_cat/{sub_id}',  [ProgramController::class, 'show_sub_category'])->name('show_sub_cat');
         });
+        Route::group(['prefix' => 'contact-us'], function () {
+            Route::get('/', [ContactController::class, 'index'])->name('contact_us.index');
+            Route::post('/', [ContactController::class, 'store'])->name('contact_us.store');
+        });
+        Route::get(
+            '/who',
+            function () {
+                return view('front.footer.who');
+            }
+        )->name('who');
+
+        Route::get(
+            '/contact',
+            function () {
+                return view('front.footer.contact_us');
+            }
+        )->name('contact_us');
+
+        Route::get(
+            '/payments',
+            function () {
+                return view('front.footer.payments');
+            }
+        )->name('payments');
+
+        Route::get(
+            '/polices',
+            function () {
+                return view('front.footer.polices');
+            }
+        )->name('polices');
+
+        Route::get(
+            '/rules',
+            function () {
+                return view('front.footer.rules');
+            }
+        )->name('rules');
+
+        Route::get(
+            '/uses',
+            function () {
+                return view('front.footer.uses');
+            }
+        )->name('uses');
     });
 
     Route::get(
@@ -57,12 +103,7 @@ Route::group([
         }
     )->name('who');
 
-    Route::get(
-        '/contact',
-        function () {
-            return view('front.footer.contact_us');
-        }
-    )->name('contact_us');
+
 
     Route::get(
         '/payments',
@@ -92,45 +133,3 @@ Route::group([
         }
     )->name('uses');
 });
-
-Route::get(
-    '/who',
-    function () {
-        return view('front.footer.who');
-    }
-)->name('who');
-
-Route::get(
-    '/contact',
-    function () {
-        return view('front.footer.contact_us');
-    }
-)->name('contact_us');
-
-Route::get(
-    '/payments',
-    function () {
-        return view('front.footer.payments');
-    }
-)->name('payments');
-
-Route::get(
-    '/polices',
-    function () {
-        return view('front.footer.polices');
-    }
-)->name('polices');
-
-Route::get(
-    '/rules',
-    function () {
-        return view('front.footer.rules');
-    }
-)->name('rules');
-
-Route::get(
-    '/uses',
-    function () {
-        return view('front.footer.uses');
-    }
-)->name('uses');
