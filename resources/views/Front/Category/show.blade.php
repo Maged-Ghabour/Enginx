@@ -10,9 +10,12 @@
 
 @section('content')
     {{-- Start Showing Category Section --}}
-    <h2 class="text-center mt-3 pb-5">Avilable Products </h2>
+
 
     <div class="container mt-3 pb-4">
+        <div class="section-title">
+            <h2> Avilable Products</h2>
+        </div>
 
         {{-- End Showing Sub Categories --}}
 

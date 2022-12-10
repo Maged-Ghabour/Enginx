@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
-    <title>Login Page </title>
+    <title>تسجيل دخول الأدمن</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -34,7 +34,7 @@
             <div class="wrap-login100">
                 <div class="login100-form-title" style="background-image: url({{ asset('front/images/bg-01.jpg') }})">
                     <span class="login100-form-title-1">
-                        Super Admin Login
+                        تسجيل دخول الأدمن
                     </span>
                 </div>
                 {{-- Valdation Admin Error --}}
@@ -46,20 +46,20 @@
                 <form class="login100-form validate-form" method="POST" action="{{ route('Admin.confirm') }}">
                     @csrf
                     <div class="wrap-input100 validate-input m-b-26" data-validate="البريد الالكترونى مطلوب">
-                        <span class="label-input100">Email</span>
+                        <span class="label-input100">البريد الالكترونى</span>
                         <input class="input100" type="email" name="email" placeholder="ادخل البريد الالكترونى">
                         <span class="focus-input100"></span>
                     </div>
 
                     <div class="wrap-input100 validate-input m-b-18" data-validate="الرقم السرى مطلوب">
-                        <span class="label-input100">Password</span>
+                        <span class="label-input100">الرقم السرى</span>
                         <input class="input100" type="password" name="password" placeholder="ادخل الرقم السري">
                         <span class="focus-input100"></span>
                     </div>
 
                     <div class="container-login100-form-btn">
                         <button type="submit" class="login100-form-btn">
-                            Login
+                            دخول
                         </button>
                     </div>
                 </form>

@@ -133,14 +133,65 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        $order = Order::findOrFail($id);
-        $order->delete();
-        return redirect()->route('dashboard.orders.index')->with('deleted', 'تم حذف الطلب بنجاح');
+        $order = Order::withTrashed()->findOrFail($id);
+
+        if ($order->trashed()) {
+            $order->forceDelete();
+            return redirect()->route('dashboard.orders.index')->with('success', 'تم حذف الطلب نهائياً بنجاح');
+        } else {
+            $order->delete();
+            return redirect()->route('dashboard.orders.index')->with('success', 'تم أرشفة الطلب بنجاح');
+        }
     }
 
+    public function trashedOrders()
+    {
+        $data['trashedOrders'] = Order::onlyTrashed()->orderBy('id', 'DESC')->paginate(10);
+        return view('Dashboard.Order.trashed')->with($data);
+    }
+
+    public function restoreOrder($id)
+    {
+        Order::onlyTrashed()->findOrFail($id)->restore();
+        return redirect()->route('dashboard.orders.index')->with('success', 'تم استرجاع الطلب بنجاح');
+    }
     public function print($id)
     {
         $data['order'] = Order::findOrFail($id);
         return view('Dashboard.Order.print')->with($data);
+    }
+
+    // Order Tracking
+
+    public function delivering($id)
+    {
+        Order::findOrFail($id)->update([
+            'status' => 'delivering'
+        ]);
+        return redirect()->route('dashboard.orders.index')->with('success', 'الطلب الآن قيد التوصيل');
+    }
+
+    public function completed($id)
+    {
+        Order::findOrFail($id)->update([
+            'status' => 'completed'
+        ]);
+        return redirect()->route('dashboard.orders.index')->with('success', 'تم توصيل الطلب بنجاح');
+    }
+
+    public function cancelled($id)
+    {
+        Order::findOrFail($id)->update([
+            'status' => 'cancelled'
+        ]);
+        return redirect()->route('dashboard.orders.index')->with('success', 'تم رفض الطلب بنجاح');
+    }
+
+    public function refunded($id)
+    {
+        Order::findOrFail($id)->update([
+            'status' => 'refunded'
+        ]);
+        return redirect()->route('dashboard.orders.index')->with('success', 'مش عارف ايه ده بصراحه');
     }
 }

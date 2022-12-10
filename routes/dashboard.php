@@ -30,8 +30,17 @@ Route::group(['prefix' => 'admin-dashboard'], function () {
         Route::get('/allCV/{id}', [\App\Http\Controllers\Dashboard\ApplicantController::class, 'index'])->name('allCV');
         Route::get('/CV/{id}', [\App\Http\Controllers\Dashboard\ApplicantController::class, 'show'])->name('MyCv');
         Route::delete('/destroyCV/{id}', [\App\Http\Controllers\Dashboard\ApplicantController::class, 'destroy'])->name('destroy');
-        Route::get('/orders/print/{id}', [OrderController::class, 'print'])->name('order.print');
+
+        Route::group(["prefix" => "/orders"], function () {
+            Route::get('delivering/{id}', [OrderController::class, 'delivering'])->name('delivering');
+            Route::get('completed/{id}', [OrderController::class, 'completed'])->name('completed');
+            Route::get('cancelled/{id}', [OrderController::class, 'cancelled'])->name('cancelled');
+            Route::get('refunded/{id}', [OrderController::class, 'refunded'])->name('refunded');
+            Route::get('trashedOrders', [OrderController::class, 'trashedOrders'])->name('trashedOrders');
+            Route::get('restoreOrder/{id}', [OrderController::class, 'restoreOrder'])->name('restoreOrder');
+        });
         Route::resource('/orders', OrderController::class);
-        Route::get('/ordersDetails', [OrderDetailsController::class , "index"])->name("orderDetails.index");
+        Route::get('/orders/print/{id}', [OrderController::class, 'print'])->name('order.print');
+        Route::get('/ordersDetails', [OrderDetailsController::class, "index"])->name("orderDetails.index");
     });
 });

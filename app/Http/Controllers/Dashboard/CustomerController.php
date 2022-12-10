@@ -15,8 +15,8 @@ class CustomerController extends Controller
      */
     public function index()
     {
-         $customers = Customer::get();
-        return view("Dashboard.OurCustomers.index" , compact("customers"));
+        $customers = Customer::get();
+        return view("Dashboard.OurCustomers.index", compact("customers"));
     }
 
     /**
@@ -26,9 +26,9 @@ class CustomerController extends Controller
      */
     public function create()
     {
-         $customer = new customer();
+        $customer = new customer();
 
-        return view("Dashboard.OurCustomers.create" , compact("customer"));
+        return view("Dashboard.OurCustomers.create", compact("customer"));
     }
 
     /**
@@ -39,14 +39,14 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->file("image")){
+        if ($request->file("image")) {
             $image = $request->file("image");
             $ext = $image->getClientOriginalExtension();
             $name = uniqid() . time() . ".$ext";
-            $image->move(public_path("uploads/Customers/") , $name);
+            $image->move(public_path("uploads/Customers/"), $name);
         }
 
-         $customer = Customer::create([
+        $customer = Customer::create([
             "title" => $request->title,
             "description" => $request->description,
             "image" => $name
@@ -56,8 +56,7 @@ class CustomerController extends Controller
 
 
 
-        return redirect()->route("dashboard.ourCustomers.index")->with("success" , "تم إضافة العميل بنجاح");
-
+        return redirect()->route("dashboard.ourCustomers.index")->with("success", "تم إضافة العميل بنجاح");
     }
 
     /**
@@ -66,7 +65,7 @@ class CustomerController extends Controller
      * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function show( $id)
+    public function show($id)
     {
         //
     }
@@ -79,9 +78,9 @@ class CustomerController extends Controller
      */
     public function edit($id)
     {
-          $customer = Customer::findOrFail($id);
+        $customer = Customer::findOrFail($id);
 
-        return view("Dashboard.ourCustomers.edit" , compact("customer"));
+        return view("Dashboard.ourCustomers.edit", compact("customer"));
     }
 
     /**
@@ -93,32 +92,29 @@ class CustomerController extends Controller
      */
     public function update(Request $request,  $id)
     {
-         $customer = Customer::findOrFail($id);
+        $customer = Customer::findOrFail($id);
         $name = $customer->image;
 
-        if($request->hasFile("image")){
-            if($name !== null){
-                unlink(public_path("uploads/Customers/").$name);
+        if ($request->hasFile("image")) {
+            if ($name !== null) {
+                unlink(public_path("uploads/Customers/") . $name);
             }
 
             $image = $request->file("image");
             $ext = $image->getClientOriginalExtension();
             $name = uniqid() . time() . ".$ext";
-            $image->move(public_path("uploads/Customers/") , $name);
-
-
+            $image->move(public_path("uploads/Customers/"), $name);
         }
 
 
-         $customer->update([
+        $customer->update([
             "title" => $request->title,
             "description" => $request->description,
             "image" => $name
         ]);
 
         return redirect(route("dashboard.ourCustomers.index"))
-        ->with("updated" , "📢 تم تعديل العميل  بنجاح");
-
+            ->with("success", "📢 تم تعديل العميل  بنجاح");
     }
 
     /**
@@ -127,16 +123,16 @@ class CustomerController extends Controller
      * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function destroy( $id)
+    public function destroy($id)
     {
         $customer = Customer::findOrFail($id);
         $customer->delete();
 
-        if($customer->image){
-            unlink(public_path("uploads/Customers/").$customer->image);
+        if ($customer->image) {
+            unlink(public_path("uploads/Customers/") . $customer->image);
         }
 
         return redirect()->route("dashboard.ourCustomers.index")
-        -> with("deleted" , "✈ تم حذف العرض بنجاح");
+            ->with("success", "✈ تم حذف العرض بنجاح");
     }
 }

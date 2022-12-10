@@ -61,10 +61,7 @@
                     description: {
                         required: true,
                     },
-                    image: {
-                        required: true,
 
-                    },
                 },
                 submitHandler: function(form) {
                     form.submit();

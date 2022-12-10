@@ -45,7 +45,6 @@
                             required: true
                         });
                     }),
-
                     e.preventDefault();
             });
 

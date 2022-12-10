@@ -33,15 +33,32 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
+
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
+            // 'phone' => ['required', 'digits:10', 'unique:users'],
+            // 'image' => ['mimes:jpg,gif,png,jfif', 'required', 'max:10000'],
+            // 'address' => ['required'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
+
+
+        $image = $request->image;
+        if ($image) {
+            $file = $request->file('image');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extention;
+            $file->move('uploads/User/', $filename);
+        }
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'address' => $request->address,
+            'phone' => $request->phone,
+            'image' =>  $filename,
             'password' => Hash::make($request->password),
         ]);
 
@@ -49,6 +66,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect(RouteServiceProvider::HOME)->with('check your data');
     }
 }
