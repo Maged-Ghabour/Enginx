@@ -21,6 +21,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::group(['prefix' => 'profile'], function () {
+        Route::get('/{id}', [\App\Http\Controllers\Front\ProfileController::class, 'show'])->name('profile');
+        Route::get('/edit_name/{id}', [\App\Http\Controllers\Front\ProfileController::class, 'edit_name'])->name('profile.edit_name');
+        Route::get('/edit_email/{id}', [\App\Http\Controllers\Front\ProfileController::class, 'edit_email'])->name('profile.edit_email');
+        Route::get('/edit_phone/{id}', [\App\Http\Controllers\Front\ProfileController::class, 'edit_phone'])->name('profile.edit_phone');
+        Route::put('/update/{id}', [\App\Http\Controllers\Front\ProfileController::class, 'update'])->name('profile.updateing');
+    });
 });
 
 Route::post('image-upload', [ImageUploadController::class, 'storeImage'])->name('image.upload');
@@ -37,8 +44,8 @@ Route::group(["prefix" => 'enginx'], function () {
 
 /* Start Order Route */
 Route::group(["prefix" => 'enginx'], function () {
-    Route::get('checkout', [CheckoutController::class , "create"])->name("checkout");
-    Route::post('checkout', [CheckoutController::class , "store"]);
+    Route::get('checkout', [CheckoutController::class, "create"])->name("checkout");
+    Route::post('checkout', [CheckoutController::class, "store"]);
 });
 
 
