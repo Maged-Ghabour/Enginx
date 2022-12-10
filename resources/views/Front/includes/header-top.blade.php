@@ -19,18 +19,25 @@
                         <div class="top-left">
                             <ul class="menu-top-link">
                                 <li>
-                                    <div class="select-position">
-                                        <select id="select4">
-                                            <option value="0" selected>$ USD</option>
-                                        </select>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="select-position">
-                                        <select id="select5">
-                                            <option value="0" selected>English</option>
-                                            <option value="4">العربية</option>
-                                        </select>
+                                    <div class="btn-group mb-1">
+                                        <a type="button" class=" btn-sm dropdown-toggle" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            @if (App::getLocale() == 'ar')
+                                                {{ LaravelLocalization::getCurrentLocaleName() }}
+                                                <img src="{{ asset('assets/images/flags/EG.png') }}" alt="">
+                                            @else
+                                                {{ LaravelLocalization::getCurrentLocaleName() }}
+                                                <img src="{{ asset('assets/images/flags/GB.png') }}" alt="">
+                                            @endif
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                                <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"
+                                                    href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                                    {{ $properties['native'] }}
+                                                </a>
+                                            @endforeach
+                                        </div>
                                     </div>
                                 </li>
                             </ul>

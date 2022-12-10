@@ -20,7 +20,7 @@ class ProductController extends Controller
         $request = request();
         $products = Product::with("category")->filter($request->query())->paginate(10);
 
-        return view("Dashboard.Products.index" , compact("products"));
+        return view("Dashboard.Products.index", compact("products"));
     }
 
     /**
@@ -35,7 +35,7 @@ class ProductController extends Controller
 
         $product = new product();
         $categories = Category::get();
-        return view("Dashboard.Products.create" , compact("product" , "categories"));
+        return view("Dashboard.Products.create", compact("product", "categories"));
     }
 
     /**
@@ -46,30 +46,33 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-         // Request Merge
-         $request->merge([
+        // Request Merge
+        $request->merge([
             "slug" => Str::slug($request->name)
         ]);
 
         // Validation
 
-        $request->validate(Product::rules($id =0) ,
+        $request->validate(
+            Product::rules($id = 0),
             [
-                "required" => "هذا الحقل مطلوب" ,
-                "unique" => "هذا الحقل موجود مسبقا" ,
+                "required" => "هذا الحقل مطلوب",
+                "unique" => "هذا الحقل موجود مسبقا",
                 "numeric" => "هذاالحقل لابد ان يكون رقما",
                 "min" => "هذا الحقل لابد ان يكون اكبر من الصفر",
-                "max" => "ادخل قيمة اقل من 100000" ,
+                "max" => "ادخل قيمة اقل من 100000",
                 "image" => "لابد ان يكون امتداد الصورة احد الامتدادات الاتيه PNG,JPG,PNG"
 
-            ]);
+            ]
+        );
 
         // Validation
 
-        $request->validate(Product::rules($id =0) ,
+        $request->validate(
+            Product::rules($id = 0),
             [
-                "required" => "هذا الحقل مطلوب" ,
-                "name.unique" => "اسم المنتج موجود مسبقاً" ,
+                "required" => "هذا الحقل مطلوب",
+                "name.unique" => "اسم المنتج موجود مسبقاً",
                 "numeric" => "هذاالحقل لابد ان يكون رقما",
                 "price.min" => "لابد ان يكون السعر اكبر من الصفر",
                 "price.max" => "لابد ان لا تزيد قيمة السعر عن 100000",
@@ -77,15 +80,16 @@ class ProductController extends Controller
                 "name.max" => "لابد ان لا يزيد اسم المنتج علي ثلاث حروف",
                 "image" => "تأكد من امتداد الصوره بان يكون احد الامتدادات التالية JPG,PNG,TIF,BMP,GIF",
 
-            ]);
+            ]
+        );
 
 
 
-        if($request->file("image")){
+        if ($request->file("image")) {
             $image = $request->file("image");
             $ext = $image->getClientOriginalExtension();
             $name = uniqid() . time() . ".$ext";
-            $image->move(public_path("uploads/Products/") , $name);
+            $image->move(public_path("uploads/Products/"), $name);
         }
 
 
@@ -106,7 +110,7 @@ class ProductController extends Controller
 
 
 
-        return redirect()->route("dashboard.products.index")->with("success" , "تم إضافة المنتج بنجاح");
+        return redirect()->route("dashboard.products.index")->with("success", "تم إضافة المنتج بنجاح");
     }
 
     /**
@@ -130,7 +134,7 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
         $categories = Category::get();
-        return view("Dashboard.Products.edit" , compact("product" , "categories"));
+        return view("Dashboard.Products.edit", compact("product", "categories"));
     }
 
     /**
@@ -145,28 +149,27 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $name = $product->image;
 
-        if($request->hasFile("image")){
-            if($name !== null){
-                unlink(public_path("uploads/Products/").$name);
+        if ($request->hasFile("image")) {
+            if ($name !== null) {
+                unlink(public_path("uploads/Products/") . $name);
             }
 
             $image = $request->file("image");
             $ext = $image->getClientOriginalExtension();
             $name = uniqid() . time() . ".$ext";
-            $image->move(public_path("uploads/Products/") , $name);
-
+            $image->move(public_path("uploads/Products/"), $name);
         }
 
 
 
 
-            // Request Merge
-            $request->merge([
-                "slug" => Str::slug($request->name)
-            ]);
+        // Request Merge
+        $request->merge([
+            "slug" => Str::slug($request->name)
+        ]);
 
 
-        $request->validate(Product::rules($id));
+        //$request->validate(Product::rules($id));
 
         $product->update([
             "name" => $request->name,
@@ -179,7 +182,7 @@ class ProductController extends Controller
         ]);
 
         return redirect(route("dashboard.products.index"))
-        ->with("updated" , "📢 تم تعديل المنتج بنجاح");
+            ->with("success", "📢 تم تعديل المنتج بنجاح");
     }
 
     /**
@@ -193,12 +196,11 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $product->delete();
 
-        if($product->image){
-            unlink(public_path("uploads/Products/").$product->image);
+        if ($product->image) {
+            unlink(public_path("uploads/Products/") . $product->image);
         }
 
         return redirect()->route("dashboard.products.index")
-        -> with("deleted" , "✈ تم حذف المنتج بنجاح");
+            ->with("deleted", "✈ تم حذف المنتج بنجاح");
     }
-
 }

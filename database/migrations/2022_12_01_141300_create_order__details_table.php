@@ -22,8 +22,9 @@ return new class extends Migration
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->nullable();
             $table->string('product_name');
             $table->decimal('unit_price', 8, 2)->default(0.00);
+            $table->decimal('quantity', 8, 2)->default(0.00);
             $table->decimal('product_total', 8, 2)->default(0.00);
-            $table->unique(["order_id" , "product_id"]);
+            $table->unique(["order_id", "product_id"]);
             $table->timestamps();
         });
     }

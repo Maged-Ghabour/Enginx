@@ -71,6 +71,8 @@ return [
         "route2" => 'dashboard.orders.create',
         "title3" => ' طلبات الشراء',
         "route3" => 'dashboard.orderDetails.index',
+        "title3" => 'أرشيف الطلبات',
+        "route3" => 'dashboard.trashedOrders',
 
     ],
 

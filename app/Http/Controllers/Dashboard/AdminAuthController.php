@@ -23,7 +23,7 @@ class AdminAuthController extends Controller
             'email' => $data['email'],
             'password' => $data['password']
         ])) {
-            return redirect()->back()->with(['error' => 'Your data doesn\'t match our records']);
+            return redirect()->back()->with(['error' => 'خطأ المعلومات غير صحيحة رجاء التأكد من دقة المعلومات ']);
         } else {
             return redirect()->route('dashboard.Admin.index');
         }

@@ -17,7 +17,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::paginate(2);
-        return view("Dashboard.Users.index" , compact("users"));
+        return view("Dashboard.Users.index", compact("users"));
     }
 
     /**
@@ -28,8 +28,8 @@ class UserController extends Controller
     public function create()
     {
         $user = new user();
-       // $users = User::get();
-        return view("Dashboard.Users.create" , compact("user"));
+        // $users = User::get();
+        return view("Dashboard.Users.create", compact("user"));
     }
 
     /**
@@ -40,8 +40,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-         // Request Merge
-         $request->merge([
+        // Request Merge
+        $request->merge([
             "slug" => Str::slug($request->name)
         ]);
 
@@ -56,11 +56,11 @@ class UserController extends Controller
 
 
 
-        if($request->file("image")){
+        if ($request->file("image")) {
             $image = $request->file("image");
             $ext = $image->getClientOriginalExtension();
             $name = uniqid() . time() . ".$ext";
-            $image->move(public_path("uploads/Users/") , $name);
+            $image->move(public_path("uploads/Users/"), $name);
         }
 
 
@@ -78,7 +78,7 @@ class UserController extends Controller
 
 
 
-        return redirect()->route("dashboard.users.index")->with("success" , "تم إضافة مستخدم بنجاح");
+        return redirect()->route("dashboard.users.index")->with("success", "تم إضافة مستخدم بنجاح");
     }
 
     /**
@@ -102,7 +102,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $users = User::get();
-        return view("Dashboard.Users.edit" , compact("users"));
+        return view("Dashboard.Users.edit", compact("users"));
     }
 
     /**
@@ -114,11 +114,11 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $user = User::findOrFail($id);
-         // Request Merge
-            $request->merge([
-                "slug" => Str::slug($request->name)
-            ]);
+        $user = User::findOrFail($id);
+        // Request Merge
+        $request->merge([
+            "slug" => Str::slug($request->name)
+        ]);
 
 
         // $request->validate(User::rules($id));
@@ -131,9 +131,8 @@ class UserController extends Controller
 
         ]);
 
-
-        return redirect(route("dashboard.Users.index"))
-        ->with("updated" , "📢 تم تعديل المستخدم بنجاح");
+        toastr('success', 'تم تعديل المستخدم بنجاح');
+        return redirect(route("dashboard.Users.index"));
     }
 
     /**
@@ -144,10 +143,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-         $user = User::findOrFail($id);
+        $user = User::findOrFail($id);
         $user->delete();
 
         return redirect()->route("dashboard.users.index")
-        -> with("deleted" , "✈ تم حذف المستخدم بنجاح");
+            ->with("deleted", "✈ تم حذف المستخدم بنجاح");
     }
 }
