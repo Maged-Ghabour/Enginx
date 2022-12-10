@@ -29,7 +29,10 @@
                                 <div class="mt-3">
                                     <a href="{{ route('Category.show', $category->id) }}"
                                         class="btn btn-primary d-flex justify-content-center" data-link-action="quickview">
+<<<<<<< HEAD
                                         <i class="fa fa-search mt-1"></i>
+=======
+>>>>>>> dc1f65306cddfbc59a41896ce032bca00a4bf7e2
                                         <span>Show Category </span>
                                     </a>
                                 </div>
