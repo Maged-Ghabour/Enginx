@@ -108,11 +108,11 @@ Route::get(
 )->name('contact_us');
 
 Route::get(
-    '/payments',
+    '/faq',
     function () {
-        return view('front.footer.payments');
+        return view('front.footer.faq');
     }
-)->name('payments');
+)->name('faq');
 
 Route::get(
     '/polices',
