@@ -5,8 +5,7 @@
             <div class="col-lg-3 col-md-3 col-7">
                 <!-- Start Header Logo -->
                 <a class="navbar-brand" href="{{ route('Home') }}">
-                    <img class="rounded-circle" height="50px" width="50" src="uploads/site-images/logo.png"
-                        alt="Logo">
+                    <img class="rounded-circle" src="uploads/site-images/logo.png" alt="Logo">
                 </a>
                 <!-- End Header Logo -->
             </div>

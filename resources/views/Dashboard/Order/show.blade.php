@@ -92,9 +92,6 @@
                             <div class="col-12 text-center">
                                 <a href="{{ route('dashboard.order.print', $order->id) }}" class="btn btn-primary mt-2 ">
                                     <i class="fa fa-print"></i> طباعة الفاتورة</a>
-
-                                {{-- <a href="{{ route('Bill.sendEmail', $bill->id) }}" class="btn btn-success mt-2"> <i
-                                        class="fa fa-envelope"></i> {{ __('Frontend/front.send') }}</a> --}}
                             </div>
                         </div>
                     </div>

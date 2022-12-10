@@ -207,7 +207,7 @@ class CategoryController extends Controller
         ]);
 
         return redirect(route("dashboard.categories.index"))
-            ->with("updated", "📢 تم تعديل التصنيف بنجاح");
+            ->with("info", "📢 تم تعديل التصنيف بنجاح");
     }
 
     /**
@@ -226,6 +226,6 @@ class CategoryController extends Controller
         }
 
         return redirect()->route("dashboard.categories.index")
-            ->with("deleted", "✈ تم حذف التصنيف بنجاح");
+            ->with("warning", "✈ تم حذف التصنيف بنجاح");
     }
 }

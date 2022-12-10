@@ -23,8 +23,9 @@ return new class extends Migration
             // Add to handle Order from side of User
             $table->foreignId("user_id")->nullable()->constrained("users")->nullOnDelete();
             $table->string("number")->unique(); // Shape of order
-            $table->enum("status" , ["pending","processing","delivering","completed","cancelled","refunded"])->default("pending");
+            $table->enum("status", ["pending", "delivering", "completed", "cancelled", "refunded"])->default("pending");
             $table->string("payment_method")->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -79,9 +79,7 @@
                         required: true,
 
                     },
-                    image: {
-                        required: true
-                    },
+
                     price: {
                         required: true
                     },
