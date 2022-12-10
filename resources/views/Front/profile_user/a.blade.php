@@ -25,7 +25,8 @@
                             <div class="col-lg-3 order-lg-2">
                                 <div class="card-profile-image">
                                     <a href="#">
-                                        <img src="{{ asset('uploads/User/' . $user->image) }}" class="rounded-circle">
+                                        <img width="100px" height="100px" src="{{ asset('uploads/User/' . $user->image) }}"
+                                            class="rounded-circle">
                                     </a>
                                 </div>
                             </div>
@@ -34,7 +35,7 @@
                             <div class="row mt-3">
                                 <div class="col">
                                     <div class="heading">
-                                        <form action="{{ route('profile.edit_name', $user->id) }}" method="get">
+                                        <form action="{{ route('profile.edit_name', $user->id) }}" method="POST">
                                             @csrf
                                             <button type="submit" class="btn btn-link text-decoration-none"
                                                 style="color: rgb(70, 68, 68);">
@@ -50,7 +51,7 @@
                                         </form>
                                     </div>
                                     <div class="heading">
-                                        <form action="{{ route('profile.edit_email', $user->id) }}" method="get">
+                                        <form action="{{ route('profile.edit_email', $user->id) }}" method="post">
                                             @csrf
                                             <button type="submit" class="btn btn-link text-decoration-none"
                                                 style="color: rgb(70, 68, 68);">

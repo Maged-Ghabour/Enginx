@@ -42,7 +42,7 @@ class ProfileController extends Controller
         if ($request->name) {
             User::where('id', $request->id)
                 ->update(['name' => $request->name]);
-            return redirect()->route('profile', $request->id);
+            return redirect()->route('profile', $request->id)->with('success', 'تم تعديل الاسم بنجاح');
         } elseif ($request->email) {
             User::where('id', $request->id)
                 ->update(['email' => $request->email]);
