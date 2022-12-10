@@ -15,7 +15,7 @@
         <div class="topbar">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 col-md-4 col-12">
+                    <div class="col-lg-3 col-md-4 col-12">
                         <div class="top-left">
                             <ul class="menu-top-link">
                                 <li>
@@ -43,7 +43,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-12">
+                    <div class="col-lg-6 col-md-4 col-12">
                         <div class="top-middle">
                             <ul class="useful-links">
                                 <li><a href="{{ route('Home') }}">Home</a></li>
@@ -52,22 +52,46 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-12">
-                        <div class="top-end">
-                            <div class="user">
-                                <i class="lni lni-user"></i>
-                                Hello
+                    @if (isset(Auth::User()->name))
+                        <div class="col-lg-3 col-md-4 col-12">
+                            <div class="col-12">
+                                <div class=" row col-12">
+                                    <div class="col-6">
+                                        <a href="{{ route('profile', [Auth::User()->id]) }}" class="fs-6 text-light"
+                                            style="font-size: 1px;">
+                                            <i class="lni lni-user"></i>
+                                            Hello {{ Auth::User()->name }}
+                                        </a>
+                                    </div>
+                                    <div class="col-6">
+                                        <form action="{{ route('logout') }}" method="post">
+                                            @csrf
+                                            <button type="submit" class="btn text-light ">تسجيل
+                                                خروج</button>
+                                        </form>
+                                    </div>
+
+                                </div>
                             </div>
-                            <ul class="user-login">
-                                <li>
-                                    <a href="{{ route('login') }}">Sign In</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('register') }}">Register</a>
-                                </li>
-                            </ul>
                         </div>
-                    </div>
+                    @else
+                        <div class="col-lg-3 col-md-4 col-12">
+                            <div class="top-end">
+                                <div class="user">
+                                    <i class="lni lni-user"></i>
+                                    Hello
+                                </div>
+                                <ul class="user-login">
+                                    <li>
+                                        <a href="{{ route('login') }}">Sign In</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('register') }}">Register</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
