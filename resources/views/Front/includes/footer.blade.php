@@ -90,10 +90,10 @@
                             <h3>Information</h3>
                             <ul>
                                 <li>
-                                    <a href="{{route ('who') }}">About Us</a>
+                                    <a href="{{ route('who') }}">About Us</a>
                                 </li>
                                 <li>
-                                    <a href="{{route ('contact_us') }}">Contact Us</a>
+                                    <a href="{{ route('contact_us.index') }}">Contact Us</a>
                                 </li>
                                 {{-- <li>
                                     <a href="{{route ('uses') }}"></a>

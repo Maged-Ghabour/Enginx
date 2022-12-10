@@ -48,7 +48,7 @@
                             <ul class="useful-links">
                                 <li><a href="{{ route('Home') }}">Home</a></li>
                                 <li><a href="{{ route('who') }}">About Us</a></li>
-                                <li><a href="{{ route('contact_us') }}">Contact Us</a></li>
+                                <li><a href="{{ route('contact_us.index') }}">Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
