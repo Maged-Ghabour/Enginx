@@ -1,4 +1,63 @@
-<div id="_desktop_cart">
+<div class="col-lg-3 col-md-2 col-7">
+    <div class="navbar-cart ml-5 mr-5">
+        <div class="cart-items">
+            <a href="javascript:void(0)" class="main-btn">
+                <i class="lni lni-cart"></i>
+                <span class="total-items">{{ $items->count() }}</span>
+            </a>
+            <!-- Shopping Item -->
+            <div class="shopping-item">
+                @if ($items->count() > 0)
+                    <div class="dropdown-cart-header">
+                        <span>{{ $items->count() }}</span>
+                        <a href="{{ route('cart.index') }}">View Cart</a>
+                    </div>
+                    <ul class="shopping-list">
+                        @foreach ($items as $item)
+                            <li>
+                                <a href="javascript:void(0)" class="remove" title="Remove this item"><i
+                                        class="lni lni-close"></i></a>
+                                <div class="cart-img-head">
+                                    <a class="cart-img" href="product-details.html"><img
+                                            src="{{ asset('uploads/Products/' . $item->product->image) }}"></a>
+                                </div>
+                                <div class="content">
+                                    <h4>
+                                        <a href="product-details.html">
+                                            {{ $item->name }}
+                                        </a>
+                                    </h4>
+                                    <p class="quantity">{{ $item->quantity }} <span
+                                            class="amount">{{ $total }}</span></p>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
+                    <div class="bottom">
+                        <div class="total">
+                            <span>Total</span>
+                            <span class="total-amount">{{ $total }}</span>
+                        </div>
+                        <div class="button">
+                            <a href="{{ route('checkout') }}" class="btn animate">Checkout</a>
+                        </div>
+                    </div>
+                @else
+                    <p class="text-danger">Cart is empty</p>
+                @endif
+            </div>
+            <!--/ End Shopping Item -->
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+{{-- <div id="_desktop_cart">
     <div class="blockcart cart-preview active"
         data-refresh-url="//demo.bestprestashoptheme.com/savemart/ar/module/ps_shoppingcart/ajax">
         <div class="header-cart">
@@ -35,10 +94,6 @@
                                         href="">
                                         <i class="fa fa-trash-o"></i>
                                     </a>
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
                                 </div>
                             </div>
                         </li>
@@ -68,29 +123,7 @@
             </div>
         </div>
     </div>
-</div>
-
-
-
-<!---  End if categories is Exists    -->
-
-
-
-
-
-{{-- <!--  Start  cart is Empty --->
-        <div class="cart_block ">
-            <div class="cart-block-content">
-                <div class="no-items">
-                    No products in the cart
-                </div>
-            </div>
-        </div>
-        <!--  End  cart is Empty ---> --}}
-
-
-</div>
-</div>
+</div> --}}
 
 <script>
     const csrf_token = "{{ csrf_token() }}";
