@@ -31,11 +31,20 @@
                                     alt=""
                                     data-full-size-image-url="http://demo.bestprestashoptheme.com/savemart/24-large_default/hummingbird-printed-t-shirt.jpg"
                                     width="600" height="600">
+                                <div class="button mt-2">
+                                    <a href="{{ route('Product.show', $product->id) }}" class="btn"><i
+                                            class="lni lni-cart"></i> Add to
+                                        Cart</a>
+                                </div>
+
 
                                 <div class="product-description">
                                     <div class="product-groups">
                                         <div class="product-title" itemprop="name">
                                             <a href="{{ route('Product.show', $product->id) }}">{{ $product->name }}</a>
+                                        </div>
+                                        <div class="product-title" itemprop="name">
+                                            <a href=""> {{ $product->category->name }} Category</a>
                                         </div>
                                         <div class="product-group-price">
                                             <div class="product-price-and-shipping">
@@ -57,6 +66,7 @@
 
 
     </div>
+
 
     {{-- End Showing Category Section --}}
 @endsection
