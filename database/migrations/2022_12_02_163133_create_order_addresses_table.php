@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string("street_address");
             $table->string("postal_code")->nullable();
             $table->string("state")->nullable();
-            $table->enum("type" , ["billing", "shipping"]);
+            $table->enum("type", ["billing", "shipping"]);
             $table->string("country");
             $table->string("city");
             $table->timestamps();
