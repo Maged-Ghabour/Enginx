@@ -11,7 +11,7 @@
                         <div class="search-select">
                             <div class="select-position">
                                 <select id="select1">
-                                    <option selected>All</option>
+                                    <option selected> {{__('app.all')}}</option>
                                     @foreach ($categories as $category)
                                         <option>{{ $category->name }}</option>
                                     @endforeach
@@ -33,8 +33,8 @@
                 <div class="middle-right-area">
                     <div class="nav-hotline">
                         <i class="lni lni-phone"></i>
-                        <h3>Customer Service:
-                            <span>(+100) 123 456 7890</span>
+                        <h3>{{__('app.customerService')}}:
+                            <span>{{__('app.phoneNumber')}}</span>
                         </h3>
                     </div>
                     <!-- Start Header Logo -->

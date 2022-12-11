@@ -23853,3 +23853,24 @@ div.style-customizer .content-chooser input[type=radio]:checked ~ label {
     padding: 6px 19px !important; }
   .fc-right .fc-button-group .fc-button {
     padding: 6px 13px !important; } }
+
+
+
+
+
+
+
+
+
+
+
+
+    /* with Me */
+/* @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .header .mega-category-menu {
+        padding-right: 0;
+    }
+}
+.navbar-nav .nav-item{
+    margin-left: 40px;
+} */

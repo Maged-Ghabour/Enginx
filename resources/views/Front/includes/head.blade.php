@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="zxx">
+<html class="no-js" lang={{app()->getLocale()}}  {{(app()->getLocale() == 'en' ? "dir='ltr'" : "dir='rtl'")}}>
 
 
 <head>
@@ -11,11 +11,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.svg') }}" />
 
     <!-- ========================= CSS here ========================= -->
-    @if (app()->getLocale() == 'en')
-        <link href="{{ asset('assets/css/ltr.css') }}" rel="stylesheet">
-    @else
-        <link href="{{ asset('assets/css/rtl.css') }}" rel="stylesheet">
-    @endif
+
     <link rel="stylesheet" href="{{ asset('assets/css/pro.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/LineIcons.3.0.css') }}" />
@@ -29,6 +25,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
+    @if (app()->getLocale() == 'en')
+        <link href="{{ asset('assets/css/ltr.css') }}" rel="stylesheet">
+    @else
+        <link href="{{ asset('assets/css/rtl.css') }}" rel="stylesheet">
+    @endif
     @stack('styles')
 </head>

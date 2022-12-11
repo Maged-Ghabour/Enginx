@@ -15,20 +15,31 @@
                     <ul class="shopping-list">
                         @foreach ($items as $item)
                             <li>
-                                <a href="javascript:void(0)" class="remove" title="Remove this item"><i
-                                        class="lni lni-close"></i></a>
+                                {{-- <a class="remove remove-item remove-from-cart" data-id="{{ $item->id }}" title="Remove this item">
+                                    <i class="lni lni-close "></i>
+                                </a> --}}
+                                <a class="remove remove-item remove-from-cart" data-id="{{ $item->id }}"
+                                    href="">
+                                    <i class="fa fa-trash-o"></i>
+                                </a>
                                 <div class="cart-img-head">
                                     <a class="cart-img" href="product-details.html"><img
-                                            src="{{ asset('uploads/Products/' . $item->product->image) }}"></a>
+                                            src="{{ asset('uploads/Products/' . $item->product->image) }}">
+                                    </a>
                                 </div>
                                 <div class="content">
                                     <h4>
                                         <a href="product-details.html">
-                                            {{ $item->name }}
+                                            {{ $item->product->name }}
                                         </a>
                                     </h4>
-                                    <p class="quantity">{{ $item->quantity }} <span
-                                            class="amount">{{ $total }}</span></p>
+                                    <p class="quantity">{{ $item->quantity }}x-
+                                        <span class="amount">{{ $total }}</span>
+                                    </p>
+                                    {{-- <a class="remove-item remove-from-cart" data-id="{{ $item->id }}"
+                                        href="">
+                                        <i class="fa fa-trash-o"></i>
+                                    </a> --}}
                                 </div>
                             </li>
                         @endforeach
@@ -94,6 +105,7 @@
                                         href="">
                                         <i class="fa fa-trash-o"></i>
                                     </a>
+
                                 </div>
                             </div>
                         </li>
