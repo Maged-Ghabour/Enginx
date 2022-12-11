@@ -68,7 +68,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h2>Featured Categories</h2>
+                        <h2>{{__('app.featuredCategories')}}</h2>
                     </div>
                 </div>
             </div>
@@ -104,7 +104,7 @@
                         <!-- End Single Category -->
                     </div>
                 @empty
-                    <p class="text-center text-danger">There is no Category Yet! </p>
+                    <p class="alert-info text-center text-danger">{{__('app.noCat')}}</p>
                 @endforelse
             </div>
 
@@ -118,7 +118,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h2>Trending Product</h2>
+                        <h2>{{__('app.trendingProduct')}}</h2>
                     </div>
                 </div>
             </div>
@@ -130,8 +130,8 @@
                             <div class="product-image">
                                 <img src="{{ asset('uploads/Products/' . $product->image) }}" alt="{{ $product->name }}" />
                                 <div class="button">
-                                    <a href="" class="btn"><i class="lni lni-cart"></i> Add to
-                                        Cart</a>
+                                    <a href="" class="btn"><i class="lni lni-cart"></i> {{__('app.addToCart')}}</a>
+
                                 </div>
                             </div>
                             <div class="product-info">
@@ -159,7 +159,7 @@
                         <!-- End Single Product -->
                     </div>
                 @empty
-                    <p class="text-center text-danger">No Product Yet !</p>
+                    <p class="alert-info text-center text-danger">{{__('app.noProduct')}}</p>
                 @endforelse
             </div>
         </div>
@@ -172,7 +172,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h2>Special Offer</h2>
+                        <h2>{{__('app.specialOffer')}}</h2>
                     </div>
                 </div>
             </div>
@@ -186,9 +186,9 @@
                                     <div class="product-image">
                                         <img src="{{ asset('uploads/offers/' . $offer->image) }}" alt="#" />
                                         <div class="button">
-                                            <a href="" class="btn"><i class="lni lni-cart"></i> Add
-                                                to
-                                                Cart</a>
+                                            <a href="" class="btn"><i class="lni lni-cart"></i> {{__('app.addToCart')}}</a>
+
+
                                         </div>
                                     </div>
                                     <div class="product-info">
@@ -265,6 +265,7 @@
                         </div>
                     </div>
                 @empty
+                    <div class="alert-info text-center text-danger">{{__('app.noOffer')}}</div>
                 @endforelse
             </div>
         </div>

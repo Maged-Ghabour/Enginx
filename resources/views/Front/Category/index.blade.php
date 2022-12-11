@@ -39,7 +39,11 @@
                 </div>
 
             @empty
-                <p class="text-danger">No avilable Categories </p>
+                <div class="d-flex justify-content-center align-items-center flex-column opacity-50">
+                    <img width="150px" height="150px" src="{{asset('img/online-shop.png')}}" class="img-fluid opacity-50 alt=''">
+                    <h4 class="text-center text-secondary pt-3">No Categories Yet ..! </h4>
+                </div>
+
             @endforelse
         </div>
     </div>
