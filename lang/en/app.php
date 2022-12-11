@@ -26,7 +26,20 @@
         "searchProducts" =>  "Search Products" ,
         "cart" => "Cart",
         "checkOut" => "Check Out",
-        "clients" => "Our Clients"
+        "clients" => "Our Clients" ,
+        "firstName" => "First Name" ,
+        "lastName" => "Last Name",
+        "email" => "Email" ,
+        "mobile" => "Phone Number" ,
+        "company" => "Company" ,
+        "address" => "Address" ,
+        "city" => "City" ,
+        "postalCode" => "Postal Code" ,
+        "country" => "Country" ,
+        "personalInfo" => "Personal Information"
+
+
+
 
 
 
