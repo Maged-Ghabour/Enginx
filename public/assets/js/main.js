@@ -3,6 +3,13 @@ Template Name: ShopGrids - Bootstrap 5 eCommerce HTML Template.
 Author: GrayGrids
 */
 
+// Start Nice select
+$(document).ready(function() {
+    $('select').niceSelect();
+  });
+// End Nice Select
+
+
 (function () {
     //===== Prealoder
 

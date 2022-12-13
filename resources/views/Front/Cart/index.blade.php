@@ -32,33 +32,33 @@
         <div class="container">
             <div class="cart-list-head">
                 <!-- Cart List Title -->
-                <div class="cart-list-title">
-                    <div class="row">
-                        <div class="col-lg-1 col-md-1 col-12">
+        @if(!$cart->get()->isEmpty())
+        <div class="cart-list-title">
+            <div class="row">
+                <div class="col-lg-1 col-md-1 col-12">
 
-                        </div>
-                        <div class="col-lg-4 col-md-3 col-12">
-                            <p>Product Name</p>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-12">
-                            <p>Quantity</p>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-12">
-                            <p>Product Price</p>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-12">
-                            <p>Subtotal</p>
-                        </div>
-
-                        <div class="col-lg-1 col-md-2 col-12">
-                            <p>Remove</p>
-                        </div>
-                    </div>
                 </div>
+                <div class="col-lg-4 col-md-3 col-12">
+                    <p>{{__('app.productName')}}</p>
+                </div>
+                <div class="col-lg-2 col-md-2 col-12">
+                    <p>{{__('app.quantity')}}</p>
+                </div>
+                <div class="col-lg-2 col-md-2 col-12">
+                    <p>{{__('app.productPrice')}}</p>
+                </div>
+                <div class="col-lg-2 col-md-2 col-12">
+                    <p>{{__('app.subtotal')}}</p>
+                </div>
+
+                <div class="col-lg-1 col-md-2 col-12">
+                    <p>{{__('app.remove')}}</p>
+                </div>
+            </div>
+        </div>
+        @endif
                 <!-- End Cart List Title -->
-
-
-            @foreach ($cart->get() as $item )
+            @forelse ($cart->get() as $item )
             <!-- Cart Single List list -->
             <div class="cart-single-list cart-item" id="{{ $item->id }}">
                 <div class="row align-items-center">
@@ -84,8 +84,8 @@
                         </div> --}}
 
                         <input id="quantity_wanted"
-                        class="item-quantity form-control"
-                        type="text"
+                        class="item-quantity form-control m-0 p-0 pe-3 w-50 text-center"
+                        type="number"
                         value="{{ $item->quantity }}"
                         data-id="{{ $item->id }}"
                         name="quantity" min="1"
@@ -104,7 +104,13 @@
                 </div>
             </div>
             <!-- End Single List list -->
-            @endforeach
+            @empty
+            <div class="d-flex justify-content-center align-items-center flex-column p-2" >
+                <p class="fw-bold p-3" style="font-size: 2em ; color:#17a7ec">{{__('app.cartEmpty')}}</p>
+                <img src="{{asset('img/empty-cart.png')}}" alt="" height="150px" width="150px" style="opacity: 50%">
+            </div>
+            @endforelse
+
 
 
 
@@ -117,11 +123,11 @@
                         <div class="row">
                             <div class="col-lg-8 col-md-6 col-12">
                                 <div class="left">
-                                    <div class="coupon">
+                                    <div class="coupon" >
                                         <form action="#" target="_blank">
-                                            <input name="Coupon" placeholder="Enter Your Coupon">
-                                            <div class="button">
-                                                <button class="btn">Apply Coupon</button>
+                                            {{__('app.cartTotal')}}
+                                            <div class="badge badge-secondary">
+                                                {{ $cart->total() }}
                                             </div>
                                         </form>
                                     </div>
@@ -130,13 +136,13 @@
                             <div class="col-lg-4 col-md-6 col-12">
                                 <div class="right">
                                     <ul>
-                                        <li>Cart Subtotal<span>{{ $cart->total() }}$</span></li>
-                                        <li>Shipping<span>Free</span></li>
+                                        <li>{{__('app.cartTotal')}} {{ $cart->total() }} </li>
+                                        <li>{{__('app.shippingFree')}}</li>
                                         {{-- <li>You Save<span>$29.00</span></li> --}}
-                                        <li class="last">You Pay<span>{{ $cart->total() }} $</span></li>
+                                        <li class="last">{{__('app.youPay')}} {{ $cart->total() }} </li>
                                     </ul>
                                     <div class="button">
-                                        <a href="{{route('checkout')}}" class="btn">Checkout</a>
+                                        <a href="{{route('checkout')}}" class="btn">{{__('app.checkOut')}}</a>
                                     </div>
                                 </div>
                             </div>

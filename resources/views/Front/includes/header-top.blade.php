@@ -49,7 +49,7 @@
 
                                 <li><a href="{{ route('Home') }}">{{__('app.home')}}</a></li>
                                 <li><a href="about-us.html">{{__('app.about')}}</a></li>
-                                <li><a href="contact.html">{{__('app.contact')}}</a></li>
+                                <li><a href="{{route('contact_us.index')}}">{{__('app.contact')}}</a></li>
                             </ul>
                         </div>
                     </div>

@@ -10,7 +10,7 @@ class OfferController extends Controller
 {
     public function index()
     {
-        $data['offers'] = Offer::orderBy('id', 'DESC')->paginate(1);
+        $data['offers'] = Offer::orderBy('id', 'DESC')->paginate(5);
         return view('Front.Offers.index')->with($data);
     }
 

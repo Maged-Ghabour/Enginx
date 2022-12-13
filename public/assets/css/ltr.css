@@ -19090,7 +19090,6 @@ button {
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease; }
   .button:hover {
-    background: #323232;
     color: #ffffff;
     border-color: #eeeeee; }
   .button:focus {
@@ -22369,8 +22368,8 @@ textarea.form-control {
   color: #626262; }
 
 .pagination .page-item.active .page-link {
-  background: #84ba3f;
-  border-color: #84ba3f;
+  background: #14db76;
+  border-color: #14db76;
   color: #ffffff; }
 
 /* style-customizer */

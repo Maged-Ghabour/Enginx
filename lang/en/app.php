@@ -36,7 +36,38 @@
         "city" => "City" ,
         "postalCode" => "Postal Code" ,
         "country" => "Country" ,
-        "personalInfo" => "Personal Information"
+        "personalInfo" => "Personal Information",
+        "paymentShipping" =>  "Payment Shipping" ,
+        "order" => "Order" ,
+        "choose" =>  "Choose" ,
+        "thereIs" => "There is" ,
+        "fromCatIcart" => "From products in cart" ,
+        "showDetails" => "Show Details" ,
+        "pound" => "$" ,
+        "cartEmpty" => "Cart is empty",
+        "search" => "Search",
+        "viewCart" => "View Cart",
+        "total" => "Total" ,
+        "productName" =>  "Product Name" ,
+        "quantity" => "Quantity" ,
+        "productPrice" => "Product Price" ,
+        "subtotal" => "Subtotal" ,
+        "remove" => "Remove" ,
+        "cartTotal" => "Cart Total",
+        "shippingFree" => "Shipping Free" ,
+        "youPay" => "You Pay",
+        // Contact Us
+        "yourName" => "Your Name" ,
+        "yourSubject" => "Your Subject" ,
+        "yourEmail" => "Your Email" ,
+        "yourPhone" => "Your Phone" ,
+        "yourMessage" => "Your Message" ,
+        "submitMessage" => "Submit Message",
+        "callUsOn" => "Call us on" ,
+        "mailAt" => "Mail at"
+
+
+
 
 
 
