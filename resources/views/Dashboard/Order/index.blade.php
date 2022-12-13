@@ -64,8 +64,10 @@
                             <form class="mr-1" action="{{ route('dashboard.orders.edit', $order->id) }}" method="get">
                                 <button class="btn btn-outline-primary btn-sm">تعديل</button>
                             </form>
+                            <a class="btn btn-sm btn-success" href="{{ route('dashboard.orders.show', $order->id) }}">عرض
+                                الطلب</a>
 
-                            @if ($order->status == 'completed')
+                            @if ($order->status == 'refunded')
                                 <form class="mr-1" action="{{ route('dashboard.orders.destroy', $order->id) }}"
                                     method="post">
                                     @method('delete')

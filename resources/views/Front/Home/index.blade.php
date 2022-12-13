@@ -15,25 +15,13 @@
                             <div class="single-slider"
                                 style='background-image: url("{{ asset('uploads/SHOP/Component 1.png') }}");'>
                                 <div class="content">
-                                    <h2>
-                                        <span>No restocking fee ($35 savings)</span>
-                                        M75 Sport Watch
-                                    </h2>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        elit, sed do eiusmod tempor incididunt ut
-                                        labore dolore magna aliqua.
-                                    </p>
-                                    <h3><span>Now Only</span> $320.99</h3>
-                                    <div class="button">
-                                        <a href="product-grids.html" class="btn">Shop Now</a>
-                                    </div>
                                 </div>
                             </div>
                             <!-- End Single Slider -->
                             <!-- Start Single Slider -->
                             <div class="single-slider"
                                 style='
+
                                background-image: url("{{ asset('uploads/SHOP/Component 1.png') }}");'>
 
                                 <div class="content">
@@ -51,8 +39,13 @@
                                         <a href="product-grids.html" class="btn">Shop Now</a>
                                     </div>
                                 </div>
+
                             </div>
                             <!-- End Single Slider -->
+                            <div class="single-slider"
+                                style='
+                                background-image: url("{{ asset('uploads/Products/3.png') }}"); '>
+                            </div>
                         </div>
                         <!-- End Hero Slider -->
                     </div>
@@ -68,7 +61,9 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
+
                         <h2 class="animate__animated animate__backInUp animate__delay-1s" style="color:#17a7ec">{{__('app.featuredCategories')}}</h2>
+
 
 
                     </div>
@@ -76,6 +71,7 @@
             </div>
             <div class="row">
                 @forelse ($categories as $category)
+
                      <div class="col-lg-4 col-md-8 col-12">
                         <!-- Start Single Category -->
                         <div class="single-product">
@@ -101,20 +97,23 @@
                                     @endforelse
                                 </ul>
                             </div>
+
                         </div>
-                        <!-- End Single Category -->
+                        <!-- End Single Product -->
                     </div>
                 @empty
+
 
                        <div class="d-flex justify-content-center align-items-center">
                              <img class="img-fluid" src="{{asset('img/no-comment.png')}}" width="150px" height="150px" alt="no category" style="opacity:50%">
                        </div>
 
                     <p class="text-center text-primary fw-bold">{{__('app.noCat')}}</p>
+
                 @endforelse
             </div>
-
         </div>
+
     </section>
     <!-- End Features Area -->
 
@@ -124,7 +123,9 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
+
                         <h2 class="animate__animated animate__backInUp animate__delay-2s" style="color:#17a7ec">{{__('app.trendingProduct')}}</h2>
+
                     </div>
                 </div>
             </div>
@@ -134,9 +135,13 @@
                         <!-- Start Single Product -->
                         <div class="single-product h-100">
                             <div class="product-image">
+
                                 <img src="{{ asset('uploads/Products/' . $product->image) }}" alt="{{ $product->name }}" height="237px"/>
+
                                 <div class="button">
-                                    <a href="" class="btn"><i class="lni lni-cart"></i> {{__('app.addToCart')}}</a>
+                                    <a href="{{ route('Product.show', $product->id) }}" class="btn"><i
+                                            class="lni lni-cart"></i>
+                                        {{ __('app.addToCart') }}</a>
 
                                 </div>
                             </div>
@@ -165,6 +170,7 @@
                         <!-- End Single Product -->
                     </div>
                 @empty
+
                 <div class="d-flex justify-content-center align-items-center">
                     <img class="img-fluid" src="{{asset('img/no-comment.png')}}" width="150px" height="150px" alt="no category" style="opacity:50%">
               </div>
@@ -184,7 +190,9 @@
                 <div class="col-12">
                     <div class="section-title">
 
+
                         <h2 class="animate__animated animate__bounce animate__backInUp animate__delay-2s" style="color:#17a7ec">{{__('app.specialOffer')}}</h2>
+
 
                     </div>
                 </div>
@@ -199,7 +207,8 @@
                                     <div class="product-image">
                                         <img src="{{ asset('uploads/offers/' . $offer->image) }}" alt="#" />
                                         <div class="button">
-                                            <a href="" class="btn"><i class="lni lni-cart"></i> {{__('app.addToCart')}}</a>
+                                            <a href="" class="btn"><i class="lni lni-cart"></i>
+                                                {{ __('app.addToCart') }}</a>
 
 
                                         </div>
@@ -278,161 +287,18 @@
                         </div>
                     </div>
                 @empty
+
                 <div class="d-flex justify-content-center align-items-center">
                     <img class="img-fluid" src="{{asset('img/no-comment.png')}}" width="150px" height="150px" alt="no category" style="opacity:50%">
               </div>
 
                  <p class="text-center text-primary fw-bold">{{__('app.noOffer')}}</p>
+
                 @endforelse
             </div>
         </div>
     </section>
     <!-- End Special Offer -->
-
-    <!-- Start Home Product List -->
-    <section class="home-product-list section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-12 custom-responsive-margin">
-                    <h4 class="list-title">Best Sellers</h4>
-                    <!-- Start Single List -->
-                    <div class="single-list">
-                        <div class="list-image">
-                            <a href="product-grids.html"><img src="https://via.placeholder.com/100x100"
-                                    alt="#" /></a>
-                        </div>
-                        <div class="list-info">
-                            <h3>
-                                <a href="product-grids.html">GoPro Hero4 Silver</a>
-                            </h3>
-                            <span>$287.99</span>
-                        </div>
-                    </div>
-                    <!-- End Single List -->
-                    <!-- Start Single List -->
-                    <div class="single-list">
-                        <div class="list-image">
-                            <a href="product-grids.html"><img src="https://via.placeholder.com/100x100"
-                                    alt="#" /></a>
-                        </div>
-                        <div class="list-info">
-                            <h3>
-                                <a href="product-grids.html">Puro Sound Labs BT2200</a>
-                            </h3>
-                            <span>$95.00</span>
-                        </div>
-                    </div>
-                    <!-- End Single List -->
-                    <!-- Start Single List -->
-                    <div class="single-list">
-                        <div class="list-image">
-                            <a href="product-grids.html"><img src="https://via.placeholder.com/100x100"
-                                    alt="#" /></a>
-                        </div>
-                        <div class="list-info">
-                            <h3>
-                                <a href="product-grids.html">HP OfficeJet Pro 8710</a>
-                            </h3>
-                            <span>$120.00</span>
-                        </div>
-                    </div>
-                    <!-- End Single List -->
-                </div>
-                <div class="col-lg-4 col-md-4 col-12 custom-responsive-margin">
-                    <h4 class="list-title">New Arrivals</h4>
-                    <!-- Start Single List -->
-                    <div class="single-list">
-                        <div class="list-image">
-                            <a href="product-grids.html"><img src="https://via.placeholder.com/100x100"
-                                    alt="#" /></a>
-                        </div>
-                        <div class="list-info">
-                            <h3>
-                                <a href="product-grids.html">iPhone X 256 GB Space Gray</a>
-                            </h3>
-                            <span>$1150.00</span>
-                        </div>
-                    </div>
-                    <!-- End Single List -->
-                    <!-- Start Single List -->
-                    <div class="single-list">
-                        <div class="list-image">
-                            <a href="product-grids.html"><img src="https://via.placeholder.com/100x100"
-                                    alt="#" /></a>
-                        </div>
-                        <div class="list-info">
-                            <h3>
-                                <a href="product-grids.html">Canon EOS M50 Mirrorless Camera</a>
-                            </h3>
-                            <span>$950.00</span>
-                        </div>
-                    </div>
-                    <!-- End Single List -->
-                    <!-- Start Single List -->
-                    <div class="single-list">
-                        <div class="list-image">
-                            <a href="product-grids.html"><img src="https://via.placeholder.com/100x100"
-                                    alt="#" /></a>
-                        </div>
-                        <div class="list-info">
-                            <h3>
-                                <a href="product-grids.html">Microsoft Xbox One S</a>
-                            </h3>
-                            <span>$298.00</span>
-                        </div>
-                    </div>
-                    <!-- End Single List -->
-                </div>
-                <div class="col-lg-4 col-md-4 col-12">
-                    <h4 class="list-title">Top Rated</h4>
-                    <!-- Start Single List -->
-                    <div class="single-list">
-                        <div class="list-image">
-                            <a href="product-grids.html"><img src="https://via.placeholder.com/100x100"
-                                    alt="#" /></a>
-                        </div>
-                        <div class="list-info">
-                            <h3>
-                                <a href="product-grids.html">Samsung Gear 360 VR Camera</a>
-                            </h3>
-                            <span>$68.00</span>
-                        </div>
-                    </div>
-                    <!-- End Single List -->
-                    <!-- Start Single List -->
-                    <div class="single-list">
-                        <div class="list-image">
-                            <a href="product-grids.html"><img src="https://via.placeholder.com/100x100"
-                                    alt="#" /></a>
-                        </div>
-                        <div class="list-info">
-                            <h3>
-                                <a href="product-grids.html">Samsung Galaxy S9+ 64 GB</a>
-                            </h3>
-                            <span>$840.00</span>
-                        </div>
-                    </div>
-                    <!-- End Single List -->
-                    <!-- Start Single List -->
-                    <div class="single-list">
-                        <div class="list-image">
-                            <a href="product-grids.html"><img src="https://via.placeholder.com/100x100"
-                                    alt="#" /></a>
-                        </div>
-                        <div class="list-info">
-                            <h3>
-                                <a href="product-grids.html">Zeus Bluetooth Headphones</a>
-                            </h3>
-                            <span>$28.00</span>
-                        </div>
-                    </div>
-                    <!-- End Single List -->
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Home Product List -->
-
 
     <!-- Start Shipping Info -->
     <section class="shipping-info">
@@ -464,7 +330,7 @@
                         <i class="lni lni-credit-cards"></i>
                     </div>
                     <div class="media-body">
-                        <h5>Online Payment.</h5>
+                        <h5>Invoice Payment.</h5>
                         <span>Secure Payment Services.</span>
                     </div>
                 </li>
