@@ -6,9 +6,14 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>@yield('title')</title>
-    <meta name="description" content="" />
+    <meta name="description" content="شركة انيجينيكس ، شركة Enginx Solutions ، Enginx Solutions ، Enginix Solutions , برامج محاسبة ، برامج حسابات ، برامج محاسبية ، تصميم مواقع ، شركة تصميم مواقع ، شركة تصميم مواقع فى مصر ، شركات تصميم مواقع ، افضل شركة تصميم مواقع ، شركة تسويق الكترونى ، أفضل شركة تسويق الكترونى فى مصر ، شركة برمجة ، شركات برمجة ، شركات برامج محاسبة ،  برامج ادارة المحلات التجارية ، برنامج ادارة المدارس ، برنامج ادارة العيادات ، شركة تسويق الكترونى فى مصر ، شركة برمجيات ، تسويق الكترونى ، برمجة ، تطوير مواقع ، شركة الرواد" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.svg') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <!--- Nice Select --->
+
+    <link rel="stylesheet" href="path/to/nice-select.css">
+
 
     <!-- ========================= CSS here ========================= -->
 

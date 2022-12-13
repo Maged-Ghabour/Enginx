@@ -46,8 +46,8 @@
 
                 <form action="{{route('checkout')}}" method="POST">
                     @csrf
-                    <h1 class="step-title h3 mb-20 badge badge-default fs-3" style="font-size: 1.5em;padding:10px">
-                        {{__('app.personalInfo')}}:
+                    <h1 class="step-title h3 mb-20 badge badge-default fs-3 mt-3" style="font-size: 1.3em;padding:10px">
+                        <span class="text-primary fw-bolder text-decoration-underline py-3">{{__('app.personalInfo')}}:</span>
                     </h1>
 
                     {{-- <input type="hidden" name="id_address" value="">
@@ -139,7 +139,7 @@
                         </div>
 
                         <div class="col-md-4 form-control-comment right">
-                            (اختياري)
+                            ({{__('app.choose')}})
                         </div>
                     </div>
 
@@ -280,15 +280,14 @@
                         <div class="col-md-3">
 
 
-                            <div id="js-checkout-summary" class="cart-summary js-cart" >
-
+                            <div id="js-checkout-summary" class="cart-summary p-2 js-cart border border-2 mt-5">
 
                                 <div class="cart-summary-products">
-                                    <div class="summary-label"> هناك عدد  {{$cart->get()->count()}} من المنتجات في السلة </div>
+                                    <div class="summary-label">  {{__('app.thereIs')}}  {{$cart->get()->count()}}   {{__('app.fromCatIcart')}}</div>
                                     <div class="show-details">
                                         <a href="#" data-toggle="collapse"
                                             data-target="#cart-summary-product-list">
-                                            إظهار التفاصيل
+                                            <span class="bg bg-dark text-white">{{__('app.showDetails')}}</span>
                                         </a>
                                     </div>
 
@@ -305,7 +304,7 @@
                                                 <div class="media-body d-flex flex-column">
                                                     <span class="product-name">{{$item->product->name}}</span>
                                                     <span class="product-quantity">x {{$item->quantity}}</span>
-                                                    <span class="product-price pull-xs-right"></span>{{$item->product->price}}&nbsp;جنيه</span>
+                                                    <span class="product-price pull-xs-right"></span>{{$item->product->price}}&nbsp;{{__('app.pound')}}</span>
 
                                                 </div>
 
@@ -323,7 +322,7 @@
                                     <span class="label js-subtotal">
                                         إجمالي المنتجات:
                                     </span>
-                                    <span class="value">{{$cart->total()}}&nbsp;جنية</span>
+                                    <span class="value">{{$cart->total()}}&nbsp;{{__('app.pound')}}</span>
                                 </div>
                                 <div class="cart-summary-line" id="cart-subtotal-shipping">
                                     <span class="label">
@@ -333,18 +332,13 @@
                                     <div><small class="value"></small></div>
                                 </div>
 
-
-
-
-
-
                                 <div class="cart-summary-totals">
 
 
 
                                     <div class="cart-summary-line cart-total">
                                         <span class="label">الإجمالي:</span>
-                                        <span class="value">{{$cart->total()}} &nbsp;جنية (شامل للضريبة)</span>
+                                        <span class="value">{{$cart->total()}} &nbsp;{{__('app.pound')}} (شامل للضريبة)</span>
                                     </div>
 
 
@@ -365,7 +359,7 @@
                 <!--- payment -->
                 <section id="checkout-delivery-step" class=" checkout-step -current -reachable js-current-step -clickable">
                     <h1 class="step-title h3 badge badge-default" style="font-size: 1.5em;padding:10px ; margin:50px 0 20px 0;">
-                      طريقة الشحن :
+                       <span class="text-primary fw-bolder text-decoration-underline py-3"> {{__('app.paymentShipping')}} :</span>
                     </h1>
 
                     <div class="content">
@@ -418,7 +412,7 @@
                                           <div class="carrier-delay">توصيل في اليوم التالي!</div>
                                         </div>
                                         <div class="col-sm-3 col-xs-12 text-right">
-                                          <span class="carrier-price">8.40&nbsp;جنية يشمل الضرائب.</span>
+                                          <span class="carrier-price">8.40&nbsp;{{__('app.pound')}} يشمل الضرائب.</span>
                                         </div>
                                       </div>
                                     </div>
@@ -432,7 +426,7 @@
                                                   </div>
                         </div>
                         <button type="submit" class="btn btn-primary d-block" name="confirmDeliveryOption" value="1" style="margin:30px 0 50px 0">
-                          اطلب
+                          {{__('app.order')}}
                         </button>
                       </form>
                       </div>

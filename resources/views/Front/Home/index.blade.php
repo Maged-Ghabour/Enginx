@@ -5,7 +5,7 @@
 @section('content')
     <!-- Start Hero Area -->
     <section class="hero-area">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-12 custom-padding-right">
                     <div class="slider-head">
@@ -13,7 +13,7 @@
                         <div class="hero-slider">
                             <!-- Start Single Slider -->
                             <div class="single-slider"
-                                style='background-image: url("{{ asset('uploads/SHOP/Camera/dahua in copy.png') }}");'>
+                                style='background-image: url("{{ asset('uploads/SHOP/Component 1.png') }}");'>
                                 <div class="content">
                                 </div>
                             </div>
@@ -21,7 +21,25 @@
                             <!-- Start Single Slider -->
                             <div class="single-slider"
                                 style='
-                                background-image: url("{{ asset('uploads/Products/2.png') }}"); '>
+
+                               background-image: url("{{ asset('uploads/SHOP/Component 1.png') }}");'>
+
+                                <div class="content">
+                                    <h2>
+                                        <span>Big Sale Offer</span>
+                                        Get the Best Deal on CCTV Camera
+                                    </h2>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        elit, sed do eiusmod tempor incididunt ut
+                                        labore dolore magna aliqua.
+                                    </p>
+                                    <h3><span>Combo Only:</span> $590.00</h3>
+                                    <div class="button">
+                                        <a href="product-grids.html" class="btn">Shop Now</a>
+                                    </div>
+                                </div>
+
                             </div>
                             <!-- End Single Slider -->
                             <div class="single-slider"
@@ -43,39 +61,55 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h2>{{ __('app.featuredCategories') }}</h2>
+
+                        <h2 class="animate__animated animate__backInUp animate__delay-1s" style="color:#17a7ec">{{__('app.featuredCategories')}}</h2>
+
+
+
                     </div>
                 </div>
             </div>
             <div class="row">
                 @forelse ($categories as $category)
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <!-- Start Single Product -->
+
+                     <div class="col-lg-4 col-md-8 col-12">
+                        <!-- Start Single Category -->
                         <div class="single-product">
                             <div class="product-image">
-                                <img src="{{ asset('uploads/Categories/' . $category->image) }}"
-                                    alt="{{ $category->name }}" />
+                                <img src="{{ asset('uploads/Categories/' . $category->image) }}" alt="{{ $category->name }}" />
                             </div>
                             <div class="product-info">
-                                <h4 class="title">
-                                    <a href="{{ route('Category.show', $category->id) }}">{{ $category->name }}</a>
-                                </h4>
+                                <h3 class="title">
+                                    <a href="{{ route('Category.show', $category->id) }}">
+                                        {{ $category->name }}
+                                    </a>
+                                </h3>
+                                <ul class="category">
+                                    @forelse ($category->children as $sub_cat)
+                                        <li>
+                                            <a
+                                                href="{{ route('Sub_Category.Show', [$category->id, $sub_cat->id]) }}">{{ $sub_cat->name }}</a>
+                                        </li>
+                                    @empty
+                                        <p class="text-center">
+                                            -
+                                        </p>
+                                    @endforelse
+                                </ul>
                             </div>
-                            <ul>
-                                @forelse ($category->children as $sub_cat)
-                                    <li>
-                                        <a
-                                            href="{{ route('Sub_Category.Show', [$category->id, $sub_cat->id]) }}">{{ $sub_cat->name }}</a>
-                                    </li>
-                                @empty
-                                    <p class="text-danger text-center">No Sub_Cat found</p>
-                                @endforelse
-                            </ul>
+
                         </div>
                         <!-- End Single Product -->
                     </div>
                 @empty
-                    <p class="alert-info text-center text-danger">{{ __('app.noCat') }}</p>
+
+
+                       <div class="d-flex justify-content-center align-items-center">
+                             <img class="img-fluid" src="{{asset('img/no-comment.png')}}" width="150px" height="150px" alt="no category" style="opacity:50%">
+                       </div>
+
+                    <p class="text-center text-primary fw-bold">{{__('app.noCat')}}</p>
+
                 @endforelse
             </div>
         </div>
@@ -89,7 +123,9 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h2>{{ __('app.trendingProduct') }}</h2>
+
+                        <h2 class="animate__animated animate__backInUp animate__delay-2s" style="color:#17a7ec">{{__('app.trendingProduct')}}</h2>
+
                     </div>
                 </div>
             </div>
@@ -97,10 +133,11 @@
                 @forelse ($products as $product)
                     <div class="col-lg-3 col-md-6 col-12">
                         <!-- Start Single Product -->
-                        <div class="single-product">
+                        <div class="single-product h-100">
                             <div class="product-image">
-                                <img src="{{ asset('uploads/Products/' . $product->image) }}"
-                                    alt="{{ $product->name }}" />
+
+                                <img src="{{ asset('uploads/Products/' . $product->image) }}" alt="{{ $product->name }}" height="237px"/>
+
                                 <div class="button">
                                     <a href="{{ route('Product.show', $product->id) }}" class="btn"><i
                                             class="lni lni-cart"></i>
@@ -133,7 +170,13 @@
                         <!-- End Single Product -->
                     </div>
                 @empty
-                    <p class="alert-info text-center text-danger">{{ __('app.noProduct') }}</p>
+
+                <div class="d-flex justify-content-center align-items-center">
+                    <img class="img-fluid" src="{{asset('img/no-comment.png')}}" width="150px" height="150px" alt="no category" style="opacity:50%">
+              </div>
+
+                 <p class="text-center text-primary fw-bold">{{__('app.noProduct')}}</p>
+
                 @endforelse
             </div>
         </div>
@@ -146,7 +189,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h2>{{ __('app.specialOffer') }}</h2>
+
+
+                        <h2 class="animate__animated animate__bounce animate__backInUp animate__delay-2s" style="color:#17a7ec">{{__('app.specialOffer')}}</h2>
+
+
                     </div>
                 </div>
             </div>
@@ -240,7 +287,13 @@
                         </div>
                     </div>
                 @empty
-                    <div class="alert-info text-center text-danger">{{ __('app.noOffer') }}</div>
+
+                <div class="d-flex justify-content-center align-items-center">
+                    <img class="img-fluid" src="{{asset('img/no-comment.png')}}" width="150px" height="150px" alt="no category" style="opacity:50%">
+              </div>
+
+                 <p class="text-center text-primary fw-bold">{{__('app.noOffer')}}</p>
+
                 @endforelse
             </div>
         </div>

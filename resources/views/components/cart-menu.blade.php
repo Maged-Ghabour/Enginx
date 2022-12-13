@@ -1,5 +1,5 @@
-<div class="col-lg-3 col-md-2 col-7">
-    <div class="navbar-cart ml-5 mr-5">
+
+    <div class="navbar-cart mx-3">
         <div class="cart-items">
             <a href="javascript:void(0)" class="main-btn">
                 <i class="lni lni-cart"></i>
@@ -10,7 +10,7 @@
                 @if ($items->count() > 0)
                     <div class="dropdown-cart-header">
                         <span>{{ $items->count() }}</span>
-                        <a href="{{ route('cart.index') }}">View Cart</a>
+                        <a href="{{ route('cart.index') }}">{{__('app.viewCart')}}</a>
                     </div>
                     <ul class="shopping-list">
                         @foreach ($items as $item)
@@ -46,22 +46,26 @@
                     </ul>
                     <div class="bottom">
                         <div class="total">
-                            <span>Total</span>
+                            <span>{{__('app.total')}}</span>
                             <span class="total-amount">{{ $total }}</span>
                         </div>
                         <div class="button">
-                            <a href="{{ route('checkout') }}" class="btn animate">Checkout</a>
+                            <a href="{{ route('checkout') }}" class="btn animate">{{__("app.checkOut")}}</a>
                         </div>
                     </div>
                 @else
-                    <p class="text-danger">Cart is empty</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <p class="fw-bold text-center" style="color: #17a7ec">{{__("app.cartEmpty")}}
+                </p>
+                <img class="fw-bold text-center"  src="{{asset('img/empty-cart.png')}}" width="50" height="50" alt="">
+              </div>
+
                 @endif
             </div>
             <!--/ End Shopping Item -->
         </div>
     </div>
 
-</div>
 
 
 

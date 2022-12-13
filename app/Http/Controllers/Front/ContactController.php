@@ -24,6 +24,7 @@ class ContactController extends Controller
         ]);
 
         Contact::create($data);
+
         return redirect()->route('contact_us.index')->with('success', 'تم الإرسال بنجاح');
     }
 }

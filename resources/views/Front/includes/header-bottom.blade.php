@@ -84,8 +84,8 @@
         </div>
         <div class="col-lg-2 col-md-6 col-12">
             <!-- Start Nav Social -->
-            <div class="nav-social">
-                <h5 class="title">{{__('app.followUs')}}:</h5>
+            <div class="nav-social d-flex justify-content-center align-items-center">
+                <h5 class="title m-0">{{__('app.followUs')}}:</h5>
                 <ul>
                     <li>
                         <a href="https://www.facebook.com/engix3" target="_blank"><i
