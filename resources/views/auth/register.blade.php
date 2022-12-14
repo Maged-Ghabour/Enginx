@@ -4,38 +4,35 @@
 
 
 @section('content')
-    <div class="limiter">
-        <div class="container mt-2 pt-3">
 
-            <div class="wrap-login100">
-                <div class="login100-form-title" style="background-image: url({{ asset('front/images/bg-01.jpg') }})">
-                    <h3 class="login100-form-title-1 text-center">
-                        تسجيل دخول العميل
-                    </h3>
-                </div>
-                {{-- Valdation Admin Error --}}
-                <div class="container d-flex justify-content-center ">
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-6 col-xxl-8 bg-light">
+    <div class="account-login section ">
+        <div class="container ">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-12">
+
+                    <div class="register-form">
+                        <div class="title text-center">
+                            <h3>ليس لديك حساب ؟ سجل الان </h3>
+                        </div>
                         @if (session()->has('error'))
                             <div class="alert alert-danger mt-2 text-center">
                                 {{ session()->get('error') }}
                             </div>
                         @endif
-                        <form class="m-5" action="{{ route('register.store') }}" enctype="multipart/form-data"
-                            method="POST">
+                        <form class="row" action="{{ route('register.store') }}" enctype="multipart/form-data"
+                            method="POST" onsubmit="return false;">
                             @csrf
                             <div class="form-group" data-validate="Name is required">
                                 <span class="label-input100"> إسم المستخدم :</span>
-                                <input id="name" class="input100 form-control w-100" type="text" name="name"
+                                <input id="name" class=" form-control w-100" type="text" name="name"
                                     placeholder="أدخل إسم المستخدم">
-                                <span class="focus-input100" id="errname"></span>
+                                <span class="" id="errname"></span>
                             </div>
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-
                             <div class="form-group" data-validate="Email is required">
                                 <span class="label-input100">البريد الإلكترونى :</span>
                                 <input id="email" class="input100 form-control w-100" type="email" name="email"
@@ -71,9 +68,9 @@
                                 </span>
                             @enderror
 
-                            <div class="form-group" data-validate="image is required">
+                            <div class="form-group bg-white" data-validate="image is required">
                                 <span class="label-input100"> صورة شخصية:</span>
-                                <input id="image" class="input100 form-control w-100" type="file" name="image">
+                                <input id="image" class="form-control " type="file" name="image">
                                 <span class="focus-input100" id="errimage"></span>
                             </div>
                             @error('image')
@@ -100,13 +97,18 @@
                                     name="password_confirmation" autocomplete="new-password" placeholder="أكد الرقم السرى">
                                 <span class="focus-input100" id="errcompass"></span>
                             </div>
-
-                            <div class="container-login100-form-btn mt-3 d-flex justify-content-between w-100">
-                                <button type="submit" id='btn' class=" btn btn-success w-30">
+                            @error('password_confirmation')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            <div class="container-login100-form-btn  d-flex justify-content-between ">
+                                <button type="submit" id='btn' class=" btn btn-success w-100 p-3">
                                     تأكيد عمل الحساب
                                 </button>
-                                <a href="{{ route('login') }}">لديك حساب بالفعل ؟ </a>
                             </div>
+                            <p class="outer-link">هل لديك حساب ؟ <a href="{{ route('login') }}">سجل الان</a>
+                            </p>
                         </form>
                     </div>
                 </div>
@@ -114,113 +116,120 @@
         </div>
     </div>
     <script>
-        //     document.getElementById("btn").addEventListener("click", validation);
+        document.getElementById("btn").addEventListener("click", validation);
 
-        //     function validation() {
+        function validation() {
 
-        //         var text = document.getElementById('name').value;
-        //         var email = document.getElementById('email').value;
-        //         var address = document.getElementById('address').value;
-        //         var phone = document.getElementById('phone').value;
-        //         var image = document.getElementById('image').value;
-        //         var password = document.getElementById('password').value;
-        //         var password_confirm = document.getElementById('password-confirm').value;
-        //         console.log(validname(text));
-        //         console.log(validemail(email));
-        //         console.log(valiaddress(address));
-        //         console.log(validphone(phone));
-        //         console.log(validimage(image));
-        //         console.log(validpassword(password));
-        //         console.log(comfirmpassword(password, password_confirm));
-        //     }
+            var text = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var address = document.getElementById('address').value;
+            var phone = document.getElementById('phone').value;
+            var image = document.getElementById('image').value;
+            var password = document.getElementById('password').value;
+            var password_confirm = document.getElementById('password-confirm').value;
+            validname(text)
+            validemail(email)
+            valiaddress(address)
+            validphone(phone)
+            validimage(image)
+            validpassword(password)
+            comfirmpassword(password, password_confirm)
+        }
 
-        //     function validname(text) {
-        //         if ((!text.match(/[a-z]/)) || text == null || text == '') {
-        //             var element = document.getElementById("errname");
-        //             element.innerHTML = "Please Enter Your Name";
-        //             element.classList.add("d-block");
-        //             return true;
-        //         } else {
-        //             event.preventDefault();
-        //             return false;
-        //         }
-        //     }
+        function validname(text) {
+            if ((!text.match(/[a-z]/)) || text == null || text == '') {
+                var element = document.getElementById("errname");
+                element.innerHTML = "Please Enter Your Name";
+                element.classList.add("d-block text-danger");
+                return true;
+            } else {
+                var element = document.getElementById("errname");
+                element.classList.add("d-none");
+                return false;
+            }
+        }
 
-        //     function validemail(email) {
-        //         if ((!email.match(/^[\w-\.]+@([\w - ]+\.)+[\w - ]{2,4}$/) || email == null || email == '')) {
-        //             var element = document.getElementById("erremail");
-        //             element.innerHTML = "Please Enter Your Email";
-        //             element.classList.add("d-block");
-        //             return true;
-        //         } else {
-        //             event.preventDefault();
-        //             return false;
-        //         }
-        //     }
+        function validemail(email) {
+            if ((!email.match(/^[\w-\.]+@([\w - ]+\.)+[\w - ]{2,4}$/) || email == null || email == '')) {
+                var element = document.getElementById("erremail");
+                element.innerHTML = "Please Enter Your Email";
+                element.classList.add("d-block");
+                return true;
+            } else {
+                var element = document.getElementById("erremail");
+                element.classList.add("d-none");
+                return false;
+            }
+        }
 
-        //     function valiaddress(address) {
-        //         if ((!address.match(/^[\u0621-\u064A\u0660-\u0669 ]+$/)) || address == null || address == '') {
-        //             var element = document.getElementById("erraddress");
-        //             element.innerHTML = "Please Enter Your Address";
-        //             element.classList.add("d-block");
-        //             return true;
-        //         } else {
-        //             event.preventDefault();
-        //             return false;
-        //         }
-        //     }
+        function valiaddress(address) {
+            if ((!address.match(/^[\u0621-\u064A\u0660-\u0669 ]+$/)) || address == null || address == '') {
+                var element = document.getElementById("erraddress");
+                element.innerHTML = "Please Enter Your Address";
+                element.classList.add("d-block");
+                return true;
+            } else {
+                var element = document.getElementById("erraddress");
+                element.classList.add("d-none");
+                return false;
+            }
+        }
 
-        //     function validphone(phone) {
-        //         if ((!phone.match(/^01[0125][0-9]{8}$/)) || phone == null || phone == '') {
-        //             var element = document.getElementById("errphone");
-        //             element.innerHTML = "Please Enter Your Phone";
-        //             element.classList.add("d-block");
-        //             return true;
-        //         } else {
-        //             event.preventDefault();
-        //             return false;
-        //         }
-        //     }
+        function validphone(phone) {
+            if ((!phone.match(/^01[0125][0-9]{8}$/)) || phone == null || phone == '') {
+                var element = document.getElementById("errphone");
+                element.innerHTML = "Please Enter Your Phone";
+                element.classList.add("d-block");
+                return true;
+            } else {
+                var element = document.getElementById("errphone");
+                element.classList.add("d-none");
+                return false;
+            }
+        }
 
-        //     function validimage(image) {
-        //         if ((!image.match(/[\/.](gif|jpg|jpeg|tiff|png)$/i)) || image == null || image == '') {
-        //             var element = document.getElementById("errimage");
-        //             element.innerHTML =
-        //                 "Please Enter Your Image.jpg Or gif Or png Or tiff";
-        //             element.classList.add("d-block");
-        //             return true;
+        function validimage(image) {
+            if ((!image.match(/[\/.](gif|jpg|jpeg|tiff|png)$/i)) || image == null || image == '') {
+                var element = document.getElementById("errimage");
+                element.innerHTML =
+                    "Please Enter Your Image.jpg Or gif Or png Or tiff";
+                element.classList.add("d-block");
+                return true;
 
-        //         } else {
-        //             event.preventDefault();
-        //             return false;
-        //         }
-        //     }
+            } else {
+                var element = document.getElementById("errimage");
+                element.classList.add("d-none");
+                return false;
+            }
+        }
 
-        //     function validpassword(password) {
-        //         if ((!password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/)) || password == null || password ==
-        //             '') {
-        //             var element = document.getElementById("errpass");
-        //             element.innerHTML = "Please Enter Your password";
-        //             element.classList.add("d-block");
-        //             return true;
-        //         } else {
-        //             event.preventDefault();
-        //             return false;
-        //         }
-        //     }
+        function validpassword(password) {
+            if ((!password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/)) || password == null || password ==
+                '') {
+                var element = document.getElementById("errpass");
+                element.innerHTML = "Please Enter Your password";
+                element.classList.add("d-block");
+                return true;
+            } else {
+                var element = document.getElementById("errpass");
+                element.classList.add("d-none");
+                return false;
+            }
+        }
 
-        //     function comfirmpassword(password, password_confirm) {
-        //         if (password !== password_confirm || password_confirm == null) {
-        //             var element = document.getElementById("errcompass");
-        //             element.innerHTML = "comfirm password must be equl password";
-        //             element.classList.add("d-block");
-        //             return true;
+        function comfirmpassword(password, password_confirm) {
+            if (password !== password_confirm || password_confirm == null) {
+                var element = document.getElementById("errcompass");
+                element.innerHTML = "comfirm password must be equl password";
+                element.classList.add("d-block");
+                return true;
 
-        //         } else {
-
-        //             return false;
-        //         }
-        //     }
+            } else {
+                var element = document.getElementById("errcompass");
+                element.classList.add("d-none");
+                return false;
+            }
+        }
         //
     </script>
 
