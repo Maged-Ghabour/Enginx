@@ -3,66 +3,64 @@
 @section('title', 'تسجيل الدخول')
 
 @section('content')
-    <div class="limiter">
-        <div class="container mt-2 pt-3">
 
-            <div class="wrap-login100">
-                <div class="login100-form-title" style="background-image: url({{ asset('front/images/bg-01.jpg') }})">
-                    <h3 class="login100-form-title-1 text-center">
-                        تسجيل دخول العميل
-                    </h3>
-                </div>
-                <div class="container d-flex justify-content-center ">
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-8 bg-light p-3">
-                        {{-- Valdation Admin Error --}}
-                        @if (session()->has('error'))
-                            <div class="alert alert-danger mt-2 text-center">
-                                {{ session()->get('error') }}
+
+
+
+    <div class="account-login section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-12">
+                    @if (session()->has('error'))
+                        <div class="alert alert-danger mt-2 text-center">
+                            {{ session()->get('error') }}
+                        </div>
+                    @endif
+                    <form class="card login-form" method="post" action="{{ route('login') }}">
+                        @csrf
+                        <div class="card-body">
+                            <div class="title">
+                                <h3 class="text-center">تسجيل الدخول الآن</h3>
                             </div>
-                        @endif
-                        <form class="" method="POST" action="{{ route('login') }}">
-                            @csrf
-                            <div class="form-group" data-validate="Email is required">
-                                <span class="label-input100">البريد الإلكترونى :</span>
-                                <input class="input100 form-control w-100" type="email" name="email"
+                            <div class="form-group input-group" data-validate="Email is required">
+                                <span class="reg-fn">البريد الإلكترونى :</span>
+                                <input class="form-control" type="email" name="email"
                                     placeholder="أدلخ البريد الإلكترونى">
                                 <span class="focus-input100" id="erremail"></span>
                             </div>
-
-                            <div class="form-group" data-validate="Password is required">
-                                <span class="label-input100">الرقم السرى</span>
-                                <input class="input100 form-control w-100" type="password" name="password"
-                                    placeholder="أدخل الرقم السرى">
+                            <div class="form-group input-group" data-validate="Password is required">
+                                <span class="reg-fn">الرقم السرى</span>
+                                <input class="form-control" type="password" name="password" placeholder="أدخل الرقم السرى"
+                                    required>
                                 <span class="focus-input100" id="errpass"></span>
                             </div>
-                            <div class="block mt-4 pb-1">
-                                <label for="remember_me" class="inline-flex items-center">
-                                    <input id="remember_me" type="checkbox"
-                                        class="form-group rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500"
-                                        name="remember">
-                                    <span class="ml-2 text-sm text-gray-600">تذكرنى</span>
-                                </label>
-                            </div>
-
-                            <div class="d-flex justify-content-between mt-3 w-50 pb-2">
+                            <div class="d-flex flex-wrap justify-content-between bottom-content">
+                                <div class="form-check">
+                                    <label for="remember_me" class="inline-flex items-center">
+                                        <input id="remember_me" type="checkbox" class="form-check-input width-auto"
+                                            name="remember">
+                                        <label class="form-check-label">تذكرنى</label>
+                                    </label>
+                                </div>
                                 @if (Route::has('password.request'))
-                                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                                        href="{{ route('password.request') }}">
+                                    <a class="lost-pass" href="{{ route('password.request') }}">
                                         هل نسيت الرقم السري ؟
                                     </a>
-                                    <a href="{{ route('register') }}"> لا تملك حساباً ؟ </a>
                                 @endif
                             </div>
-                            <div class="mt-3 d-flex justify-content-between w-100">
-                                <button type="submit" id="btn" class="btn btn-success w-30">
-                                    تسجيل الدخول
-                                </button>
+                            <div class="w-100">
+                                <button class="btn btn-success w-100 p-2" id="btn" type="submit">Login</button>
                             </div>
-                        </form>
-                    </div>
+                            @if (Route::has('password.request'))
+                                <p class="outer-link">ليس لديك حساب؟ <a href="{{ route('register') }}"> سجل الان </a>
+                                </p>
+                            @endif
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+
 
 @endsection
