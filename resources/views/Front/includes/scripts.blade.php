@@ -1,12 +1,7 @@
     <!-- ========================= JS here ========================= -->
-    <script>
-        $(document).ready(function() {
-        $('select').niceSelect();
-      });
-    </script>
 
-    <script src="path/to/jquery.js"></script>
-    <script src="path/to/jquery.nice-select.js"></script>
+
+
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/js/tiny-slider.js') }}"></script>
     <script src="{{ asset('assets/js/glightbox.min.js') }}"></script>
@@ -92,6 +87,18 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+
+    <script src="path/to/jquery.js"></script>
+    <script src="path/to/jquery.nice-select.js"></script>
+
+
+    <!-- Start Animation on Scroll -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+    <!-- End Animation on scroll -->
 
 
 

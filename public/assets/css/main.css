@@ -2440,22 +2440,22 @@ ol {
 }
 
 .header .navbar-brand img {
-  width: 60px;
-  height: 60px;
+  /* width: 60px; */
+  height: 50px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .header .navbar-brand img {
-    width: 50px;
-    height: 50px;
+    /* width: 50px; */
+    height: 40px;
 
   }
 }
 
 @media (max-width: 767px) {
   .header .navbar-brand img {
-    width: 40px;
-    height: 40px;
+    /* width: 40px; */
+    height: 30px;
   }
 }
 
@@ -8158,3 +8158,14 @@ blockquote span {
   color: #fff;
 }
 
+.register-form .form-group .form-control[type="file"] {
+    padding: 0;
+    margin: 0;
+
+}
+
+.custom-file::-webkit-file-upload-button{
+    height: 100%;
+    width: 30%;
+    margin: 0 10px 0 0;
+}

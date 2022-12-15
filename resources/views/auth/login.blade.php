@@ -1,7 +1,8 @@
 @extends('Front.layouts.app')
 
-@section('title', 'تسجيل الدخول')
-
+@section('title')
+    {{__('app.login')}}
+@endsection
 @section('content')
 
 
@@ -20,17 +21,17 @@
                         @csrf
                         <div class="card-body">
                             <div class="title">
-                                <h3 class="text-center">تسجيل الدخول الآن</h3>
+                                <h3 class="text-center">{{__('app.loginNow')}}</h3>
                             </div>
                             <div class="form-group input-group" data-validate="Email is required">
-                                <span class="reg-fn">البريد الإلكترونى :</span>
+                                <span class="reg-fn">{{__('app.email')}}</span>
                                 <input class="form-control" type="email" name="email"
-                                    placeholder="أدلخ البريد الإلكترونى">
+                                    placeholder= "{{__('app.enterEmail')}}">
                                 <span class="focus-input100" id="erremail"></span>
                             </div>
                             <div class="form-group input-group" data-validate="Password is required">
-                                <span class="reg-fn">الرقم السرى</span>
-                                <input class="form-control" type="password" name="password" placeholder="أدخل الرقم السرى"
+                                <span class="reg-fn">{{__('app.password')}}</span>
+                                <input class="form-control" type="password" name="password" placeholder="{{__('app.password')}}"
                                     required>
                                 <span class="focus-input100" id="errpass"></span>
                             </div>
@@ -39,20 +40,20 @@
                                     <label for="remember_me" class="inline-flex items-center">
                                         <input id="remember_me" type="checkbox" class="form-check-input width-auto"
                                             name="remember">
-                                        <label class="form-check-label">تذكرنى</label>
+                                        <label class="form-check-label">{{__('app.rememberMe')}}</label>
                                     </label>
                                 </div>
                                 @if (Route::has('password.request'))
                                     <a class="lost-pass" href="{{ route('password.request') }}">
-                                        هل نسيت الرقم السري ؟
+                                        {{__('app.forgetPass')}}
                                     </a>
                                 @endif
                             </div>
                             <div class="w-100">
-                                <button class="btn btn-success w-100 p-2" id="btn" type="submit">Login</button>
+                                <button class="btn btn-success w-100 p-2" id="btn" type="submit">{{__('app.login')}}</button>
                             </div>
                             @if (Route::has('password.request'))
-                                <p class="outer-link">ليس لديك حساب؟ <a href="{{ route('register') }}"> سجل الان </a>
+                                <p class="outer-link">{{__('app.DontHaveAccount')}} <a href="{{ route('register') }}"> {{__('app.registerNow')}}</a>
                                 </p>
                             @endif
                         </div>

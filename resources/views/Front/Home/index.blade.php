@@ -72,9 +72,9 @@
             <div class="row">
                 @forelse ($categories as $category)
 
-                     <div class="col-lg-4 col-md-8 col-12">
+                     <div class="col-lg-4 col-md-8 col-12 mb-3">
                         <!-- Start Single Category -->
-                        <div class="single-product">
+                        <div class="single-product" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="2000">
                             <div class="product-image">
                                 <img src="{{ asset('uploads/Categories/' . $category->image) }}" alt="{{ $category->name }}" />
                             </div>
@@ -131,9 +131,9 @@
             </div>
             <div class="row">
                 @forelse ($products as $product)
-                    <div class="col-lg-3 col-md-6 col-12">
+                    <div class="col-lg-3 col-md-6 col-12 mb-3">
                         <!-- Start Single Product -->
-                        <div class="single-product h-100">
+                        <div class="single-product h-100" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="2000">
                             <div class="product-image">
 
                                 <img src="{{ asset('uploads/Products/' . $product->image) }}" alt="{{ $product->name }}" height="237px"/>
@@ -349,3 +349,4 @@
     </section>
     <!-- End Shipping Info -->
 @endsection
+

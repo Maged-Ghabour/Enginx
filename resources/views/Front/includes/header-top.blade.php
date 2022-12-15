@@ -59,7 +59,7 @@
                                 <div class=" row col-12">
                                     <div class="col-9">
                                         <a href="{{ route('profile', [Auth::User()->id]) }}" class="fs-6 text-light"
-                                            style="font-size: 1px;">>
+                                            style="font-size: 1px;">
                                             <img width="50px" height="50px" class="rounded-circle mr-1 ml-1"
                                                 src="{{ asset('uploads/User/' . Auth::user()->image) }}"
                                                 alt="">

@@ -32,6 +32,14 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
+
+    <!-- Start Animation on  Scroll -->
+    {{-- <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> --}}
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- End   Animation on  Scroll -->
+
+
     @if (app()->getLocale() == 'en')
         <link href="{{ asset('assets/css/ltr.css') }}" rel="stylesheet">
     @else

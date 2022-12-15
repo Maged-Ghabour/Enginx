@@ -7,13 +7,13 @@
                     <!-- Start Header Logo -->
                     <a class="navbar-brand" href="{{ route('Home') }}">
 
-                        <img class="rounded-circle" src="{{ asset('uploads/site-images/logo.png') }}" alt="Logo">
-                        <span class="fw-bold animate__animated animate__bounce animate__delay-2s" style="color:#14db76">
+                        <img src="{{ asset('uploads/site-images/logo5.jpg') }}" alt="Logo">
+                        {{-- <span class="fw-bold animate__animated animate__bounce animate__delay-2s" style="color:#14db76">
                             @if (app()->getLocale() == 'en')
                             <span class="fw-bold" style="color:#17a7ec">Eng</span>inx</span>
                             @else
                             <span class="fw-bold" style="color:#17a7ec">انچـ</span>نكس</span>
-                            @endif
+                            @endif --}}
                     </a>
 
                     <!-- End Header Logo -->

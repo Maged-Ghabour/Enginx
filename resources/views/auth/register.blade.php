@@ -12,7 +12,7 @@
 
                     <div class="register-form">
                         <div class="title text-center">
-                            <h3>ليس لديك حساب ؟ سجل الان </h3>
+                            <h3> {{__('app.DontHaveAccount')}} {{__('app.registerNow')}}</h3>
                         </div>
                         @if (session()->has('error'))
                             <div class="alert alert-danger mt-2 text-center">
@@ -23,9 +23,9 @@
                             method="POST" onsubmit="return false;">
                             @csrf
                             <div class="form-group" data-validate="Name is required">
-                                <span class="label-input100"> إسم المستخدم :</span>
+                                <span class="label-input100"> {{__('app.yourName')}} :</span>
                                 <input id="name" class=" form-control w-100" type="text" name="name"
-                                    placeholder="أدخل إسم المستخدم">
+                                    placeholder="{{__('app.enterName')}}">
                                 <span class="" id="errname"></span>
                             </div>
                             @error('name')
@@ -34,9 +34,9 @@
                                 </span>
                             @enderror
                             <div class="form-group" data-validate="Email is required">
-                                <span class="label-input100">البريد الإلكترونى :</span>
+                                <span class="label-input100"> {{__('app.email')}} :</span>
                                 <input id="email" class="input100 form-control w-100" type="email" name="email"
-                                    placeholder="أدخل البريد الإلكتروني">
+                                    placeholder="{{__('app.enterEmail')}}">
                                 <span class="focus-input100" id="erremail"></span>
                             </div>
                             @error('email')
@@ -45,9 +45,9 @@
                                 </span>
                             @enderror
                             <div class="form-group" data-validate="address is required">
-                                <span class="label-input100">عنوانك الحالى :</span>
+                                <span class="label-input100"> {{__('app.yourAddress')}} :</span>
                                 <input id="address" class="input100 form-control w-100" type="address" name="address"
-                                    placeholder="أدخل عنوانك الحالى">
+                                    placeholder="{{__('app.enterAddress')}}">
                                 <span class="focus-input100" id="erraddress"></span>
                             </div>
                             @error('address')
@@ -57,9 +57,9 @@
                             @enderror
 
                             <div class="form-group" data-validate="phone is required">
-                                <span class="label-input100">رقم التليفون المحمول :</span>
+                                <span class="label-input100">{{__('app.yourPhone')}}</span>
                                 <input id="phone" class="input100 form-control w-100" type="phone" name="phone"
-                                    placeholder="أدخل رقم التليفون المحمول">
+                                    placeholder="{{__('app.enterPhone')}}">
                                 <span class="focus-input100" id="errphone"></span>
                             </div>
                             @error('phone')
@@ -69,8 +69,8 @@
                             @enderror
 
                             <div class="form-group bg-white" data-validate="image is required">
-                                <span class="label-input100"> صورة شخصية:</span>
-                                <input id="image" class="form-control " type="file" name="image">
+                                <span class="label-input100">{{__('app.personalImage')}}</span>
+                                <input id="image" class="form-control custom-file" type="file" name="image">
                                 <span class="focus-input100" id="errimage"></span>
                             </div>
                             @error('image')
@@ -80,9 +80,9 @@
                             @enderror
 
                             <div class="form-group" data-validate="Password is required">
-                                <span class="label-input100">الرقم السرى</span>
+                                <span class="label-input100">{{__('app.password')}}</span>
                                 <input id="password" class="input100 form-control w-100" type="password" name="password"
-                                    placeholder="أدخل الرقم السرى">
+                                    placeholder="{{__('app.enterPassword')}}">
                                 <span class="focus-input100" id="errpass"></span>
                             </div>
                             @error('password')
@@ -92,9 +92,9 @@
                             @enderror
 
                             <div class="form-group" data-validate="Password is required">
-                                <span class="label-input100">تأكيد الرقم السرى</span>
+                                <span class="label-input100"> {{__('app.confirmPass')}} </span>
                                 <input id="password-confirm" type="password" class="form-control w-100"
-                                    name="password_confirmation" autocomplete="new-password" placeholder="أكد الرقم السرى">
+                                    name="password_confirmation" autocomplete="new-password" placeholder="{{__('app.password')}}">
                                 <span class="focus-input100" id="errcompass"></span>
                             </div>
                             @error('password_confirmation')
@@ -104,11 +104,9 @@
                             @enderror
                             <div class="container-login100-form-btn  d-flex justify-content-between ">
                                 <button type="submit" id='btn' class=" btn btn-success w-100 p-3">
-                                    تأكيد عمل الحساب
+                                    {{__('app.register')}}
                                 </button>
                             </div>
-                            <p class="outer-link">هل لديك حساب ؟ <a href="{{ route('login') }}">سجل الان</a>
-                            </p>
                         </form>
                     </div>
                 </div>

@@ -68,7 +68,20 @@
 
                  </li>
              @endforeach
+
+
+
              <!--- End Catefories --->
+
+             <li class="nav-item has-treeview">
+                <a href="" class="nav-link">
+                    <form action="{{ route('dashboard.Admin.Logout') }}" method="post">
+                        @csrf
+                        <i class="fas fa-sign-out-alt nav-icon"></i>
+                        <button class="btn btn-link text-white m-0 p-0 text-decoration-none">تسجيل الخروج</button>
+                    </form>
+                </a>
+            </li>
 
 
 

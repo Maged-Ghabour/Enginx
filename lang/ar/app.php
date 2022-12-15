@@ -67,7 +67,35 @@
         "submitMessage" => "ارسال" ,
         "callUsOn" => "اتصل بنا علي",
         "mailAt" => "راسلنا علي" ,
+        // Login
+        "login" => "تسجيل الدخول" ,
+        "loginNow" => "تسجيل الدخول الآن" ,
+        "enterEmail" => "ادخل البريد الالكتروني" ,
+        "enterPassword" => "ادخل الرقم السري",
+        "password" => "الرقم السري",
+        "rememberMe" => "تذكرني" ,
+        "forgetPass" => "هل نسيت كلمة السر ؟",
+        "DontHaveAccount" => "ليس لديك حساب ؟",
+        "registerNow" => "سجل الآن",
 
+        // Register
+        "enterName" => "ادخل اسم المستخدم",
+        "yourAddress" => "عنوانك الحالي ",
+        "enterAddress" => "ادخل عنوانك الحالي",
+        "yourPhone" => "رقم الهاتف المحمول",
+        "enterPhone" => "ادخل رقم الهاتف المحمول" ,
+        "personalImage" => "الصورة الشخصية",
+        "confirmPass" => "تأكيد الرقم السري",
+        "enterConfirmPass" => "تأكيد الرقم السري" ,
+
+
+
+
+
+        // Forgetten password
+        "Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one."
+        => "نسيت رقمك السري؟ لا مشكلة. فقط أخبرنا بعنوان بريدك الإلكتروني وسنرسل لك عبر البريد الإلكتروني رابط إعادة تعيين كلمة المرور الذي سيسمح لك باختيار عنوان جديد.",
+        "email password reset link" => "رابط إعادة تعيين كلمة مرور البريد الإلكتروني"
 
 
 
