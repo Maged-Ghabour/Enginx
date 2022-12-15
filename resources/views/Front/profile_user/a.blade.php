@@ -16,103 +16,142 @@
 {{-- @dd($user) --}}
 @extends('Front.layouts.app')
 @section('content')
-    @foreach ($user as $user)
-        <div class=" mt-7">
+    <div class="account-login section ">
+        <div class="container">
             <div class="row">
-                <div class="col-xl-8 m-auto order-xl-2 mb-5 mb-xl-0">
-                    <div class="card card-profile shadow">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-3 order-lg-2">
-                                <div class="card-profile-image">
-                                    <a href="#">
-                                        <img width="100px" height="100px" src="{{ asset('uploads/User/' . $user->image) }}"
-                                            class="rounded-circle">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body pt-0 pt-md-4 text-center mt-5">
-                            <div class="row mt-3">
-                                <div class="col">
-                                    <div class="heading">
-                                        <form action="{{ route('profile.edit_name', $user->id) }}" method="POST">
-                                            @csrf
-                                            <button type="submit" class="btn btn-link text-decoration-none"
-                                                style="color: rgb(70, 68, 68);">
-                                                {{ $user->name }}
-                                                <div class="btn btn-light">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                        fill="currentColor" class="bi bi-pencil " viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
-                                                    </svg>
-                                                </div>
-                                            </button>
-                                        </form>
-                                    </div>
-                                    <div class="heading">
-                                        <form action="{{ route('profile.edit_email', $user->id) }}" method="post">
-                                            @csrf
-                                            <button type="submit" class="btn btn-link text-decoration-none"
-                                                style="color: rgb(70, 68, 68);">
-                                                {{ $user->email }}
-                                                <div class="btn btn-light">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                        fill="currentColor" class="bi bi-pencil " viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
-                                                    </svg>
-                                                </div>
-                                            </button>
-                                        </form>
-                                    </div>
-                                    <div class="heading">
-                                        <form action="{{ route('profile.edit_phone', $user->id) }}" method="get">
-                                            @csrf
-                                            <button type="submit" class="btn btn-link text-decoration-none"
-                                                style="color: rgb(70, 68, 68);">
-                                                {{ $user->phone }}
-                                                <div class="btn btn-light">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                        fill="currentColor" class="bi bi-pencil " viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
-                                                    </svg>
-                                                </div>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body pt-0 pt-md-4 ">
-                                <div class="row">
-                                    <div class="col">
-                                    </div>
-                                    <div class="col">
-                                    </div>
-                                </div>
-                                <div class="text-center">
-                                    <h3>
-                                        Jessica Jones<span class="font-weight-light">, 27</span>
-                                    </h3>
-                                    <div class="h5 font-weight-300">
-                                        <i class="ni location_pin mr-2"></i>Bucharest, Romania
-                                    </div>
-                                    <div class="h5 mt-4">
-                                        <i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim
-                                        Officer
-                                    </div>
-                                    <div>
-                                        <i class="ni education_hat mr-2"></i>University of Computer Science
-                                    </div>
-                                    <hr class="my-4">
+                <div class="col-6 ">
 
+                    <div class="row">
+                        <div class=" col-12">
+                            <div class="register-form">
+                                @if (session()->has('error'))
+                                    <div class="alert alert-danger mt-2 text-center">
+                                        {{ session()->get('error') }}
+                                    </div>
+                                @endif
+                                <div class="col-12 title fw-bold ">
+                                    <h3>الصورة الشخصية</h3>
+                                </div>
+                                <form action="{{ route('profile.updateing', Auth::User()->id) }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @method('PUT')
+                                    @csrf
+                                    <div class="col-12 pb-2">
+                                        <img src="{{ asset('uploads/User/' . Auth::User()->image) }}" width="70px"
+                                            height="70px" alt="">
+                                    </div>
+                                    <div class=" mb-3">
+                                        <input type="file" class="form-group" name="image" id="inputGroupFile03"
+                                            aria-describedby="inputGroupFileAddon03" aria-label="Upload">
+                                        <button class="btn btn-outline-success" type="submit">تعديل الصورة</button>
+                                    </div>
+                                </form>
+                                <form class="row" action="{{ route('profile.updateing', Auth::User()->id) }}"
+                                    method="POST">
+                                    @method('PUT')
+                                    @csrf
+
+                                    <div class="form-group" data-validate="Name is required">
+                                        <span class="label-input100"> إسم المستخدم :</span>
+                                        <input id="name" class=" form-control w-100 " type="text" name="name"
+                                            value="{{ Auth::User()->name }}">
+                                        <span class="" id="errname"></span>
+                                    </div>
+                                    @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                    <div class="form-group" data-validate="Email is required">
+                                        <span class="label-input100">البريد الإلكترونى :</span>
+                                        <input id="email" class="input100 form-control w-100" type="email"
+                                            name="email"
+                                            placeholder="أدخل البريد الإلكتروني"value="{{ Auth::User()->email }}">
+                                        <span class="focus-input100" id="erremail"></span>
+                                    </div>
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                    <div class="form-group" data-validate="address is required">
+                                        <span class="label-input100">عنوانك الحالى :</span>
+                                        <input id="address" class="input100 form-control w-100" type="address"
+                                            name="address" placeholder="أدخل عنوانك الحالى"
+                                            value="{{ Auth::User()->address }}">
+                                        <span class="focus-input100" id="erraddress"></span>
+                                    </div>
+                                    @error('address')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+
+                                    <div class="form-group" data-validate="phone is required">
+                                        <span class="label-input100">رقم التليفون المحمول :</span>
+                                        <input id="phone" class="input100 form-control w-100" type="phone"
+                                            name="phone"
+                                            placeholder="أدخل رقم التليفون المحمول"value="{{ Auth::User()->phone }}">
+                                        <span class="focus-input100" id="errphone"></span>
+                                    </div>
+                                    @error('phone')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+
+                                    <div class="container-login100-form-btn  d-flex justify-content-between ">
+                                        <button type="submit" id='btn' class=" btn btn-success w-100 p-3">
+                                            حفظ
+                                        </button>
+                                    </div>
+                                </form>
+                                <div class="pt-5">
+                                    <form action="{{ route('profile.updateing', Auth::User()->id) }}" method="POST">
+                                        @method('PUT')
+                                        @csrf
+                                        <div class="form-group" data-validate="Password is required">
+                                            <span class="label-input100">الرقم السرى</span>
+                                            <input id="password" class="input100 form-control w-100" type="password"
+                                                name="password" placeholder="أدخل الرقم السرى">
+                                            <span class="focus-input100" id="errpass"></span>
+                                        </div>
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                        <div class="form-group" data-validate="Password is required">
+                                            <span class="label-input100">تأكيد الرقم السرى</span>
+                                            <input id="password-confirm" type="password" class="form-control w-100"
+                                                name="password_confirmation" autocomplete="new-password"
+                                                placeholder="أكد الرقم السرى">
+                                            <span class="focus-input100" id="errcompass"></span>
+                                        </div>
+                                        @error('password_confirmation')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                        <div class="container-login100-form-btn  d-flex justify-content-between ">
+                                            <button type="submit" id='btn' class=" btn btn-success w-100 p-3">
+                                                حفظ
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                </div>
+                <div class="col-6 register-form">
+                    <div class="col-12 bg-white ">
+
+                    </div>
                 </div>
             </div>
         </div>
-    @endforeach
+
+    </div>
 @endsection
