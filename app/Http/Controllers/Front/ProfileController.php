@@ -8,49 +8,64 @@ use App\Models\OrderAddress;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
 
 class ProfileController extends Controller
 {
     public function show($id)
     {
-
-        $user['user'] = User::where('id', $id)->get();
-        // $user['order'] = User::where('user_id', $id)
-        //     ->with('order')
-        //     ->get();
-        // dd($user);
-        return view('Front.profile_user.a')->with($user);
-    }
-    public function edit_name($id)
-    {
-        $user = User::findOrFail($id);
-        return view('Front.profile_user.edit_name', compact('user'));
-    }
-    public function edit_email($id)
-    {
-        $user = User::findOrFail($id);
-        return view('Front.profile_user.edit_email', compact('user'));
-    }
-    public function edit_phone($id)
-    {
-        $user = User::findOrFail($id);
-        return view('Front.profile_user.edit_phone', compact('user'));
+        return view('Front.profile_user.a');
     }
     public function update(Request $request, $id)
     {
-        if ($request->name) {
-            User::where('id', $request->id)
-                ->update(['name' => $request->name]);
-            return redirect()->route('profile', $request->id)->with('success', 'تم تعديل الاسم بنجاح');
-        } elseif ($request->email) {
-            User::where('id', $request->id)
-                ->update(['email' => $request->email]);
-            return redirect()->route('profile', $request->id);
-        } elseif ($request->phone) {
-            User::where('id', $request->id)
-                ->update(['phone' => $request->phone]);
-            return redirect()->route('profile', $request->id);
+        // dd($request->image);
+        if ($request->name && $request->email && $request->phone && $request->address) {
+
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
+                'phone' => ['required', 'digits:11', 'numeric', 'unique:users'],
+                'address' => ['required'],
+            ]);
+
+
+            $user = User::find($id);
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->phone = $request->phone;
+            $user->address = $request->address;
+            $user->save();
+            return redirect()->route('profile', $request->id)->with('success', 'تم التعديل بنجاح');
+        } elseif ($request->image) {
+            $request->validate([
+                'image' => ['mimes:jpg,gif,png,jfif', 'required', 'max:10000'],
+            ]);
+            // dd($request->image);
+            $user = User::find($id);
+            $name = $user->image;
+            if ($request->file("image")) {
+                if ($name !== null) {
+                    unlink(public_path("uploads/User/") . $name);
+                }
+                $image = $request->file("image");
+                $ext = $image->getClientOriginalExtension();
+                $name = time() . ".$ext";
+                $image->move(public_path("uploads/User/"), $name);
+            }
+            $user->image = $name;
+            $user->save();
+            return redirect()->route('profile', $request->id)->with('success', 'تم التعديل بنجاح');
+        } elseif ($request->password && $request->password_confirmation) {
+            if ($request->password == $request->password_confirmation) {
+                $request->validate([
+                    'password' => ['required', 'confirmed', Rules\Password::defaults()],
+                ]);
+                $user = User::find($id);
+                $user->password = Hash::make($request->password);
+                $user->save();
+                return redirect()->route('profile', $request->id)->with('success', 'تم التعديل بنجاح');
+            }
         }
     }
 }

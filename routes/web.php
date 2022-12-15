@@ -17,9 +17,6 @@ Route::group([
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
         Route::group(['prefix' => 'profile'], function () {
             Route::get('/{id}', [\App\Http\Controllers\Front\ProfileController::class, 'show'])->name('profile');
-            Route::post('/edit_name/{id}', [\App\Http\Controllers\Front\ProfileController::class, 'edit_name'])->name('profile.edit_name');
-            Route::post('/edit_email/{id}', [\App\Http\Controllers\Front\ProfileController::class, 'edit_email'])->name('profile.edit_email');
-            Route::post('/edit_phone/{id}', [\App\Http\Controllers\Front\ProfileController::class, 'edit_phone'])->name('profile.edit_phone');
             Route::put('/update/{id}', [\App\Http\Controllers\Front\ProfileController::class, 'update'])->name('profile.updateing');
         });
     });
